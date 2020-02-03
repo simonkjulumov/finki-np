@@ -1,0 +1,3461 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Систем за банкарско работење | Code</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" media="screen" href="Source_files/fonts.css">
+<link rel="stylesheet" media="screen" href="Source_files/bootstrap.css">
+<link rel="stylesheet" media="screen" href="Source_files/bootstrap-yety.css">
+<link rel="stylesheet" media="screen" href="Source_files/font-awesome.css">
+<!-- <link rel="stylesheet" media="screen" href="/public/DataTables/media/css/jquery.dataTables.min.css"> -->
+<link rel="stylesheet" media="screen" href="Source_files/dataTables.css">
+<link rel="stylesheet" media="screen" href="Source_files/main.css">
+<link rel="stylesheet" href="Source_files/codemirror.css">
+<link rel="stylesheet" href="Source_files/codemirror.css">
+<link rel="stylesheet" href="Source_files/dialog.css">
+<link rel="stylesheet" href="Source_files/fullscreen.css">
+<link rel="stylesheet" href="Source_files/neat.css">
+<link rel="stylesheet" href="Source_files/elegant.css">
+<link rel="stylesheet" href="Source_files/erlang-dark.css">
+<link rel="stylesheet" href="Source_files/night.css">
+<link rel="stylesheet" href="Source_files/monokai.css">
+<link rel="stylesheet" href="Source_files/cobalt.css">
+<link rel="stylesheet" href="Source_files/eclipse.css">
+<link rel="stylesheet" href="Source_files/rubyblue.css">
+<link rel="stylesheet" href="Source_files/lesser-dark.css">
+<link rel="stylesheet" href="Source_files/xq-dark.css">
+<link rel="stylesheet" href="Source_files/ambiance.css">
+<link rel="stylesheet" href="Source_files/blackboard.css">
+<link rel="stylesheet" href="Source_files/vibrant-ink.css">
+
+<link rel="shortcut icon" type="image/png" href="http://code.finki.ukim.mk/public/images/favicon.ico">        <style>    .typist-container {      overflow: hidden;      padding-left: 4px;    }    .typist-container p {      margin: 0 0 3px;    }    .typist-container p.prompt {      margin: 5px 0;    }    </style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+    <body class=""><div id="MathJax_Message" style="display: none;"></div>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+         <div class="navbar-header">
+		  	<a class="logo" href="http://code.finki.ukim.mk/" title="Go to home page">
+	<img src="Source_files/logo.png" alt="Code">
+</a> 
+<!-- <a class="logo-title brand" href="/" title="Go to home page">Code</a> -->		  	            	<a class="logo-title" href="http://code.finki.ukim.mk/course/111/" title="Go to course problem sets index page">Напредно програмирање 2019/2020</a>
+          			  	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+          	</button>          
+		 </div>
+		<div class="navbar-collapse collapse" id="navbar-main">
+          	<ul class="nav navbar-nav">
+            	          	</ul>
+        
+        	<ul class="nav navbar-nav navbar-right">
+          				            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_languages">
+		<i class="fa fa-flag fa-fw"></i> Language <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_languages">
+       	<li><a href="http://code.finki.ukim.mk/langauge?locale=mk&amp;path=%2Fcourse%2F111%2Fproblem%2F5926%2F">Macedonian</a></li>
+		<li><a href="http://code.finki.ukim.mk/langauge?locale=en&amp;path=%2Fcourse%2F111%2Fproblem%2F5926%2F">English</a></li>
+    </ul>
+</li>		            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_courses">
+		<i class="fa fa-th fa-fw"></i> Courses <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_courses">
+        			<li><a href="http://code.finki.ukim.mk/course/61/"><i class="fa fa-angle-right fa-fw"></i> Алгоритми и податочни структури 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/48/"><i class="fa fa-angle-right fa-fw"></i> Алогоритми и податочни структури 2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/88/"><i class="fa fa-angle-right fa-fw"></i> Визуелно програмирање 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/111/"><i class="fa fa-angle-right fa-fw"></i> Напредно програмирање 2019/2020</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/37/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2014/2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/52/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2015/2016</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/86/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/102/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2018/2019</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/43/"><i class="fa fa-angle-right fa-fw"></i> Основи на веб дизајн</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/60/"><i class="fa fa-angle-right fa-fw"></i> Системи на знаење 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/30/"><i class="fa fa-angle-right fa-fw"></i> Структурно програмирање 2014</a></li> 
+		    </ul>
+</li>	            	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user">
+		<i class="fa fa-user fa-fw"></i> Симон Ќулумов <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user">
+        <li>
+			<a tabindex="-1" href="#"><i class="fa fa-eye fa-fw"></i> Student</a>
+		</li>	        
+        <li class="divider"></li>
+        <li>
+			<a href="http://code.finki.ukim.mk/logout"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+		</li>
+       </ul>
+</li>
+		         	        </ul>
+         </div>
+          
+	</div>
+</div>
+
+    <div class="container-fluid">
+        <div class="page-header">
+	<h2><i class="fa fa-angle-double-right"></i> <a href="http://code.finki.ukim.mk/course/111/problemset/1867/" title="">Вовед во Java и класи</a>  <small>(1)</small></h2>
+</div>      <div id="wrapper">
+      <button class="btn btn-default btn-xs" id="menu-toggle">
+          <i id="btn-icon" class="fa fa-chevron-right fa-fw"></i>
+      </button>
+      <div id="sidebar-wrapper">
+          <div class="well sidebar-nav">
+                <ul class="nav nav-pills nav-stacked">
+<li class="nav-header">Problems</li>
+	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5925/">1) Римски броеви
+        </a></li>
+    	    <li class="active">
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5926/">2) Систем за банкарско работење
+     
+        <i class="icon-star icon-white"></i>
+     
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5927/">3) Низа од цели броеви
+        </a></li>
+    </ul>          </div><!--/.well -->
+          <div class="help">
+                <p>За сите тие што користат instanceof при пресметување на провизијата:</p>
+
+<p><a href="http://www.javapractices.com/topic/TopicAction.do?Id=31">instanceof - very bad practice</a></p>
+
+<p>За оние чиј метод makeTransaction е подолг од 20 линии код</p>
+
+<p><a href="http://sourcemaking.com/refactoring/long-method">refactoring long methods</a></p>
+          </div>
+      </div>
+      <div id="problem-layout">
+      
+
+
+
+    <div id="clock" class="pull-right">
+        <span class="time-label">Opened:</span>
+      <ul>
+          <li id="time">75 дена</li>          
+      </ul>
+    </div>
+    <h3 id="problem-name">Систем за банкарско работење <small>Problem 2 (0 / 15) </small></h3>
+
+<div class="row">    
+    <div id="problem-text" class="col-md-4">    
+    	<p>Треба да се креира апликација за банка која ќе управуваа со 
+сметките на повеќе корисниците и ќе врши трансакции помеѓу нив. Банката 
+работи само со долари и притоа сите суми на пари се претставуваат како 
+стрингови со знакот <code>$</code> на крај, и точка помеѓу бројот на 
+центи и бројот на долари без празни места. Бројот на центи треба да се 
+состои од две цифри без разлика на износот.</p>
+
+<p>Пример:</p>
+
+<pre><code>10 долари  10.00$</code></pre>
+
+<p>15 долари и 50 центи 15.50$</p>
+
+<p>За потребите на ваквата апликација треба да се напишат класите <code>Account</code>,<code>Transaction</code> и <code>Bank</code>. 
+Класата <code>Account</code> претставува една сметка на еден корисник и треба да ги чува следните податоци:</p>
+
+<ul>
+<li>Име на корисникот, </li>
+<li>единствен идентификационен број (long) </li>
+<li>тековното салдо на сметката.</li>
+</ul>
+
+<p>Оваа класа исто така треба да ги имплементира и следниве методи</p>
+
+<ul>
+<li><code>Account(String name, String balance)</code> – конструктор со параметри (id-то треба да го генерирате сами со помош на класата <code>java.util.Random</code>)</li>
+<li><code>getBalance():String</code></li>
+<li><code>getName():String</code></li>
+<li><code>getId():long</code></li>
+<li><code>setBalance(String balance)</code></li>
+<li><p><code>toString():String</code> – враќа стринг во следниот формат, \n означува нов ред</p>
+<p>        Name:Andrej Gajduk\n
+Balance:20.00$\n</p>
+</li>
+</ul>
+
+<p>Класата <code>Transaction</code> претставува трансакција (префрлување
+ пари од една на друга сметка), од страна на банката за што честопати се
+ наплаќа провизија.
+За почеток треба да се напише класата Transaction со податочни членови 
+за идентификационите броеви на две сметки, едната од која се одземаат 
+парите и друга на која се додаваат парите, текстуален опис и износ на 
+трансакцијата.</p>
+
+<p>За оваа класа треба да ги имплементирате методите:</p>
+
+<ul>
+<li><code>Transaction(long fromId, long toId, Stirng description, String amount)</code> – конструктор со параметри</li>
+<li><code>getAmount():String</code></li>
+<li><code>getFromId():long</code></li>
+<li><code>getToId():long</code></li>
+</ul>
+
+<p>Оваа класа треба да е <strong>immutable</strong>, а можете и да ја направите и <strong>апстрактна</strong> бидејќи не е наменета директно да се користи туку само како основна класа за изведување на други класи.</p>
+
+<p>Како што споменавме претходно банката наплаќа провизија за одредени 
+трансакции. Има два типа на провизија, фискна сума и процент. Кај фиксна
+ сума за било која трансакција без разлика на износот на трансакцијата 
+се наплаќа исто провизија (пример 10$). Кај процент за секој еден долар 
+од трансакцијата банката наплаќа одреден процент провизија (на пример 
+5%, или 5 центи на секој долар – процентите секогаш се целобројни и 
+провизија се наплаќа само на цели долари).</p>
+
+<p>За да се прави разлика меѓу различните типови на провизија, треба да напишете уште две класи кои ќе наследуваат од <code>Transaction</code> кои треба да ги именувате 
+<code>FlatAmountProvisionTransaction</code> и <code>FlatPercentProvisionTransaction</code>.</p>
+
+<p>Првата класа <code>FlatAmountProvisionTransaction</code> треба да содржи соодветен конструктор</p>
+
+<ul>
+<li><code>FlatAmountProvisionTransaction(long fromId, long  toId,String amount, String flatProvision)</code> кој го иницијализира полето за опис на <code>"FlatAmount"</code> и соодветен get метод</li>
+<li><code> getFlatAmount():String</code></li>
+</ul>
+
+<p>Слично и класата <code>FlatPercentProvisionTransaction</code>  треба да има соодветен конструктор</p>
+
+<ul>
+<li><code>FlatPercentProvisionTransaction  (long fromId, long  toId, String amount, int centsPerDolar)</code> кој го иницијализира полето за опис на <code>"FlatPercent"</code> и соодветен get метод</li>
+<li><code>getPercent():int</code></li>
+</ul>
+
+<p>Исто така треба да се преоптовари <code>equals(Object o):boolean</code> методот и за двете класи. </p>
+
+<p>За крај треба да ја имплементирате класата <code>Bank</code> која ги 
+чува сметките од своите корисници и дополнително врши трансакции. 
+Класата освен сметките на своите корисници, треба да ги чува и 
+сопственото име и вкупната сума на трансфери како и вкупната наплатена 
+провизија од страна на банката за сите трансакции.</p>
+
+<p>Класата <code>Bank</code> треба да ги нуди следните методи:</p>
+
+<ul>
+<li><code>Bank(String name, Account accounts[])</code> – конструктор со соодветните параметри (направете сопствена копија на низата од сметки)</li>
+<li><code>makeTransaction(Transaction t):boolean</code> – врши проверка 
+дали корисникот ги има потребните средства на сметка и дали и двете 
+сметки
+на кои се однесува трансакцијата се нависитина во банката и ако и двата 
+услови се исполнето ја извршува трансакцијата и враќа true, во
+спротивно враќа false</li>
+<li><code>totalTransfers():String</code> – ја дава вкупната сума на пари кои се префрлени во сите трансакции до сега</li>
+<li><code>totalProvision():String</code> – ја дава вкупната провизија наплатена од банката за сите извршени трансакции до сега</li>
+<li><p><code>toString():String</code> -  го враќа името на банката во посебна линија во формат</p>
+<p>        Name:Banka na RM\n
+\n
+по што следат податоците за сите корисници.</p>
+</li>
+</ul>
+
+<p>Провизијата се наплаќа така што на основната сума на трансакцијата се
+ додава вредноста не провизијата и таа сума се одзема од првата сметка.</p>
+
+<p>За сите класи да се напишат соодветни <code>equals</code> и <code>hashCode</code> методи.</p>
+    </div>
+    <div id="editor" class="col-md-8">
+    <div id="editor-header">
+    	<label for="code" class="pull-left">Your solution:</label>
+    	<div class="pull-right programming_language">
+    	Programming language:
+    	    		    					    		<span class="label label-info">Java</span>
+    			    			    		    	    	</div>
+    </div>
+    <div class="clearfix"></div>
+    <textarea id="code" name="code" style="display: none;">//package 
+com.company;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Account {
+    private String name;
+    private long id;
+    private String balance;
+
+    public Account(String name, String balance) {
+        this.name = name;
+        this.id = new Random().nextLong();
+        this.balance = balance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + "\n" +
+                "Balance: " + balance  + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account)) return false;
+        Account account = (Account) o;
+        return Objects.equals(getName(), 
+account.getName())&amp;&amp;Objects.equals(getId(), account.getId()) 
+&amp;&amp;
+                Objects.equals(getBalance(), account.getBalance());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getId(), getBalance());
+    }
+}
+
+abstract class Transaction{
+    private final long fromId;
+    private final long toId;
+
+    private String description;
+    private String amount;
+
+    public Transaction(long fromId, long toId, String description, 
+String amount) {
+        this.fromId = fromId;
+        this.toId = toId;
+        this.description = description;
+        this.amount = amount;
+    }
+
+    public Long getFromId() {
+        return fromId;
+    }
+
+    public Long getToId() {
+        return toId;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transaction)) return false;
+        Transaction that = (Transaction) o;
+        return Objects.equals(getFromId(), that.getFromId()) &amp;&amp;
+                Objects.equals(getToId(), that.getToId()) &amp;&amp;
+                Objects.equals(description, that.description) &amp;&amp;
+                Objects.equals(getAmount(), that.getAmount());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFromId(), getToId(), description, 
+getAmount());
+    }
+}
+
+class FlatAmountProvisionTransaction extends Transaction{
+
+    private String flatProvision;
+
+    public FlatAmountProvisionTransaction(long fromId, long toId, String
+ amount, String flatProvision) {
+        super(fromId, toId, "FlatAmount", amount);
+        this.flatProvision = flatProvision;
+    }
+
+    public String getFlatAmount() {
+        return flatProvision;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FlatAmountProvisionTransaction that = 
+(FlatAmountProvisionTransaction) o;
+        return Objects.equals(flatProvision, that.flatProvision);
+    }
+}
+
+class FlatPercentProvisionTransaction  extends Transaction{
+    private int percent;
+
+    public FlatPercentProvisionTransaction(long fromId, long toId, 
+String amount, int centsPerDollar) {
+        super(fromId, toId,"FlatPercent", amount);
+        this.percent = centsPerDollar;
+    }
+
+    public int getPercent() {
+        return percent;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FlatPercentProvisionTransaction that = 
+(FlatPercentProvisionTransaction) o;
+        return percent == that.percent;
+    }
+}
+
+class Bank {
+    private static DecimalFormat df = new DecimalFormat("0.00");
+
+    private String name;
+    private Account accounts[];
+    private double totalTransfers;
+    private double totalProvision;
+
+    public Bank(String name, Account[] accounts) {
+        this.name = name;
+        this.accounts = Arrays.copyOf(accounts, accounts.length);
+        totalTransfers = 0.00;
+        totalProvision = 0.00;
+        df.setRoundingMode(RoundingMode.UP);
+    }
+
+    public boolean makeTransaction(Transaction t){
+        Account sender = getAccountFromBankAccounts(t.getFromId());
+        if(sender == null)
+            return false;
+        Account receiver = getAccountFromBankAccounts(t.getToId());
+        if(receiver == null)
+            return false;
+
+        String provision = calculateProvision(t);
+
+        if(!hasSufficentFunds(sender, t.getAmount(), provision))
+            return false;
+
+        double senderBalanceAfterTransaction =
+                formatDollarAmountToDouble(sender.getBalance()) - 
+formatDollarAmountToDouble(t.getAmount()) - 
+formatDollarAmountToDouble(provision);
+        
+sender.setBalance(String.valueOf(df.format(senderBalanceAfterTransaction))
+ + "$");
+
+        double receiverBalanceAfterTransaction = 
+formatDollarAmountToDouble(receiver.getBalance()) + 
+formatDollarAmountToDouble(t.getAmount());
+        
+receiver.setBalance(String.valueOf(df.format(receiverBalanceAfterTransaction))
+ + "$");
+
+        updateTotalTransfers(t.getAmount());
+        updateTotalProvision(provision);
+
+        return true;
+    }
+
+    public String totalTransfers(){
+        return String.valueOf(df.format(totalTransfers)) + "$";
+    }
+
+    public String totalProvision() {
+        return String.valueOf(df.format(totalProvision)) + "$";
+    }
+
+    public Account[] getAccounts(){
+        return accounts;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("Name: " + name + "\n\n");
+        for(int i = 0; i &lt; accounts.length; i++){
+            sb.append(accounts[i].toString());
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Bank)) return false;
+        Bank bank = (Bank) o;
+        return Objects.equals(name, bank.name) &amp;&amp;
+                Arrays.equals(accounts, bank.accounts) &amp;&amp;
+                Objects.equals(totalTransfers, bank.totalTransfers) 
+&amp;&amp;
+                Objects.equals(totalProvision, bank.totalProvision);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name, totalTransfers, totalProvision);
+        result = 31 * result + Arrays.hashCode(accounts);
+        return result;
+    }
+
+    Account getAccountFromBankAccounts(long accountId){
+        for(int i = 0; i &lt; accounts.length; i++){
+            if(accounts[i].getId() == accountId)
+                return accounts[i];
+        }
+        return null;
+    }
+
+    boolean hasSufficentFunds(Account account, String amount, String 
+totalProvision){
+        return (formatDollarAmountToDouble(account.getBalance()) - 
+formatDollarAmountToDouble(totalProvision) &gt;= 
+formatDollarAmountToDouble(amount));
+    }
+
+    double formatDollarAmountToDouble(String amount){
+        String removeDollarSign = amount.replace("$", "");
+        return Double.parseDouble(removeDollarSign);
+    }
+
+    String calculateProvision(Transaction t){
+        if(t instanceof FlatAmountProvisionTransaction){
+            return ((FlatAmountProvisionTransaction) t).getFlatAmount();
+        }
+
+        int provisionPercent = ((FlatPercentProvisionTransaction) 
+t).getPercent();
+        double cents = formatDollarAmountToDouble(t.getAmount()) * 
+provisionPercent;
+        return df.format(cents/100);
+    }
+
+    void updateTotalTransfers(String transfers){
+        totalTransfers += formatDollarAmountToDouble(transfers);
+    }
+
+    void updateTotalProvision(String provision){
+        totalProvision += formatDollarAmountToDouble(provision);
+    }
+}
+
+public class BankTester {
+
+    public static void main(String[] args) {
+        Scanner jin = new Scanner(System.in);
+        String test_type = jin.nextLine();
+        switch (test_type) {
+             case "typical_usage":
+                testTypicalUsage(jin);
+                break;
+            case "equals":
+                testEquals();
+                break;
+        }
+        jin.close();
+    }
+
+    private static void testEquals() {
+        Account a1 = new Account("Andrej", "20.00$");
+        Account a2 = new Account("Andrej", "20.00$");
+        Account a3 = new Account("Andrej", "30.00$");
+        Account a4 = new Account("Gajduk", "20.00$");
+        List&lt;Account&gt; all = Arrays.asList(a1, a2, a3, a4);
+        if 
+(!(a1.equals(a1)&amp;&amp;!a1.equals(a2)&amp;&amp;!a2.equals(a1) 
+&amp;&amp; !a3.equals(a1)
+                &amp;&amp; !a4.equals(a1)
+                &amp;&amp; !a1.equals(null))) {
+            System.out.println("Your account equals method does not work
+ properly.");
+            return;
+        }
+        Set&lt;Long&gt; ids = 
+all.stream().map(Account::getId).collect(Collectors.toSet());
+        if (ids.size() != all.size()) {
+            System.out.println("Different accounts have the same IDS. 
+This is not allowed");
+            return;
+        }
+        FlatAmountProvisionTransaction fa1 = new 
+FlatAmountProvisionTransaction(10, 20, "20.00$", "10.00$");
+        FlatAmountProvisionTransaction fa2 = new 
+FlatAmountProvisionTransaction(20, 20, "20.00$", "10.00$");
+        FlatAmountProvisionTransaction fa3 = new 
+FlatAmountProvisionTransaction(20, 10, "20.00$", "10.00$");
+        FlatAmountProvisionTransaction fa4 = new 
+FlatAmountProvisionTransaction(10, 20, "50.00$", "50.00$");
+        FlatAmountProvisionTransaction fa5 = new 
+FlatAmountProvisionTransaction(30, 40, "20.00$", "10.00$");
+        FlatPercentProvisionTransaction fp1 = new 
+FlatPercentProvisionTransaction(10, 20, "20.00$", 10);
+        FlatPercentProvisionTransaction fp2 = new 
+FlatPercentProvisionTransaction(10, 20, "20.00$", 10);
+        FlatPercentProvisionTransaction fp3 = new 
+FlatPercentProvisionTransaction(10, 10, "20.00$", 10);
+        FlatPercentProvisionTransaction fp4 = new 
+FlatPercentProvisionTransaction(10, 20, "50.00$", 10);
+        FlatPercentProvisionTransaction fp5 = new 
+FlatPercentProvisionTransaction(10, 20, "20.00$", 30);
+        FlatPercentProvisionTransaction fp6 = new 
+FlatPercentProvisionTransaction(30, 40, "20.00$", 10);
+        if (fa1.equals(fa1) &amp;&amp;
+                !fa2.equals(null) &amp;&amp;
+                fa2.equals(fa1) &amp;&amp;
+                fa1.equals(fa2) &amp;&amp;
+                fa1.equals(fa3) &amp;&amp;
+                !fa1.equals(fa4) &amp;&amp;
+                !fa1.equals(fa5) &amp;&amp;
+                !fa1.equals(fp1) &amp;&amp;
+                fp1.equals(fp1) &amp;&amp;
+                !fp2.equals(null) &amp;&amp;
+                fp2.equals(fp1) &amp;&amp;
+                fp1.equals(fp2) &amp;&amp;
+                fp1.equals(fp3) &amp;&amp;
+                !fp1.equals(fp4) &amp;&amp;
+                !fp1.equals(fp5) &amp;&amp;
+                !fp1.equals(fp6)) {
+            System.out.println("Your transactions equals methods do not 
+work properly.");
+            return;
+        }
+        Account accounts[] = new Account[]{a1, a2, a3, a4};
+        Account accounts1[] = new Account[]{a2, a1, a3, a4};
+        Account accounts2[] = new Account[]{a1, a2, a3};
+        Account accounts3[] = new Account[]{a1, a2, a3, a4};
+
+        Bank b1 = new Bank("Test", accounts);
+        Bank b2 = new Bank("Test", accounts1);
+        Bank b3 = new Bank("Test", accounts2);
+        Bank b4 = new Bank("Sample", accounts);
+        Bank b5 = new Bank("Test", accounts3);
+
+        if (!(b1.equals(b1) &amp;&amp;
+                !b1.equals(null) &amp;&amp;
+                !b1.equals(b2) &amp;&amp;
+                !b2.equals(b1) &amp;&amp;
+                !b1.equals(b3) &amp;&amp;
+                !b3.equals(b1) &amp;&amp;
+                !b1.equals(b4) &amp;&amp;
+                b1.equals(b5))) {
+            System.out.println("Your bank equals method do not work 
+properly.");
+            return;
+        }
+        accounts[2] = a1;
+        if (!b1.equals(b5)) {
+            System.out.println("Your bank equals method do not work 
+properly.");
+            return;
+        }
+        long from_id = a2.getId();
+        long to_id = a3.getId();
+        Transaction t = new FlatAmountProvisionTransaction(from_id, 
+to_id, "3.00$", "3.00$");
+        b1.makeTransaction(t);
+        if (b1.equals(b5)) {
+            System.out.println("Your bank equals method do not work 
+properly.");
+            return;
+        }
+        b5.makeTransaction(t);
+        if (!b1.equals(b5)) {
+            System.out.println("Your bank equals method do not work 
+properly.");
+            return;
+        }
+        System.out.println("All your equals methods work properly.");
+    }
+
+    private static void testTypicalUsage(Scanner jin) {
+        String bank_name = jin.nextLine();
+        int num_accounts = jin.nextInt();
+        jin.nextLine();
+        Account accounts[] = new Account[num_accounts];
+        for (int i = 0; i &lt; num_accounts; ++i)
+            accounts[i] = new Account(jin.nextLine(), jin.nextLine());
+        Bank bank = new Bank(bank_name, accounts);
+        while (true) {
+            String line = jin.nextLine();
+            switch (line) {
+                case "stop":
+                    return;
+                case "transaction":
+                    String descrption = jin.nextLine();
+                    String amount = jin.nextLine();
+                    String parameter = jin.nextLine();
+                    int from_idx = jin.nextInt();
+                    int to_idx = jin.nextInt();
+                    jin.nextLine();
+                    Transaction t = getTransaction(descrption, from_idx,
+ to_idx, amount, parameter, bank);
+                    System.out.println("Transaction amount: " + 
+t.getAmount());
+                    System.out.println("Transaction description: " + 
+t.getDescription());
+                    System.out.println("Transaction successful? " + 
+bank.makeTransaction(t));
+                    break;
+                case "print":
+                    System.out.println(bank.toString());
+                    System.out.println("Total provisions: " + 
+bank.totalProvision());
+                    System.out.println("Total transfers: " + 
+bank.totalTransfers());
+                    System.out.println();
+                    break;
+            }
+        }
+    }
+
+    private static Transaction getTransaction(String description, int 
+from_idx, int to_idx, String amount, String o, Bank bank) {
+        switch (description) {
+            case "FlatAmount":
+                return new 
+FlatAmountProvisionTransaction(bank.getAccounts()[from_idx].getId(),
+                        bank.getAccounts()[to_idx].getId(), amount, o);
+            case "FlatPercent":
+                return new 
+FlatPercentProvisionTransaction(bank.getAccounts()[from_idx].getId(),
+                        bank.getAccounts()[to_idx].getId(), amount, 
+Integer.parseInt(o));
+        }
+        return null;
+    }
+
+
+}
+</textarea><div class="CodeMirror cm-s-default" style="height: 520px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 508px; left: 74px;"><textarea style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" tabindex="0" wrap="off">*/</textarea></div><div class="CodeMirror-hscrollbar" style="left: 53px; right: 17px;"><div style="height: 1px; width: 1199px;"></div></div><div class="CodeMirror-vscrollbar" style="display: block; bottom: 0px;"><div style="width: 1px; height: 2234px;"></div></div><div class="CodeMirror-scrollbar-filler" style="width: 17px; height: 17px;"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div style="position: relative; min-height: 100%;"><div class="CodeMirror-sizer" style="min-width: 1069px; margin-left: 53px; min-height: 2234px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: currentcolor none medium;"><div class="CodeMirror-measure"><pre><span class="cm-comment">*</span><span class="cm-comment">/</span></pre></div><div style="position: relative; z-index: 1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 4px; top: 224px; width: 160px; height: 14px;"></div><div class="CodeMirror-selected" style="position: absolute; left: 4px; top: 84px; width: 1163px; height: 140px;"></div></div><div style=""><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">1</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-operator">*</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">2</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">stream</span>.<span class="cm-variable">Collectors</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">3</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">4</div></div><pre><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-variable">BankTester</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">5</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">6</div></div><pre>    <span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-keyword">void</span> <span class="cm-variable">main</span>(<span class="cm-variable">String</span>[] <span class="cm-variable">args</span>) {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">7</div></div><pre>        <span class="cm-comment">/*Scanner jin = new Scanner(System.in);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">8</div></div><pre>        <span class="cm-comment">String test_type = jin.nextLine();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">9</div></div><pre>        <span class="cm-comment">switch (test_type) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">10</div></div><pre>            <span class="cm-comment">case "typical_usage":</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">11</div></div><pre>                <span class="cm-comment">testTypicalUsage(jin);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">12</div></div><pre>                <span class="cm-comment">break;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">13</div></div><pre>            <span class="cm-comment">case "equals":</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">14</div></div><pre>                <span class="cm-comment">testEquals();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">15</div></div><pre>                <span class="cm-comment">break;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">16</div></div><pre>        <span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">17</div></div><pre>        <span class="cm-comment">jin.close();*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">18</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">19</div></div><pre><span class="cm-comment">/*</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">20</div></div><pre>    <span class="cm-comment">private static void testEquals() {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">21</div></div><pre>        <span class="cm-comment">Account a1 = new Account("Andrej", "20.00$");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">22</div></div><pre>        <span class="cm-comment">Account a2 = new Account("Andrej", "20.00$");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">23</div></div><pre>        <span class="cm-comment">Account a3 = new Account("Andrej", "30.00$");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">24</div></div><pre>        <span class="cm-comment">Account a4 = new Account("Gajduk", "20.00$");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">25</div></div><pre>        <span class="cm-comment">List&lt;Account&gt; all = Arrays.asList(a1, a2, a3, a4);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">26</div></div><pre>        <span class="cm-comment">if (!(a1.equals(a1)&amp;&amp;!a1.equals(a2)&amp;&amp;!a2.equals(a1) &amp;&amp; !a3.equals(a1)</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">27</div></div><pre>                <span class="cm-comment">&amp;&amp; !a4.equals(a1)</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">28</div></div><pre>                <span class="cm-comment">&amp;&amp; !a1.equals(null))) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">29</div></div><pre>            <span class="cm-comment">System.out.println("Your account equals method does not work properly.");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">30</div></div><pre>            <span class="cm-comment">return;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">31</div></div><pre>        <span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">32</div></div><pre>        <span class="cm-comment">Set&lt;Long&gt; ids = all.stream().map(Account::getId).collect(Collectors.toSet());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">33</div></div><pre>        <span class="cm-comment">if (ids.size() != all.size()) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">34</div></div><pre>            <span class="cm-comment">System.out.println("Different accounts have the same IDS. This is not allowed");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">35</div></div><pre>            <span class="cm-comment">return;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">36</div></div><pre>        <span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">37</div></div><pre>        <span class="cm-comment">FlatAmountProvisionTransaction fa1 = new FlatAmountProvisionTransaction(10, 20, "20.00$", "10.00$");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">38</div></div><pre>        <span class="cm-comment">FlatAmountProvisionTransaction fa2 = new FlatAmountProvisionTransaction(20, 20, "20.00$", "10.00$");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">39</div></div><pre>        <span class="cm-comment">FlatAmountProvisionTransaction fa3 = new FlatAmountProvisionTransaction(20, 10, "20.00$", "10.00$");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">40</div></div><pre>        <span class="cm-comment">FlatAmountProvisionTransaction fa4 = new FlatAmountProvisionTransaction(10, 20, "50.00$", "50.00$");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">41</div></div><pre>        <span class="cm-comment">FlatAmountProvisionTransaction fa5 = new FlatAmountProvisionTransaction(30, 40, "20.00$", "10.00$");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">42</div></div><pre>        <span class="cm-comment">FlatPercentProvisionTransaction fp1 = new FlatPercentProvisionTransaction(10, 20, "20.00$", 10);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">43</div></div><pre>        <span class="cm-comment">FlatPercentProvisionTransaction fp2 = new FlatPercentProvisionTransaction(10, 20, "20.00$", 10);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">44</div></div><pre>        <span class="cm-comment">FlatPercentProvisionTransaction fp3 = new FlatPercentProvisionTransaction(10, 10, "20.00$", 10);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">45</div></div><pre>        <span class="cm-comment">FlatPercentProvisionTransaction fp4 = new FlatPercentProvisionTransaction(10, 20, "50.00$", 10);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">46</div></div><pre>        <span class="cm-comment">FlatPercentProvisionTransaction fp5 = new FlatPercentProvisionTransaction(10, 20, "20.00$", 30);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">47</div></div><pre>        <span class="cm-comment">FlatPercentProvisionTransaction fp6 = new FlatPercentProvisionTransaction(30, 40, "20.00$", 10);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">48</div></div><pre>        <span class="cm-comment">if (fa1.equals(fa1) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">49</div></div><pre>                <span class="cm-comment">!fa2.equals(null) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">50</div></div><pre>                <span class="cm-comment">fa2.equals(fa1) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">51</div></div><pre>                <span class="cm-comment">fa1.equals(fa2) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">52</div></div><pre>                <span class="cm-comment">fa1.equals(fa3) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">53</div></div><pre>                <span class="cm-comment">!fa1.equals(fa4) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">54</div></div><pre>                <span class="cm-comment">!fa1.equals(fa5) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">55</div></div><pre>                <span class="cm-comment">!fa1.equals(fp1) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">56</div></div><pre>                <span class="cm-comment">fp1.equals(fp1) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">57</div></div><pre>                <span class="cm-comment">!fp2.equals(null) &amp;&amp;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">58</div></div><pre>                <span class="cm-comment">fp2.equals(fp1) &amp;&amp;</span></pre></div></div><div class="CodeMirror-cursor" style="left: 20px; top: 2170px; height: 14px; visibility: hidden;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none; visibility: hidden;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 2234px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-compiler-message"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></div>
+    <div id="editor-control">
+    	<div class="row">
+    		<div class="col-md-4">
+    			<div id="problem-revisions">	<label for="revision" class="editor-control-label">Revision:</label>
+	
+<select name="solutionHistory" size="1" id="solutionHistory" class="form-control input-sm">
+    					<option value="9357905" title="2020-02-03 20:49:26.0" selected="selected">3 seconds ago - 20:49:26
+</option>					<option value="9357893" title="2020-02-03 20:48:31.0">58 seconds ago - 20:48:31
+</option>					<option value="9357891" title="2020-02-03 20:48:23.0">1 minute ago - 20:48:23
+</option>					<option value="9357888" title="2020-02-03 20:48:10.0">1 minute ago - 20:48:10
+</option>					<option value="8868626" title="2019-11-20 20:15:20.0">2 months ago - 20:15:20
+</option>					<option value="8868606" title="2019-11-20 20:14:43.0">2 months ago - 20:14:43
+</option>					<option value="8868451" title="2019-11-20 20:09:03.0">2 months ago - 20:09:03
+</option>					<option value="8868382" title="2019-11-20 20:07:12.0">2 months ago - 20:07:12
+</option>					<option value="8868376" title="2019-11-20 20:06:59.0">2 months ago - 20:06:59
+</option>					<option value="8868240" title="2019-11-20 20:01:15.0">2 months ago - 20:01:15
+</option>					<option value="8868229" title="2019-11-20 20:00:58.0">2 months ago - 20:00:58
+</option>					<option value="8868135" title="2019-11-20 19:58:15.0">2 months ago - 19:58:15
+</option>					<option value="8868035" title="2019-11-20 19:55:01.0">2 months ago - 19:55:01
+</option>					<option value="8868020" title="2019-11-20 19:54:42.0">2 months ago - 19:54:42
+</option>					<option value="8867913" title="2019-11-20 19:52:01.0">2 months ago - 19:52:01
+</option>					<option value="8867788" title="2019-11-20 19:48:14.0">2 months ago - 19:48:14
+</option>					<option value="8867509" title="2019-11-20 19:40:52.0">2 months ago - 19:40:52
+</option>					<option value="8866760" title="2019-11-20 19:19:25.0">2 months ago - 19:19:25
+</option>					<option value="8866677" title="2019-11-20 19:17:44.0">2 months ago - 19:17:44
+</option>					<option value="8866483" title="2019-11-20 19:12:57.0">2 months ago - 19:12:57
+</option>					<option value="8866397" title="2019-11-20 19:10:42.0">2 months ago - 19:10:42
+</option>					<option value="8866262" title="2019-11-20 19:07:00.0">2 months ago - 19:07:00
+</option>					<option value="8866138" title="2019-11-20 19:03:29.0">2 months ago - 19:03:29
+</option>					<option value="8865745" title="2019-11-20 18:52:40.0">2 months ago - 18:52:40
+</option>			    </select>
+
+	<input type="hidden" name="hasHistory" id="hasHistory" value="true">
+</div>
+	    		<button id="restore" class="btn btn-default btn-xs"><i class="fa fa-undo"></i> Restore</button>
+    		</div>
+    		<div class="col-md-8">
+    		<div class="row">
+    			<div class="col-md-2">
+		    		Full Screen <b>F11</b>
+    			</div>
+                <div class="col-md-3">
+                    heigth:
+                    <button id="setFixedBtn" class="btn btn-default btn-xs">
+                        520px
+                    </button>
+                    <button id="setAutoBtn" class="btn btn-default btn-xs" style="display: none;">
+                        Auto
+                    </button>
+                </div>
+    			<div class="col-md-3">
+			    	<a class="jfontsize-button" id="minus-btn" style="cursor: pointer;">A-</a>
+			    	<a class="jfontsize-button" id="default-btn" style="cursor: pointer;">A</a>
+			    	<a class="jfontsize-button" id="plus-btn" style="cursor: pointer;">A+</a>
+    			</div>
+    			<div class="col-md-4">
+    			<label for="select-theme" id="select-theme-lbl" class="editor-control-label">
+		    		Select a theme: 
+		    	</label>
+		    	<select id="select-theme" class="form-control input-sm">
+			    	<option selected="selected">default</option>
+			    	<option>ambiance</option>
+			    	<option>blackboard</option>
+			    	<option>cobalt</option>
+			    	<option>eclipse</option>
+			    	<option>elegant</option>
+			    	<option>erlang-dark</option>
+			    	<option>lesser-dark</option>
+			    	<option>monokai</option>
+			    	<option>neat</option>
+			    	<option>night</option>
+			    	<option>rubyblue</option>
+			    	<option>vibrant-ink</option>
+			    	<option>xq-dark</option>
+		    	</select>
+    			</div>
+	    	</div>
+    		</div>
+    	</div>
+    </div>
+    
+    
+        <div class="form-actions" style="clear:both;">
+        <div id="buttons" style="display: block;">
+        	<div class="row">
+        		<div class="col-md-6">
+		            <button id="run" class="btn btn-info btn-sm"><i class="fa fa-play"></i> Run</button>
+		            <button id="submit" class="btn btn-primary btn-sm"><i class="fa fa-play-circle"></i> Submit</button>
+		            <a href="#resetAlert" role="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-retweet"></i> Reset</a>
+		            <button id="format" class="btn btn-default btn-sm"><i class="fa fa-magic"></i> Format</button>
+                    <!-- <button id="analyze" class="btn btn-default btn-sm"><i class="fa fa-cogs"></i> analyze</button> -->
+		            <!-- <a href="#yes_i_will_solve" role="button" class="btn btn-sm btn-warning pull-right" data-toggle="modal"><i class="fa fa-meh-o fa-fw"></i> Solve all my problems!</a> -->
+		            <!-- <button id="save" class="btn"><i class="fa fa-check"></i> Save</button> -->
+        		</div>
+        		<div class="col-md-6" id="attempts"> 
+	<span>Unlimited attempts</span>
+</div>
+        	</div>
+        </div>
+        <div id="working" style="display: none;">
+            <span id="working_msg">working...</span>
+            <img src="Source_files/ajax-loader.gif">
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="program-output">
+        <h3>Program output
+        <img src="Source_files/c.png" id="correct_img" style="display: none;">
+        <img src="Source_files/w.png" id="wrong_img" style="display: none;"></h3>
+        <pre id="warning" class="pre-scrollable output-warning" style="display: none;"></pre>
+        <div id="clang_output" style="display: none;">
+            <h3><a id="output_link" target="_blank" class="text-danger">View report</a></h3>
+        </div>
+        <pre id="output" class="pre-scrollable"></pre>
+    </div>
+        <div id="sample-input" style="clear: both;">
+    	<div class="row">
+        <div class="col-md-6">
+            <h3>Sample input</h3>
+            <pre id="ex_input">typical_usage
+Banka na RM
+2
+Andrej
+10.00$
+Gajduk
+10.00$
+print
+transaction
+FlatAmount
+5.00$
+2.00$
+0 1
+print
+stop
+</pre>
+        </div>
+        <div class="col-md-6">
+		    <h3>Sample output</h3>
+		    <pre id="expected">Name: Banka na RM
+
+Name: Andrej
+Balance: 10.00$
+Name: Gajduk
+Balance: 10.00$
+
+Total provisions: 0.00$
+Total transfers: 0.00$
+
+Transaction amount: 5.00$
+Transaction description: FlatAmount
+Transaction successful? true
+Name: Banka na RM
+
+Name: Andrej
+Balance: 3.00$
+Name: Gajduk
+Balance: 15.00$
+
+Total provisions: 2.00$
+Total transfers: 5.00$
+
+</pre>
+        </div>
+        </div>
+    </div>
+    <div id="submission-output" style="clear:both;">
+<h3>Result: <span class="result result-failure">0.00 % (0/10)</span></h3>
+
+<table class="table table-striped table-bordered table-condensed">
+<caption>Testing details</caption>
+<thead>
+    <tr>
+        <th width="5%">Test case #</th>
+        <th width="20%">Input</th>
+        <th width="25%">Output</th>
+        <th width="25%">Your output</th>
+        <th width="25%">Correct</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td>1</td>
+    <td><pre id="input_1">typical_usage
+Banka na RM
+2
+Andrej
+10.00$
+Gajduk
+10.00$
+print
+transaction
+FlatAmount
+5.00$
+2.00$
+0 1
+print
+stop
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">365</span>
+    	</div>
+    	<pre id="output_1">Name: Banka na RM
+
+Name: Andrej
+Balance: 10.00$
+Name: Gajduk
+Balance: 10.00$
+
+Total provisions: 0.00$
+Total transfers: 0.00$
+
+Transaction amount: 5.00$
+Transaction description: FlatAmount
+Transaction successful? true
+Name: Banka na RM
+
+Name: Andrej
+Balance: 3.00$
+Name: Gajduk
+Balance: 15.00$
+
+Total provisions: 2.00$
+Total transfers: 5.00$
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_1"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_1" onclick="Code.viewDiff(1)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_1" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>2</td>
+    <td><pre id="input_2">typical_usage
+Banka na RM
+2
+Andrej
+100.00$
+Gajduk
+100.00$
+print
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+print
+transaction
+FlatPercent
+100.00$
+10
+1 0
+print
+stop
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">608</span>
+    	</div>
+    	<pre id="output_2">Name: Banka na RM
+
+Name: Andrej
+Balance: 100.00$
+Name: Gajduk
+Balance: 100.00$
+
+Total provisions: 0.00$
+Total transfers: 0.00$
+
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? true
+Name: Banka na RM
+
+Name: Andrej
+Balance: 80.00$
+Name: Gajduk
+Balance: 110.00$
+
+Total provisions: 10.00$
+Total transfers: 10.00$
+
+Transaction amount: 100.00$
+Transaction description: FlatPercent
+Transaction successful? true
+Name: Banka na RM
+
+Name: Andrej
+Balance: 180.00$
+Name: Gajduk
+Balance: 0.00$
+
+Total provisions: 20.00$
+Total transfers: 110.00$
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_2"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_2" onclick="Code.viewDiff(2)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_2" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>3</td>
+    <td><pre id="input_3">typical_usage
+Banka na RM
+2
+Andrej
+100.00$
+Gajduk
+100.00$
+print
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+transaction
+FlatAmount
+10.00$
+10.00$
+0 1
+print
+stop
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">1423</span>
+    	</div>
+    	<pre id="output_3">Name: Banka na RM
+
+Name: Andrej
+Balance: 100.00$
+Name: Gajduk
+Balance: 100.00$
+
+Total provisions: 0.00$
+Total transfers: 0.00$
+
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? false
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? false
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? false
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? false
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? false
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? false
+Transaction amount: 10.00$
+Transaction description: FlatAmount
+Transaction successful? false
+Name: Banka na RM
+
+Name: Andrej
+Balance: 0.00$
+Name: Gajduk
+Balance: 150.00$
+
+Total provisions: 50.00$
+Total transfers: 50.00$
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_3"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_3" onclick="Code.viewDiff(3)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_3" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>4</td>
+    <td><pre id="input_4">equals
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">40</span>
+    	</div>
+    	<pre id="output_4">All your equals methods work properly.
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_4"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_4" onclick="Code.viewDiff(4)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_4" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>5</td>
+    <td><pre id="input_5">typical_usage
+Banka na RM
+50
+Alana Pagel
+99491717.74$
+Kathe Vath
+101034259.42$
+Sara Flenniken
+102239934.88$
+Shauna Irick
+98340958.01$
+Leon Brokaw
+97863887.92$
+Guillermina Haymond
+99718355.69$
+Sherie Pestana
+97717745.56$
+Shirlene Reichard
+95050275.07$
+Jerrica Kafka
+101397911.06$
+Nida Garg
+102118425.55$
+Ellamae Marshell
+99210032.91$
+Ranee Ricca
+98977997.00$
+Elois Philip
+101387679.55$
+Roland June
+99206459.15$
+Marvis Lemarr
+101591681.64$
+Burl Friese
+99820214.42$
+Reggie Olah
+102426247.25$
+Isis Ballard
+103575023.55$
+Bernardine Munford
+100898571.41$
+Johnette Greenhaw
+95369550.73$
+Olimpia Ryan
+100877885.02$
+Sha Duguay
+101840155.71$
+Donn Kurt
+97414029.95$
+Joel Cao
+101283649.59$
+Jamika Epstein
+97272302.74$
+Moira Haar
+99618843.49$
+Tiffani Bellantoni
+100029287.21$
+Tennille Hanzlik
+96074275.74$
+Dwayne Bazile
+101633795.28$
+Luigi Blaise
+98076759.13$
+Paris Fagan
+95329168.92$
+Ngan Raynor
+98852735.01$
+Alden Mirarchi
+104400645.29$
+Tangela Fernandez
+98512617.18$
+Liza Breaux
+104278086.43$
+Annice Lipman
+101869272.36$
+Broderick Arcand
+103295196.13$
+Terry Cygan
+95478724.92$
+Adriene Janz
+97867714.22$
+Joaquin Larocque
+95948559.19$
+Sabrina Hilger
+98272587.48$
+Glayds Hinch
+99533008.66$
+Nereida Mickley
+100636571.70$
+Elaina Hupp
+104550334.32$
+Karissa Brousseau
+102506217.95$
+America Kyle
+97875987.79$
+Lucie Nakata
+97583055.41$
+Chantel Grewell
+101373719.89$
+Logan Hogans
+97260587.80$
+Herb Mojarro
+104846882.01$
+transaction
+FlatPercent
+97175.67$
+37
+8 1
+transaction
+FlatAmount
+104536.23$
+9583.35$
+28 8
+transaction
+FlatAmount
+102757.10$
+10461.81$
+40 18
+transaction
+FlatPercent
+97198.46$
+26
+42 31
+transaction
+FlatAmount
+103913.44$
+10259.30$
+47 47
+transaction
+FlatPercent
+97485.74$
+16
+33 20
+transaction
+FlatPercent
+100186.45$
+19
+24 37
+transaction
+FlatPercent
+102032.31$
+44
+19 14
+transaction
+FlatPercent
+99672.79$
+19
+19 6
+transaction
+FlatPercent
+103522.42$
+17
+30 47
+print
+stop
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">3299</span>
+    	</div>
+    	<pre id="output_5">Transaction amount: 97175.67$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 104536.23$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 102757.10$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 97198.46$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 103913.44$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 97485.74$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 100186.45$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 102032.31$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 99672.79$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 103522.42$
+Transaction description: FlatPercent
+Transaction successful? true
+Name: Banka na RM
+
+Name: Alana Pagel
+Balance: 99491717.74$
+Name: Kathe Vath
+Balance: 101131435.09$
+Name: Sara Flenniken
+Balance: 102239934.88$
+Name: Shauna Irick
+Balance: 98340958.01$
+Name: Leon Brokaw
+Balance: 97863887.92$
+Name: Guillermina Haymond
+Balance: 99718355.69$
+Name: Sherie Pestana
+Balance: 97817418.35$
+Name: Shirlene Reichard
+Balance: 95050275.07$
+Name: Jerrica Kafka
+Balance: 101369316.87$
+Name: Nida Garg
+Balance: 102118425.55$
+Name: Ellamae Marshell
+Balance: 99210032.91$
+Name: Ranee Ricca
+Balance: 98977997.00$
+Name: Elois Philip
+Balance: 101387679.55$
+Name: Roland June
+Balance: 99206459.15$
+Name: Marvis Lemarr
+Balance: 101693713.95$
+Name: Burl Friese
+Balance: 99820214.42$
+Name: Reggie Olah
+Balance: 102426247.25$
+Name: Isis Ballard
+Balance: 103575023.55$
+Name: Bernardine Munford
+Balance: 101001328.51$
+Name: Johnette Greenhaw
+Balance: 95104013.87$
+Name: Olimpia Ryan
+Balance: 100975370.76$
+Name: Sha Duguay
+Balance: 101840155.71$
+Name: Donn Kurt
+Balance: 97414029.95$
+Name: Joel Cao
+Balance: 101283649.59$
+Name: Jamika Epstein
+Balance: 97153080.95$
+Name: Moira Haar
+Balance: 99618843.49$
+Name: Tiffani Bellantoni
+Balance: 100029287.21$
+Name: Tennille Hanzlik
+Balance: 96074275.74$
+Name: Dwayne Bazile
+Balance: 101519675.70$
+Name: Luigi Blaise
+Balance: 98076759.13$
+Name: Paris Fagan
+Balance: 95208047.76$
+Name: Ngan Raynor
+Balance: 98949933.47$
+Name: Alden Mirarchi
+Balance: 104400645.29$
+Name: Tangela Fernandez
+Balance: 98399533.84$
+Name: Liza Breaux
+Balance: 104278086.43$
+Name: Annice Lipman
+Balance: 101869272.36$
+Name: Broderick Arcand
+Balance: 103295196.13$
+Name: Terry Cygan
+Balance: 95578911.37$
+Name: Adriene Janz
+Balance: 97867714.22$
+Name: Joaquin Larocque
+Balance: 95948559.19$
+Name: Sabrina Hilger
+Balance: 98159368.57$
+Name: Glayds Hinch
+Balance: 99533008.66$
+Name: Nereida Mickley
+Balance: 100514101.76$
+Name: Elaina Hupp
+Balance: 104550334.32$
+Name: Karissa Brousseau
+Balance: 102506217.95$
+Name: America Kyle
+Balance: 97875987.79$
+Name: Lucie Nakata
+Balance: 97583055.41$
+Name: Chantel Grewell
+Balance: 101466983.01$
+Name: Logan Hogans
+Balance: 97260587.80$
+Name: Herb Mojarro
+Balance: 104846882.01$
+
+Total provisions: 207594.13$
+Total transfers: 1008480.61$
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_5"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_5" onclick="Code.viewDiff(5)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_5" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>6</td>
+    <td><pre id="input_6">typical_usage
+Banka na RM
+50
+Alana Pagel
+102963432.71$
+Kathe Vath
+104342335.20$
+Sara Flenniken
+96293009.85$
+Shauna Irick
+103295114.60$
+Leon Brokaw
+103355009.93$
+Guillermina Haymond
+101915874.96$
+Sherie Pestana
+104710949.92$
+Shirlene Reichard
+99264179.88$
+Jerrica Kafka
+96258138.52$
+Nida Garg
+102021884.77$
+Ellamae Marshell
+99172575.18$
+Ranee Ricca
+95191412.01$
+Elois Philip
+102273239.25$
+Roland June
+96732609.27$
+Marvis Lemarr
+99154684.15$
+Burl Friese
+95676218.69$
+Reggie Olah
+103920494.20$
+Isis Ballard
+102466187.81$
+Bernardine Munford
+95221161.12$
+Johnette Greenhaw
+96524247.63$
+Olimpia Ryan
+101066098.04$
+Sha Duguay
+97823731.15$
+Donn Kurt
+96706809.81$
+Joel Cao
+99037181.52$
+Jamika Epstein
+95098977.68$
+Moira Haar
+101421753.16$
+Tiffani Bellantoni
+97023876.36$
+Tennille Hanzlik
+98771917.86$
+Dwayne Bazile
+104018928.93$
+Luigi Blaise
+98650928.28$
+Paris Fagan
+97624283.10$
+Ngan Raynor
+101767484.25$
+Alden Mirarchi
+99044385.86$
+Tangela Fernandez
+98255032.92$
+Liza Breaux
+102754106.53$
+Annice Lipman
+102107186.40$
+Broderick Arcand
+99607801.98$
+Terry Cygan
+101899322.54$
+Adriene Janz
+101052855.65$
+Joaquin Larocque
+100865116.43$
+Sabrina Hilger
+97678892.17$
+Glayds Hinch
+102485484.29$
+Nereida Mickley
+96778610.35$
+Elaina Hupp
+97980300.53$
+Karissa Brousseau
+104240748.40$
+America Kyle
+99870698.55$
+Lucie Nakata
+102981109.81$
+Chantel Grewell
+95408397.14$
+Logan Hogans
+100441101.37$
+Herb Mojarro
+95861230.36$
+transaction
+FlatAmount
+102020.00$
+10345.07$
+43 21
+transaction
+FlatAmount
+98218.54$
+9814.62$
+33 12
+transaction
+FlatAmount
+102516.38$
+9562.68$
+23 18
+transaction
+FlatAmount
+102767.25$
+9641.87$
+10 40
+transaction
+FlatAmount
+95590.10$
+9900.00$
+22 37
+transaction
+FlatAmount
+102206.94$
+9545.11$
+16 11
+transaction
+FlatAmount
+102450.54$
+9731.28$
+47 4
+transaction
+FlatAmount
+103756.93$
+10445.95$
+11 43
+transaction
+FlatAmount
+98334.74$
+9710.77$
+4 9
+transaction
+FlatPercent
+103563.86$
+17
+20 4
+print
+stop
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">3294</span>
+    	</div>
+    	<pre id="output_6">Transaction amount: 102020.00$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 98218.54$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 102516.38$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 102767.25$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 95590.10$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 102206.94$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 102450.54$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 103756.93$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 98334.74$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 103563.86$
+Transaction description: FlatPercent
+Transaction successful? true
+Name: Banka na RM
+
+Name: Alana Pagel
+Balance: 102963432.71$
+Name: Kathe Vath
+Balance: 104342335.20$
+Name: Sara Flenniken
+Balance: 96293009.85$
+Name: Shauna Irick
+Balance: 103295114.60$
+Name: Leon Brokaw
+Balance: 103452978.82$
+Name: Guillermina Haymond
+Balance: 101915874.96$
+Name: Sherie Pestana
+Balance: 104710949.92$
+Name: Shirlene Reichard
+Balance: 99264179.88$
+Name: Jerrica Kafka
+Balance: 96258138.52$
+Name: Nida Garg
+Balance: 102120219.51$
+Name: Ellamae Marshell
+Balance: 99060166.06$
+Name: Ranee Ricca
+Balance: 95179416.07$
+Name: Elois Philip
+Balance: 102371457.79$
+Name: Roland June
+Balance: 96732609.27$
+Name: Marvis Lemarr
+Balance: 99154684.15$
+Name: Burl Friese
+Balance: 95676218.69$
+Name: Reggie Olah
+Balance: 103808742.15$
+Name: Isis Ballard
+Balance: 102466187.81$
+Name: Bernardine Munford
+Balance: 95323677.50$
+Name: Johnette Greenhaw
+Balance: 96524247.63$
+Name: Olimpia Ryan
+Balance: 100944928.47$
+Name: Sha Duguay
+Balance: 97925751.15$
+Name: Donn Kurt
+Balance: 96601319.71$
+Name: Joel Cao
+Balance: 98925102.46$
+Name: Jamika Epstein
+Balance: 95098977.68$
+Name: Moira Haar
+Balance: 101421753.16$
+Name: Tiffani Bellantoni
+Balance: 97023876.36$
+Name: Tennille Hanzlik
+Balance: 98771917.86$
+Name: Dwayne Bazile
+Balance: 104018928.93$
+Name: Luigi Blaise
+Balance: 98650928.28$
+Name: Paris Fagan
+Balance: 97624283.10$
+Name: Ngan Raynor
+Balance: 101767484.25$
+Name: Alden Mirarchi
+Balance: 99044385.86$
+Name: Tangela Fernandez
+Balance: 98146999.76$
+Name: Liza Breaux
+Balance: 102754106.53$
+Name: Annice Lipman
+Balance: 102107186.40$
+Name: Broderick Arcand
+Balance: 99607801.98$
+Name: Terry Cygan
+Balance: 101994912.64$
+Name: Adriene Janz
+Balance: 101052855.65$
+Name: Joaquin Larocque
+Balance: 100865116.43$
+Name: Sabrina Hilger
+Balance: 97781659.42$
+Name: Glayds Hinch
+Balance: 102485484.29$
+Name: Nereida Mickley
+Balance: 96778610.35$
+Name: Elaina Hupp
+Balance: 97971692.39$
+Name: Karissa Brousseau
+Balance: 104240748.40$
+Name: America Kyle
+Balance: 99870698.55$
+Name: Lucie Nakata
+Balance: 102981109.81$
+Name: Chantel Grewell
+Balance: 95296215.32$
+Name: Logan Hogans
+Balance: 100441101.37$
+Name: Herb Mojarro
+Balance: 95861230.36$
+
+Total provisions: 106303.06$
+Total transfers: 1011425.28$
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_6"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_6" onclick="Code.viewDiff(6)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_6" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>7</td>
+    <td><pre id="input_7">typical_usage
+Banka na RM
+50
+Alana Pagel
+101353758.71$
+Kathe Vath
+95482214.86$
+Sara Flenniken
+95507733.37$
+Shauna Irick
+96335794.62$
+Leon Brokaw
+104627174.02$
+Guillermina Haymond
+96293992.71$
+Sherie Pestana
+95618558.57$
+Shirlene Reichard
+104419737.26$
+Jerrica Kafka
+102683608.13$
+Nida Garg
+102993846.66$
+Ellamae Marshell
+104079634.50$
+Ranee Ricca
+98978119.35$
+Elois Philip
+100610862.97$
+Roland June
+95716054.13$
+Marvis Lemarr
+102085275.59$
+Burl Friese
+104929150.27$
+Reggie Olah
+101192835.68$
+Isis Ballard
+103887502.76$
+Bernardine Munford
+101552717.59$
+Johnette Greenhaw
+95162264.65$
+Olimpia Ryan
+96135053.32$
+Sha Duguay
+101653399.69$
+Donn Kurt
+99013691.79$
+Joel Cao
+100959011.85$
+Jamika Epstein
+102108752.15$
+Moira Haar
+104723774.68$
+Tiffani Bellantoni
+95920765.37$
+Tennille Hanzlik
+97766165.41$
+Dwayne Bazile
+100462684.49$
+Luigi Blaise
+101711150.94$
+Paris Fagan
+97913919.92$
+Ngan Raynor
+100001777.64$
+Alden Mirarchi
+99735034.87$
+Tangela Fernandez
+97766083.61$
+Liza Breaux
+97907291.99$
+Annice Lipman
+96592484.69$
+Broderick Arcand
+96943538.99$
+Terry Cygan
+102116098.19$
+Adriene Janz
+101732951.93$
+Joaquin Larocque
+101020439.01$
+Sabrina Hilger
+97040092.63$
+Glayds Hinch
+103974884.23$
+Nereida Mickley
+100518052.73$
+Elaina Hupp
+95800835.46$
+Karissa Brousseau
+99886847.24$
+America Kyle
+103212431.39$
+Lucie Nakata
+100973633.53$
+Chantel Grewell
+101516060.16$
+Logan Hogans
+100643990.34$
+Herb Mojarro
+103163123.50$
+transaction
+FlatAmount
+104800.08$
+10255.51$
+3 24
+transaction
+FlatAmount
+96843.05$
+9799.68$
+13 33
+transaction
+FlatAmount
+96195.76$
+10426.66$
+41 6
+transaction
+FlatPercent
+102099.44$
+12
+39 17
+transaction
+FlatPercent
+100375.69$
+26
+32 29
+transaction
+FlatPercent
+98260.81$
+29
+20 43
+transaction
+FlatPercent
+103891.39$
+37
+36 12
+transaction
+FlatAmount
+99756.79$
+9794.99$
+38 7
+transaction
+FlatPercent
+103168.89$
+45
+34 22
+transaction
+FlatAmount
+101582.33$
+10018.66$
+45 14
+print
+stop
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">3303</span>
+    	</div>
+    	<pre id="output_7">Transaction amount: 104800.08$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 96843.05$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 96195.76$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 102099.44$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 100375.69$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 98260.81$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 103891.39$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 99756.79$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 103168.89$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 101582.33$
+Transaction description: FlatAmount
+Transaction successful? true
+Name: Banka na RM
+
+Name: Alana Pagel
+Balance: 101353758.71$
+Name: Kathe Vath
+Balance: 95482214.86$
+Name: Sara Flenniken
+Balance: 95507733.37$
+Name: Shauna Irick
+Balance: 96220739.03$
+Name: Leon Brokaw
+Balance: 104627174.02$
+Name: Guillermina Haymond
+Balance: 96293992.71$
+Name: Sherie Pestana
+Balance: 95714754.33$
+Name: Shirlene Reichard
+Balance: 104519494.05$
+Name: Jerrica Kafka
+Balance: 102683608.13$
+Name: Nida Garg
+Balance: 102993846.66$
+Name: Ellamae Marshell
+Balance: 104079634.50$
+Name: Ranee Ricca
+Balance: 98978119.35$
+Name: Elois Philip
+Balance: 100714754.36$
+Name: Roland June
+Balance: 95609411.40$
+Name: Marvis Lemarr
+Balance: 102186857.92$
+Name: Burl Friese
+Balance: 104929150.27$
+Name: Reggie Olah
+Balance: 101192835.68$
+Name: Isis Ballard
+Balance: 103989602.20$
+Name: Bernardine Munford
+Balance: 101552717.59$
+Name: Johnette Greenhaw
+Balance: 95162264.65$
+Name: Olimpia Ryan
+Balance: 96008297.11$
+Name: Sha Duguay
+Balance: 101653399.69$
+Name: Donn Kurt
+Balance: 99116860.68$
+Name: Joel Cao
+Balance: 100959011.85$
+Name: Jamika Epstein
+Balance: 102213552.23$
+Name: Moira Haar
+Balance: 104723774.68$
+Name: Tiffani Bellantoni
+Balance: 95920765.37$
+Name: Tennille Hanzlik
+Balance: 97766165.41$
+Name: Dwayne Bazile
+Balance: 100462684.49$
+Name: Luigi Blaise
+Balance: 101811526.63$
+Name: Paris Fagan
+Balance: 97913919.92$
+Name: Ngan Raynor
+Balance: 100001777.64$
+Name: Alden Mirarchi
+Balance: 99608561.68$
+Name: Tangela Fernandez
+Balance: 97862926.66$
+Name: Liza Breaux
+Balance: 97757697.50$
+Name: Annice Lipman
+Balance: 96592484.69$
+Name: Broderick Arcand
+Balance: 96801207.93$
+Name: Terry Cygan
+Balance: 102116098.19$
+Name: Adriene Janz
+Balance: 101623400.15$
+Name: Joaquin Larocque
+Balance: 100906087.69$
+Name: Sabrina Hilger
+Balance: 97040092.63$
+Name: Glayds Hinch
+Balance: 103868261.81$
+Name: Nereida Mickley
+Balance: 100518052.73$
+Name: Elaina Hupp
+Balance: 95899096.27$
+Name: Karissa Brousseau
+Balance: 99886847.24$
+Name: America Kyle
+Balance: 103100830.40$
+Name: Lucie Nakata
+Balance: 100973633.53$
+Name: Chantel Grewell
+Balance: 101516060.16$
+Name: Logan Hogans
+Balance: 100643990.34$
+Name: Herb Mojarro
+Balance: 103163123.50$
+
+Total provisions: 202005.55$
+Total transfers: 1006974.23$
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_7"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_7" onclick="Code.viewDiff(7)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_7" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>8</td>
+    <td><pre id="input_8">typical_usage
+Banka na RM
+50
+Alana Pagel
+96124963.59$
+Kathe Vath
+104071827.99$
+Sara Flenniken
+103489869.36$
+Shauna Irick
+99230857.77$
+Leon Brokaw
+100949324.96$
+Guillermina Haymond
+101372350.52$
+Sherie Pestana
+100772483.38$
+Shirlene Reichard
+98451795.79$
+Jerrica Kafka
+100608943.69$
+Nida Garg
+96374183.01$
+Ellamae Marshell
+101834753.75$
+Ranee Ricca
+96386667.01$
+Elois Philip
+96767866.34$
+Roland June
+99245215.19$
+Marvis Lemarr
+95732058.60$
+Burl Friese
+100232415.35$
+Reggie Olah
+104652507.25$
+Isis Ballard
+100717280.66$
+Bernardine Munford
+104257015.83$
+Johnette Greenhaw
+103471815.46$
+Olimpia Ryan
+103239439.43$
+Sha Duguay
+96926529.60$
+Donn Kurt
+100902436.77$
+Joel Cao
+96522430.27$
+Jamika Epstein
+104102902.74$
+Moira Haar
+102396011.82$
+Tiffani Bellantoni
+98824115.92$
+Tennille Hanzlik
+101943340.74$
+Dwayne Bazile
+96723845.51$
+Luigi Blaise
+103007704.71$
+Paris Fagan
+100668747.81$
+Ngan Raynor
+100211914.45$
+Alden Mirarchi
+102954898.08$
+Tangela Fernandez
+99531915.08$
+Liza Breaux
+103806099.54$
+Annice Lipman
+97834836.56$
+Broderick Arcand
+102290753.08$
+Terry Cygan
+97565192.65$
+Adriene Janz
+104240885.04$
+Joaquin Larocque
+96872074.82$
+Sabrina Hilger
+102611005.33$
+Glayds Hinch
+101573590.11$
+Nereida Mickley
+101278626.39$
+Elaina Hupp
+103829407.46$
+Karissa Brousseau
+98142582.89$
+America Kyle
+99146314.73$
+Lucie Nakata
+102881106.42$
+Chantel Grewell
+96314595.10$
+Logan Hogans
+97531477.92$
+Herb Mojarro
+96535514.77$
+transaction
+FlatPercent
+97854.22$
+20
+4 33
+transaction
+FlatAmount
+98091.14$
+10273.03$
+19 9
+transaction
+FlatAmount
+97781.88$
+10029.55$
+27 41
+transaction
+FlatPercent
+104642.02$
+45
+30 1
+transaction
+FlatAmount
+95760.77$
+9811.63$
+7 20
+transaction
+FlatAmount
+101486.10$
+10377.16$
+11 24
+transaction
+FlatAmount
+99204.78$
+9813.90$
+17 17
+transaction
+FlatAmount
+102725.61$
+9895.83$
+3 25
+transaction
+FlatAmount
+96297.44$
+10480.20$
+43 4
+transaction
+FlatAmount
+98375.44$
+10360.05$
+18 27
+print
+stop
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">3296</span>
+    	</div>
+    	<pre id="output_8">Transaction amount: 97854.22$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 98091.14$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 97781.88$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 104642.02$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 95760.77$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 101486.10$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 99204.78$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 102725.61$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 96297.44$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 98375.44$
+Transaction description: FlatAmount
+Transaction successful? true
+Name: Banka na RM
+
+Name: Alana Pagel
+Balance: 96124963.59$
+Name: Kathe Vath
+Balance: 104176470.01$
+Name: Sara Flenniken
+Balance: 103489869.36$
+Name: Shauna Irick
+Balance: 99118236.33$
+Name: Leon Brokaw
+Balance: 100928197.38$
+Name: Guillermina Haymond
+Balance: 101372350.52$
+Name: Sherie Pestana
+Balance: 100772483.38$
+Name: Shirlene Reichard
+Balance: 98346223.39$
+Name: Jerrica Kafka
+Balance: 100608943.69$
+Name: Nida Garg
+Balance: 96472274.15$
+Name: Ellamae Marshell
+Balance: 101834753.75$
+Name: Ranee Ricca
+Balance: 96274803.75$
+Name: Elois Philip
+Balance: 96767866.34$
+Name: Roland June
+Balance: 99245215.19$
+Name: Marvis Lemarr
+Balance: 95732058.60$
+Name: Burl Friese
+Balance: 100232415.35$
+Name: Reggie Olah
+Balance: 104652507.25$
+Name: Isis Ballard
+Balance: 100707466.76$
+Name: Bernardine Munford
+Balance: 104148280.34$
+Name: Johnette Greenhaw
+Balance: 103363451.29$
+Name: Olimpia Ryan
+Balance: 103335200.20$
+Name: Sha Duguay
+Balance: 96926529.60$
+Name: Donn Kurt
+Balance: 100902436.77$
+Name: Joel Cao
+Balance: 96522430.27$
+Name: Jamika Epstein
+Balance: 104204388.84$
+Name: Moira Haar
+Balance: 102498737.43$
+Name: Tiffani Bellantoni
+Balance: 98824115.92$
+Name: Tennille Hanzlik
+Balance: 101933904.75$
+Name: Dwayne Bazile
+Balance: 96723845.51$
+Name: Luigi Blaise
+Balance: 103007704.71$
+Name: Paris Fagan
+Balance: 100517016.89$
+Name: Ngan Raynor
+Balance: 100211914.45$
+Name: Alden Mirarchi
+Balance: 102954898.08$
+Name: Tangela Fernandez
+Balance: 99629769.30$
+Name: Liza Breaux
+Balance: 103806099.54$
+Name: Annice Lipman
+Balance: 97834836.56$
+Name: Broderick Arcand
+Balance: 102290753.08$
+Name: Terry Cygan
+Balance: 97565192.65$
+Name: Adriene Janz
+Balance: 104240885.04$
+Name: Joaquin Larocque
+Balance: 96872074.82$
+Name: Sabrina Hilger
+Balance: 102611005.33$
+Name: Glayds Hinch
+Balance: 101671371.99$
+Name: Nereida Mickley
+Balance: 101278626.39$
+Name: Elaina Hupp
+Balance: 103722629.82$
+Name: Karissa Brousseau
+Balance: 98142582.89$
+Name: America Kyle
+Balance: 99146314.73$
+Name: Lucie Nakata
+Balance: 102881106.42$
+Name: Chantel Grewell
+Balance: 96314595.10$
+Name: Logan Hogans
+Balance: 97531477.92$
+Name: Herb Mojarro
+Balance: 96535514.77$
+
+Total provisions: 147701.05$
+Total transfers: 992219.40$
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_8"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_8" onclick="Code.viewDiff(8)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_8" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>9</td>
+    <td><pre id="input_9">typical_usage
+Banka na RM
+50
+Alana Pagel
+101700188.75$
+Kathe Vath
+102749600.72$
+Sara Flenniken
+95808303.27$
+Shauna Irick
+98233188.53$
+Leon Brokaw
+102984232.41$
+Guillermina Haymond
+100886270.14$
+Sherie Pestana
+103219015.96$
+Shirlene Reichard
+96886005.62$
+Jerrica Kafka
+99712212.76$
+Nida Garg
+102633982.37$
+Ellamae Marshell
+95266719.47$
+Ranee Ricca
+102084360.58$
+Elois Philip
+101149352.72$
+Roland June
+102516966.28$
+Marvis Lemarr
+96427857.24$
+Burl Friese
+102181211.03$
+Reggie Olah
+102746803.60$
+Isis Ballard
+99756680.51$
+Bernardine Munford
+95214547.53$
+Johnette Greenhaw
+101991832.09$
+Olimpia Ryan
+97636801.98$
+Sha Duguay
+102242292.79$
+Donn Kurt
+99876309.52$
+Joel Cao
+97264845.16$
+Jamika Epstein
+96300865.21$
+Moira Haar
+101643632.26$
+Tiffani Bellantoni
+98792920.62$
+Tennille Hanzlik
+101024023.55$
+Dwayne Bazile
+101853953.22$
+Luigi Blaise
+95080738.07$
+Paris Fagan
+104197628.65$
+Ngan Raynor
+95305346.15$
+Alden Mirarchi
+103670736.28$
+Tangela Fernandez
+98500457.50$
+Liza Breaux
+95184395.58$
+Annice Lipman
+104831356.54$
+Broderick Arcand
+103925804.45$
+Terry Cygan
+95709370.87$
+Adriene Janz
+104829793.24$
+Joaquin Larocque
+96244955.90$
+Sabrina Hilger
+100027859.67$
+Glayds Hinch
+104873654.04$
+Nereida Mickley
+96699640.68$
+Elaina Hupp
+97667341.23$
+Karissa Brousseau
+100898639.32$
+America Kyle
+101220311.84$
+Lucie Nakata
+98012408.74$
+Chantel Grewell
+98549874.74$
+Logan Hogans
+96580512.25$
+Herb Mojarro
+100660548.88$
+transaction
+FlatAmount
+99057.25$
+9875.24$
+1 35
+transaction
+FlatAmount
+103500.53$
+10154.94$
+4 38
+transaction
+FlatAmount
+96350.81$
+9622.24$
+3 3
+transaction
+FlatAmount
+96042.11$
+9659.81$
+20 9
+transaction
+FlatAmount
+97621.89$
+9992.49$
+6 18
+transaction
+FlatPercent
+98988.62$
+18
+25 44
+transaction
+FlatAmount
+97488.60$
+10001.68$
+9 21
+transaction
+FlatPercent
+95985.31$
+8
+49 49
+transaction
+FlatPercent
+104994.47$
+23
+44 22
+transaction
+FlatPercent
+97835.38$
+44
+16 39
+print
+stop
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">3294</span>
+    	</div>
+    	<pre id="output_9">Transaction amount: 99057.25$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 103500.53$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 96350.81$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 96042.11$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 97621.89$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 98988.62$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 97488.60$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 95985.31$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 104994.47$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 97835.38$
+Transaction description: FlatPercent
+Transaction successful? true
+Name: Banka na RM
+
+Name: Alana Pagel
+Balance: 101700188.75$
+Name: Kathe Vath
+Balance: 102640668.23$
+Name: Sara Flenniken
+Balance: 95808303.27$
+Name: Shauna Irick
+Balance: 98223566.29$
+Name: Leon Brokaw
+Balance: 102870576.94$
+Name: Guillermina Haymond
+Balance: 100886270.14$
+Name: Sherie Pestana
+Balance: 103111401.58$
+Name: Shirlene Reichard
+Balance: 96886005.62$
+Name: Jerrica Kafka
+Balance: 99712212.76$
+Name: Nida Garg
+Balance: 102622534.20$
+Name: Ellamae Marshell
+Balance: 95266719.47$
+Name: Ranee Ricca
+Balance: 102084360.58$
+Name: Elois Philip
+Balance: 101149352.72$
+Name: Roland June
+Balance: 102516966.28$
+Name: Marvis Lemarr
+Balance: 96427857.24$
+Name: Burl Friese
+Balance: 102181211.03$
+Name: Reggie Olah
+Balance: 102605920.82$
+Name: Isis Ballard
+Balance: 99756680.51$
+Name: Bernardine Munford
+Balance: 95312169.42$
+Name: Johnette Greenhaw
+Balance: 101991832.09$
+Name: Olimpia Ryan
+Balance: 97531100.06$
+Name: Sha Duguay
+Balance: 102339781.39$
+Name: Donn Kurt
+Balance: 99981303.99$
+Name: Joel Cao
+Balance: 97264845.16$
+Name: Jamika Epstein
+Balance: 96300865.21$
+Name: Moira Haar
+Balance: 101526825.80$
+Name: Tiffani Bellantoni
+Balance: 98792920.62$
+Name: Tennille Hanzlik
+Balance: 101024023.55$
+Name: Dwayne Bazile
+Balance: 101853953.22$
+Name: Luigi Blaise
+Balance: 95080738.07$
+Name: Paris Fagan
+Balance: 104197628.65$
+Name: Ngan Raynor
+Balance: 95305346.15$
+Name: Alden Mirarchi
+Balance: 103670736.28$
+Name: Tangela Fernandez
+Balance: 98500457.50$
+Name: Liza Breaux
+Balance: 95184395.58$
+Name: Annice Lipman
+Balance: 104930413.79$
+Name: Broderick Arcand
+Balance: 103925804.45$
+Name: Terry Cygan
+Balance: 95709370.87$
+Name: Adriene Janz
+Balance: 104933293.77$
+Name: Joaquin Larocque
+Balance: 96342791.28$
+Name: Sabrina Hilger
+Balance: 100027859.67$
+Name: Glayds Hinch
+Balance: 104873654.04$
+Name: Nereida Mickley
+Balance: 96699640.68$
+Name: Elaina Hupp
+Balance: 97667341.23$
+Name: Karissa Brousseau
+Balance: 100868484.85$
+Name: America Kyle
+Balance: 101220311.84$
+Name: Lucie Nakata
+Balance: 98012408.74$
+Name: Chantel Grewell
+Balance: 98549874.74$
+Name: Logan Hogans
+Balance: 96580512.25$
+Name: Herb Mojarro
+Balance: 100652870.08$
+
+Total provisions: 151999.06$
+Total transfers: 987864.97$
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_9"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_9" onclick="Code.viewDiff(9)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_9" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>10</td>
+    <td><pre id="input_10">typical_usage
+Banka na RM
+50
+Alana Pagel
+97208660.98$
+Kathe Vath
+101031859.59$
+Sara Flenniken
+98993361.81$
+Shauna Irick
+99445089.53$
+Leon Brokaw
+102954116.63$
+Guillermina Haymond
+102026490.95$
+Sherie Pestana
+97584891.35$
+Shirlene Reichard
+103280654.29$
+Jerrica Kafka
+96439073.09$
+Nida Garg
+98588662.15$
+Ellamae Marshell
+95219405.62$
+Ranee Ricca
+104490708.00$
+Elois Philip
+103530973.19$
+Roland June
+100680562.19$
+Marvis Lemarr
+100894831.76$
+Burl Friese
+96314569.76$
+Reggie Olah
+98176475.81$
+Isis Ballard
+101542803.90$
+Bernardine Munford
+98246480.98$
+Johnette Greenhaw
+102477013.37$
+Olimpia Ryan
+102884214.13$
+Sha Duguay
+98621044.49$
+Donn Kurt
+104364526.08$
+Joel Cao
+100137693.57$
+Jamika Epstein
+98318167.63$
+Moira Haar
+104275902.42$
+Tiffani Bellantoni
+101096875.87$
+Tennille Hanzlik
+96429561.11$
+Dwayne Bazile
+97552487.87$
+Luigi Blaise
+99270860.20$
+Paris Fagan
+99686144.46$
+Ngan Raynor
+100355376.21$
+Alden Mirarchi
+99649951.82$
+Tangela Fernandez
+103722296.90$
+Liza Breaux
+101981985.20$
+Annice Lipman
+98032120.34$
+Broderick Arcand
+95400036.72$
+Terry Cygan
+103447747.60$
+Adriene Janz
+97925138.94$
+Joaquin Larocque
+102056324.46$
+Sabrina Hilger
+95288948.54$
+Glayds Hinch
+104462936.33$
+Nereida Mickley
+99517126.90$
+Elaina Hupp
+95109020.38$
+Karissa Brousseau
+96072753.06$
+America Kyle
+104755087.32$
+Lucie Nakata
+96069592.10$
+Chantel Grewell
+103827236.28$
+Logan Hogans
+97686098.63$
+Herb Mojarro
+100399469.58$
+transaction
+FlatAmount
+101439.65$
+9664.28$
+23 25
+transaction
+FlatAmount
+98504.49$
+9669.72$
+26 27
+transaction
+FlatPercent
+103203.84$
+35
+8 23
+transaction
+FlatPercent
+102225.43$
+27
+19 3
+transaction
+FlatAmount
+99200.61$
+10016.87$
+34 35
+transaction
+FlatPercent
+103723.10$
+13
+26 23
+transaction
+FlatAmount
+104846.94$
+10102.95$
+43 17
+transaction
+FlatAmount
+99778.05$
+10065.27$
+22 5
+transaction
+FlatPercent
+102948.42$
+10
+37 39
+transaction
+FlatPercent
+99028.27$
+16
+4 2
+print
+stop
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">3298</span>
+    	</div>
+    	<pre id="output_10">Transaction amount: 101439.65$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 98504.49$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 103203.84$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 102225.43$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 99200.61$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 103723.10$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 104846.94$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 99778.05$
+Transaction description: FlatAmount
+Transaction successful? true
+Transaction amount: 102948.42$
+Transaction description: FlatPercent
+Transaction successful? true
+Transaction amount: 99028.27$
+Transaction description: FlatPercent
+Transaction successful? true
+Name: Banka na RM
+
+Name: Alana Pagel
+Balance: 97208660.98$
+Name: Kathe Vath
+Balance: 101031859.59$
+Name: Sara Flenniken
+Balance: 99092390.08$
+Name: Shauna Irick
+Balance: 99547314.96$
+Name: Leon Brokaw
+Balance: 102839243.88$
+Name: Guillermina Haymond
+Balance: 102126269.00$
+Name: Sherie Pestana
+Balance: 97584891.35$
+Name: Shirlene Reichard
+Balance: 103280654.29$
+Name: Jerrica Kafka
+Balance: 96299748.20$
+Name: Nida Garg
+Balance: 98588662.15$
+Name: Ellamae Marshell
+Balance: 95219405.62$
+Name: Ranee Ricca
+Balance: 104490708.00$
+Name: Elois Philip
+Balance: 103530973.19$
+Name: Roland June
+Balance: 100680562.19$
+Name: Marvis Lemarr
+Balance: 100894831.76$
+Name: Burl Friese
+Balance: 96314569.76$
+Name: Reggie Olah
+Balance: 98176475.81$
+Name: Isis Ballard
+Balance: 101647650.84$
+Name: Bernardine Munford
+Balance: 98246480.98$
+Name: Johnette Greenhaw
+Balance: 102347187.19$
+Name: Olimpia Ryan
+Balance: 102884214.13$
+Name: Sha Duguay
+Balance: 98621044.49$
+Name: Donn Kurt
+Balance: 104254682.76$
+Name: Joel Cao
+Balance: 100233516.58$
+Name: Jamika Epstein
+Balance: 98318167.63$
+Name: Moira Haar
+Balance: 104377342.07$
+Name: Tiffani Bellantoni
+Balance: 100871494.57$
+Name: Tennille Hanzlik
+Balance: 96528065.60$
+Name: Dwayne Bazile
+Balance: 97552487.87$
+Name: Luigi Blaise
+Balance: 99270860.20$
+Name: Paris Fagan
+Balance: 99686144.46$
+Name: Ngan Raynor
+Balance: 100355376.21$
+Name: Alden Mirarchi
+Balance: 99649951.82$
+Name: Tangela Fernandez
+Balance: 103722296.90$
+Name: Liza Breaux
+Balance: 101872767.72$
+Name: Annice Lipman
+Balance: 98131320.95$
+Name: Broderick Arcand
+Balance: 95400036.72$
+Name: Terry Cygan
+Balance: 103334504.38$
+Name: Adriene Janz
+Balance: 97925138.94$
+Name: Joaquin Larocque
+Balance: 102159272.88$
+Name: Sabrina Hilger
+Balance: 95288948.54$
+Name: Glayds Hinch
+Balance: 104462936.33$
+Name: Nereida Mickley
+Balance: 99517126.90$
+Name: Elaina Hupp
+Balance: 94994070.49$
+Name: Karissa Brousseau
+Balance: 96072753.06$
+Name: America Kyle
+Balance: 104755087.32$
+Name: Lucie Nakata
+Balance: 96069592.10$
+Name: Chantel Grewell
+Balance: 103827236.28$
+Name: Logan Hogans
+Balance: 97686098.63$
+Name: Herb Mojarro
+Balance: 100399469.58$
+
+Total provisions: 152864.16$
+Total transfers: 1014898.80$
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_10"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_10" onclick="Code.viewDiff(10)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_10" class="diff"></pre>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+    
+  	<div class="modal fade" id="resetAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="myModalLabel">Warning</h3>
+	  	</div>
+		<div class="modal-body">
+			<p>Are you sure you want to reset the contents of the editor to the starter code?</p>
+		</div>
+  		<div class="modal-footer">
+   			<button type="button" id="btn-reset-yes" value="Yes" data-dismiss="modal" class="btn btn-danger btn-sm">Yes</button>
+   			<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  		</div>
+  		</div>
+  		</div>
+	</div>
+	
+	  	<div class="modal fade" id="yes_i_will_solve" tabindex="-1" role="dialog" aria-labelledby="yes_i_will_solve" aria-hidden="true">
+	  	  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="aprilFoolsLabel">Your solution</h3>
+	  	</div>
+		<div class="modal-body text-center">
+			<div style="margin-bottom: 10px;">
+				<img src="Source_files/yay_happy.gif" class="img-polaroid">
+			</div>
+			<div id="terminal" class="typist-container" style="background-color: rgb(51, 51, 51); color: rgb(221, 221, 221); font-family: monospace; height: 80px;"></div>
+		</div>  	
+		</div>
+		</div>	
+	</div>
+
+<input type="hidden" name="isReadOnly" id="isReadOnly" value="false">
+
+
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+    <p>© CSE 2012 - 2020 | <a href="http://develop.finki.ukim.mk/projects/e-lab">Support &amp; Development</a></p>
+</footer>
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="Source_files/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/dataTables.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/jquery_004.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/typeahead.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/code.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/helper.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/diff_match_patch.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="Source_files/codemirror.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/dialog.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/fullscreen.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/searchcursor.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/search.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/match-highlighter.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/matchbrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/closebrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/clike.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/python.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/shell.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/commonlisp.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/x-mathjax-config;executed=true">
+	MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+	tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+    TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+    messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" src="Source_files/MathJax.js" charset="utf-8"></script>
+<script src="Source_files/jquery_002.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/problem.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/clock.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/editor.js" type="text/javascript" charset="utf-8"></script>
+<script src="Source_files/jquery_003.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function(){
+	
+	var isReadOnly = $('#isReadOnly').val() == "true";
+	var isTimeLimited = $('#isTimeLimited').val() == "true";
+	var hasHistory = $('#hasHistory').val() == "true";
+	
+	$(document).ready(function() {
+		if(!hasHistory) {
+			$('#restore').hide();
+		}
+		$('#warning').hide();
+	});
+
+	var textArea = document.getElementById('code');
+	var mode = "text/x-java";
+	
+	Code.Editor.init(textArea, mode, isReadOnly);
+	
+	Code.Execute = {
+		run : function() {
+			Code.Editor.clearErrors();
+			var code = Code.Editor.getCode();
+		    $.post('/code/run', { 
+		             code : code,
+		             'problemData.id' : 8416
+		        },
+		        function(data) {
+		            $('#output').html("");
+		        	if(data.success) {
+		        		$('#output').removeClass("output-error");
+		                $('#output').addClass("output-success");        		
+		        	} else {
+		        		$('#output').removeClass("output-success");
+		        		$('#output').addClass("output-error");
+		        		Code.Editor.markErrors(data.errors);
+		        	}
+		            $('#output').append(data.output);
+		            if(data.warning) {
+		            	$('#warning').html("");
+		            	$('#warning').append(data.warning);
+		            	$('#warning').show();
+		            	Code.Editor.markErrors(data.errors);
+		            } else {
+		            	$('#warning').hide();
+		            }
+		            $('#problem-revisions').load('/code/revisions', {
+		                'problemData.id' : 8416
+		            }, function() {
+		        		hasHistory = $('#hasHistory').val() == "true";
+		        		if(hasHistory) {
+		        			$('#restore').show();
+		        		}
+		            });
+		        }
+		    );
+		},
+		submit : function() {
+			var code = Code.Editor.getCode();
+	    	$.post('/submit', { 
+	             code : code,
+	             'problemData.id' : 8416
+	        },
+	        function(data) {
+	            $('#submission-output').html(data);
+	            $('#problem-revisions').load('/code/revisions', {
+	                'problemData.id' : 8416
+	            }, function(){
+	        		var hasHistory = $('#hasHistory').val() == "true";
+	        		if(hasHistory) {
+	        			$('#restore').show();
+	        		}
+	            });
+	            Code.Execute.attempts();
+	            $('html,body').animate({scrollTop: $("#submission-output").offset().top - 40},'slow');
+	        });
+		},
+		save : function(autosave) {
+			var code = Code.Editor.getCode();
+			$.post('/code/save', { 
+		        code : code,
+		        'problemData.id' : 8416
+		   		},
+		   		function(data) {
+			    	if(autosave) {
+			    		$("#auto-saved").fadeIn(300).delay(2000).fadeOut(300);
+			    	} else {
+			    		$("#saved").fadeIn(300).delay(2000).fadeOut(300);
+					}
+			    	$('#problem-revisions').load('/code/revisions', {
+		            	'problem.id' : 8416
+		        	});
+		   	});
+		},
+		reset : function() {
+			$.post('/code/reset', { 
+		         'problemData.id' : 8416
+		    	},
+		    	function(data) {
+		    		Code.Editor.setCode(data);
+		    	}
+			);
+		},
+		restore : function(){
+			var solutionHistoryId = $('#solutionHistory').val();
+			if(solutionHistoryId) {
+				$('#code').load(
+			            '/code/loadsolutionfromhistory',
+			            {
+			                'solutionHistoryId' : solutionHistoryId
+			            }, function(data) {
+			            	Code.Editor.setCode(data);
+			            }
+			     );
+			}
+		},
+		attempts: function() {
+			$('#attempts').load('/code/attempts', {
+            	'problem.id' : 5926
+            }, function() {
+            	var exceeded = $('#exceeded').val();
+            	if(exceeded == "true") {
+            		$('#submit').attr('disabled', true);
+            	}
+            });
+		}
+	}
+	$('#run').click(Code.Execute.run);
+	$('#submit').click(Code.Execute.submit);
+	//$('#save').click(Code.Execute.save(false));
+	$('#btn-reset-yes').click(Code.Execute.reset);
+	$('#restore').click(Code.Execute.restore);
+	// use closure
+	$('#format').click(function(){ return Code.Editor.format(8416) });
+    $('#analyze').click(function() { return Code.Editor.analyze(8416, function(data) {
+        console.log(data);
+        if(data.errors) {
+            $("#clang_output").show();
+            $("#output_link").attr("href", data.uri);
+        } else {
+            $("#clang_output").hide();
+        }
+    })});
+	var working = $('#working').hide();
+	$(document).ajaxStart(function() {
+    	$('#buttons').hide();
+        working.show();
+    }).ajaxStop(function() {
+        working.hide();
+        $('#buttons').show();
+    });
+	$('#select-theme').change(function(){
+		Code.Editor.setTheme($(this).val());
+	});
+	  
+	
+	$('.CodeMirror').jfontsize({
+		btnMinusClasseId: '#minus-btn',
+	    btnDefaultClasseId: '#default-btn',
+	    btnPlusClasseId: '#plus-btn',
+	    btnMinusMaxHits: 5,
+	    btnPlusMaxHits: 8,
+	    sizeChange: 1
+	});
+	
+	// Create a newDate() object
+	var dateOpened = new Date(1574267362000);
+	var dateEnd = new Date(parseInt($('#dateEnd').val()));
+	var serverTime = 1580759283319;
+	Code.Clock.init($('#time'), dateOpened, serverTime, dateEnd);
+	
+	if(isTimeLimited && !isReadOnly) {
+		Code.Clock.initTimeLimited($('#time-left'), dateEnd, serverTime, "/courses/finish?problemDataId=8416&courseId=111");	
+	}
+	
+	var dmp = new diff_match_patch();
+	
+	Code.viewDiff = function(test) {
+		var text2 = $('#output_' + test).html();
+		var text1 = $('#your_output_' + test).html();
+		var d = dmp.diff_main(text1, text2);
+		var ds = dmp.diff_prettyHtml(d);
+		$('#diff_' + test).html(ds);
+		$('#diff_' + test).show();
+	}
+	$('#setAutoBtn').hide();
+    $('#setFixedBtn').click(function() {
+        $(this).hide();
+        $('#setAutoBtn').show();
+        Code.Editor.setAutoSize();
+    });
+    $('#setAutoBtn').click(function() {
+        $(this).hide();
+        $('#setFixedBtn').show();
+        Code.Editor.setFixedSize();
+    });
+
+	$(document).bind('keydown', 'ctrl+shift+5', Code.Execute.run);
+	$(document).bind('keydown', 'ctrl+shift+6', Code.Execute.submit);
+	$(document).bind('keydown', 'ctrl+shift+0', Code.Execute.reset);
+
+	$('#terminal').typist({
+  		height: 80,
+  		speed : 'slow'
+	});
+	
+	 /* $('#yes_i_will_solve').on('shown.bs.modal', function(){
+		$('#terminal').typist('prompt')
+		  .typist('type', 'Кој ден сме денес?')
+		  .typist('echo', '1 Април')
+		  .typist('echo', 'Априлилили!');
+		(function(){function c(){var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},15500)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var f="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){console.warn("Could not find a node of the right size. Please try a different page.");return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()
+	}); */
+	
+})();
+</script>
+
+      
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('#btn-icon').toggleClass("fa-chevron-right fa-chevron-left");
+    });
+    </script>
+    
+</body></html>
