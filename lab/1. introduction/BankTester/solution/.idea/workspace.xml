@@ -17,6 +17,9 @@
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
@@ -50,9 +53,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1245" y="240" width="390" height="646" key="#com.intellij.ide.util.MemberChooser" timestamp="1580764133442">
+    <state x="1245" y="240" width="390" height="646" key="#com.intellij.ide.util.MemberChooser" timestamp="1580846212212">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1245" y="240" width="390" height="646" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580764133442" />
+    <state x="1245" y="240" width="390" height="646" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580846212212" />
+    <state x="711" y="167" key="SettingsEditor" timestamp="1580843035488">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="711" y="167" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580843035488" />
+    <state x="1135" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1580842465038">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1135" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580842465038" />
   </component>
 </project>

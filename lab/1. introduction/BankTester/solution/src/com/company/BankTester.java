@@ -1,33 +1,41 @@
 package com.company;
-
-import java.text.DecimalFormat;
 import java.util.*;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.text.DecimalFormat;
+import java.util.regex.Pattern;
 
 class Helpers {
-    public static long moneyToNumeric(String money){
+    public static double moneyToNumeric(String money){
         //money format is "20.34$"
-        String[] split = money.split(Pattern.quote("."));
-        long first = Long.parseLong(split[0]);
-        long second = Long.parseLong(split[1].split(Pattern.quote("$"))[0]);
-        return first + second;
+        //String[] split = money.split(Pattern.quote("."));
+        //double first = Double.parseDouble(split[0]);
+        //double second = Double.parseDouble(split[1].split(Pattern.quote("$"))[0]);
+        //return first + second;
+        //THE ABOVE CODE WAS CAUSING PROBLEMS - NOT TRANSFORMING CORRECTLY IN SOME CASES, DONT USE IT!!
+
+        return Double.parseDouble(money.substring(0,money.length()-1));
     }
 
-    public static String numericToMoney(long money){
-        return new DecimalFormat("0.00").format(money) + "$";
+    public static String numericToMoney(double money){
+        return String.format("%.2f$", money).replace(",",".");
+        //return new DecimalFormat("0.00").format(money) + "$";
     }
 }
 
 class Account {
     private long id;
     private String name;
-    private long balance;
+    private double balance;
 
     public Account(String name, String balance) {
         this.id = new Random().nextLong();
         this.name = name;
         setBalance(balance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override
@@ -53,7 +61,7 @@ class Account {
         return Helpers.numericToMoney(this.balance);
     }
 
-    public long getBalance(){
+    public double getBalance(){
         return this.balance;
     }
 
@@ -61,24 +69,20 @@ class Account {
         this.balance = Helpers.moneyToNumeric(balance);
     }
 
-    public void addFunds(long amount){
-        this.balance += amount;
-    }
+    public void addFunds(double amount){ this.balance += amount; }
 
-    public void substractFunds(long amount){
-        this.balance -= amount;
-    }
+    public void subtractFunds(double amount){ this.balance -= amount; }
 }
 
 abstract class Transaction {
     private long id;
 
-    protected long fromId;
-    protected long toId;
+    protected double fromId;
+    protected double toId;
     protected String description;
-    protected long amount;
+    protected double amount;
 
-    protected Transaction(long fromId, long toId, String description, String amount) {
+    protected Transaction(double fromId, double toId, String description, String amount) {
         this.id = new Random().nextLong();
         this.fromId = fromId;
         this.toId = toId;
@@ -87,93 +91,105 @@ abstract class Transaction {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(fromId, toId, description, amount);
+    }
+
+    @Override
     public boolean equals(Object obj) {
         Transaction transaction = (Transaction)obj;
         return obj != null && this.id == transaction.getId();
     }
 
-    public long getId(){
-        return this.id;
-    }
+    public abstract double getProvision();
 
-    public long getFromId() {
+    public long getId() { return this.id; }
+
+    public double getFromId() {
         return this.fromId;
     }
 
-    public long getToId() {
+    public double getToId() {
         return this.toId;
     }
 
-    public String getDescription() {
-        return this.description;
-    }
+    public String getDescription() { return this.description; }
 
     public String getAmount() {
         return Helpers.numericToMoney(this.amount);
     }
 
-    public long getAmountNumeric() {
+    public double getAmountNumeric() {
         return this.amount;
     }
 }
 
 class FlatAmountProvisionTransaction extends Transaction {
-    private long flatProvision;
+    private double flatProvision;
 
-    public FlatAmountProvisionTransaction(long fromId, long toId, String amount, String flatProvision) {
+    public FlatAmountProvisionTransaction(double fromId, double toId, String amount, String flatProvision) {
         super(fromId, toId, "FlatAmount", amount);
         this.flatProvision = Helpers.moneyToNumeric(flatProvision);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    public String getFlatAmountString(){
-        return Helpers.numericToMoney(flatProvision);
-    }
-
-    public long getFlatProvision(){
-        return this.flatProvision;
-    }
-}
-
-class FlatPercentProvisionTransaction extends Transaction {
-    private int percent;
-
-    public FlatPercentProvisionTransaction(long fromId, long toId, String amount, int centsPerDollar) {
-        super(fromId, toId, "FlatPercent", amount);
-        this.percent = centsPerDollar;
-    }
-
-    public int getPercent(){
-        return this.percent;
-    }
-
-    public long getProvision(){
-        // rounder = 15
-        // percent = 5
-        // 5 %
-        long rounded = Math.round(this.amount);
-        return (percent * this.amount) / 100;
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), flatProvision);
     }
 
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
+    }
+
+    @Override
+    public double getProvision() { return this.flatProvision; }
+}
+
+class FlatPercentProvisionTransaction extends Transaction {
+    private int flatPercent;
+
+    public FlatPercentProvisionTransaction(double fromId, double toId, String amount, int centsPerDollar) {
+        super(fromId, toId, "FlatPercent", amount);
+        this.flatPercent = centsPerDollar;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), flatPercent);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public double getProvision(){
+        // rounder = 15
+        // percent = 5
+        // 5 %
+        //double rounded = Math.round(this.amount);
+        return flatPercent / 100.0 * (int)super.getAmountNumeric();
     }
 }
 
 class Bank {
     private String name;
     private Account[] accounts;
-    private ArrayList<Transaction> transactions;
+    private double totalTransfers;
+    private double totalProvision;
 
     public Bank(String name, Account accounts[]) {
         this.name = name;
         this.accounts = Arrays.copyOf(accounts, accounts.length);
-        this.transactions = new ArrayList<>();
+        this.totalTransfers = 0;
+        this.totalProvision = 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, accounts, totalTransfers, totalProvision);
     }
 
     @Override
@@ -229,59 +245,40 @@ class Bank {
     }
 
     public boolean makeTransaction(Transaction t) {
-        if(t.getToId() == t.getFromId()) return false;
+        Account from = Arrays.asList(this.accounts)
+                .stream()
+                .filter(x -> x.getId() == t.getFromId())
+                .findFirst()
+                .orElse(null);
+        Account to = Arrays.asList(this.accounts)
+                .stream()
+                .filter(x -> x.getId() == t.getToId())
+                .findFirst()
+                .orElse(null);
 
-        Account from = null;
-        Account to = null;
-        long provision = calculateProvisionForTransaction(t);
-
-        for(Account account : this.accounts){
-            if(from != null && to != null) break;
-
-            if(account.getId() == t.getToId()){
-                to = account;
-            }
-
-            if(account.getId() == t.getFromId()){
-                from = account;
-                if(account.getBalance() < t.getAmountNumeric() + provision) {
-                    return false;
-                }
-            }
-        }
+        double totalAmount = t.getAmountNumeric() + t.getProvision();
 
         if(from == null || to == null) return false;
+        if(from.getBalance() < totalAmount) return false;
 
-        from.substractFunds(t.getAmountNumeric() + provision);
+        from.subtractFunds(totalAmount);
         to.addFunds(t.getAmountNumeric());
-        this.transactions.add(t);
+
+        this.totalProvision += t.getProvision();
+        this.totalTransfers += t.getAmountNumeric();
+
         return true;
     }
 
     public String totalTransfers() {
-        long totalAmount = 0;
-        for(Transaction transaction : this.transactions){
-            totalAmount += transaction.getAmountNumeric();
-        }
-        return Helpers.numericToMoney(totalAmount);
+       return Helpers.numericToMoney(this.totalTransfers);
     }
 
     public String totalProvision() {
-        long totalProvision = 0;
-        for(Transaction transaction : this.transactions){
-            totalProvision += calculateProvisionForTransaction(transaction);
-        }
-        return Helpers.numericToMoney(totalProvision);
-    }
-
-    private long calculateProvisionForTransaction(Transaction t){
-        long provision = t instanceof FlatAmountProvisionTransaction
-                ? ((FlatAmountProvisionTransaction) t).getFlatProvision()
-                : ((FlatPercentProvisionTransaction) t).getProvision();
-
-        return provision;
+        return Helpers.numericToMoney(this.totalProvision);
     }
 }
+
 public class BankTester {
 
     public static void main(String[] args) {
@@ -437,3 +434,4 @@ public class BankTester {
 
 
 }
+
