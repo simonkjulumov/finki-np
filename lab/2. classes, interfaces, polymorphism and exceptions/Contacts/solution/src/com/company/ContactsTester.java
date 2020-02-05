@@ -222,7 +222,7 @@ class Student {
     }
 
     public Contact getLatestContact() {
-        Contact latestContact = contacts.get(0);
+        Contact latestContact = contacts.get(contacts.size() - 1);
         for(Contact contact : contacts){
             if(contact.isNewerThan(latestContact)){
                 latestContact = contact;
@@ -238,21 +238,20 @@ class Student {
 
     @Override
     public String toString() {
-        StringBuilder telefonskiKontakti = new StringBuilder();
-        StringBuilder emailKontakti = new StringBuilder();
+        StringJoiner phoneContacts = new StringJoiner(", ");
+        StringJoiner emailContacts = new StringJoiner(", ");
+
         for(Contact contact : contacts) {
             if(contact.getType() == "Phone") {
                 PhoneContact phoneContact = (PhoneContact)contact;
-                telefonskiKontakti.append("\"" + phoneContact.getPhone() + "\", ");
+                phoneContacts.add("\"" + phoneContact.getPhone() + "\"");
             }
             else if(contact.getType() == "Email") {
                 EmailContact emailContact = (EmailContact)contact;
-                emailKontakti.append("\"" + emailContact.getEmail() + "\", ");
+                emailContacts.add("\"" + emailContact.getEmail() + "\"");
             }
         }
 
-        telefonskiKontakti.setLength(telefonskiKontakti.length() - 3);
-        emailKontakti.setLength(emailKontakti.length() - 3);
 
         return "{" +
                 "\"ime\":" + "\"" + firstName + "\"" +
@@ -260,8 +259,8 @@ class Student {
                 ", \"vozrast\":" + age +
                 ", \"grad\":" + "\"" + city + "\"" +
                 ", \"indeks\":"  + index +
-                ", \"telefonskiKontakti\":[" + telefonskiKontakti.toString() +
-                "], \"emailKontakti\":[" + emailKontakti.toString() +"]}";
+                ", \"telefonskiKontakti\":[" + phoneContacts.toString() +
+                "], \"emailKontakti\":[" + emailContacts.toString() +"]}";
     }
 }
 
@@ -306,28 +305,31 @@ class Faculty {
     }
 
     public Student getStudentWithMostContacts() {
-        int maxContacts = 0;
-        Student studentWithMostContacts = null;
+
+        int mostContacts = 0;
         for(Student student : students) {
-            if(student.getContactsLength() > maxContacts){
-                maxContacts = student.getContactsLength();
-                studentWithMostContacts = student;
+            if(student.getContactsLength() > mostContacts){
+                mostContacts = student.getContactsLength();
             }
         }
 
-        return studentWithMostContacts;
+        int finalMostContacts = mostContacts;
+        return students
+                .stream()
+                .filter(x -> x.getContactsLength() == finalMostContacts)
+                .max(Comparator.comparing(Student::getIndex))
+                .get();
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringJoiner email = new StringJoiner(", ");
         for(Student s : students){
-            sb.append("\"" + s + "\", ");
+            email.add(s.toString());
         }
-        sb.setLength(sb.length() - 3);
 
         return "{\"fakultet\":" +  "\"" + name + "\"" +
-                ", \"studenti\":[" +  sb.toString() +
+                ", \"studenti\":[" +  email.toString() +
                 "]}";
     }
 }
