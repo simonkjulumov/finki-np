@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Телефонски именик | Code</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" media="screen" href="source_files/fonts.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap-yety.css">
+<link rel="stylesheet" media="screen" href="source_files/font-awesome.css">
+<!-- <link rel="stylesheet" media="screen" href="/public/DataTables/media/css/jquery.dataTables.min.css"> -->
+<link rel="stylesheet" media="screen" href="source_files/dataTables.css">
+<link rel="stylesheet" media="screen" href="source_files/main.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/dialog.css">
+<link rel="stylesheet" href="source_files/fullscreen.css">
+<link rel="stylesheet" href="source_files/neat.css">
+<link rel="stylesheet" href="source_files/elegant.css">
+<link rel="stylesheet" href="source_files/erlang-dark.css">
+<link rel="stylesheet" href="source_files/night.css">
+<link rel="stylesheet" href="source_files/monokai.css">
+<link rel="stylesheet" href="source_files/cobalt.css">
+<link rel="stylesheet" href="source_files/eclipse.css">
+<link rel="stylesheet" href="source_files/rubyblue.css">
+<link rel="stylesheet" href="source_files/lesser-dark.css">
+<link rel="stylesheet" href="source_files/xq-dark.css">
+<link rel="stylesheet" href="source_files/ambiance.css">
+<link rel="stylesheet" href="source_files/blackboard.css">
+<link rel="stylesheet" href="source_files/vibrant-ink.css">
+
+<link rel="shortcut icon" type="image/png" href="http://code.finki.ukim.mk/public/images/favicon.ico">        <style>    .typist-container {      overflow: hidden;      padding-left: 4px;    }    .typist-container p {      margin: 0 0 3px;    }    .typist-container p.prompt {      margin: 5px 0;    }    </style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+    <body class=""><div id="MathJax_Message" style="display: none;"></div>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+         <div class="navbar-header">
+		  	<a class="logo" href="http://code.finki.ukim.mk/" title="Go to home page">
+	<img src="source_files/logo.png" alt="Code">
+</a> 
+<!-- <a class="logo-title brand" href="/" title="Go to home page">Code</a> -->		  	            	<a class="logo-title" href="http://code.finki.ukim.mk/course/111/" title="Go to course problem sets index page">Напредно програмирање 2019/2020</a>
+          			  	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+          	</button>          
+		 </div>
+		<div class="navbar-collapse collapse" id="navbar-main">
+          	<ul class="nav navbar-nav">
+            	          	</ul>
+        
+        	<ul class="nav navbar-nav navbar-right">
+          				            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_languages">
+		<i class="fa fa-flag fa-fw"></i> Language <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_languages">
+       	<li><a href="http://code.finki.ukim.mk/langauge?locale=mk&amp;path=%2Fcourse%2F111%2Fproblem%2F5929%2F">Macedonian</a></li>
+		<li><a href="http://code.finki.ukim.mk/langauge?locale=en&amp;path=%2Fcourse%2F111%2Fproblem%2F5929%2F">English</a></li>
+    </ul>
+</li>		            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_courses">
+		<i class="fa fa-th fa-fw"></i> Courses <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_courses">
+        			<li><a href="http://code.finki.ukim.mk/course/61/"><i class="fa fa-angle-right fa-fw"></i> Алгоритми и податочни структури 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/48/"><i class="fa fa-angle-right fa-fw"></i> Алогоритми и податочни структури 2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/88/"><i class="fa fa-angle-right fa-fw"></i> Визуелно програмирање 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/111/"><i class="fa fa-angle-right fa-fw"></i> Напредно програмирање 2019/2020</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/37/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2014/2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/52/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2015/2016</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/86/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/102/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2018/2019</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/43/"><i class="fa fa-angle-right fa-fw"></i> Основи на веб дизајн</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/60/"><i class="fa fa-angle-right fa-fw"></i> Системи на знаење 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/30/"><i class="fa fa-angle-right fa-fw"></i> Структурно програмирање 2014</a></li> 
+		    </ul>
+</li>	            	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user">
+		<i class="fa fa-user fa-fw"></i> Симон Ќулумов <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user">
+        <li>
+			<a tabindex="-1" href="#"><i class="fa fa-eye fa-fw"></i> Student</a>
+		</li>	        
+        <li class="divider"></li>
+        <li>
+			<a href="http://code.finki.ukim.mk/logout"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+		</li>
+       </ul>
+</li>
+		         	        </ul>
+         </div>
+          
+	</div>
+</div>
+
+    <div class="container-fluid">
+        <div class="page-header">
+	<h2><i class="fa fa-angle-double-right"></i> <a href="http://code.finki.ukim.mk/course/111/problemset/1868/" title="">Исклучоци и File I/O</a>  <small>(3)</small></h2>
+</div>      <div id="wrapper">
+      <button class="btn btn-default btn-xs" id="menu-toggle">
+          <i id="btn-icon" class="fa fa-chevron-right fa-fw"></i>
+      </button>
+      <div id="sidebar-wrapper">
+          <div class="well sidebar-nav">
+                <ul class="nav nav-pills nav-stacked">
+<li class="nav-header">Problems</li>
+	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5928/">1) Пицерија
+        </a></li>
+    	    <li class="active">
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5929/">2) Телефонски именик
+     
+        <i class="icon-star icon-white"></i>
+     
+        </a></li>
+    </ul>          </div><!--/.well -->
+          <div class="help">
+                      </div>
+      </div>
+      <div id="problem-layout">
+      
+
+
+
+    <div id="clock" class="pull-right">
+        <span class="time-label">Opened:</span>
+      <ul>
+          <li id="time">77 дена</li>          
+      </ul>
+    </div>
+    <h3 id="problem-name">Телефонски именик <small>Problem 2 (2 / 26) </small></h3>
+
+<div class="row">    
+    <div id="problem-text" class="col-md-4">    
+    	<p>Во оваа задача треба да имплементирате класа која ќе претставува
+ телефонски именик. Именикот се состои од повеќе контакти при што, за 
+секој контакт се чуваат неговото име и максимум до 5 телефонски броја за
+ тој контакт. За потребите на класата <code>Contact</code> треба да ги имплементирате следниве методи.</p>
+
+<ul>
+<li><code>Contact(String name, String... phonenumber)</code> - 
+конструктор со параметри - името треба да е подолго од 4 караткери, но 
+максимум до 10 карактери и не смее да содржи други знаци освен латинични
+ букви и бројки во спротивно се фрла исклучок од тип <code>InvalidNameException</code>
+ - телефонските броеви мора да се состојат од точно 9 цифри при што 
+првите три цифри се "070", "071", "072", "075","076","077" или "078" во 
+спротивно се фрла исклучок од тип <code>InvalidNumberException</code> - контактот може да содржи максимум 5 броја во спротивно се фрла исклучок <code>MaximumSizeExceddedException</code></li>
+<li><code>getName():String</code> - get метод за името</li>
+<li><code>getNumbers():String[]</code> - get метод за броевите кои треба да се лексикографски подредени (нека враќа копија од оригиналната низа)</li>
+<li><code>addNumber(String phonenumber)</code> - метод кој додава нов 
+број во контактот - за овој метод важат истите ограничувања за форматот 
+на броевите како и во конструкторот</li>
+<li><code>toString():String</code> - враќа текстуален опис во следниот 
+формат Во прв ред името на контактот, во втор ред бројот на телефонски 
+броеви и понатаму во одделни редови секој број поединечно повторно 
+сортирани лексикографски</li>
+<li><code>valueOf(String s):Contact</code> - статички метод кој за 
+дадена тексутална репрезентација на контактот ќе врати соодветен објект -
+ доколку настане било каков проблем при претварањето од тексутална 
+репрезентација во објект Contact треба да се фрли исклучок од тип 
+InvalidFormatException</li>
+</ul>
+
+<p>Користејќи ја класата <code>Contact</code> која ја напишавте сега треба да се развие и класа за телефонски именик <code>PhoneBook</code>. Оваа класа содржи низа од не повеќе од 250 контакти и ги нуди следниве методи</p>
+
+<ul>
+<li><code>PhoneBook()</code> - празен конструктор</li>
+<li><code>addContact(Contact contact):void</code> - додава нов контакт во именикот, притоа доколку се надмине максималниот капацитет од 250 се фрла исклучок <code>MaximumSizeExceddedException</code>
+ - дополнително ограничување е што сите имиња на контакти мора да бидат 
+единствени, доколку контактот што сакате да го додадете има исто име со 
+некој од веќе постоечките контакти треба да фрлите исклучок од типот <code>InvalidNameException</code></li>
+<li><code>getContactForName(String name):Contact</code> - го враќа контактот со соодветното име доколку таков постои во спротивно враќа null</li>
+<li><code>numberOfContacts():int</code> - го враќа бројот на контакти во именикот</li>
+<li><code>getContacts():Contact[]</code> - враќа низа од сите контакти сортирани според нивното име (нека враќа копија од низата)</li>
+<li><code>removeContact(String name):boolean</code> - го брише соодветниот контакт од именикот и раќа true доколку постои, во спротивно враќа false</li>
+<li><code>toString():String</code> - враќа текстуален опис на именикот каде се наредени сите контакти подредени според нивното име, одделени со по еден празен ред</li>
+<li><code>saveAsTextFile(PhoneBook phonebook,String path):boolean</code>
+ - статички метод кој го запишува именикот во текстуална датотека која 
+се наоѓа на локација path,доколку не постои датотеката треба да се 
+креира- методот враќа false само доколку има некаков проблем при 
+запишување на податоците во датотеката</li>
+<li><code>loadFromTextFile(String path):Phonebook</code> - статички 
+метод кој вчитува именик претходно запишан со методот saveAsTextFile - 
+доколку датотеката не постои или неможе да се отвори за читање се 
+пропагира оригиналниот IOException, а доколку настане проблем при 
+парсирањето на текстот од датотеката треба да се фрли исклучок <code>InvalidFormatException</code></li>
+<li><code>getContactsForNumber(String number_prefix):Contact[]</code> - 
+за даден префикс од број (првите неколку цифри) ги враќа сите контакти 
+кои имаат барем еден број со тој префикс - низата не треба да содржи 
+дупликат контакти или null елементи подредена според имињата на 
+контактите</li>
+</ul>
+
+<p>*Сите исклучоци освен IOException треба сами да ги напишете - секаде 
+каде што е можно додате дополнително објаснување или податочни членови 
+во врска со причината за исклучокот</p>
+    </div>
+    <div id="editor" class="col-md-8">
+    <div id="editor-header">
+    	<label for="code" class="pull-left">Your solution:</label>
+    	<div class="pull-right programming_language">
+    	Programming language:
+    	    		    					    		<span class="label label-info">Java</span>
+    			    			    		    	    	</div>
+    </div>
+    <div class="clearfix"></div>
+    <textarea id="code" name="code" style="display: none;">//package 
+com.company;
+//package com.company;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.rmi.server.ExportException;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+class InvalidNameException extends Exception {
+    public InvalidNameException(String name) {
+        this.name = name;
+    }
+
+    public String name;
+}
+class InvalidNumberException extends Exception {}
+class MaximumSizeExceddedException extends Exception {}
+class InvalidFormatException extends Exception{}
+
+class Contact{
+    private final int nameMinimumLength = 4;
+    private final int nameMaximumLength = 10;
+    private final int phoneNumberExactLength = 9;
+    private final int phoneNumbersMaximumCount = 5;
+
+    private String name;
+    private String[] phoneNumbers;
+    private int phoneNumbersSize;
+
+    public Contact(String name, String... phoneNumbers) throws 
+InvalidNameException, InvalidNumberException, 
+MaximumSizeExceddedException {
+        if(!nameIsValid(name))
+            throw new InvalidNameException(name);
+
+        if(phoneNumbers.length &gt; phoneNumbersMaximumCount){
+            throw new MaximumSizeExceddedException();
+        }
+
+        this.name = name;
+        this.phoneNumbers = new String[phoneNumbers.length];
+        this.phoneNumbersSize = 0;
+
+        for(String phoneNumber : phoneNumbers){
+            addNumber(phoneNumber);
+        }
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String[] getNumbers(){
+        String temp[] = Arrays.copyOf(phoneNumbers, phoneNumbersSize);
+        Arrays.sort(temp);
+        return temp;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append(name + "\n");
+        sb.append(phoneNumbersSize + "\n");
+        String temp[] = getNumbers();
+        for (int i = 0; i &lt; phoneNumbersSize; i++) {
+            if (temp[i] != null) {
+                sb.append(temp[i] + "\n");
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public static Contact valueOf(String s) throws 
+InvalidFormatException {
+        try{
+            return new Contact(s);
+        }
+        catch(Exception ex){
+            throw new InvalidFormatException();
+        }
+    }
+
+    public void addNumber(String phoneNumber) throws 
+MaximumSizeExceddedException, InvalidNumberException {
+        if(!phoneNumberIsValid(phoneNumber))
+            throw new InvalidNumberException();
+
+        if(!canAddPhoneNumber())
+            throw new MaximumSizeExceddedException();
+
+        String temp[] = Arrays.copyOf(phoneNumbers, phoneNumbersSize + 
+1);
+        temp[phoneNumbersSize++] = phoneNumber;
+        phoneNumbers = temp;
+    }
+
+    boolean nameIsValid(String name){
+        boolean lengthIsValid = name.length() &gt;= 
+nameMinimumLength&amp;&amp;name.length() &lt;= nameMaximumLength;
+        if(lengthIsValid == false)
+            return false;
+
+        for (int i = 0; i &lt; name.length(); i++) {
+            if (!(Character.isLetterOrDigit(name.charAt(i)))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    boolean phoneNumberIsValid(String phoneNumber){
+        boolean lengthIsValid = phoneNumber.length() == 
+phoneNumberExactLength;
+        if(lengthIsValid == false)
+            return false;
+
+        for(String prefix : PhonebookTester.legit_prefixes){
+            if(phoneNumber.startsWith(prefix))
+            {
+                for(int i = 3; i &lt; 9; i++){
+                    if(!Character.isDigit(phoneNumber.charAt(i)))
+                        return false;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    boolean canAddPhoneNumber(){
+        return phoneNumbersSize &lt;= phoneNumbersMaximumCount;
+    }
+}
+
+class PhoneBook {
+    private final int maximumNumberOfContacts = 250;
+
+    private Contact[] contacts;
+    private int contactsSize;
+
+    public PhoneBook(){
+        contacts = new Contact[maximumNumberOfContacts];
+        contactsSize = 0;
+    }
+
+    public void addContact(Contact contact) throws 
+MaximumSizeExceddedException, InvalidNameException {
+        if(!canAddMoreContacts())
+            throw new MaximumSizeExceddedException();
+
+        if(contactExists(contact.getName()) || 
+!contact.nameIsValid(contact.getName()))
+            throw new InvalidNameException(contact.getName());
+
+        contacts[contactsSize++] = contact;
+    }
+
+    public Contact getContactForName(String contactName){
+        for(int i = 0; i &lt; contactsSize; i++){
+            if(contacts[i].getName().equals(contactName)){
+                return contacts[i];
+            }
+        }
+
+        return null;
+    }
+
+    public boolean removeContact(String name){
+        Contact contact = getContactForName(name);
+        int index = 
+Arrays.stream(contacts).collect(Collectors.toList()).indexOf(contact);
+        if(contact != null){
+            System.arraycopy(contacts, index + 1, contacts, index, 
+contactsSize - 1 - index);
+            contacts[--contactsSize] = null;
+            return true;
+        }
+        return false;
+    }
+
+    public int numberOfContacts(){
+        return contactsSize;
+    }
+
+    public Contact[] getContacts(){
+        Contact[] temp = Arrays.copyOf(contacts, contactsSize);
+        Arrays.sort(temp, Comparator.comparing(Contact::getName));
+        return temp;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        Contact sorted[] = getContacts();
+        for (int i = 0; i &lt; contactsSize; i++) {
+            sb.append(sorted[i].toString() + "\n");
+        }
+        //sb.setLength(sb.length() - 1);
+        return sb.toString();
+    }
+
+    public static boolean saveAsTextFile(PhoneBook phonebook,String 
+path) throws IOException, FileNotFoundException {
+
+        try {
+            File temp = new File(path);
+            temp.createNewFile(); // if file already exists will do 
+nothing
+            PrintWriter pw = new PrintWriter(temp);
+            pw.print(phonebook.toString());
+            pw.flush();
+            pw.close(); // flushes before close
+        } catch (FileNotFoundException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public static PhoneBook loadFromTextFile(String path)
+            throws IOException, InvalidFormatException, 
+InvalidNumberException, InvalidNameException, 
+MaximumSizeExceddedException {
+        try (BufferedReader br = new BufferedReader(new FileReader(new 
+File(path)))) {
+            String current;
+            PhoneBook phoneBook = new PhoneBook();
+            while ((current = br.readLine()) != null) {
+                String name = current;
+                int len = Integer.parseInt(br.readLine());
+                String phoneNumbers[] = new String[len];
+                for (int i = 0; i &lt; len; i++) {
+                    phoneNumbers[i] = br.readLine();
+                }
+                Contact contact = new Contact(name, phoneNumbers);
+                phoneBook.addContact(contact);
+                br.readLine();
+            }
+            return phoneBook;
+        }
+    }
+
+    public Contact[] getContactsForNumber(String number_prefix) {
+        Contact temp[] = new Contact[contactsSize];
+        int k = 0;
+        for (int i = 0; i &lt; contactsSize; i++) {
+            String numbers[] = contacts[i].getNumbers();
+            for (int j = 0; j &lt; numbers.length; j++) {
+                String prefix = numbers[j].substring(0, 3);
+                if (prefix.equals(number_prefix)) {
+                    /* Add the number to result, but check if it's 
+unique */
+                    /* Unique name */
+                    temp[k++] = contacts[i];
+                    /* To avoid duplicates we should break */
+                    /* The phonebook should already be unique only */
+                    break;
+                }
+            }
+        }
+
+        Contact result[] = new Contact[k];
+        for (int i = 0; i &lt; k; i++) {
+            result[i] = temp[i];
+        }
+
+        return result;
+    }
+
+    boolean canAddMoreContacts(){
+        return contactsSize &lt; 250;
+    }
+
+    boolean contactExists(String contactName){
+        for(int i = 0; i &lt; contactsSize; i++){
+            if(contacts[i].getName().equals(contactName))
+                return true;
+        }
+        return false;
+    }
+}
+public class PhonebookTester {
+
+    public static void main(String[] args) throws Exception {
+        Scanner jin = new Scanner(System.in);
+        String line = jin.nextLine();
+        switch( line ) {
+            case "test_contact":
+                testContact(jin);
+                break;
+            case "test_phonebook_exceptions":
+                testPhonebookExceptions(jin);
+                break;
+            case "test_usage":
+                testUsage(jin);
+                break;
+        }
+    }
+
+    private static void testFile(Scanner jin) throws Exception {
+        PhoneBook phonebook = new PhoneBook();
+        while ( jin.hasNextLine() )
+            phonebook.addContact(new 
+Contact(jin.nextLine(),jin.nextLine().split("\\s++")));
+        String text_file = "phonebook.txt";
+        PhoneBook.saveAsTextFile(phonebook,text_file);
+        PhoneBook pb = PhoneBook.loadFromTextFile(text_file);
+        if ( ! pb.equals(phonebook) ) System.out.println("Your file 
+saving and loading doesn't seem to work right");
+        else System.out.println("Your file saving and loading works 
+great. Good job!");
+    }
+
+    private static void testUsage(Scanner jin) throws Exception {
+        PhoneBook phonebook = new PhoneBook();
+        while ( jin.hasNextLine() ) {
+            String command = jin.nextLine();
+            switch ( command ) {
+                case "add":
+                    phonebook.addContact(new 
+Contact(jin.nextLine(),jin.nextLine().split("\\s++")));
+                    break;
+                case "remove":
+                    phonebook.removeContact(jin.nextLine());
+                    break;
+                case "print":
+                    System.out.println(phonebook.numberOfContacts());
+                    
+System.out.println(Arrays.toString(phonebook.getContacts()));
+                    System.out.println(phonebook.toString());
+                    break;
+                case "get_name":
+                    
+System.out.println(phonebook.getContactForName(jin.nextLine()));
+                    break;
+                case "get_number":
+                    
+System.out.println(Arrays.toString(phonebook.getContactsForNumber(jin.nextLine())));
+
+                    break;
+            }
+        }
+    }
+
+    private static void testPhonebookExceptions(Scanner jin) {
+        PhoneBook phonebook = new PhoneBook();
+        boolean exception_thrown = false;
+        try {
+            while ( jin.hasNextLine() ) {
+                phonebook.addContact(new Contact(jin.nextLine()));
+            }
+        }
+        catch ( InvalidNameException e ) {
+            System.out.println(e.name);
+            exception_thrown = true;
+        }
+        catch ( Exception e ) {}
+        if ( ! exception_thrown ) System.out.println("Your addContact 
+method doesn't throw InvalidNameException");
+        /*
+		exception_thrown = false;
+		try {
+		phonebook.addContact(new Contact(jin.nextLine()));
+		} catch ( MaximumSizeExceddedException e ) {
+			exception_thrown = true;
+		}
+		catch ( Exception e ) {}
+		if ( ! exception_thrown ) System.out.println("Your addContact method 
+doesn't throw MaximumSizeExcededException");
+        */
+    }
+
+    private static void testContact(Scanner jin) throws Exception {
+        boolean exception_thrown = true;
+        String names_to_test[] = { 
+"And\nrej","asd","AAAAAAAAAAAAAAAAAAAAAA","Ð�Ð½Ð´Ñ€ÐµÑ˜A123213","Andrej#","Andrej&lt;3"};
+
+        for ( String name : names_to_test ) {
+            try {
+                new Contact(name);
+                exception_thrown = false;
+            } catch (InvalidNameException e) {
+                exception_thrown = true;
+            }
+            if ( ! exception_thrown ) System.out.println("Your Contact 
+constructor doesn't throw an InvalidNameException");
+        }
+        String numbers_to_test[] = { 
+"+071718028","number","078asdasdasd","070asdqwe","070a56798","07045678a","123456789","074456798","073456798","079456798"
+ };
+        for ( String number : numbers_to_test ) {
+            try {
+                new Contact("Andrej",number);
+                exception_thrown = false;
+            } catch (InvalidNumberException e) {
+                exception_thrown = true;
+            }
+            if ( ! exception_thrown ) System.out.println("Your Contact 
+constructor doesn't throw an InvalidNumberException");
+        }
+        String nums[] = new String[10];
+        for ( int i = 0 ; i &lt; nums.length ; ++i ) nums[i] = 
+getRandomLegitNumber();
+        try {
+            new Contact("Andrej",nums);
+            exception_thrown = false;
+        } catch (MaximumSizeExceddedException e) {
+            exception_thrown = true;
+        }
+        if ( ! exception_thrown ) System.out.println("Your Contact 
+constructor doesn't throw a MaximumSizeExceddedException");
+        Random rnd = new Random(5);
+        Contact contact = new 
+Contact("Andrej",getRandomLegitNumber(rnd),getRandomLegitNumber(rnd),getRandomLegitNumber(rnd));
+
+        System.out.println(contact.getName());
+        System.out.println(Arrays.toString(contact.getNumbers()));
+        System.out.println(contact.toString());
+        contact.addNumber(getRandomLegitNumber(rnd));
+        System.out.println(Arrays.toString(contact.getNumbers()));
+        System.out.println(contact.toString());
+        contact.addNumber(getRandomLegitNumber(rnd));
+        System.out.println(Arrays.toString(contact.getNumbers()));
+        System.out.println(contact.toString());
+    }
+
+    static String[] legit_prefixes = 
+{"070","071","072","075","076","077","078"};
+    static Random rnd = new Random();
+
+    private static String getRandomLegitNumber() {
+        return getRandomLegitNumber(rnd);
+    }
+
+    private static String getRandomLegitNumber(Random rnd) {
+        StringBuilder sb = new 
+StringBuilder(legit_prefixes[rnd.nextInt(legit_prefixes.length)]);
+        for ( int i = 3 ; i &lt; 9 ; ++i )
+            sb.append(rnd.nextInt(10));
+        return sb.toString();
+    }
+
+
+}
+</textarea><div class="CodeMirror cm-s-default" style="height: 520px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 19px; left: 58px;"><textarea style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" tabindex="0" wrap="off"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 53px; right: 17px; display: block;"><div style="height: 1px; width: 1287px;"></div></div><div class="CodeMirror-vscrollbar" style="bottom: 17px; display: block;"><div style="width: 1px; height: 1996px;"></div></div><div class="CodeMirror-scrollbar-filler" style="width: 17px; height: 17px; display: block;"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div style="position: relative; min-height: 100%;"><div class="CodeMirror-sizer" style="min-width: 1317px; margin-left: 53px; min-height: 1996px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: currentcolor none medium;"><div class="CodeMirror-measure"><pre><span class="cm-operator">/</span></pre></div><div style="position: relative; z-index: 1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 4px; top: 14px; width: 1192px; height: 14px;"></div></div><div style=""><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">1</div></div><pre><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-variable">PhonebookTester</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">2</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">3</div></div><pre><span class="cm-tab">    </span><span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-keyword">void</span> <span class="cm-variable">main</span>(<span class="cm-variable">String</span>[] <span class="cm-variable">args</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">Exception</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">4</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">Scanner</span> <span class="cm-variable">jin</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Scanner</span>(<span class="cm-variable">System</span>.<span class="cm-variable">in</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">5</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">String</span> <span class="cm-variable">line</span> <span class="cm-operator">=</span> <span class="cm-variable">jin</span>.<span class="cm-variable">nextLine</span>();</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">6</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">switch</span>( <span class="cm-variable">line</span> ) {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">7</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">case</span> <span class="cm-string">"test_contact"</span>:</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">8</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">testContact</span>(<span class="cm-variable">jin</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">9</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">break</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">10</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">case</span> <span class="cm-string">"test_phonebook_exceptions"</span>:</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">11</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">testPhonebookExceptions</span>(<span class="cm-variable">jin</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">12</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">break</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">13</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">case</span> <span class="cm-string">"test_usage"</span>:</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">14</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">testUsage</span>(<span class="cm-variable">jin</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">15</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">break</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">16</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span>}</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">17</div></div><pre><span class="cm-tab">    </span>}</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">18</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">19</div></div><pre><span class="cm-tab">    </span><span class="cm-keyword">private</span> <span class="cm-keyword">static</span> <span class="cm-keyword">void</span> <span class="cm-variable">testFile</span>(<span class="cm-variable">Scanner</span> <span class="cm-variable">jin</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">Exception</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">20</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">PhoneBook</span> <span class="cm-variable">phonebook</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">PhoneBook</span>();</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">21</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">while</span> ( <span class="cm-variable">jin</span>.<span class="cm-variable">hasNextLine</span>() ) </pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">22</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">phonebook</span>.<span class="cm-variable">addContact</span>(<span class="cm-keyword">new</span> <span class="cm-variable">Contact</span>(<span class="cm-variable">jin</span>.<span class="cm-variable">nextLine</span>(),<span class="cm-variable">jin</span>.<span class="cm-variable">nextLine</span>().<span class="cm-variable">split</span>(<span class="cm-string">"\\s++"</span>)));</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">23</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">String</span> <span class="cm-variable">text_file</span> <span class="cm-operator">=</span> <span class="cm-string">"phonebook.txt"</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">24</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">PhoneBook</span>.<span class="cm-variable">saveAsTextFile</span>(<span class="cm-variable">phonebook</span>,<span class="cm-variable">text_file</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">25</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">PhoneBook</span> <span class="cm-variable">pb</span> <span class="cm-operator">=</span> <span class="cm-variable">PhoneBook</span>.<span class="cm-variable">loadFromTextFile</span>(<span class="cm-variable">text_file</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">26</div></div><pre>        <span class="cm-keyword">if</span> ( <span class="cm-operator">!</span> <span class="cm-variable">pb</span>.<span class="cm-variable">equals</span>(<span class="cm-variable">phonebook</span>) ) <span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-string">"Your file saving and loading doesn't seem to work right"</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">27</div></div><pre>        <span class="cm-keyword">else</span> <span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-string">"Your file saving and loading works great. Good job!"</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">28</div></div><pre><span class="cm-tab">    </span>}</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">29</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">30</div></div><pre><span class="cm-tab">    </span><span class="cm-keyword">private</span> <span class="cm-keyword">static</span> <span class="cm-keyword">void</span> <span class="cm-variable">testUsage</span>(<span class="cm-variable">Scanner</span> <span class="cm-variable">jin</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">Exception</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">31</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">PhoneBook</span> <span class="cm-variable">phonebook</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">PhoneBook</span>();</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">32</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">while</span> ( <span class="cm-variable">jin</span>.<span class="cm-variable">hasNextLine</span>() ) {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">33</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">String</span> <span class="cm-variable">command</span> <span class="cm-operator">=</span> <span class="cm-variable">jin</span>.<span class="cm-variable">nextLine</span>();</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">34</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">switch</span> ( <span class="cm-variable">command</span> ) {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">35</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">case</span> <span class="cm-string">"add"</span>:</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">36</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">phonebook</span>.<span class="cm-variable">addContact</span>(<span class="cm-keyword">new</span> <span class="cm-variable">Contact</span>(<span class="cm-variable">jin</span>.<span class="cm-variable">nextLine</span>(),<span class="cm-variable">jin</span>.<span class="cm-variable">nextLine</span>().<span class="cm-variable">split</span>(<span class="cm-string">"\\s++"</span>)));</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">37</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">break</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">38</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">case</span> <span class="cm-string">"remove"</span>:</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">39</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">phonebook</span>.<span class="cm-variable">removeContact</span>(<span class="cm-variable">jin</span>.<span class="cm-variable">nextLine</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">40</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">break</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">41</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">case</span> <span class="cm-string">"print"</span>:</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">42</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">phonebook</span>.<span class="cm-variable">numberOfContacts</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">43</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">Arrays</span>.<span class="cm-variable">toString</span>(<span class="cm-variable">phonebook</span>.<span class="cm-variable">getContacts</span>()));</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">44</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">phonebook</span>.<span class="cm-variable">toString</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">45</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">break</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">46</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-keyword">case</span> <span class="cm-string">"get_name"</span>:</pre></div></div><div class="CodeMirror-cursor" style="left: 4px; top: 14px; height: 14px;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 1996px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-compiler-message"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></div>
+    <div id="editor-control">
+    	<div class="row">
+    		<div class="col-md-4">
+    			<div id="problem-revisions">	<label for="revision" class="editor-control-label">Revision:</label>
+	
+<select name="solutionHistory" size="1" id="solutionHistory" class="form-control input-sm">
+    					<option value="9376625" title="2020-02-05 19:45:09.0" selected="selected">2 seconds ago - 19:45:09
+</option>					<option value="9376621" title="2020-02-05 19:44:58.0">13 seconds ago - 19:44:58
+</option>					<option value="9376605" title="2020-02-05 19:44:10.0">1 minute ago - 19:44:10
+</option>					<option value="8859501" title="2019-11-20 15:08:55.0">2 months ago - 15:08:55
+</option>					<option value="8859372" title="2019-11-20 15:05:09.0">2 months ago - 15:05:09
+</option>					<option value="8859304" title="2019-11-20 15:02:06.0">2 months ago - 15:02:06
+</option>					<option value="8859164" title="2019-11-20 14:57:13.0">2 months ago - 14:57:13
+</option>					<option value="8858491" title="2019-11-20 14:31:54.0">2 months ago - 14:31:54
+</option>					<option value="8858422" title="2019-11-20 14:29:14.0">2 months ago - 14:29:14
+</option>					<option value="8857748" title="2019-11-20 13:56:34.0">2 months ago - 13:56:34
+</option>					<option value="8857519" title="2019-11-20 13:46:18.0">2 months ago - 13:46:18
+</option>					<option value="8857488" title="2019-11-20 13:45:09.0">2 months ago - 13:45:09
+</option>					<option value="8857297" title="2019-11-20 13:36:36.0">2 months ago - 13:36:36
+</option>					<option value="8857054" title="2019-11-20 13:25:50.0">2 months ago - 13:25:50
+</option>					<option value="8856801" title="2019-11-20 13:13:33.0">2 months ago - 13:13:33
+</option>					<option value="8856793" title="2019-11-20 13:13:22.0">2 months ago - 13:13:22
+</option>					<option value="8856759" title="2019-11-20 13:11:10.0">2 months ago - 13:11:10
+</option>					<option value="8856626" title="2019-11-20 13:04:03.0">2 months ago - 13:04:03
+</option>					<option value="8856603" title="2019-11-20 13:02:31.0">2 months ago - 13:02:31
+</option>					<option value="8856574" title="2019-11-20 13:00:57.0">2 months ago - 13:00:57
+</option>					<option value="8856573" title="2019-11-20 13:00:45.0">2 months ago - 13:00:45
+</option>					<option value="8856563" title="2019-11-20 13:00:14.0">2 months ago - 13:00:14
+</option>					<option value="8856561" title="2019-11-20 13:00:03.0">2 months ago - 13:00:03
+</option>					<option value="8856385" title="2019-11-20 12:48:08.0">2 months ago - 12:48:08
+</option>					<option value="8856297" title="2019-11-20 12:43:17.0">2 months ago - 12:43:17
+</option>					<option value="8856258" title="2019-11-20 12:40:47.0">2 months ago - 12:40:47
+</option>					<option value="8856238" title="2019-11-20 12:39:45.0">2 months ago - 12:39:45
+</option>					<option value="8856176" title="2019-11-20 12:36:08.0">2 months ago - 12:36:08
+</option>					<option value="8856054" title="2019-11-20 12:30:49.0">2 months ago - 12:30:49
+</option>					<option value="8853221" title="2019-11-20 00:57:39.0">2 months ago - 00:57:39
+</option>					<option value="8853208" title="2019-11-20 00:57:04.0">2 months ago - 00:57:04
+</option>					<option value="8853155" title="2019-11-20 00:54:31.0">2 months ago - 00:54:31
+</option>					<option value="8852991" title="2019-11-20 00:46:46.0">2 months ago - 00:46:46
+</option>					<option value="8852979" title="2019-11-20 00:46:23.0">2 months ago - 00:46:23
+</option>			    </select>
+
+	<input type="hidden" name="hasHistory" id="hasHistory" value="true">
+</div>
+	    		<button id="restore" class="btn btn-default btn-xs"><i class="fa fa-undo"></i> Restore</button>
+    		</div>
+    		<div class="col-md-8">
+    		<div class="row">
+    			<div class="col-md-2">
+		    		Full Screen <b>F11</b>
+    			</div>
+                <div class="col-md-3">
+                    heigth:
+                    <button id="setFixedBtn" class="btn btn-default btn-xs">
+                        520px
+                    </button>
+                    <button id="setAutoBtn" class="btn btn-default btn-xs" style="display: none;">
+                        Auto
+                    </button>
+                </div>
+    			<div class="col-md-3">
+			    	<a class="jfontsize-button" id="minus-btn" style="cursor: pointer;">A-</a>
+			    	<a class="jfontsize-button" id="default-btn" style="cursor: pointer;">A</a>
+			    	<a class="jfontsize-button" id="plus-btn" style="cursor: pointer;">A+</a>
+    			</div>
+    			<div class="col-md-4">
+    			<label for="select-theme" id="select-theme-lbl" class="editor-control-label">
+		    		Select a theme: 
+		    	</label>
+		    	<select id="select-theme" class="form-control input-sm">
+			    	<option selected="selected">default</option>
+			    	<option>ambiance</option>
+			    	<option>blackboard</option>
+			    	<option>cobalt</option>
+			    	<option>eclipse</option>
+			    	<option>elegant</option>
+			    	<option>erlang-dark</option>
+			    	<option>lesser-dark</option>
+			    	<option>monokai</option>
+			    	<option>neat</option>
+			    	<option>night</option>
+			    	<option>rubyblue</option>
+			    	<option>vibrant-ink</option>
+			    	<option>xq-dark</option>
+		    	</select>
+    			</div>
+	    	</div>
+    		</div>
+    	</div>
+    </div>
+    
+    
+        <div class="form-actions" style="clear:both;">
+        <div id="buttons" style="display: block;">
+        	<div class="row">
+        		<div class="col-md-6">
+		            <button id="run" class="btn btn-info btn-sm"><i class="fa fa-play"></i> Run</button>
+		            <button id="submit" class="btn btn-primary btn-sm"><i class="fa fa-play-circle"></i> Submit</button>
+		            <a href="#resetAlert" role="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-retweet"></i> Reset</a>
+		            <button id="format" class="btn btn-default btn-sm"><i class="fa fa-magic"></i> Format</button>
+                    <!-- <button id="analyze" class="btn btn-default btn-sm"><i class="fa fa-cogs"></i> analyze</button> -->
+		            <!-- <a href="#yes_i_will_solve" role="button" class="btn btn-sm btn-warning pull-right" data-toggle="modal"><i class="fa fa-meh-o fa-fw"></i> Solve all my problems!</a> -->
+		            <!-- <button id="save" class="btn"><i class="fa fa-check"></i> Save</button> -->
+        		</div>
+        		<div class="col-md-6" id="attempts"> 
+	<span>Unlimited attempts</span>
+</div>
+        	</div>
+        </div>
+        <div id="working" style="display: none;">
+            <span id="working_msg">working...</span>
+            <img src="source_files/ajax-loader.gif">
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="program-output">
+        <h3>Program output
+        <img src="source_files/c.png" id="correct_img" style="display: none;">
+        <img src="source_files/w.png" id="wrong_img" style="display: none;"></h3>
+        <pre id="warning" class="pre-scrollable output-warning" style="display: none;"></pre>
+        <div id="clang_output" style="display: none;">
+            <h3><a id="output_link" target="_blank" class="text-danger">View report</a></h3>
+        </div>
+        <pre id="output" class="pre-scrollable"></pre>
+    </div>
+        <div id="sample-input" style="clear: both;">
+    	<div class="row">
+        <div class="col-md-6">
+            <h3>Sample input</h3>
+            <pre id="ex_input">test_contact
+</pre>
+        </div>
+        <div class="col-md-6">
+		    <h3>Sample output</h3>
+		    <pre id="expected">Andrej
+[072244654, 077211370, 078085778]
+Andrej
+3
+072244654
+077211370
+078085778
+
+[072244654, 077211370, 078085778, 078861207]
+Andrej
+4
+072244654
+077211370
+078085778
+078861207
+
+[072092797, 072244654, 077211370, 078085778, 078861207]
+Andrej
+5
+072092797
+072244654
+077211370
+078085778
+078861207
+
+</pre>
+        </div>
+        </div>
+    </div>
+    <div id="submission-output" style="clear:both;">
+<h3>Result: <span class="result result-failure">0.00 % (0/8)</span></h3>
+
+<table class="table table-striped table-bordered table-condensed">
+<caption>Testing details</caption>
+<thead>
+    <tr>
+        <th width="5%">Test case #</th>
+        <th width="20%">Input</th>
+        <th width="25%">Output</th>
+        <th width="25%">Your output</th>
+        <th width="25%">Correct</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td>1</td>
+    <td><pre id="input_1">test_contact
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">317</span>
+    	</div>
+    	<pre id="output_1">Andrej
+[072244654, 077211370, 078085778]
+Andrej
+3
+072244654
+077211370
+078085778
+
+[072244654, 077211370, 078085778, 078861207]
+Andrej
+4
+072244654
+077211370
+078085778
+078861207
+
+[072092797, 072244654, 077211370, 078085778, 078861207]
+Andrej
+5
+072092797
+072244654
+077211370
+078085778
+078861207
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">204</span>
+    	</div>
+    	<pre id="your_output_1">Error: Main method not found in class PhonebookTester, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_1" onclick="Code.viewDiff(1)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_1" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>2</td>
+    <td><pre id="input_2">test_phonebook_exceptions
+Abraham
+Abraham
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">9</span>
+    	</div>
+    	<pre id="output_2">Abraham
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">204</span>
+    	</div>
+    	<pre id="your_output_2">Error: Main method not found in class PhonebookTester, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_2" onclick="Code.viewDiff(2)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_2" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>3</td>
+    <td><pre id="input_3">test_usage
+add
+Andrej
+078654984
+print
+get_name
+Andrej
+get_number
+078
+remove
+Andrej
+print
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">114</span>
+    	</div>
+    	<pre id="output_3">1
+[Andrej
+1
+078654984
+]
+Andrej
+1
+078654984
+
+
+Andrej
+1
+078654984
+
+[Andrej
+1
+078654984
+]
+0
+[]
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">204</span>
+    	</div>
+    	<pre id="your_output_3">Error: Main method not found in class PhonebookTester, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_3" onclick="Code.viewDiff(3)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_3" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>4</td>
+    <td><pre id="input_4">test_usage
+add
+Andrej
+078123456 075123456
+add
+Gajduk
+071123456 076123456
+add
+Tesst
+070123456
+add
+Sample
+075123456 076123456 078123456
+print
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">285</span>
+    	</div>
+    	<pre id="output_4">4
+[Andrej
+2
+075123456
+078123456
+, Gajduk
+2
+071123456
+076123456
+, Sample
+3
+075123456
+076123456
+078123456
+, Tesst
+1
+070123456
+]
+Andrej
+2
+075123456
+078123456
+
+Gajduk
+2
+071123456
+076123456
+
+Sample
+3
+075123456
+076123456
+078123456
+
+Tesst
+1
+070123456
+
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">204</span>
+    	</div>
+    	<pre id="your_output_4">Error: Main method not found in class PhonebookTester, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_4" onclick="Code.viewDiff(4)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_4" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>5</td>
+    <td><pre id="input_5">test_usage
+add
+Andrej
+078123456 075123456
+add
+Gajduk
+071123456 076123456
+add
+Tesst
+070123456
+add
+Sample
+075123456 076123456 078123456
+print
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">285</span>
+    	</div>
+    	<pre id="output_5">4
+[Andrej
+2
+075123456
+078123456
+, Gajduk
+2
+071123456
+076123456
+, Sample
+3
+075123456
+076123456
+078123456
+, Tesst
+1
+070123456
+]
+Andrej
+2
+075123456
+078123456
+
+Gajduk
+2
+071123456
+076123456
+
+Sample
+3
+075123456
+076123456
+078123456
+
+Tesst
+1
+070123456
+
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">204</span>
+    	</div>
+    	<pre id="your_output_5">Error: Main method not found in class PhonebookTester, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_5" onclick="Code.viewDiff(5)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_5" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>6</td>
+    <td><pre id="input_6">test_usage
+add
+Andrej
+078123456 075123456
+add
+Gajduk
+071123456 076123456
+add
+Tesst
+070123456
+add
+Sample
+075123456 076123456 078123456
+print
+get_name
+Andrej
+get_name
+Gajduk
+get_name
+Tesst
+get_name
+Sample
+get_name
+Sample1
+get_number
+075
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">513</span>
+    	</div>
+    	<pre id="output_6">4
+[Andrej
+2
+075123456
+078123456
+, Gajduk
+2
+071123456
+076123456
+, Sample
+3
+075123456
+076123456
+078123456
+, Tesst
+1
+070123456
+]
+Andrej
+2
+075123456
+078123456
+
+Gajduk
+2
+071123456
+076123456
+
+Sample
+3
+075123456
+076123456
+078123456
+
+Tesst
+1
+070123456
+
+
+Andrej
+2
+075123456
+078123456
+
+Gajduk
+2
+071123456
+076123456
+
+Tesst
+1
+070123456
+
+Sample
+3
+075123456
+076123456
+078123456
+
+null
+[Andrej
+2
+075123456
+078123456
+, Sample
+3
+075123456
+076123456
+078123456
+]
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">204</span>
+    	</div>
+    	<pre id="your_output_6">Error: Main method not found in class PhonebookTester, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_6" onclick="Code.viewDiff(6)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_6" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>7</td>
+    <td><pre id="input_7">test_usage
+add
+Andrej
+078123456 075123456
+add
+Gajduk
+071123456 076123456
+add
+Tesst
+070123456
+add
+Sample
+075123456 076123456 078123456
+print
+get_name
+Andrej
+get_name
+Gajduk
+get_name
+Tesst
+get_name
+Sample
+get_name
+Sample1
+get_number
+075
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">513</span>
+    	</div>
+    	<pre id="output_7">4
+[Andrej
+2
+075123456
+078123456
+, Gajduk
+2
+071123456
+076123456
+, Sample
+3
+075123456
+076123456
+078123456
+, Tesst
+1
+070123456
+]
+Andrej
+2
+075123456
+078123456
+
+Gajduk
+2
+071123456
+076123456
+
+Sample
+3
+075123456
+076123456
+078123456
+
+Tesst
+1
+070123456
+
+
+Andrej
+2
+075123456
+078123456
+
+Gajduk
+2
+071123456
+076123456
+
+Tesst
+1
+070123456
+
+Sample
+3
+075123456
+076123456
+078123456
+
+null
+[Andrej
+2
+075123456
+078123456
+, Sample
+3
+075123456
+076123456
+078123456
+]
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">204</span>
+    	</div>
+    	<pre id="your_output_7">Error: Main method not found in class PhonebookTester, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_7" onclick="Code.viewDiff(7)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_7" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>8</td>
+    <td><pre id="input_8">test_usage
+add
+Andrej
+078123456 075123456
+add
+Gajduk
+071123456 076123456
+add
+Tesst
+070123456
+add
+Sample
+075123456 076123456 078123456
+print
+remove
+Gajduk
+print
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">500</span>
+    	</div>
+    	<pre id="output_8">4
+[Andrej
+2
+075123456
+078123456
+, Gajduk
+2
+071123456
+076123456
+, Sample
+3
+075123456
+076123456
+078123456
+, Tesst
+1
+070123456
+]
+Andrej
+2
+075123456
+078123456
+
+Gajduk
+2
+071123456
+076123456
+
+Sample
+3
+075123456
+076123456
+078123456
+
+Tesst
+1
+070123456
+
+
+3
+[Andrej
+2
+075123456
+078123456
+, Sample
+3
+075123456
+076123456
+078123456
+, Tesst
+1
+070123456
+]
+Andrej
+2
+075123456
+078123456
+
+Sample
+3
+075123456
+076123456
+078123456
+
+Tesst
+1
+070123456
+
+
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">204</span>
+    	</div>
+    	<pre id="your_output_8">Error: Main method not found in class PhonebookTester, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_8" onclick="Code.viewDiff(8)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_8" class="diff"></pre>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+    
+  	<div class="modal fade" id="resetAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="myModalLabel">Warning</h3>
+	  	</div>
+		<div class="modal-body">
+			<p>Are you sure you want to reset the contents of the editor to the starter code?</p>
+		</div>
+  		<div class="modal-footer">
+   			<button type="button" id="btn-reset-yes" value="Yes" data-dismiss="modal" class="btn btn-danger btn-sm">Yes</button>
+   			<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  		</div>
+  		</div>
+  		</div>
+	</div>
+	
+	  	<div class="modal fade" id="yes_i_will_solve" tabindex="-1" role="dialog" aria-labelledby="yes_i_will_solve" aria-hidden="true">
+	  	  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="aprilFoolsLabel">Your solution</h3>
+	  	</div>
+		<div class="modal-body text-center">
+			<div style="margin-bottom: 10px;">
+				<img src="source_files/yay_happy.gif" class="img-polaroid">
+			</div>
+			<div id="terminal" class="typist-container" style="background-color: rgb(51, 51, 51); color: rgb(221, 221, 221); font-family: monospace; height: 80px;"></div>
+		</div>  	
+		</div>
+		</div>	
+	</div>
+
+<input type="hidden" name="isReadOnly" id="isReadOnly" value="false">
+
+
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+    <p>© CSE 2012 - 2020 | <a href="http://develop.finki.ukim.mk/projects/e-lab">Support &amp; Development</a></p>
+</footer>
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="source_files/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dataTables.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_004.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/typeahead.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/code.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/helper.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/diff_match_patch.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="source_files/codemirror.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dialog.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/fullscreen.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/searchcursor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/search.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/match-highlighter.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/matchbrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/closebrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clike.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/python.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/shell.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/commonlisp.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/x-mathjax-config;executed=true">
+	MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+	tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+    TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+    messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" src="source_files/MathJax.js" charset="utf-8"></script>
+<script src="source_files/jquery_002.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/problem.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clock.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/editor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_003.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function(){
+	
+	var isReadOnly = $('#isReadOnly').val() == "true";
+	var isTimeLimited = $('#isTimeLimited').val() == "true";
+	var hasHistory = $('#hasHistory').val() == "true";
+	
+	$(document).ready(function() {
+		if(!hasHistory) {
+			$('#restore').hide();
+		}
+		$('#warning').hide();
+	});
+
+	var textArea = document.getElementById('code');
+	var mode = "text/x-java";
+	
+	Code.Editor.init(textArea, mode, isReadOnly);
+	
+	Code.Execute = {
+		run : function() {
+			Code.Editor.clearErrors();
+			var code = Code.Editor.getCode();
+		    $.post('/code/run', { 
+		             code : code,
+		             'problemData.id' : 8419
+		        },
+		        function(data) {
+		            $('#output').html("");
+		        	if(data.success) {
+		        		$('#output').removeClass("output-error");
+		                $('#output').addClass("output-success");        		
+		        	} else {
+		        		$('#output').removeClass("output-success");
+		        		$('#output').addClass("output-error");
+		        		Code.Editor.markErrors(data.errors);
+		        	}
+		            $('#output').append(data.output);
+		            if(data.warning) {
+		            	$('#warning').html("");
+		            	$('#warning').append(data.warning);
+		            	$('#warning').show();
+		            	Code.Editor.markErrors(data.errors);
+		            } else {
+		            	$('#warning').hide();
+		            }
+		            $('#problem-revisions').load('/code/revisions', {
+		                'problemData.id' : 8419
+		            }, function() {
+		        		hasHistory = $('#hasHistory').val() == "true";
+		        		if(hasHistory) {
+		        			$('#restore').show();
+		        		}
+		            });
+		        }
+		    );
+		},
+		submit : function() {
+			var code = Code.Editor.getCode();
+	    	$.post('/submit', { 
+	             code : code,
+	             'problemData.id' : 8419
+	        },
+	        function(data) {
+	            $('#submission-output').html(data);
+	            $('#problem-revisions').load('/code/revisions', {
+	                'problemData.id' : 8419
+	            }, function(){
+	        		var hasHistory = $('#hasHistory').val() == "true";
+	        		if(hasHistory) {
+	        			$('#restore').show();
+	        		}
+	            });
+	            Code.Execute.attempts();
+	            $('html,body').animate({scrollTop: $("#submission-output").offset().top - 40},'slow');
+	        });
+		},
+		save : function(autosave) {
+			var code = Code.Editor.getCode();
+			$.post('/code/save', { 
+		        code : code,
+		        'problemData.id' : 8419
+		   		},
+		   		function(data) {
+			    	if(autosave) {
+			    		$("#auto-saved").fadeIn(300).delay(2000).fadeOut(300);
+			    	} else {
+			    		$("#saved").fadeIn(300).delay(2000).fadeOut(300);
+					}
+			    	$('#problem-revisions').load('/code/revisions', {
+		            	'problem.id' : 8419
+		        	});
+		   	});
+		},
+		reset : function() {
+			$.post('/code/reset', { 
+		         'problemData.id' : 8419
+		    	},
+		    	function(data) {
+		    		Code.Editor.setCode(data);
+		    	}
+			);
+		},
+		restore : function(){
+			var solutionHistoryId = $('#solutionHistory').val();
+			if(solutionHistoryId) {
+				$('#code').load(
+			            '/code/loadsolutionfromhistory',
+			            {
+			                'solutionHistoryId' : solutionHistoryId
+			            }, function(data) {
+			            	Code.Editor.setCode(data);
+			            }
+			     );
+			}
+		},
+		attempts: function() {
+			$('#attempts').load('/code/attempts', {
+            	'problem.id' : 5929
+            }, function() {
+            	var exceeded = $('#exceeded').val();
+            	if(exceeded == "true") {
+            		$('#submit').attr('disabled', true);
+            	}
+            });
+		}
+	}
+	$('#run').click(Code.Execute.run);
+	$('#submit').click(Code.Execute.submit);
+	//$('#save').click(Code.Execute.save(false));
+	$('#btn-reset-yes').click(Code.Execute.reset);
+	$('#restore').click(Code.Execute.restore);
+	// use closure
+	$('#format').click(function(){ return Code.Editor.format(8419) });
+    $('#analyze').click(function() { return Code.Editor.analyze(8419, function(data) {
+        console.log(data);
+        if(data.errors) {
+            $("#clang_output").show();
+            $("#output_link").attr("href", data.uri);
+        } else {
+            $("#clang_output").hide();
+        }
+    })});
+	var working = $('#working').hide();
+	$(document).ajaxStart(function() {
+    	$('#buttons').hide();
+        working.show();
+    }).ajaxStop(function() {
+        working.hide();
+        $('#buttons').show();
+    });
+	$('#select-theme').change(function(){
+		Code.Editor.setTheme($(this).val());
+	});
+	  
+	
+	$('.CodeMirror').jfontsize({
+		btnMinusClasseId: '#minus-btn',
+	    btnDefaultClasseId: '#default-btn',
+	    btnPlusClasseId: '#plus-btn',
+	    btnMinusMaxHits: 5,
+	    btnPlusMaxHits: 8,
+	    sizeChange: 1
+	});
+	
+	// Create a newDate() object
+	var dateOpened = new Date(1574198878000);
+	var dateEnd = new Date(parseInt($('#dateEnd').val()));
+	var serverTime = 1580928230129;
+	Code.Clock.init($('#time'), dateOpened, serverTime, dateEnd);
+	
+	if(isTimeLimited && !isReadOnly) {
+		Code.Clock.initTimeLimited($('#time-left'), dateEnd, serverTime, "/courses/finish?problemDataId=8419&courseId=111");	
+	}
+	
+	var dmp = new diff_match_patch();
+	
+	Code.viewDiff = function(test) {
+		var text2 = $('#output_' + test).html();
+		var text1 = $('#your_output_' + test).html();
+		var d = dmp.diff_main(text1, text2);
+		var ds = dmp.diff_prettyHtml(d);
+		$('#diff_' + test).html(ds);
+		$('#diff_' + test).show();
+	}
+	$('#setAutoBtn').hide();
+    $('#setFixedBtn').click(function() {
+        $(this).hide();
+        $('#setAutoBtn').show();
+        Code.Editor.setAutoSize();
+    });
+    $('#setAutoBtn').click(function() {
+        $(this).hide();
+        $('#setFixedBtn').show();
+        Code.Editor.setFixedSize();
+    });
+
+	$(document).bind('keydown', 'ctrl+shift+5', Code.Execute.run);
+	$(document).bind('keydown', 'ctrl+shift+6', Code.Execute.submit);
+	$(document).bind('keydown', 'ctrl+shift+0', Code.Execute.reset);
+
+	$('#terminal').typist({
+  		height: 80,
+  		speed : 'slow'
+	});
+	
+	 /* $('#yes_i_will_solve').on('shown.bs.modal', function(){
+		$('#terminal').typist('prompt')
+		  .typist('type', 'Кој ден сме денес?')
+		  .typist('echo', '1 Април')
+		  .typist('echo', 'Априлилили!');
+		(function(){function c(){var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},15500)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var f="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){console.warn("Could not find a node of the right size. Please try a different page.");return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()
+	}); */
+	
+})();
+</script>
+
+      
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('#btn-icon').toggleClass("fa-chevron-right fa-chevron-left");
+    });
+    </script>
+    
+</body></html>
