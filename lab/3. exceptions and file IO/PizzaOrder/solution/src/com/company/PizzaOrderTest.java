@@ -37,27 +37,30 @@ interface Item {
     void setCount(int count);
 }
 
-class PizzaItem implements Item {
-    private String type;
-    private int price;
-    private int count;
+class Menu {
+    public static Map<String, Integer> PizzaItems = new HashMap<String, Integer>() {
+        {
+            put("Standard", 10);
+            put("Pepperoni", 12);
+            put("Vegetarian", 8);
+        }
+    };
 
-    public PizzaItem(String type) throws InvalidPizzaTypeException {
-        if(type.equals("Standard")) {
-            this.price = 10;
+    public static Map<String, Integer> ExtraItems = new HashMap<String, Integer>() {
+        {
+            put("Ketchup", 3);
+            put("Coke", 5);
         }
-        else if (type.equals("Pepperoni")) {
-            this.price = 12;
-        }
-        else if (type.equals("Vegetarian")) {
-            this.price = 8;
-        }
-        else {
-            throw new InvalidPizzaTypeException();
-        }
+    };
+}
 
-        this.type = type;
-        this.count = 1;
+abstract class OrderItem implements Item {
+    protected String type;
+    protected int price;
+    protected int count;
+
+    protected OrderItem() {
+        this.count = 0;
     }
 
     @Override
@@ -81,43 +84,25 @@ class PizzaItem implements Item {
     }
 }
 
-class ExtraItem implements Item {
-    private String type;
-    private int price;
-    private int count;
+class PizzaItem extends OrderItem {
+    public PizzaItem(String type) throws InvalidPizzaTypeException {
+        if(!Menu.PizzaItems.containsKey(type)) {
+            throw new InvalidPizzaTypeException();
+        }
 
+        this.type = type;
+        this.price = Menu.PizzaItems.get(type);
+    }
+}
+
+class ExtraItem extends OrderItem {
     public ExtraItem(String type) throws InvalidExtraTypeException {
-        if(type.equals("Ketchup")) {
-            this.price = 3;
-        }
-        else if (type.equals("Coke")) {
-            this.price = 5;
-        }
-        else {
+        if(!Menu.ExtraItems.containsKey(type)) {
             throw new InvalidExtraTypeException();
         }
 
         this.type = type;
-        this.count = 1;
-    }
-    @Override
-    public int getPrice() {
-        return this.price;
-    }
-
-    @Override
-    public String getType() {
-        return this.type;
-    }
-
-    @Override
-    public int getCount() {
-        return this.count;
-    }
-
-    @Override
-    public void setCount(int count) {
-        this.count = count;
+        this.price = Menu.ExtraItems.get(type);
     }
 }
 
@@ -131,7 +116,6 @@ class Order {
     }
 
     public void addItem(Item item, int count) throws ItemOutOfStockException, OrderLockedException {
-
         if(isLocked) {
             throw new OrderLockedException();
         }
@@ -139,7 +123,7 @@ class Order {
             throw new ItemOutOfStockException(item);
         }
 
-        Item existing = items.stream().filter(x -> x.getType().equals(item.getType())).findFirst().orElse(null);
+        Item existing = getItemByType(item.getType());
         if(existing != null) {
             existing.setCount(count);
         }
@@ -155,10 +139,9 @@ class Order {
             price += (item.getPrice() * item.getCount());
         }
         return price;
-
     }
 
-    void displayOrder() {
+    public void displayOrder() {
         StringBuilder sb = new StringBuilder();
         int index = 1;
         for(Item item : items) {
@@ -169,7 +152,7 @@ class Order {
         System.out.println(sb.toString());
     }
 
-    void removeItem(int index) throws ArrayIndexOutOfBоundsException, OrderLockedException {
+    public void removeItem(int index) throws ArrayIndexOutOfBоundsException, OrderLockedException {
         if(isLocked) {
             throw new OrderLockedException();
         }
@@ -180,11 +163,19 @@ class Order {
         items.remove(index);
     }
 
-    void lock() throws EmptyOrder {
+    public void lock() throws EmptyOrder {
         if(items.size() <= 0) {
             throw new EmptyOrder();
         }
         isLocked = true;
+    }
+
+    private Item getItemByType(String type) {
+        return items
+                .stream()
+                .filter(x -> x.getType().equals(type))
+                .findFirst()
+                .orElse(null);
     }
 }
 

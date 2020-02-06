@@ -17,6 +17,9 @@
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PizzaOrder/solution" />
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
@@ -50,9 +53,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1581016466564">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581016466564" />
     <state x="619" y="426" key="com.intellij.ide.util.TipDialog" timestamp="1581008960043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="619" y="426" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581008960043" />
+    <state x="342" y="141" key="new project wizard" timestamp="1581016443338">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="141" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1581016443338" />
   </component>
 </project>
