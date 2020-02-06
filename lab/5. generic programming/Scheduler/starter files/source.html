@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Генерички распоредувач | Code</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" media="screen" href="source_files/fonts.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap-yety.css">
+<link rel="stylesheet" media="screen" href="source_files/font-awesome.css">
+<!-- <link rel="stylesheet" media="screen" href="/public/DataTables/media/css/jquery.dataTables.min.css"> -->
+<link rel="stylesheet" media="screen" href="source_files/dataTables.css">
+<link rel="stylesheet" media="screen" href="source_files/main.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/dialog.css">
+<link rel="stylesheet" href="source_files/fullscreen.css">
+<link rel="stylesheet" href="source_files/neat.css">
+<link rel="stylesheet" href="source_files/elegant.css">
+<link rel="stylesheet" href="source_files/erlang-dark.css">
+<link rel="stylesheet" href="source_files/night.css">
+<link rel="stylesheet" href="source_files/monokai.css">
+<link rel="stylesheet" href="source_files/cobalt.css">
+<link rel="stylesheet" href="source_files/eclipse.css">
+<link rel="stylesheet" href="source_files/rubyblue.css">
+<link rel="stylesheet" href="source_files/lesser-dark.css">
+<link rel="stylesheet" href="source_files/xq-dark.css">
+<link rel="stylesheet" href="source_files/ambiance.css">
+<link rel="stylesheet" href="source_files/blackboard.css">
+<link rel="stylesheet" href="source_files/vibrant-ink.css">
+
+<link rel="shortcut icon" type="image/png" href="http://code.finki.ukim.mk/public/images/favicon.ico">        <style>    .typist-container {      overflow: hidden;      padding-left: 4px;    }    .typist-container p {      margin: 0 0 3px;    }    .typist-container p.prompt {      margin: 5px 0;    }    </style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+    <body><div id="MathJax_Message" style="display: none;"></div>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+         <div class="navbar-header">
+		  	<a class="logo" href="http://code.finki.ukim.mk/" title="Go to home page">
+	<img src="source_files/logo.png" alt="Code">
+</a> 
+<!-- <a class="logo-title brand" href="/" title="Go to home page">Code</a> -->		  	            	<a class="logo-title" href="http://code.finki.ukim.mk/course/111/" title="Go to course problem sets index page">Напредно програмирање 2019/2020</a>
+          			  	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+          	</button>          
+		 </div>
+		<div class="navbar-collapse collapse" id="navbar-main">
+          	<ul class="nav navbar-nav">
+            	          	</ul>
+        
+        	<ul class="nav navbar-nav navbar-right">
+          				            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_languages">
+		<i class="fa fa-flag fa-fw"></i> Language <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_languages">
+       	<li><a href="http://code.finki.ukim.mk/langauge?locale=mk&amp;path=%2Fcourse%2F111%2Fproblem%2F6072%2F">Macedonian</a></li>
+		<li><a href="http://code.finki.ukim.mk/langauge?locale=en&amp;path=%2Fcourse%2F111%2Fproblem%2F6072%2F">English</a></li>
+    </ul>
+</li>		            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_courses">
+		<i class="fa fa-th fa-fw"></i> Courses <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_courses">
+        			<li><a href="http://code.finki.ukim.mk/course/61/"><i class="fa fa-angle-right fa-fw"></i> Алгоритми и податочни структури 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/48/"><i class="fa fa-angle-right fa-fw"></i> Алогоритми и податочни структури 2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/88/"><i class="fa fa-angle-right fa-fw"></i> Визуелно програмирање 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/111/"><i class="fa fa-angle-right fa-fw"></i> Напредно програмирање 2019/2020</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/37/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2014/2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/52/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2015/2016</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/86/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/102/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2018/2019</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/43/"><i class="fa fa-angle-right fa-fw"></i> Основи на веб дизајн</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/60/"><i class="fa fa-angle-right fa-fw"></i> Системи на знаење 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/30/"><i class="fa fa-angle-right fa-fw"></i> Структурно програмирање 2014</a></li> 
+		    </ul>
+</li>	            	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user">
+		<i class="fa fa-user fa-fw"></i> Симон Ќулумов <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user">
+        <li>
+			<a tabindex="-1" href="#"><i class="fa fa-eye fa-fw"></i> Student</a>
+		</li>	        
+        <li class="divider"></li>
+        <li>
+			<a href="http://code.finki.ukim.mk/logout"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+		</li>
+       </ul>
+</li>
+		         	        </ul>
+         </div>
+          
+	</div>
+</div>
+
+    <div class="container-fluid">
+        <div class="page-header">
+	<h2><i class="fa fa-angle-double-right"></i> <a href="http://code.finki.ukim.mk/course/111/problemset/1870/" title="">Генеричко програмирање</a>  <small>(5)</small></h2>
+</div>      <div id="wrapper">
+      <button class="btn btn-default btn-xs" id="menu-toggle">
+          <i id="btn-icon" class="fa fa-chevron-right fa-fw"></i>
+      </button>
+      <div id="sidebar-wrapper">
+          <div class="well sidebar-nav">
+                <ul class="nav nav-pills nav-stacked">
+<li class="nav-header">Problems</li>
+			    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6071/">1) Комплексни броеви
+        </a></li>
+    		    <li class="active">
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6072/">2) Генерички распоредувач
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6073/">2) Листа на цели броеви
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6074/">3) Генерички ред
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6078/">4) Генерички контејнер со променлива должина
+        </a></li>
+    </ul>          </div><!--/.well -->
+          <div class="help">
+                <p>Класата <code>Timestamp</code> освен што треба да го препокрие методот <code>public int compareTo(TImestamp&lt;T&gt; t) </code>
+треба и да го имплементира интерфејсот <code>Comparable</code> т.е. во дефиницијата на класата треба да стои следното: 
+<code>class Timestamp &lt;T&gt; implements</code> <code>Comparable&lt;Timestamp&lt;T&gt;&gt;</code></p>
+          </div>
+      </div>
+      <div id="problem-layout">
+      
+
+
+
+    <div id="clock" class="pull-right">
+        <span class="time-label">Opened:</span>
+      <ul>
+          <li id="time">76 дена</li>          
+      </ul>
+    </div>
+    <h3 id="problem-name">Генерички распоредувач <small>Problem 2 (0 / 0) </small></h3>
+
+<div class="row">    
+    <div id="problem-text" class="col-md-4">    
+    	<p>Треба да се развие класа <code>Timestamp</code> која претставува пар на објекти од кои едниот е секогаш од тип <code>LocalDateTime</code>, а другиот објект е од генеричкиот тип <code>T</code>. Класата <code>Timestamp</code> ги нуди следниве функционалности:</p>
+
+<ul>
+<li><code>Timestamp(LocalDateTime time, T element)</code> - конструктор</li>
+<li><code>getTime():LocalDateTime</code></li>
+<li><code>getElement():T</code></li>
+<li><code>compareTo(Timestamp&lt;?&gt; t):int</code> - споредувањето се прави само врз основа на времињата </li>
+<li><code>equals(Object o):boolean</code> - враќа <code>true</code> ако се исти времињата</li>
+<li><code>toString() :String</code> - враќа стринг репрезентација со времето (toString) и елементот во формат <code>time element</code></li>
+</ul>
+
+<p><strong>Забелешка</strong>: двете променливи <code>time</code> и <code>element</code> мора да бидат обележани како <code>final</code>.</p>
+
+<p>Класата <code>Timestamp</code> сега треба да се искористи за да се развие класа <code>Scheduler</code>. Оваа класа чува повеќе објекти од класата <code>Timestamp</code> и исто така има еден генерички параметар <code>T</code> кој всушност се однесува на типот на објект кој се наоѓа во <code>Timestamp</code>. Класата <code>Scheduler</code> треба да ги имплементира следниве методи:</p>
+
+<ul>
+<li><code>Scheduler()</code> - креира нов празен распоредувач</li>
+<li><code>add(Timestamp&lt;T&gt; t)</code> - додава  нов објект во распоредувачот</li>
+<li><code>remove(Timestamp&lt;T&gt; t):boolean</code> - го брише соодветниот елемент од распоредувачот доколку постои и враќа true, во спротивно враќа false</li>
+<li><code>next():Timestamp&lt;T&gt;</code> - го враќа следниот <code>Timestamp</code> објект, односно тој објект чие што време е најблиску до тековното (сега) и сѐ уште НЕ е поминато</li>
+<li><code>last():Timestamp&lt;T&gt;</code> - го враќа објектот кој има време најблиску до тековното (сега) и веќе E поминат</li>
+<li><code>getAll(LocalDateTime begin, LocalDateTime end):List&lt;Timestamp&lt;T&gt;&gt;</code> - враќа листа на настани чии времиња се наоѓаат помеѓу <code>begin</code> и <code>end</code> (не вклучувајќи ги <code>begin</code> и <code>end</code>).</li>
+</ul>
+    </div>
+    <div id="editor" class="col-md-8">
+    <div id="editor-header">
+    	<label for="code" class="pull-left">Your solution:</label>
+    	<div class="pull-right programming_language">
+    	Programming language:
+    	    		    					    		<span class="label label-info">Java</span>
+    			    			    		    	    	</div>
+    </div>
+    <div class="clearfix"></div>
+    <textarea id="code" name="code" style="display: none;">import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.Comparator;
+
+public class SchedulerTest {
+
+    static final LocalDateTime TIME = LocalDateTime.of(2016, 10, 25, 10, 15);
+
+    public static void main(String[] args) {
+        Scanner jin = new Scanner(System.in);
+        int k = jin.nextInt();
+        if (k == 0) { //test Timestamp with String
+            Timestamp&lt;String&gt; t = new Timestamp&lt;&gt;(TIME, jin.next());
+            System.out.println(t);
+            System.out.println(t.getTime());
+            System.out.println(t.getElement());
+        }
+        if (k == 1) { //test Timestamp with ints
+            Timestamp&lt;Integer&gt; t1 = new Timestamp&lt;&gt;(TIME, jin.nextInt());
+            System.out.println(t1);
+            System.out.println(t1.getTime());
+            System.out.println(t1.getElement());
+            Timestamp&lt;Integer&gt; t2 = new Timestamp&lt;&gt;(TIME.plusDays(10), jin.nextInt());
+            System.out.println(t2);
+            System.out.println(t2.getTime());
+            System.out.println(t2.getElement());
+            System.out.println(t1.compareTo(t2));
+            System.out.println(t2.compareTo(t1));
+            System.out.println(t1.equals(t2));
+            System.out.println(t2.equals(t1));
+        }
+        if (k == 2) {//test Timestamp with String, complex
+            Timestamp&lt;String&gt; t1 = new Timestamp&lt;&gt;(ofEpochMS(jin.nextLong()), jin.next());
+            System.out.println(t1);
+            System.out.println(t1.getTime());
+            System.out.println(t1.getElement());
+            Timestamp&lt;String&gt; t2 = new Timestamp&lt;&gt;(ofEpochMS(jin.nextLong()), jin.next());
+            System.out.println(t2);
+            System.out.println(t2.getTime());
+            System.out.println(t2.getElement());
+            System.out.println(t1.compareTo(t2));
+            System.out.println(t2.compareTo(t1));
+            System.out.println(t1.equals(t2));
+            System.out.println(t2.equals(t1));
+        }
+        if (k == 3) { //test Scheduler with String
+            Scheduler&lt;String&gt; scheduler = new Scheduler&lt;&gt;();
+            LocalDateTime now = LocalDateTime.now();
+            scheduler.add(new Timestamp&lt;&gt;(now.minusHours(2), jin.next()));
+            scheduler.add(new Timestamp&lt;&gt;(now.minusHours(1), jin.next()));
+            scheduler.add(new Timestamp&lt;&gt;(now.minusHours(4), jin.next()));
+            scheduler.add(new Timestamp&lt;&gt;(now.plusHours(2), jin.next()));
+            scheduler.add(new Timestamp&lt;&gt;(now.plusHours(4), jin.next()));
+            scheduler.add(new Timestamp&lt;&gt;(now.plusHours(1), jin.next()));
+            scheduler.add(new Timestamp&lt;&gt;(now.plusHours(5), jin.next()));
+            System.out.println(scheduler.next().getElement());
+            System.out.println(scheduler.last().getElement());
+            List&lt;Timestamp&lt;String&gt;&gt; result = scheduler.getAll(now.minusHours(3), now.plusHours(4).plusMinutes(15));
+            String out = result.stream()
+                    .sorted()
+                    .map(Timestamp::getElement)
+                    .collect(Collectors.joining(", "));
+            System.out.println(out);
+        }
+        if (k == 4) {//test Scheduler with ints complex
+            Scheduler&lt;Integer&gt; scheduler = new Scheduler&lt;&gt;();
+            int counter = 0;
+            ArrayList&lt;Timestamp&lt;Integer&gt;&gt; forRemoval = new ArrayList&lt;&gt;();
+            while (jin.hasNextLong()) {
+                Timestamp&lt;Integer&gt; ti = new Timestamp&lt;&gt;(ofEpochMS(jin.nextLong()), jin.nextInt());
+                if ((counter &amp; 7) == 0) {
+                    forRemoval.add(ti);
+                }
+                scheduler.add(ti);
+                ++counter;
+            }
+            jin.next();
+
+            while (jin.hasNextLong()) {
+                LocalDateTime left = ofEpochMS(jin.nextLong());
+                LocalDateTime right = ofEpochMS(jin.nextLong());
+                List&lt;Timestamp&lt;Integer&gt;&gt; res = scheduler.getAll(left, right);
+                Collections.sort(res);
+                System.out.println(left + " &lt;: " + print(res) + " &gt;: " + right);
+            }
+            System.out.println("test");
+            List&lt;Timestamp&lt;Integer&gt;&gt; res = scheduler.getAll(ofEpochMS(0), ofEpochMS(Long.MAX_VALUE));
+            Collections.sort(res);
+            System.out.println(print(res));
+            forRemoval.forEach(scheduler::remove);
+            res = scheduler.getAll(ofEpochMS(0), ofEpochMS(Long.MAX_VALUE));
+            Collections.sort(res);
+            System.out.println(print(res));
+        }
+    }
+
+    private static LocalDateTime ofEpochMS(long ms) {
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(ms), ZoneId.systemDefault());
+    }
+
+    private static &lt;T&gt; String print(List&lt;Timestamp&lt;T&gt;&gt; res) {
+        if (res == null || res.size() == 0) return "NONE";
+        return res.stream()
+                .map(each -&gt; each.getElement().toString())
+                .collect(Collectors.joining(", "));
+    }
+
+}
+
+// vashiot kod ovde
+
+</textarea><div class="CodeMirror cm-s-default" style="height: 520px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 508px; left: 74px;"><textarea style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" tabindex="0" wrap="off">*/</textarea></div><div class="CodeMirror-hscrollbar" style="left: 53px;"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar" style="display: block; bottom: 0px;"><div style="width: 1px; height: 1674px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div style="position: relative; min-height: 100%;"><div class="CodeMirror-sizer" style="min-width: 957px; margin-left: 53px; min-height: 1674px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: currentcolor none medium;"><div class="CodeMirror-measure"><pre><span class="cm-comment">*</span><span class="cm-comment">/</span></pre></div><div style="position: relative; z-index: 1; display: none;"></div><div style=""><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">1</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">time</span>.<span class="cm-variable">Instant</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">2</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">time</span>.<span class="cm-variable">LocalDateTime</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">3</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">time</span>.<span class="cm-variable">ZoneId</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">4</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">ArrayList</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">5</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">Collections</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">6</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">List</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">7</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">Scanner</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">8</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">stream</span>.<span class="cm-variable">Collectors</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">9</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">Comparator</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">10</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">11</div></div><pre><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-variable">SchedulerTest</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">12</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">13</div></div><pre>    <span class="cm-comment">/*</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">14</div></div><pre>    <span class="cm-comment">static final LocalDateTime TIME = LocalDateTime.of(2016, 10, 25, 10, 15);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">15</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">16</div></div><pre>    <span class="cm-comment">public static void main(String[] args) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">17</div></div><pre>        <span class="cm-comment">Scanner jin = new Scanner(System.in);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">18</div></div><pre>        <span class="cm-comment">int k = jin.nextInt();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">19</div></div><pre>        <span class="cm-comment">if (k == 0) { //test Timestamp with String</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">20</div></div><pre>            <span class="cm-comment">Timestamp&lt;String&gt; t = new Timestamp&lt;&gt;(TIME, jin.next());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">21</div></div><pre>            <span class="cm-comment">System.out.println(t);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">22</div></div><pre>            <span class="cm-comment">System.out.println(t.getTime());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">23</div></div><pre>            <span class="cm-comment">System.out.println(t.getElement());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">24</div></div><pre>        <span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">25</div></div><pre>        <span class="cm-comment">if (k == 1) { //test Timestamp with ints</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">26</div></div><pre>            <span class="cm-comment">Timestamp&lt;Integer&gt; t1 = new Timestamp&lt;&gt;(TIME, jin.nextInt());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">27</div></div><pre>            <span class="cm-comment">System.out.println(t1);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">28</div></div><pre>            <span class="cm-comment">System.out.println(t1.getTime());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">29</div></div><pre>            <span class="cm-comment">System.out.println(t1.getElement());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">30</div></div><pre>            <span class="cm-comment">Timestamp&lt;Integer&gt; t2 = new Timestamp&lt;&gt;(TIME.plusDays(10), jin.nextInt());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">31</div></div><pre>            <span class="cm-comment">System.out.println(t2);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">32</div></div><pre>            <span class="cm-comment">System.out.println(t2.getTime());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">33</div></div><pre>            <span class="cm-comment">System.out.println(t2.getElement());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">34</div></div><pre>            <span class="cm-comment">System.out.println(t1.compareTo(t2));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">35</div></div><pre>            <span class="cm-comment">System.out.println(t2.compareTo(t1));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">36</div></div><pre>            <span class="cm-comment">System.out.println(t1.equals(t2));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">37</div></div><pre>            <span class="cm-comment">System.out.println(t2.equals(t1));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">38</div></div><pre>        <span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">39</div></div><pre>        <span class="cm-comment">if (k == 2) {//test Timestamp with String, complex</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">40</div></div><pre>            <span class="cm-comment">Timestamp&lt;String&gt; t1 = new Timestamp&lt;&gt;(ofEpochMS(jin.nextLong()), jin.next());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">41</div></div><pre>            <span class="cm-comment">System.out.println(t1);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">42</div></div><pre>            <span class="cm-comment">System.out.println(t1.getTime());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">43</div></div><pre>            <span class="cm-comment">System.out.println(t1.getElement());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">44</div></div><pre>            <span class="cm-comment">Timestamp&lt;String&gt; t2 = new Timestamp&lt;&gt;(ofEpochMS(jin.nextLong()), jin.next());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">45</div></div><pre>            <span class="cm-comment">System.out.println(t2);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">46</div></div><pre>            <span class="cm-comment">System.out.println(t2.getTime());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">47</div></div><pre>            <span class="cm-comment">System.out.println(t2.getElement());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">48</div></div><pre>            <span class="cm-comment">System.out.println(t1.compareTo(t2));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">49</div></div><pre>            <span class="cm-comment">System.out.println(t2.compareTo(t1));</span></pre></div></div><div class="CodeMirror-cursor" style="left: 20px; top: 1582px; height: 14px;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 1674px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-compiler-message"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></div>
+    <div id="editor-control">
+    	<div class="row">
+    		<div class="col-md-4">
+    			<div id="problem-revisions">	<label for="revision" class="editor-control-label">Revision:</label>
+	
+<select name="solutionHistory" size="1" id="solutionHistory" class="form-control input-sm">
+    					<option value="9389118" title="2020-02-06 22:14:26.0" selected="selected">3 seconds ago - 22:14:26
+</option>			    </select>
+
+	<input type="hidden" name="hasHistory" id="hasHistory" value="true">
+</div>
+	    		<button id="restore" class="btn btn-default btn-xs" style="display: block;"><i class="fa fa-undo"></i> Restore</button>
+    		</div>
+    		<div class="col-md-8">
+    		<div class="row">
+    			<div class="col-md-2">
+		    		Full Screen <b>F11</b>
+    			</div>
+                <div class="col-md-3">
+                    heigth:
+                    <button id="setFixedBtn" class="btn btn-default btn-xs">
+                        520px
+                    </button>
+                    <button id="setAutoBtn" class="btn btn-default btn-xs" style="display: none;">
+                        Auto
+                    </button>
+                </div>
+    			<div class="col-md-3">
+			    	<a class="jfontsize-button" id="minus-btn" style="cursor: pointer;">A-</a>
+			    	<a class="jfontsize-button" id="default-btn" style="cursor: pointer;">A</a>
+			    	<a class="jfontsize-button" id="plus-btn" style="cursor: pointer;">A+</a>
+    			</div>
+    			<div class="col-md-4">
+    			<label for="select-theme" id="select-theme-lbl" class="editor-control-label">
+		    		Select a theme: 
+		    	</label>
+		    	<select id="select-theme" class="form-control input-sm">
+			    	<option selected="selected">default</option>
+			    	<option>ambiance</option>
+			    	<option>blackboard</option>
+			    	<option>cobalt</option>
+			    	<option>eclipse</option>
+			    	<option>elegant</option>
+			    	<option>erlang-dark</option>
+			    	<option>lesser-dark</option>
+			    	<option>monokai</option>
+			    	<option>neat</option>
+			    	<option>night</option>
+			    	<option>rubyblue</option>
+			    	<option>vibrant-ink</option>
+			    	<option>xq-dark</option>
+		    	</select>
+    			</div>
+	    	</div>
+    		</div>
+    	</div>
+    </div>
+    
+    
+        <div class="form-actions" style="clear:both;">
+        <div id="buttons" style="display: block;">
+        	<div class="row">
+        		<div class="col-md-6">
+		            <button id="run" class="btn btn-info btn-sm"><i class="fa fa-play"></i> Run</button>
+		            <button id="submit" class="btn btn-primary btn-sm"><i class="fa fa-play-circle"></i> Submit</button>
+		            <a href="#resetAlert" role="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-retweet"></i> Reset</a>
+		            <button id="format" class="btn btn-default btn-sm"><i class="fa fa-magic"></i> Format</button>
+                    <!-- <button id="analyze" class="btn btn-default btn-sm"><i class="fa fa-cogs"></i> analyze</button> -->
+		            <!-- <a href="#yes_i_will_solve" role="button" class="btn btn-sm btn-warning pull-right" data-toggle="modal"><i class="fa fa-meh-o fa-fw"></i> Solve all my problems!</a> -->
+		            <!-- <button id="save" class="btn"><i class="fa fa-check"></i> Save</button> -->
+        		</div>
+        		<div class="col-md-6" id="attempts"> 
+	<span>Unlimited attempts</span>
+</div>
+        	</div>
+        </div>
+        <div id="working" style="display: none;">
+            <span id="working_msg">working...</span>
+            <img src="source_files/ajax-loader.gif">
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="program-output">
+        <h3>Program output
+        <img src="source_files/c.png" id="correct_img" style="display: none;">
+        <img src="source_files/w.png" id="wrong_img" style="display: none;"></h3>
+        <pre id="warning" class="pre-scrollable output-warning" style="display: none;"></pre>
+        <div id="clang_output" style="display: none;">
+            <h3><a id="output_link" target="_blank" class="text-danger">View report</a></h3>
+        </div>
+        <pre id="output" class="pre-scrollable"></pre>
+    </div>
+        <div id="sample-input" style="clear: both;">
+    	<div class="row">
+        <div class="col-md-6">
+            <h3>Sample input</h3>
+            <pre id="ex_input">0 test
+</pre>
+        </div>
+        <div class="col-md-6">
+		    <h3>Sample output</h3>
+		    <pre id="expected">2016-10-25T10:15 test
+2016-10-25T10:15
+test
+</pre>
+        </div>
+        </div>
+    </div>
+    <div id="submission-output" style="clear:both;">
+<h3>Result: <span class="result result-failure">0.00 % (0/10)</span></h3>
+
+<table class="table table-striped table-bordered table-condensed">
+<caption>Testing details</caption>
+<thead>
+    <tr>
+        <th width="5%">Test case #</th>
+        <th width="20%">Input</th>
+        <th width="25%">Output</th>
+        <th width="25%">Your output</th>
+        <th width="25%">Correct</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td>1</td>
+    <td><pre id="input_1">0 test
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">47</span>
+    	</div>
+    	<pre id="output_1">2016-10-25T10:15 test
+2016-10-25T10:15
+test
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_1">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_1" onclick="Code.viewDiff(1)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_1" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>2</td>
+    <td><pre id="input_2">1 2 4
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">103</span>
+    	</div>
+    	<pre id="output_2">2016-10-25T10:15 2
+2016-10-25T10:15
+2
+2016-11-04T10:15 4
+2016-11-04T10:15
+4
+-1
+1
+false
+false
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_2">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_2" onclick="Code.viewDiff(2)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_2" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>3</td>
+    <td><pre id="input_3">1 5 2
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">103</span>
+    	</div>
+    	<pre id="output_3">2016-10-25T10:15 5
+2016-10-25T10:15
+5
+2016-11-04T10:15 2
+2016-11-04T10:15
+2
+-1
+1
+false
+false
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_3">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_3" onclick="Code.viewDiff(3)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_3" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>4</td>
+    <td><pre id="input_4">1 879 879
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">111</span>
+    	</div>
+    	<pre id="output_4">2016-10-25T10:15 879
+2016-10-25T10:15
+879
+2016-11-04T10:15 879
+2016-11-04T10:15
+879
+-1
+1
+false
+false
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_4">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_4" onclick="Code.viewDiff(4)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_4" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>5</td>
+    <td><pre id="input_5">2 3600000 sample 7200000 sample
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">123</span>
+    	</div>
+    	<pre id="output_5">1970-01-01T01:00 sample
+1970-01-01T01:00
+sample
+1970-01-01T02:00 sample
+1970-01-01T02:00
+sample
+-1
+1
+false
+false
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_5">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_5" onclick="Code.viewDiff(5)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_5" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>6</td>
+    <td><pre id="input_6">2 3600000 sample 3600000 sample
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">120</span>
+    	</div>
+    	<pre id="output_6">1970-01-01T01:00 sample
+1970-01-01T01:00
+sample
+1970-01-01T01:00 sample
+1970-01-01T01:00
+sample
+0
+0
+true
+true
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_6">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_6" onclick="Code.viewDiff(6)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_6" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>7</td>
+    <td><pre id="input_7">2 3600000 sample 3600000 test
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">116</span>
+    	</div>
+    	<pre id="output_7">1970-01-01T01:00 sample
+1970-01-01T01:00
+sample
+1970-01-01T01:00 test
+1970-01-01T01:00
+test
+0
+0
+true
+true
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_7">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_7" onclick="Code.viewDiff(7)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_7" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>8</td>
+    <td><pre id="input_8">3 before_inside last before_outside after_inside1 after_inside2 next after_outside
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">69</span>
+    	</div>
+    	<pre id="output_8">next
+last
+before_inside, last, next, after_inside1, after_inside2
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_8">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_8" onclick="Code.viewDiff(8)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_8" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>9</td>
+    <td><pre id="input_9">4
+873961200000 1 
+875649600000 2 
+875955600000 3 
+876042000000 4 
+876146400000 5 
+877068000000 6 
+878940000000 7 
+881013600000 8 
+881802000000 9 
+891928800000 10 
+query
+867482800000 1744289600000
+879722800000 1752688400000
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">195</span>
+    	</div>
+    	<pre id="output_9">1997-06-28T07:26:40 &lt;: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 &gt;: 2025-04-10T12:53:20
+1997-11-16T23:26:40 &lt;: 8, 9, 10 &gt;: 2025-07-16T17:53:20
+test
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+2, 3, 4, 5, 6, 7, 8, 10
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_9">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_9" onclick="Code.viewDiff(9)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_9" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>10</td>
+    <td><pre id="input_10">4
+864007200000 1 
+864028800000 2 
+864068400000 3 
+864118800000 4 
+864223200000 5 
+864262800000 6 
+864273600000 7 
+864338400000 8 
+864342000000 9 
+864378000000 10 
+864381600000 11 
+864446400000 12 
+864464400000 13 
+864514800000 14 
+864525600000 15 
+864532800000 16 
+864540000000 17 
+864554400000 18 
+864572400000 19 
+864604800000 20 
+864637200000 21 
+864648000000 22 
+864655200000 23 
+864702000000 24 
+864781200000 25 
+864824400000 26 
+864853200000 27 
+864882000000 28 
+864914400000 29 
+864972000000 30 
+865008000000 31 
+865011600000 32 
+865062000000 33 
+865090800000 34 
+865112400000 35 
+865184400000 36 
+865231200000 37 
+865292400000 38 
+865360800000 39 
+865375200000 40 
+865393200000 41 
+865422000000 42 
+865440000000 43 
+865515600000 44 
+865551600000 45 
+865555200000 46 
+865566000000 47 
+865573200000 48 
+865580400000 49 
+865594800000 50 
+865605600000 51 
+865666800000 52 
+865674000000 53 
+865688400000 54 
+865702800000 55 
+865713600000 56 
+865756800000 57 
+865778400000 58 
+865818000000 59 
+865836000000 60 
+865846800000 61 
+865868400000 62 
+865875600000 63 
+865918800000 64 
+865922400000 65 
+865965600000 66 
+866109600000 67 
+866127600000 68 
+866131200000 69 
+866163600000 70 
+866170800000 71 
+866188800000 72 
+866214000000 73 
+866289600000 74 
+866343600000 75 
+866354400000 76 
+866383200000 77 
+866426400000 78 
+866430000000 79 
+866502000000 80 
+866541600000 81 
+866545200000 82 
+866559600000 83 
+866577600000 84 
+866599200000 85 
+866667600000 86 
+866689200000 87 
+866692800000 88 
+866700000000 89 
+866808000000 90 
+866811600000 91 
+866815200000 92 
+866822400000 93 
+866901600000 94 
+866973600000 95 
+866991600000 96 
+867042000000 97 
+867074400000 98 
+867096000000 99 
+867110400000 100 
+867150000000 101 
+867164400000 102 
+867189600000 103 
+867196800000 104 
+867229200000 105 
+867344400000 106 
+867380400000 107 
+867466800000 108 
+867567600000 109 
+867600000000 110 
+867632400000 111 
+867715200000 112 
+867747600000 113 
+867794400000 114 
+867812400000 115 
+867816000000 116 
+867837600000 117 
+867848400000 118 
+867852000000 119 
+867952800000 120 
+867967200000 121 
+868014000000 122 
+868032000000 123 
+868064400000 124 
+868075200000 125 
+868096800000 126 
+868161600000 127 
+868276800000 128 
+868298400000 129 
+868374000000 130 
+868424400000 131 
+868428000000 132 
+868456800000 133 
+868482000000 134 
+868518000000 135 
+868582800000 136 
+868586400000 137 
+868618800000 138 
+868658400000 139 
+868716000000 140 
+868928400000 141 
+868978800000 142 
+868982400000 143 
+869000400000 144 
+869004000000 145 
+869090400000 146 
+869097600000 147 
+869104800000 148 
+869137200000 149 
+869202000000 150 
+869245200000 151 
+869263200000 152 
+869266800000 153 
+869288400000 154 
+869324400000 155 
+869346000000 156 
+869349600000 157 
+869364000000 158 
+869374800000 159 
+869403600000 160 
+869464800000 161 
+869475600000 162 
+869515200000 163 
+869547600000 164 
+869558400000 165 
+869562000000 166 
+869572800000 167 
+869598000000 168 
+869652000000 169 
+869666400000 170 
+869695200000 171 
+869698800000 172 
+869727600000 173 
+869767200000 174 
+869814000000 175 
+869824800000 176 
+869850000000 177 
+869853600000 178 
+869868000000 179 
+869889600000 180 
+869896800000 181 
+869907600000 182 
+869922000000 183 
+869936400000 184 
+870026400000 185 
+870051600000 186 
+870069600000 187 
+870098400000 188 
+870116400000 189 
+870141600000 190 
+870177600000 191 
+870202800000 192 
+870213600000 193 
+870343200000 194 
+870346800000 195 
+870350400000 196 
+870368400000 197 
+870375600000 198 
+870390000000 199 
+870415200000 200 
+870418800000 201 
+870451200000 202 
+870465600000 203 
+870472800000 204 
+870595200000 205 
+870602400000 206 
+870613200000 207 
+870616800000 208 
+870703200000 209 
+870732000000 210 
+870825600000 211 
+870897600000 212 
+870926400000 213 
+870930000000 214 
+870944400000 215 
+870951600000 216 
+870976800000 217 
+870991200000 218 
+871059600000 219 
+871074000000 220 
+871117200000 221 
+871124400000 222 
+871182000000 223 
+871210800000 224 
+871225200000 225 
+871401600000 226 
+871448400000 227 
+871452000000 228 
+871455600000 229 
+871466400000 230 
+871480800000 231 
+871509600000 232 
+871516800000 233 
+871542000000 234 
+871549200000 235 
+871560000000 236 
+871570800000 237 
+871653600000 238 
+871664400000 239 
+871689600000 240 
+871714800000 241 
+871743600000 242 
+871758000000 243 
+871772400000 244 
+871815600000 245 
+871830000000 246 
+871862400000 247 
+871869600000 248 
+871902000000 249 
+871970400000 250 
+871981200000 251 
+871999200000 252 
+872020800000 253 
+872085600000 254 
+872128800000 255 
+872132400000 256 
+872168400000 257 
+872233200000 258 
+872262000000 259 
+872323200000 260 
+872337600000 261 
+872348400000 262 
+872380800000 263 
+872388000000 264 
+872398800000 265 
+872442000000 266 
+872470800000 267 
+872474400000 268 
+872485200000 269 
+872496000000 270 
+872542800000 271 
+872553600000 272 
+872564400000 273 
+872578800000 274 
+872668800000 275 
+872676000000 276 
+872766000000 277 
+872787600000 278 
+872852400000 279 
+872974800000 280 
+872989200000 281 
+873043200000 282 
+873097200000 283 
+873104400000...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">252844</span>
+    	</div>
+    	<pre id="output_10">1997-05-30T01:26:40 &lt;: 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105 &gt;: 1997-06-25T17:53:20
+1997-08-07T16:26:40 &lt;: 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297 &gt;: 1997-09-06T20:53:20
+1997-07-30T21:26:40 &lt;: 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338 &gt;: 1997-09-24T11:53:20
+1997-10-22T08:26:40 &lt;: 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624 &gt;: 1998-01-06T12:53:20
+1997-07-03T08:26:40 &lt;: 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140 &gt;: 1997-07-14T18:53:20
+1997-10-05T16:26:40 &lt;: 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592 &gt;: 1997-12-22T21:53:20
+1997-08-25T12:26:40 &lt;: 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 4...</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">202</span>
+    	</div>
+    	<pre id="your_output_10">Error: Main method not found in class SchedulerTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_10" onclick="Code.viewDiff(10)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_10" class="diff"></pre>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+    
+  	<div class="modal fade" id="resetAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="myModalLabel">Warning</h3>
+	  	</div>
+		<div class="modal-body">
+			<p>Are you sure you want to reset the contents of the editor to the starter code?</p>
+		</div>
+  		<div class="modal-footer">
+   			<button type="button" id="btn-reset-yes" value="Yes" data-dismiss="modal" class="btn btn-danger btn-sm">Yes</button>
+   			<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  		</div>
+  		</div>
+  		</div>
+	</div>
+	
+	  	<div class="modal fade" id="yes_i_will_solve" tabindex="-1" role="dialog" aria-labelledby="yes_i_will_solve" aria-hidden="true">
+	  	  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="aprilFoolsLabel">Your solution</h3>
+	  	</div>
+		<div class="modal-body text-center">
+			<div style="margin-bottom: 10px;">
+				<img src="source_files/yay_happy.gif" class="img-polaroid">
+			</div>
+			<div id="terminal" class="typist-container" style="background-color: rgb(51, 51, 51); color: rgb(221, 221, 221); font-family: monospace; height: 80px;"></div>
+		</div>  	
+		</div>
+		</div>	
+	</div>
+
+<input type="hidden" name="isReadOnly" id="isReadOnly" value="false">
+
+
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+    <p>© CSE 2012 - 2020 | <a href="http://develop.finki.ukim.mk/projects/e-lab">Support &amp; Development</a></p>
+</footer>
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="source_files/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dataTables.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_004.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/typeahead.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/code.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/helper.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/diff_match_patch.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="source_files/codemirror.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dialog.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/fullscreen.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/searchcursor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/search.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/match-highlighter.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/matchbrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/closebrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clike.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/python.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/shell.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/commonlisp.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/x-mathjax-config;executed=true">
+	MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+	tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+    TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+    messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" src="source_files/MathJax.js" charset="utf-8"></script>
+<script src="source_files/jquery_002.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/problem.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clock.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/editor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_003.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function(){
+	
+	var isReadOnly = $('#isReadOnly').val() == "true";
+	var isTimeLimited = $('#isTimeLimited').val() == "true";
+	var hasHistory = $('#hasHistory').val() == "true";
+	
+	$(document).ready(function() {
+		if(!hasHistory) {
+			$('#restore').hide();
+		}
+		$('#warning').hide();
+	});
+
+	var textArea = document.getElementById('code');
+	var mode = "text/x-java";
+	
+	Code.Editor.init(textArea, mode, isReadOnly);
+	
+	Code.Execute = {
+		run : function() {
+			Code.Editor.clearErrors();
+			var code = Code.Editor.getCode();
+		    $.post('/code/run', { 
+		             code : code,
+		             'problemData.id' : 8595
+		        },
+		        function(data) {
+		            $('#output').html("");
+		        	if(data.success) {
+		        		$('#output').removeClass("output-error");
+		                $('#output').addClass("output-success");        		
+		        	} else {
+		        		$('#output').removeClass("output-success");
+		        		$('#output').addClass("output-error");
+		        		Code.Editor.markErrors(data.errors);
+		        	}
+		            $('#output').append(data.output);
+		            if(data.warning) {
+		            	$('#warning').html("");
+		            	$('#warning').append(data.warning);
+		            	$('#warning').show();
+		            	Code.Editor.markErrors(data.errors);
+		            } else {
+		            	$('#warning').hide();
+		            }
+		            $('#problem-revisions').load('/code/revisions', {
+		                'problemData.id' : 8595
+		            }, function() {
+		        		hasHistory = $('#hasHistory').val() == "true";
+		        		if(hasHistory) {
+		        			$('#restore').show();
+		        		}
+		            });
+		        }
+		    );
+		},
+		submit : function() {
+			var code = Code.Editor.getCode();
+	    	$.post('/submit', { 
+	             code : code,
+	             'problemData.id' : 8595
+	        },
+	        function(data) {
+	            $('#submission-output').html(data);
+	            $('#problem-revisions').load('/code/revisions', {
+	                'problemData.id' : 8595
+	            }, function(){
+	        		var hasHistory = $('#hasHistory').val() == "true";
+	        		if(hasHistory) {
+	        			$('#restore').show();
+	        		}
+	            });
+	            Code.Execute.attempts();
+	            $('html,body').animate({scrollTop: $("#submission-output").offset().top - 40},'slow');
+	        });
+		},
+		save : function(autosave) {
+			var code = Code.Editor.getCode();
+			$.post('/code/save', { 
+		        code : code,
+		        'problemData.id' : 8595
+		   		},
+		   		function(data) {
+			    	if(autosave) {
+			    		$("#auto-saved").fadeIn(300).delay(2000).fadeOut(300);
+			    	} else {
+			    		$("#saved").fadeIn(300).delay(2000).fadeOut(300);
+					}
+			    	$('#problem-revisions').load('/code/revisions', {
+		            	'problem.id' : 8595
+		        	});
+		   	});
+		},
+		reset : function() {
+			$.post('/code/reset', { 
+		         'problemData.id' : 8595
+		    	},
+		    	function(data) {
+		    		Code.Editor.setCode(data);
+		    	}
+			);
+		},
+		restore : function(){
+			var solutionHistoryId = $('#solutionHistory').val();
+			if(solutionHistoryId) {
+				$('#code').load(
+			            '/code/loadsolutionfromhistory',
+			            {
+			                'solutionHistoryId' : solutionHistoryId
+			            }, function(data) {
+			            	Code.Editor.setCode(data);
+			            }
+			     );
+			}
+		},
+		attempts: function() {
+			$('#attempts').load('/code/attempts', {
+            	'problem.id' : 6072
+            }, function() {
+            	var exceeded = $('#exceeded').val();
+            	if(exceeded == "true") {
+            		$('#submit').attr('disabled', true);
+            	}
+            });
+		}
+	}
+	$('#run').click(Code.Execute.run);
+	$('#submit').click(Code.Execute.submit);
+	//$('#save').click(Code.Execute.save(false));
+	$('#btn-reset-yes').click(Code.Execute.reset);
+	$('#restore').click(Code.Execute.restore);
+	// use closure
+	$('#format').click(function(){ return Code.Editor.format(8595) });
+    $('#analyze').click(function() { return Code.Editor.analyze(8595, function(data) {
+        console.log(data);
+        if(data.errors) {
+            $("#clang_output").show();
+            $("#output_link").attr("href", data.uri);
+        } else {
+            $("#clang_output").hide();
+        }
+    })});
+	var working = $('#working').hide();
+	$(document).ajaxStart(function() {
+    	$('#buttons').hide();
+        working.show();
+    }).ajaxStop(function() {
+        working.hide();
+        $('#buttons').show();
+    });
+	$('#select-theme').change(function(){
+		Code.Editor.setTheme($(this).val());
+	});
+	  
+	
+	$('.CodeMirror').jfontsize({
+		btnMinusClasseId: '#minus-btn',
+	    btnDefaultClasseId: '#default-btn',
+	    btnPlusClasseId: '#plus-btn',
+	    btnMinusMaxHits: 5,
+	    btnPlusMaxHits: 8,
+	    sizeChange: 1
+	});
+	
+	// Create a newDate() object
+	var dateOpened = new Date(1574378373000);
+	var dateEnd = new Date(parseInt($('#dateEnd').val()));
+	var serverTime = 1581023658263;
+	Code.Clock.init($('#time'), dateOpened, serverTime, dateEnd);
+	
+	if(isTimeLimited && !isReadOnly) {
+		Code.Clock.initTimeLimited($('#time-left'), dateEnd, serverTime, "/courses/finish?problemDataId=8595&courseId=111");	
+	}
+	
+	var dmp = new diff_match_patch();
+	
+	Code.viewDiff = function(test) {
+		var text2 = $('#output_' + test).html();
+		var text1 = $('#your_output_' + test).html();
+		var d = dmp.diff_main(text1, text2);
+		var ds = dmp.diff_prettyHtml(d);
+		$('#diff_' + test).html(ds);
+		$('#diff_' + test).show();
+	}
+	$('#setAutoBtn').hide();
+    $('#setFixedBtn').click(function() {
+        $(this).hide();
+        $('#setAutoBtn').show();
+        Code.Editor.setAutoSize();
+    });
+    $('#setAutoBtn').click(function() {
+        $(this).hide();
+        $('#setFixedBtn').show();
+        Code.Editor.setFixedSize();
+    });
+
+	$(document).bind('keydown', 'ctrl+shift+5', Code.Execute.run);
+	$(document).bind('keydown', 'ctrl+shift+6', Code.Execute.submit);
+	$(document).bind('keydown', 'ctrl+shift+0', Code.Execute.reset);
+
+	$('#terminal').typist({
+  		height: 80,
+  		speed : 'slow'
+	});
+	
+	 /* $('#yes_i_will_solve').on('shown.bs.modal', function(){
+		$('#terminal').typist('prompt')
+		  .typist('type', 'Кој ден сме денес?')
+		  .typist('echo', '1 Април')
+		  .typist('echo', 'Априлилили!');
+		(function(){function c(){var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},15500)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var f="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){console.warn("Could not find a node of the right size. Please try a different page.");return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()
+	}); */
+	
+})();
+</script>
+
+      
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('#btn-icon').toggleClass("fa-chevron-right fa-chevron-left");
+    });
+    </script>
+    
+</body></html>

@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Генерички контејнер со променлива должина | Code</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" media="screen" href="source_files/fonts.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap-yety.css">
+<link rel="stylesheet" media="screen" href="source_files/font-awesome.css">
+<!-- <link rel="stylesheet" media="screen" href="/public/DataTables/media/css/jquery.dataTables.min.css"> -->
+<link rel="stylesheet" media="screen" href="source_files/dataTables.css">
+<link rel="stylesheet" media="screen" href="source_files/main.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/dialog.css">
+<link rel="stylesheet" href="source_files/fullscreen.css">
+<link rel="stylesheet" href="source_files/neat.css">
+<link rel="stylesheet" href="source_files/elegant.css">
+<link rel="stylesheet" href="source_files/erlang-dark.css">
+<link rel="stylesheet" href="source_files/night.css">
+<link rel="stylesheet" href="source_files/monokai.css">
+<link rel="stylesheet" href="source_files/cobalt.css">
+<link rel="stylesheet" href="source_files/eclipse.css">
+<link rel="stylesheet" href="source_files/rubyblue.css">
+<link rel="stylesheet" href="source_files/lesser-dark.css">
+<link rel="stylesheet" href="source_files/xq-dark.css">
+<link rel="stylesheet" href="source_files/ambiance.css">
+<link rel="stylesheet" href="source_files/blackboard.css">
+<link rel="stylesheet" href="source_files/vibrant-ink.css">
+
+<link rel="shortcut icon" type="image/png" href="http://code.finki.ukim.mk/public/images/favicon.ico">        <style>    .typist-container {      overflow: hidden;      padding-left: 4px;    }    .typist-container p {      margin: 0 0 3px;    }    .typist-container p.prompt {      margin: 5px 0;    }    </style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+    <body><div id="MathJax_Message" style="display: none;"></div>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+         <div class="navbar-header">
+		  	<a class="logo" href="http://code.finki.ukim.mk/" title="Go to home page">
+	<img src="source_files/logo.png" alt="Code">
+</a> 
+<!-- <a class="logo-title brand" href="/" title="Go to home page">Code</a> -->		  	            	<a class="logo-title" href="http://code.finki.ukim.mk/course/111/" title="Go to course problem sets index page">Напредно програмирање 2019/2020</a>
+          			  	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+          	</button>          
+		 </div>
+		<div class="navbar-collapse collapse" id="navbar-main">
+          	<ul class="nav navbar-nav">
+            	          	</ul>
+        
+        	<ul class="nav navbar-nav navbar-right">
+          				            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_languages">
+		<i class="fa fa-flag fa-fw"></i> Language <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_languages">
+       	<li><a href="http://code.finki.ukim.mk/langauge?locale=mk&amp;path=%2Fcourse%2F111%2Fproblem%2F6078%2F">Macedonian</a></li>
+		<li><a href="http://code.finki.ukim.mk/langauge?locale=en&amp;path=%2Fcourse%2F111%2Fproblem%2F6078%2F">English</a></li>
+    </ul>
+</li>		            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_courses">
+		<i class="fa fa-th fa-fw"></i> Courses <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_courses">
+        			<li><a href="http://code.finki.ukim.mk/course/61/"><i class="fa fa-angle-right fa-fw"></i> Алгоритми и податочни структури 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/48/"><i class="fa fa-angle-right fa-fw"></i> Алогоритми и податочни структури 2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/88/"><i class="fa fa-angle-right fa-fw"></i> Визуелно програмирање 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/111/"><i class="fa fa-angle-right fa-fw"></i> Напредно програмирање 2019/2020</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/37/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2014/2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/52/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2015/2016</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/86/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/102/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2018/2019</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/43/"><i class="fa fa-angle-right fa-fw"></i> Основи на веб дизајн</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/60/"><i class="fa fa-angle-right fa-fw"></i> Системи на знаење 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/30/"><i class="fa fa-angle-right fa-fw"></i> Структурно програмирање 2014</a></li> 
+		    </ul>
+</li>	            	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user">
+		<i class="fa fa-user fa-fw"></i> Симон Ќулумов <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user">
+        <li>
+			<a tabindex="-1" href="#"><i class="fa fa-eye fa-fw"></i> Student</a>
+		</li>	        
+        <li class="divider"></li>
+        <li>
+			<a href="http://code.finki.ukim.mk/logout"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+		</li>
+       </ul>
+</li>
+		         	        </ul>
+         </div>
+          
+	</div>
+</div>
+
+    <div class="container-fluid">
+        <div class="page-header">
+	<h2><i class="fa fa-angle-double-right"></i> <a href="http://code.finki.ukim.mk/course/111/problemset/1870/" title="">Генеричко програмирање</a>  <small>(5)</small></h2>
+</div>      <div id="wrapper">
+      <button class="btn btn-default btn-xs" id="menu-toggle">
+          <i id="btn-icon" class="fa fa-chevron-right fa-fw"></i>
+      </button>
+      <div id="sidebar-wrapper">
+          <div class="well sidebar-nav">
+                <ul class="nav nav-pills nav-stacked">
+<li class="nav-header">Problems</li>
+			    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6071/">1) Комплексни броеви
+        </a></li>
+    		    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6072/">2) Генерички распоредувач
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6073/">2) Листа на цели броеви
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6074/">3) Генерички ред
+        </a></li>
+    	    <li class="active">
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6078/">4) Генерички контејнер со променлива должина
+        </a></li>
+    </ul>          </div><!--/.well -->
+          <div class="help">
+                <ol>
+<li><p>Не може да креирате низа од генерички тип.
+Наместо тоа користете:</p>
+<p>    niza = (T[]) new Object[n];</p>
+</li>
+<li><p>Функцијата <code>toArray():Object[]</code> - враќа низа од <strong>објекти</strong> не низа од <code>Т</code>. Оваа низа не се обидувајте да ја кастирате во ништо, нема да успеете.
+Пример за лоша употреба на <code>toArray()</code>:</p>
+<p>    Integer int_array[] = (Integer[]) c.toArray();</p>
+</li>
+<li><p>Класата <code>ResizableArray</code> не треба да нуди никакви гаранции за меѓусебната подреденост на елементите т.е. некој елемент <code>А</code> кој се наоѓа на позиција 12 може да ја промени својата позиција при повик на методите <code>addElement</code>, <code>removeElement</code>, <code>contains</code>, меѓутоа не смее да ја менува својата позиција при повик на методите <code>count</code> или <code>elementAt</code>. Ова значи дека со следниот код се печатат сите елементи од една <code>ResizableArray</code>.</p>
+<p>        void printElements(ResizableArray<t> r) {
+            for(int i=0 ; i</t>() ; ++i) 
+System.out.println(r.elementAt(i));
+}</p>
+</li>
+<li><p>За последните два тест случаи, execution timeout добивате доколку
+ на вашиот код му се потребни повеќе од три секунди. Пробајте да го 
+оптимизирате вашето решение, поточно функциите <code>addElement</code> и <code>removeElement</code>. Не користете информации од <code>main</code> за да го направите ова, пример следниот код не е дозволен.</p>
+<p>        public ResizableArray() {
+T niza[] = (T[]) new Object[1000000];
+}</p>
+</li>
+</ol>
+          </div>
+      </div>
+      <div id="problem-layout">
+      
+
+
+
+    <div id="clock" class="pull-right">
+        <span class="time-label">Opened:</span>
+      <ul>
+          <li id="time">00:02:31</li>          
+      </ul>
+    </div>
+    <h3 id="problem-name">Генерички контејнер со променлива должина <small>Problem 4 (0 / 0) </small></h3>
+
+<div class="row">    
+    <div id="problem-text" class="col-md-4">    
+    	<p>Да се напише класа <strong>ResizableArray</strong> која ќе 
+претставува поле (низа) со променлива должина. Класата може да чува 
+елементи од било кој тип (треба да биде генеричка со еден параметар <code>T</code>) и треба да ги има дефинирано следните методи:</p>
+
+<ul>
+<li><code>ResizableArray()</code> - креира  ново празно поле</li>
+<li><code>addElement(T element)</code> - додава нов елемент во полето (доколку нема доволно место го зголемува капацитетот на полето).</li>
+<li><code>removeElement(T element):boolean</code> - aко постои  таков елемент истиот го брише и враќа <code>true</code>, во спротивно враќа <code>false</code>,
+ доколку има повеќе инстанци од дадениот елемент се брише само една од 
+нив (ако има многу празно место во полето го намалува неговиот 
+капацитет)</li>
+<li><code>contains(T element):boolean</code> - враќа <code>true</code> доколку во полето постои дадениот елемент</li>
+<li><code>toArray():Object[]</code> - ги враќа сите елементи во полето како обична низа</li>
+<li><code>isEmpty()</code> - враќа <code>true</code> доколку во полето нема ниеден елемент</li>
+<li><code>count():int</code> - го браќа бројот на елементи во полето</li>
+<li><code>elementAt(int idx):T</code> - го враќа елементот на соодветната позиција, доколку нема таков фрла исклучок <code>ArrayIndexOutOfBoundsException</code> (елементите во полето се наоѓаат на позиции <code>[0, count()]</code>)</li>
+</ul>
+
+<p><strong>Забелешка</strong>: за чување на елементите мора да се користи обична низа <code>Т[] elements</code>, не смее да се користи <code>ArrayList&lt;T&gt;</code> и истата мора да биде декларирана како <code>private</code>.</p>
+
+<p>Дополнително, класата <code>ResizableArray</code> треба да има еден статички метод:</p>
+
+<p><code>&lt;T&gt; void copyAll(ResizableArray&lt;? super T&gt; dest, ResizableArray&lt;? extends T&gt; src)</code></p>
+
+<p>Овој метод треба да изврши копирање на сите елементи од <code>src</code> во <code>dest</code> (<code>src</code> останува непроменета, <code>dest</code> ги содржи сите елементи кои ги имал од порано и дополнително сите елементи кои ги има во <code>src</code>).</p>
+
+<p>Следно треба да се напише класа <strong>IntegerArray</strong> која наследува од класата <strong>ResizableArray</strong> <code>IntegerArray extends ResizableArray&lt;Integer&gt;</code> и служи за чување на цели броеви. Оваа класа ги нуди следниве методи:</p>
+
+<ul>
+<li><code>sum():double</code> - ја враќа сумата на сите елементи во полето</li>
+<li><code>mean():double</code> - го дава просекот на сите елементи во полето</li>
+<li><code>countNonZero():int</code> - го дава бројот на елементи во полето кои имаат вредност различна од нула </li>
+<li><code>distinct():IntegerArray</code> - враќа нов објект кој во себе ги содржи истите елементи кои ги содржи <code>this</code>, но нема дупликат елементи</li>
+<li><code>increment(int offset):IntegerArray</code> - враќа нов објект кој во себе ги содржи сите елемeнти кои ги содржи <code>this</code>, но на нив додавајќи <code>offset</code></li>
+</ul>
+    </div>
+    <div id="editor" class="col-md-8">
+    <div id="editor-header">
+    	<label for="code" class="pull-left">Your solution:</label>
+    	<div class="pull-right programming_language">
+    	Programming language:
+    	    		    					    		<span class="label label-info">Java</span>
+    			    			    		    	    	</div>
+    </div>
+    <div class="clearfix"></div>
+    <textarea id="code" name="code" style="display: none;">import java.util.Scanner;
+import java.util.LinkedList;
+
+public class ResizableArrayTest {
+	
+	public static void main(String[] args) {
+		Scanner jin = new Scanner(System.in);
+		int test = jin.nextInt();
+		if ( test == 0 ) { //test ResizableArray on ints
+			ResizableArray&lt;Integer&gt; a = new ResizableArray&lt;Integer&gt;();
+			System.out.println(a.count());
+			int first = jin.nextInt();
+			a.addElement(first);
+			System.out.println(a.count());
+			int last = first;
+			while ( jin.hasNextInt() ) {
+				last = jin.nextInt();
+				a.addElement(last);
+			}
+			System.out.println(a.count());
+			System.out.println(a.contains(first));
+			System.out.println(a.contains(last));
+			System.out.println(a.removeElement(first));
+			System.out.println(a.contains(first));
+			System.out.println(a.count());
+		}
+		if ( test == 1 ) { //test ResizableArray on strings
+			ResizableArray&lt;String&gt; a = new ResizableArray&lt;String&gt;();
+			System.out.println(a.count());
+			String first = jin.next();
+			a.addElement(first);
+			System.out.println(a.count());
+			String last = first;
+			for ( int i = 0 ; i &lt; 4 ; ++i ) {
+				last = jin.next();
+				a.addElement(last);
+			}
+			System.out.println(a.count());
+			System.out.println(a.contains(first));
+			System.out.println(a.contains(last));
+			System.out.println(a.removeElement(first));
+			System.out.println(a.contains(first));
+			System.out.println(a.count());
+			ResizableArray&lt;String&gt; b = new ResizableArray&lt;String&gt;();
+			ResizableArray.copyAll(b, a);
+			System.out.println(b.count());
+			System.out.println(a.count());
+			System.out.println(a.contains(first));
+			System.out.println(a.contains(last));
+			System.out.println(b.contains(first));
+			System.out.println(b.contains(last));
+			ResizableArray.copyAll(b, a);
+			System.out.println(b.count());
+			System.out.println(a.count());
+			System.out.println(a.contains(first));
+			System.out.println(a.contains(last));
+			System.out.println(b.contains(first));
+			System.out.println(b.contains(last));
+			System.out.println(b.removeElement(first));
+			System.out.println(b.contains(first));
+			System.out.println(b.removeElement(first));
+			System.out.println(b.contains(first));
+
+			System.out.println(a.removeElement(first));
+			ResizableArray.copyAll(b, a);
+			System.out.println(b.count());
+			System.out.println(a.count());
+			System.out.println(a.contains(first));
+			System.out.println(a.contains(last));
+			System.out.println(b.contains(first));
+			System.out.println(b.contains(last));
+		}
+		if ( test == 2 ) { //test IntegerArray
+			IntegerArray a = new IntegerArray();
+			System.out.println(a.isEmpty());
+			while ( jin.hasNextInt() ) {
+				a.addElement(jin.nextInt());
+			}
+			jin.next();
+			System.out.println(a.sum());
+			System.out.println(a.mean());
+			System.out.println(a.countNonZero());
+			System.out.println(a.count());
+			IntegerArray b = a.distinct();
+			System.out.println(b.sum());
+			IntegerArray c = a.increment(5);
+			System.out.println(c.sum());
+			if ( a.sum() &gt; 100 )
+				ResizableArray.copyAll(a, a);
+			else
+				ResizableArray.copyAll(a, b);
+			System.out.println(a.sum());
+			System.out.println(a.removeElement(jin.nextInt()));
+			System.out.println(a.sum());
+			System.out.println(a.removeElement(jin.nextInt()));
+			System.out.println(a.sum());
+			System.out.println(a.removeElement(jin.nextInt()));
+			System.out.println(a.sum());
+			System.out.println(a.contains(jin.nextInt()));
+			System.out.println(a.contains(jin.nextInt()));
+		}
+		if ( test == 3 ) { //test insanely large arrays
+			LinkedList&lt;ResizableArray&lt;Integer&gt;&gt; resizable_arrays = new LinkedList&lt;ResizableArray&lt;Integer&gt;&gt;();
+			for ( int w = 0 ; w &lt; 500 ; ++w ) {
+				ResizableArray&lt;Integer&gt; a = new ResizableArray&lt;Integer&gt;();
+				int k =  2000;
+				int t =  1000;
+				for ( int i = 0 ; i &lt; k ; ++i ) {
+					a.addElement(i);
+				}
+				
+				a.removeElement(0);
+				for ( int i = 0 ; i &lt; t ; ++i ) {
+					a.removeElement(k-i-1);
+				}
+				resizable_arrays.add(a);
+			}
+			System.out.println("You implementation finished in less then 3 seconds, well done!");
+		}
+	}
+	
+}
+</textarea><div class="CodeMirror cm-s-default" style="height: 520px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 508px; left: 106px;"><textarea style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" tabindex="0" wrap="off">*/</textarea></div><div class="CodeMirror-hscrollbar" style="left: 53px;"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar" style="display: block; bottom: 0px;"><div style="width: 1px; height: 1730px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div style="position: relative; min-height: 100%;"><div class="CodeMirror-sizer" style="min-width: 909px; margin-left: 53px; min-height: 1730px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: currentcolor none medium;"><div class="CodeMirror-measure"><pre><span><span class="cm-tab">    </span></span><span class="cm-comment">*</span><span class="cm-comment">/</span></pre></div><div style="position: relative; z-index: 1; display: none;"></div><div style=""><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">1</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">Scanner</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">2</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">LinkedList</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">3</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">4</div></div><pre><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-variable">ResizableArrayTest</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">5</div></div><pre><span class="cm-tab">    </span><span class="cm-comment">/*</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">6</div></div><pre><span class="cm-tab">    </span><span class="cm-comment">public static void main(String[] args) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">7</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">Scanner jin = new Scanner(System.in);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">8</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">int test = jin.nextInt();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">9</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if ( test == 0 ) { //test ResizableArray on ints</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">10</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">ResizableArray&lt;Integer&gt; a = new ResizableArray&lt;Integer&gt;();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">11</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">12</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">int first = jin.nextInt();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">13</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">a.addElement(first);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">14</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">15</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">int last = first;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">16</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">while ( jin.hasNextInt() ) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">17</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">last = jin.nextInt();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">18</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">a.addElement(last);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">19</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">20</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">21</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.contains(first));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">22</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.contains(last));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">23</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.removeElement(first));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">24</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.contains(first));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">25</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">26</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">27</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if ( test == 1 ) { //test ResizableArray on strings</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">28</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">ResizableArray&lt;String&gt; a = new ResizableArray&lt;String&gt;();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">29</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">30</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">String first = jin.next();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">31</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">a.addElement(first);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">32</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">33</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">String last = first;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">34</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">for ( int i = 0 ; i &lt; 4 ; ++i ) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">35</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">last = jin.next();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">36</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">a.addElement(last);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">37</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">38</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">39</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.contains(first));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">40</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.contains(last));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">41</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.removeElement(first));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">42</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.contains(first));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">43</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">44</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">ResizableArray&lt;String&gt; b = new ResizableArray&lt;String&gt;();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">45</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">ResizableArray.copyAll(b, a);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">46</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(b.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">47</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.count());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">48</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(a.contains(first));</span></pre></div></div><div class="CodeMirror-cursor" style="left: 52px; top: 1680px; height: 14px;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 1730px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-compiler-message"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></div>
+    <div id="editor-control">
+    	<div class="row">
+    		<div class="col-md-4">
+    			<div id="problem-revisions">	<label for="revision" class="editor-control-label">Revision:</label>
+	
+<select name="solutionHistory" size="1" id="solutionHistory" class="form-control input-sm">
+    					<option value="9389131" title="2020-02-06 22:15:53.0" selected="selected">3 seconds ago - 22:15:53
+</option>			    </select>
+
+	<input type="hidden" name="hasHistory" id="hasHistory" value="true">
+</div>
+	    		<button id="restore" class="btn btn-default btn-xs" style="display: block;"><i class="fa fa-undo"></i> Restore</button>
+    		</div>
+    		<div class="col-md-8">
+    		<div class="row">
+    			<div class="col-md-2">
+		    		Full Screen <b>F11</b>
+    			</div>
+                <div class="col-md-3">
+                    heigth:
+                    <button id="setFixedBtn" class="btn btn-default btn-xs">
+                        520px
+                    </button>
+                    <button id="setAutoBtn" class="btn btn-default btn-xs" style="display: none;">
+                        Auto
+                    </button>
+                </div>
+    			<div class="col-md-3">
+			    	<a class="jfontsize-button" id="minus-btn" style="cursor: pointer;">A-</a>
+			    	<a class="jfontsize-button" id="default-btn" style="cursor: pointer;">A</a>
+			    	<a class="jfontsize-button" id="plus-btn" style="cursor: pointer;">A+</a>
+    			</div>
+    			<div class="col-md-4">
+    			<label for="select-theme" id="select-theme-lbl" class="editor-control-label">
+		    		Select a theme: 
+		    	</label>
+		    	<select id="select-theme" class="form-control input-sm">
+			    	<option selected="selected">default</option>
+			    	<option>ambiance</option>
+			    	<option>blackboard</option>
+			    	<option>cobalt</option>
+			    	<option>eclipse</option>
+			    	<option>elegant</option>
+			    	<option>erlang-dark</option>
+			    	<option>lesser-dark</option>
+			    	<option>monokai</option>
+			    	<option>neat</option>
+			    	<option>night</option>
+			    	<option>rubyblue</option>
+			    	<option>vibrant-ink</option>
+			    	<option>xq-dark</option>
+		    	</select>
+    			</div>
+	    	</div>
+    		</div>
+    	</div>
+    </div>
+    
+    
+        <div class="form-actions" style="clear:both;">
+        <div id="buttons" style="display: block;">
+        	<div class="row">
+        		<div class="col-md-6">
+		            <button id="run" class="btn btn-info btn-sm"><i class="fa fa-play"></i> Run</button>
+		            <button id="submit" class="btn btn-primary btn-sm"><i class="fa fa-play-circle"></i> Submit</button>
+		            <a href="#resetAlert" role="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-retweet"></i> Reset</a>
+		            <button id="format" class="btn btn-default btn-sm"><i class="fa fa-magic"></i> Format</button>
+                    <!-- <button id="analyze" class="btn btn-default btn-sm"><i class="fa fa-cogs"></i> analyze</button> -->
+		            <!-- <a href="#yes_i_will_solve" role="button" class="btn btn-sm btn-warning pull-right" data-toggle="modal"><i class="fa fa-meh-o fa-fw"></i> Solve all my problems!</a> -->
+		            <!-- <button id="save" class="btn"><i class="fa fa-check"></i> Save</button> -->
+        		</div>
+        		<div class="col-md-6" id="attempts"> 
+	<span>Unlimited attempts</span>
+</div>
+        	</div>
+        </div>
+        <div id="working" style="display: none;">
+            <span id="working_msg">working...</span>
+            <img src="source_files/ajax-loader.gif">
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="program-output">
+        <h3>Program output
+        <img src="source_files/c.png" id="correct_img" style="display: none;">
+        <img src="source_files/w.png" id="wrong_img" style="display: none;"></h3>
+        <pre id="warning" class="pre-scrollable output-warning" style="display: none;"></pre>
+        <div id="clang_output" style="display: none;">
+            <h3><a id="output_link" target="_blank" class="text-danger">View report</a></h3>
+        </div>
+        <pre id="output" class="pre-scrollable"></pre>
+    </div>
+        <div id="sample-input" style="clear: both;">
+    	<div class="row">
+        <div class="col-md-6">
+            <h3>Sample input</h3>
+            <pre id="ex_input">0
+	 1 2 3 4 1
+	 a
+</pre>
+        </div>
+        <div class="col-md-6">
+		    <h3>Sample output</h3>
+		    <pre id="expected">0
+1
+5
+true
+true
+true
+true
+4
+</pre>
+        </div>
+        </div>
+    </div>
+    <div id="submission-output" style="clear:both;">
+<h3>Result: <span class="result result-failure">0.00 % (0/10)</span></h3>
+
+<table class="table table-striped table-bordered table-condensed">
+<caption>Testing details</caption>
+<thead>
+    <tr>
+        <th width="5%">Test case #</th>
+        <th width="20%">Input</th>
+        <th width="25%">Output</th>
+        <th width="25%">Your output</th>
+        <th width="25%">Correct</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td>1</td>
+    <td><pre id="input_1">0
+	 1 2 3 4 1
+	 a
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">36</span>
+    	</div>
+    	<pre id="output_1">0
+1
+5
+true
+true
+true
+true
+4
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_1">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_1" onclick="Code.viewDiff(1)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_1" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>2</td>
+    <td><pre id="input_2">0
+	 1
+	 a
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">37</span>
+    	</div>
+    	<pre id="output_2">0
+1
+1
+true
+true
+true
+false
+0
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_2">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_2" onclick="Code.viewDiff(2)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_2" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>3</td>
+    <td><pre id="input_3">0
+	 1 2
+	 a
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">37</span>
+    	</div>
+    	<pre id="output_3">0
+1
+2
+true
+true
+true
+false
+1
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_3">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_3" onclick="Code.viewDiff(3)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_3" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>4</td>
+    <td><pre id="input_4">0
+	 1 1
+	 a
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">36</span>
+    	</div>
+    	<pre id="output_4">0
+1
+2
+true
+true
+true
+true
+1
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_4">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_4" onclick="Code.viewDiff(4)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_4" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>5</td>
+    <td><pre id="input_5">1
+	 qwe asd zxc ert dfg
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">169</span>
+    	</div>
+    	<pre id="output_5">0
+1
+5
+true
+true
+true
+false
+4
+4
+4
+false
+true
+false
+true
+8
+4
+false
+true
+false
+true
+false
+false
+false
+false
+false
+12
+4
+false
+true
+false
+true
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_5">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_5" onclick="Code.viewDiff(5)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_5" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>6</td>
+    <td><pre id="input_6">1
+	 qwe qwe qwe qwe qwe
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">156</span>
+    	</div>
+    	<pre id="output_6">0
+1
+5
+true
+true
+true
+true
+4
+4
+4
+true
+true
+true
+true
+8
+4
+true
+true
+true
+true
+true
+true
+true
+true
+true
+9
+3
+true
+true
+true
+true
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_6">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_6" onclick="Code.viewDiff(6)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_6" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>7</td>
+    <td><pre id="input_7">2
+	 1 2 3 -2 -5 0
+	 a
+	 1 -1 1 1 -1 0
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">109</span>
+    	</div>
+    	<pre id="output_7">true
+-1.0
+-0.16666666666666666
+5
+6
+-1.0
+29.0
+-2.0
+true
+-3.0
+false
+-3.0
+true
+-4.0
+false
+false
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_7">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_7" onclick="Code.viewDiff(7)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_7" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>8</td>
+    <td><pre id="input_8">2
+	 5 2 3 5 1 2 3 2 5 1 23 1 51 3 15 0 0 10 51  0 1 6 0 0 5 100 41 0 3
+	 a
+	 5 5 -1 -2 3
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">115</span>
+    	</div>
+    	<pre id="output_8">true
+339.0
+11.689655172413794
+23
+29
+257.0
+484.0
+678.0
+true
+673.0
+true
+668.0
+false
+668.0
+false
+true
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_8">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_8" onclick="Code.viewDiff(8)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_8" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>9</td>
+    <td><pre id="input_9">1
+	 qwe qwe qwe qwe qwe
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">156</span>
+    	</div>
+    	<pre id="output_9">0
+1
+5
+true
+true
+true
+true
+4
+4
+4
+true
+true
+true
+true
+8
+4
+true
+true
+true
+true
+true
+true
+true
+true
+true
+9
+3
+true
+true
+true
+true
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_9">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_9" onclick="Code.viewDiff(9)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_9" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>10</td>
+    <td><pre id="input_10">3
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">64</span>
+    	</div>
+    	<pre id="output_10">You implementation finished in less then 3 seconds, well done!
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">207</span>
+    	</div>
+    	<pre id="your_output_10">Error: Main method not found in class ResizableArrayTest, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_10" onclick="Code.viewDiff(10)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_10" class="diff"></pre>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+    
+  	<div class="modal fade" id="resetAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="myModalLabel">Warning</h3>
+	  	</div>
+		<div class="modal-body">
+			<p>Are you sure you want to reset the contents of the editor to the starter code?</p>
+		</div>
+  		<div class="modal-footer">
+   			<button type="button" id="btn-reset-yes" value="Yes" data-dismiss="modal" class="btn btn-danger btn-sm">Yes</button>
+   			<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  		</div>
+  		</div>
+  		</div>
+	</div>
+	
+	  	<div class="modal fade" id="yes_i_will_solve" tabindex="-1" role="dialog" aria-labelledby="yes_i_will_solve" aria-hidden="true">
+	  	  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="aprilFoolsLabel">Your solution</h3>
+	  	</div>
+		<div class="modal-body text-center">
+			<div style="margin-bottom: 10px;">
+				<img src="source_files/yay_happy.gif" class="img-polaroid">
+			</div>
+			<div id="terminal" class="typist-container" style="background-color: rgb(51, 51, 51); color: rgb(221, 221, 221); font-family: monospace; height: 80px;"></div>
+		</div>  	
+		</div>
+		</div>	
+	</div>
+
+<input type="hidden" name="isReadOnly" id="isReadOnly" value="false">
+
+
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+    <p>© CSE 2012 - 2020 | <a href="http://develop.finki.ukim.mk/projects/e-lab">Support &amp; Development</a></p>
+</footer>
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="source_files/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dataTables.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_004.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/typeahead.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/code.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/helper.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/diff_match_patch.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="source_files/codemirror.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dialog.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/fullscreen.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/searchcursor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/search.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/match-highlighter.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/matchbrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/closebrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clike.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/python.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/shell.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/commonlisp.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/x-mathjax-config;executed=true">
+	MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+	tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+    TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+    messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" src="source_files/MathJax.js" charset="utf-8"></script>
+<script src="source_files/jquery_002.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/problem.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clock.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/editor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_003.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function(){
+	
+	var isReadOnly = $('#isReadOnly').val() == "true";
+	var isTimeLimited = $('#isTimeLimited').val() == "true";
+	var hasHistory = $('#hasHistory').val() == "true";
+	
+	$(document).ready(function() {
+		if(!hasHistory) {
+			$('#restore').hide();
+		}
+		$('#warning').hide();
+	});
+
+	var textArea = document.getElementById('code');
+	var mode = "text/x-java";
+	
+	Code.Editor.init(textArea, mode, isReadOnly);
+	
+	Code.Execute = {
+		run : function() {
+			Code.Editor.clearErrors();
+			var code = Code.Editor.getCode();
+		    $.post('/code/run', { 
+		             code : code,
+		             'problemData.id' : 8601
+		        },
+		        function(data) {
+		            $('#output').html("");
+		        	if(data.success) {
+		        		$('#output').removeClass("output-error");
+		                $('#output').addClass("output-success");        		
+		        	} else {
+		        		$('#output').removeClass("output-success");
+		        		$('#output').addClass("output-error");
+		        		Code.Editor.markErrors(data.errors);
+		        	}
+		            $('#output').append(data.output);
+		            if(data.warning) {
+		            	$('#warning').html("");
+		            	$('#warning').append(data.warning);
+		            	$('#warning').show();
+		            	Code.Editor.markErrors(data.errors);
+		            } else {
+		            	$('#warning').hide();
+		            }
+		            $('#problem-revisions').load('/code/revisions', {
+		                'problemData.id' : 8601
+		            }, function() {
+		        		hasHistory = $('#hasHistory').val() == "true";
+		        		if(hasHistory) {
+		        			$('#restore').show();
+		        		}
+		            });
+		        }
+		    );
+		},
+		submit : function() {
+			var code = Code.Editor.getCode();
+	    	$.post('/submit', { 
+	             code : code,
+	             'problemData.id' : 8601
+	        },
+	        function(data) {
+	            $('#submission-output').html(data);
+	            $('#problem-revisions').load('/code/revisions', {
+	                'problemData.id' : 8601
+	            }, function(){
+	        		var hasHistory = $('#hasHistory').val() == "true";
+	        		if(hasHistory) {
+	        			$('#restore').show();
+	        		}
+	            });
+	            Code.Execute.attempts();
+	            $('html,body').animate({scrollTop: $("#submission-output").offset().top - 40},'slow');
+	        });
+		},
+		save : function(autosave) {
+			var code = Code.Editor.getCode();
+			$.post('/code/save', { 
+		        code : code,
+		        'problemData.id' : 8601
+		   		},
+		   		function(data) {
+			    	if(autosave) {
+			    		$("#auto-saved").fadeIn(300).delay(2000).fadeOut(300);
+			    	} else {
+			    		$("#saved").fadeIn(300).delay(2000).fadeOut(300);
+					}
+			    	$('#problem-revisions').load('/code/revisions', {
+		            	'problem.id' : 8601
+		        	});
+		   	});
+		},
+		reset : function() {
+			$.post('/code/reset', { 
+		         'problemData.id' : 8601
+		    	},
+		    	function(data) {
+		    		Code.Editor.setCode(data);
+		    	}
+			);
+		},
+		restore : function(){
+			var solutionHistoryId = $('#solutionHistory').val();
+			if(solutionHistoryId) {
+				$('#code').load(
+			            '/code/loadsolutionfromhistory',
+			            {
+			                'solutionHistoryId' : solutionHistoryId
+			            }, function(data) {
+			            	Code.Editor.setCode(data);
+			            }
+			     );
+			}
+		},
+		attempts: function() {
+			$('#attempts').load('/code/attempts', {
+            	'problem.id' : 6078
+            }, function() {
+            	var exceeded = $('#exceeded').val();
+            	if(exceeded == "true") {
+            		$('#submit').attr('disabled', true);
+            	}
+            });
+		}
+	}
+	$('#run').click(Code.Execute.run);
+	$('#submit').click(Code.Execute.submit);
+	//$('#save').click(Code.Execute.save(false));
+	$('#btn-reset-yes').click(Code.Execute.reset);
+	$('#restore').click(Code.Execute.restore);
+	// use closure
+	$('#format').click(function(){ return Code.Editor.format(8601) });
+    $('#analyze').click(function() { return Code.Editor.analyze(8601, function(data) {
+        console.log(data);
+        if(data.errors) {
+            $("#clang_output").show();
+            $("#output_link").attr("href", data.uri);
+        } else {
+            $("#clang_output").hide();
+        }
+    })});
+	var working = $('#working').hide();
+	$(document).ajaxStart(function() {
+    	$('#buttons').hide();
+        working.show();
+    }).ajaxStop(function() {
+        working.hide();
+        $('#buttons').show();
+    });
+	$('#select-theme').change(function(){
+		Code.Editor.setTheme($(this).val());
+	});
+	  
+	
+	$('.CodeMirror').jfontsize({
+		btnMinusClasseId: '#minus-btn',
+	    btnDefaultClasseId: '#default-btn',
+	    btnPlusClasseId: '#plus-btn',
+	    btnMinusMaxHits: 5,
+	    btnPlusMaxHits: 8,
+	    sizeChange: 1
+	});
+	
+	// Create a newDate() object
+	var dateOpened = new Date(1581023615000);
+	var dateEnd = new Date(parseInt($('#dateEnd').val()));
+	var serverTime = 1581023746328;
+	Code.Clock.init($('#time'), dateOpened, serverTime, dateEnd);
+	
+	if(isTimeLimited && !isReadOnly) {
+		Code.Clock.initTimeLimited($('#time-left'), dateEnd, serverTime, "/courses/finish?problemDataId=8601&courseId=111");	
+	}
+	
+	var dmp = new diff_match_patch();
+	
+	Code.viewDiff = function(test) {
+		var text2 = $('#output_' + test).html();
+		var text1 = $('#your_output_' + test).html();
+		var d = dmp.diff_main(text1, text2);
+		var ds = dmp.diff_prettyHtml(d);
+		$('#diff_' + test).html(ds);
+		$('#diff_' + test).show();
+	}
+	$('#setAutoBtn').hide();
+    $('#setFixedBtn').click(function() {
+        $(this).hide();
+        $('#setAutoBtn').show();
+        Code.Editor.setAutoSize();
+    });
+    $('#setAutoBtn').click(function() {
+        $(this).hide();
+        $('#setFixedBtn').show();
+        Code.Editor.setFixedSize();
+    });
+
+	$(document).bind('keydown', 'ctrl+shift+5', Code.Execute.run);
+	$(document).bind('keydown', 'ctrl+shift+6', Code.Execute.submit);
+	$(document).bind('keydown', 'ctrl+shift+0', Code.Execute.reset);
+
+	$('#terminal').typist({
+  		height: 80,
+  		speed : 'slow'
+	});
+	
+	 /* $('#yes_i_will_solve').on('shown.bs.modal', function(){
+		$('#terminal').typist('prompt')
+		  .typist('type', 'Кој ден сме денес?')
+		  .typist('echo', '1 Април')
+		  .typist('echo', 'Априлилили!');
+		(function(){function c(){var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},15500)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var f="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){console.warn("Could not find a node of the right size. Please try a different page.");return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()
+	}); */
+	
+})();
+</script>
+
+      
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('#btn-icon').toggleClass("fa-chevron-right fa-chevron-left");
+    });
+    </script>
+    
+</body></html>
