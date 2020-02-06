@@ -17,6 +17,9 @@
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LocalDate/solution" />
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
@@ -48,5 +51,11 @@
       <updated>1581017104789</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="923" y="322" key="FileChooserDialogImpl" timestamp="1581019521291">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="923" y="322" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581019521291" />
   </component>
 </project>
