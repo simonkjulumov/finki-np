@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>LocalDate | Code</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" media="screen" href="source_files/fonts.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap-yety.css">
+<link rel="stylesheet" media="screen" href="source_files/font-awesome.css">
+<!-- <link rel="stylesheet" media="screen" href="/public/DataTables/media/css/jquery.dataTables.min.css"> -->
+<link rel="stylesheet" media="screen" href="source_files/dataTables.css">
+<link rel="stylesheet" media="screen" href="source_files/main.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/dialog.css">
+<link rel="stylesheet" href="source_files/fullscreen.css">
+<link rel="stylesheet" href="source_files/neat.css">
+<link rel="stylesheet" href="source_files/elegant.css">
+<link rel="stylesheet" href="source_files/erlang-dark.css">
+<link rel="stylesheet" href="source_files/night.css">
+<link rel="stylesheet" href="source_files/monokai.css">
+<link rel="stylesheet" href="source_files/cobalt.css">
+<link rel="stylesheet" href="source_files/eclipse.css">
+<link rel="stylesheet" href="source_files/rubyblue.css">
+<link rel="stylesheet" href="source_files/lesser-dark.css">
+<link rel="stylesheet" href="source_files/xq-dark.css">
+<link rel="stylesheet" href="source_files/ambiance.css">
+<link rel="stylesheet" href="source_files/blackboard.css">
+<link rel="stylesheet" href="source_files/vibrant-ink.css">
+
+<link rel="shortcut icon" type="image/png" href="http://code.finki.ukim.mk/public/images/favicon.ico">        <style>    .typist-container {      overflow: hidden;      padding-left: 4px;    }    .typist-container p {      margin: 0 0 3px;    }    .typist-container p.prompt {      margin: 5px 0;    }    </style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+    <body class=""><div id="MathJax_Message" style="display: none;"></div>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+         <div class="navbar-header">
+		  	<a class="logo" href="http://code.finki.ukim.mk/" title="Go to home page">
+	<img src="source_files/logo.png" alt="Code">
+</a> 
+<!-- <a class="logo-title brand" href="/" title="Go to home page">Code</a> -->		  	            	<a class="logo-title" href="http://code.finki.ukim.mk/course/111/" title="Go to course problem sets index page">Напредно програмирање 2019/2020</a>
+          			  	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+          	</button>          
+		 </div>
+		<div class="navbar-collapse collapse" id="navbar-main">
+          	<ul class="nav navbar-nav">
+            	          	</ul>
+        
+        	<ul class="nav navbar-nav navbar-right">
+          				            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_languages">
+		<i class="fa fa-flag fa-fw"></i> Language <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_languages">
+       	<li><a href="http://code.finki.ukim.mk/langauge?locale=mk&amp;path=%2Fcourse%2F111%2Fproblem%2F5933%2F">Macedonian</a></li>
+		<li><a href="http://code.finki.ukim.mk/langauge?locale=en&amp;path=%2Fcourse%2F111%2Fproblem%2F5933%2F">English</a></li>
+    </ul>
+</li>		            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_courses">
+		<i class="fa fa-th fa-fw"></i> Courses <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_courses">
+        			<li><a href="http://code.finki.ukim.mk/course/61/"><i class="fa fa-angle-right fa-fw"></i> Алгоритми и податочни структури 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/48/"><i class="fa fa-angle-right fa-fw"></i> Алогоритми и податочни структури 2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/88/"><i class="fa fa-angle-right fa-fw"></i> Визуелно програмирање 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/111/"><i class="fa fa-angle-right fa-fw"></i> Напредно програмирање 2019/2020</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/37/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2014/2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/52/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2015/2016</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/86/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/102/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2018/2019</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/43/"><i class="fa fa-angle-right fa-fw"></i> Основи на веб дизајн</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/60/"><i class="fa fa-angle-right fa-fw"></i> Системи на знаење 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/30/"><i class="fa fa-angle-right fa-fw"></i> Структурно програмирање 2014</a></li> 
+		    </ul>
+</li>	            	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user">
+		<i class="fa fa-user fa-fw"></i> Симон Ќулумов <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user">
+        <li>
+			<a tabindex="-1" href="#"><i class="fa fa-eye fa-fw"></i> Student</a>
+		</li>	        
+        <li class="divider"></li>
+        <li>
+			<a href="http://code.finki.ukim.mk/logout"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+		</li>
+       </ul>
+</li>
+		         	        </ul>
+         </div>
+          
+	</div>
+</div>
+
+    <div class="container-fluid">
+        <div class="page-header">
+	<h2><i class="fa fa-angle-double-right"></i> <a href="http://code.finki.ukim.mk/course/111/problemset/1869/" title="">Java 8 DateTime API</a>  <small>(4)</small></h2>
+</div>      <div id="wrapper">
+      <button class="btn btn-default btn-xs" id="menu-toggle">
+          <i id="btn-icon" class="fa fa-chevron-right fa-fw"></i>
+      </button>
+      <div id="sidebar-wrapper">
+          <div class="well sidebar-nav">
+                <ul class="nav nav-pills nav-stacked">
+<li class="nav-header">Problems</li>
+	    <li class="active">
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5933/">1) LocalDate
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5932/">2) LocalTime
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5931/">3) LocalDateTime
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5930/">4) ZonedDateTime
+        </a></li>
+    </ul>          </div><!--/.well -->
+          <div class="help">
+                      </div>
+      </div>
+      <div id="problem-layout">
+      
+
+
+
+    <div id="clock" class="pull-right">
+        <span class="time-label">Opened:</span>
+      <ul>
+          <li id="time">77 дена</li>          
+      </ul>
+    </div>
+    <h3 id="problem-name">LocalDate <small>Problem 1 (1 / 6) </small></h3>
+
+<div class="row">    
+    <div id="problem-text" class="col-md-4">    
+    	<p>Довршете ги методите</p>
+    </div>
+    <div id="editor" class="col-md-8">
+    <div id="editor-header">
+    	<label for="code" class="pull-left">Your solution:</label>
+    	<div class="pull-right programming_language">
+    	Programming language:
+    	    		    					    		<span class="label label-info">Java</span>
+    			    			    		    	    	</div>
+    </div>
+    <div class="clearfix"></div>
+    <textarea id="code" name="code" style="display: none;">import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
+
+/**
+ * LocalDate test
+ */
+public class LocalDateTest {
+    public static void main(String[] args) {
+        System.out.println(create());
+        System.out.println(parse());
+        System.out.println(with().getYear());
+        System.out.println(withAdjuster());
+        System.out.println(plus());
+        System.out.println(minus());
+        System.out.println(plusPeriod());
+        System.out.println(isAfter());
+        System.out.println(until());
+    }
+
+    static LocalDate create() {
+       /**
+     	* Create a {@link LocalDate} of 2015-06-18 by using {@link LocalDate#of}
+     	*/
+        return null;
+    }
+
+    static LocalDate parse() {
+        /**
+         * Create a {@link LocalDate} of 2015-06-18 from String by using {@link LocalDate#parse}
+         */
+        return null;
+    }
+
+    static LocalDate with() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+        /**
+         * Create a {@link LocalDate} from {@link ld} with year 2015
+         * by using {@link LocalDate#withYear} or {@link LocalDate#with}
+         */
+
+        return null;
+    }
+
+    static LocalDate withAdjuster() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+        /**
+         * Create a {@link LocalDate} from {@link ld} adjusted into first day of next year
+         * by using {@link LocalDate#with} and {@link TemporalAdjusters#firstDayOfNextYear}
+         */
+        return null;
+    }
+
+    static LocalDate plus() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+
+        /**
+         * Create a {@link LocalDate} from {@link ld} with 10 month later
+         * by using {@link LocalDate#plusMonths} or {@link LocalDate#plus}
+         */
+        return null;
+    }
+
+    static LocalDate minus() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+
+        /**
+         * Create a {@link LocalDate} from {@link ld} with 10 days before
+         * by using {@link LocalDate#minusDays} or {@link LocalDate#minus}
+         */
+        return null;
+    }
+
+    static LocalDate plusPeriod() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+
+        /**
+         * Define a {@link Period} of 1 year 2 month 3 days
+         * Create a {@link LocalDate} adding the period to {@link ld} by using {@link LocalDate#plus}
+         */
+        return null;
+    }
+
+    static boolean isAfter() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+        LocalDate ld2 = DateAndTimes.LD_20150807;
+
+        /**
+         * Check whether {@link ld2} is after {@link ld} or not
+         * by using {@link LocalDate#isAfter} or {@link LocalDate#isBefore}
+         */
+        return false;
+    }
+
+    static Period until() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+        LocalDate ld2 = DateAndTimes.LD_20150807;
+
+        /**
+         * Create a period from {@link ld} till {@link ld2}
+         * by using {@link LocalDate#until}
+         */
+        return null;
+    }
+
+}
+
+class DateAndTimes {
+    public static final LocalDate LD_20150618 = LocalDate.of(2015, 6, 18);
+    public static final LocalDate LD_20150807 = LocalDate.of(2015, 8, 7);
+}
+</textarea><div class="CodeMirror cm-s-default" style="height: 520px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 501px; left: 58px;"><textarea style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" tabindex="0" wrap="off">import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
+
+/**
+ * LocalDate test
+ */
+public class LocalDateTest {
+    public static void main(String[] args) {
+        System.out.println(create());
+        System.out.println(parse());
+        System.out.println(with().getYear());
+        System.out.println(withAdjuster());
+        System.out.println(plus());
+        System.out.println(minus());
+        System.out.println(plusPeriod());
+        System.out.println(isAfter());
+        System.out.println(until());
+    }
+
+    static LocalDate create() {
+       /**
+     	* Create a {@link LocalDate} of 2015-06-18 by using {@link LocalDate#of}
+     	*/
+        return null;
+    }
+
+    static LocalDate parse() {
+        /**
+         * Create a {@link LocalDate} of 2015-06-18 from String by using {@link LocalDate#parse}
+         */
+        return null;
+    }
+
+    static LocalDate with() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+        /**
+         * Create a {@link LocalDate} from {@link ld} with year 2015
+         * by using {@link LocalDate#withYear} or {@link LocalDate#with}
+         */
+
+        return null;
+    }
+
+    static LocalDate withAdjuster() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+        /**
+         * Create a {@link LocalDate} from {@link ld} adjusted into first day of next year
+         * by using {@link LocalDate#with} and {@link TemporalAdjusters#firstDayOfNextYear}
+         */
+        return null;
+    }
+
+    static LocalDate plus() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+
+        /**
+         * Create a {@link LocalDate} from {@link ld} with 10 month later
+         * by using {@link LocalDate#plusMonths} or {@link LocalDate#plus}
+         */
+        return null;
+    }
+
+    static LocalDate minus() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+
+        /**
+         * Create a {@link LocalDate} from {@link ld} with 10 days before
+         * by using {@link LocalDate#minusDays} or {@link LocalDate#minus}
+         */
+        return null;
+    }
+
+    static LocalDate plusPeriod() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+
+        /**
+         * Define a {@link Period} of 1 year 2 month 3 days
+         * Create a {@link LocalDate} adding the period to {@link ld} by using {@link LocalDate#plus}
+         */
+        return null;
+    }
+
+    static boolean isAfter() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+        LocalDate ld2 = DateAndTimes.LD_20150807;
+
+        /**
+         * Check whether {@link ld2} is after {@link ld} or not
+         * by using {@link LocalDate#isAfter} or {@link LocalDate#isBefore}
+         */
+        return false;
+    }
+
+    static Period until() {
+        LocalDate ld = DateAndTimes.LD_20150618;
+        LocalDate ld2 = DateAndTimes.LD_20150807;
+
+        /**
+         * Create a period from {@link ld} till {@link ld2}
+         * by using {@link LocalDate#until}
+         */
+        return null;
+    }
+
+}
+
+class DateAndTimes {
+    public static final LocalDate LD_20150618 = LocalDate.of(2015, 6, 18);
+    public static final LocalDate LD_20150807 = LocalDate.of(2015, 8, 7);
+}
+</textarea></div><div class="CodeMirror-hscrollbar" style="left: 53px;"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar" style="display: block; bottom: 0px;"><div style="width: 1px; height: 1590px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div style="position: relative; min-height: 100%;"><div class="CodeMirror-sizer" style="min-width: 845px; margin-left: 53px; min-height: 1590px;"><div style="position: relative; top: 924px;"><div class="CodeMirror-lines"><div style="position: relative; outline: currentcolor none medium;"><div class="CodeMirror-measure"><pre style="text-align: left;"><span>x</span></pre></div><div style="position: relative; z-index: 1;"><div class="CodeMirror-selected" style="position: absolute; left: 4px; top: 0px; width: 1163px; height: 644px;"></div></div><div style=""><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">67</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">68</div></div><pre>        <span class="cm-comment">/**</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">69</div></div><pre>         <span class="cm-comment">* Create a {@link LocalDate} from {@link ld} with 10 days before</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">70</div></div><pre>         <span class="cm-comment">* by using {@link LocalDate#minusDays} or {@link LocalDate#minus}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">71</div></div><pre>         <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">72</div></div><pre>        <span class="cm-keyword">return</span> <span class="cm-atom">null</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">73</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">74</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">75</div></div><pre>    <span class="cm-keyword">static</span> <span class="cm-variable">LocalDate</span> <span class="cm-variable">plusPeriod</span>() {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">76</div></div><pre>        <span class="cm-variable">LocalDate</span> <span class="cm-variable">ld</span> <span class="cm-operator">=</span> <span class="cm-variable">DateAndTimes</span>.<span class="cm-variable">LD_20150618</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">77</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">78</div></div><pre>        <span class="cm-comment">/**</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">79</div></div><pre>         <span class="cm-comment">* Define a {@link Period} of 1 year 2 month 3 days</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">80</div></div><pre>         <span class="cm-comment">* Create a {@link LocalDate} adding the period to {@link ld} by using {@link LocalDate#plus}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">81</div></div><pre>         <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">82</div></div><pre>        <span class="cm-keyword">return</span> <span class="cm-atom">null</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">83</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">84</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">85</div></div><pre>    <span class="cm-keyword">static</span> <span class="cm-keyword">boolean</span> <span class="cm-variable">isAfter</span>() {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">86</div></div><pre>        <span class="cm-variable">LocalDate</span> <span class="cm-variable">ld</span> <span class="cm-operator">=</span> <span class="cm-variable">DateAndTimes</span>.<span class="cm-variable">LD_20150618</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">87</div></div><pre>        <span class="cm-variable">LocalDate</span> <span class="cm-variable">ld2</span> <span class="cm-operator">=</span> <span class="cm-variable">DateAndTimes</span>.<span class="cm-variable">LD_20150807</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">88</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">89</div></div><pre>        <span class="cm-comment">/**</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">90</div></div><pre>         <span class="cm-comment">* Check whether {@link ld2} is after {@link ld} or not</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">91</div></div><pre>         <span class="cm-comment">* by using {@link LocalDate#isAfter} or {@link LocalDate#isBefore}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">92</div></div><pre>         <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">93</div></div><pre>        <span class="cm-keyword">return</span> <span class="cm-atom">false</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">94</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">95</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">96</div></div><pre>    <span class="cm-keyword">static</span> <span class="cm-variable">Period</span> <span class="cm-variable">until</span>() {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">97</div></div><pre>        <span class="cm-variable">LocalDate</span> <span class="cm-variable">ld</span> <span class="cm-operator">=</span> <span class="cm-variable">DateAndTimes</span>.<span class="cm-variable">LD_20150618</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">98</div></div><pre>        <span class="cm-variable">LocalDate</span> <span class="cm-variable">ld2</span> <span class="cm-operator">=</span> <span class="cm-variable">DateAndTimes</span>.<span class="cm-variable">LD_20150807</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">99</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">100</div></div><pre>        <span class="cm-comment">/**</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">101</div></div><pre>         <span class="cm-comment">* Create a period from {@link ld} till {@link ld2}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">102</div></div><pre>         <span class="cm-comment">* by using {@link LocalDate#until}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">103</div></div><pre>         <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">104</div></div><pre>        <span class="cm-keyword">return</span> <span class="cm-atom">null</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">105</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">106</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">107</div></div><pre>}</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">108</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">109</div></div><pre><span class="cm-keyword">class</span> <span class="cm-variable">DateAndTimes</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">110</div></div><pre>    <span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-variable">LocalDate</span> <span class="cm-variable">LD_20150618</span> <span class="cm-operator">=</span> <span class="cm-variable">LocalDate</span>.<span class="cm-variable">of</span>(<span class="cm-number">2015</span>, <span class="cm-number">6</span>, <span class="cm-number">18</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">111</div></div><pre>    <span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-variable">LocalDate</span> <span class="cm-variable">LD_20150807</span> <span class="cm-operator">=</span> <span class="cm-variable">LocalDate</span>.<span class="cm-variable">of</span>(<span class="cm-number">2015</span>, <span class="cm-number">8</span>, <span class="cm-number">7</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">112</div></div><pre>}</pre></div><div style="position: relative;"><div style="position: absolute; left: -53px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 24px;">113</div></div><pre>&nbsp;</pre></div></div><div class="CodeMirror-cursor" style="left: 228px; top: 504px; height: 14px; display: none;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 1590px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-compiler-message"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></div>
+    <div id="editor-control">
+    	<div class="row">
+    		<div class="col-md-4">
+    			<div id="problem-revisions">	<label for="revision" class="editor-control-label">Revision:</label>
+	
+<select name="solutionHistory" size="1" id="solutionHistory" class="form-control input-sm">
+    					<option value="9386339" title="2020-02-06 16:35:06.0" selected="selected">3 hours ago - 16:35:06
+</option>					<option value="9386322" title="2020-02-06 16:31:47.0">3 hours ago - 16:31:47
+</option>					<option value="9386291" title="2020-02-06 16:27:18.0">3 hours ago - 16:27:18
+</option>					<option value="9386278" title="2020-02-06 16:25:46.0">3 hours ago - 16:25:46
+</option>					<option value="8898121" title="2019-11-22 20:16:14.0">2 months ago - 20:16:14
+</option>			    </select>
+
+	<input type="hidden" name="hasHistory" id="hasHistory" value="true">
+</div>
+	    		<button id="restore" class="btn btn-default btn-xs"><i class="fa fa-undo"></i> Restore</button>
+    		</div>
+    		<div class="col-md-8">
+    		<div class="row">
+    			<div class="col-md-2">
+		    		Full Screen <b>F11</b>
+    			</div>
+                <div class="col-md-3">
+                    heigth:
+                    <button id="setFixedBtn" class="btn btn-default btn-xs">
+                        520px
+                    </button>
+                    <button id="setAutoBtn" class="btn btn-default btn-xs" style="display: none;">
+                        Auto
+                    </button>
+                </div>
+    			<div class="col-md-3">
+			    	<a class="jfontsize-button" id="minus-btn" style="cursor: pointer;">A-</a>
+			    	<a class="jfontsize-button" id="default-btn" style="cursor: pointer;">A</a>
+			    	<a class="jfontsize-button" id="plus-btn" style="cursor: pointer;">A+</a>
+    			</div>
+    			<div class="col-md-4">
+    			<label for="select-theme" id="select-theme-lbl" class="editor-control-label">
+		    		Select a theme: 
+		    	</label>
+		    	<select id="select-theme" class="form-control input-sm">
+			    	<option selected="selected">default</option>
+			    	<option>ambiance</option>
+			    	<option>blackboard</option>
+			    	<option>cobalt</option>
+			    	<option>eclipse</option>
+			    	<option>elegant</option>
+			    	<option>erlang-dark</option>
+			    	<option>lesser-dark</option>
+			    	<option>monokai</option>
+			    	<option>neat</option>
+			    	<option>night</option>
+			    	<option>rubyblue</option>
+			    	<option>vibrant-ink</option>
+			    	<option>xq-dark</option>
+		    	</select>
+    			</div>
+	    	</div>
+    		</div>
+    	</div>
+    </div>
+    
+    
+        <div class="form-actions" style="clear:both;">
+        <div id="buttons" style="display: block;">
+        	<div class="row">
+        		<div class="col-md-6">
+		            <button id="run" class="btn btn-info btn-sm"><i class="fa fa-play"></i> Run</button>
+		            <button id="submit" class="btn btn-primary btn-sm"><i class="fa fa-play-circle"></i> Submit</button>
+		            <a href="#resetAlert" role="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-retweet"></i> Reset</a>
+		            <button id="format" class="btn btn-default btn-sm"><i class="fa fa-magic"></i> Format</button>
+                    <!-- <button id="analyze" class="btn btn-default btn-sm"><i class="fa fa-cogs"></i> analyze</button> -->
+		            <!-- <a href="#yes_i_will_solve" role="button" class="btn btn-sm btn-warning pull-right" data-toggle="modal"><i class="fa fa-meh-o fa-fw"></i> Solve all my problems!</a> -->
+		            <!-- <button id="save" class="btn"><i class="fa fa-check"></i> Save</button> -->
+        		</div>
+        		<div class="col-md-6" id="attempts"> 
+	<span>Unlimited attempts</span>
+</div>
+        	</div>
+        </div>
+        <div id="working" style="display: none;">
+            <span id="working_msg">working...</span>
+            <img src="source_files/ajax-loader.gif">
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="program-output">
+        <h3>Program output
+        <img src="source_files/c.png" id="correct_img" style="display: none;">
+        <img src="source_files/w.png" id="wrong_img" style="display: none;"></h3>
+        <pre id="warning" class="pre-scrollable output-warning" style="display: none;"></pre>
+        <div id="clang_output" style="display: none;">
+            <h3><a id="output_link" target="_blank" class="text-danger">View report</a></h3>
+        </div>
+        <pre id="output" class="pre-scrollable"></pre>
+    </div>
+        <div id="sample-input" style="clear: both;">
+    	<div class="row">
+        <div class="col-md-6">
+            <h3>Sample input</h3>
+            <pre id="ex_input">no imput
+</pre>
+        </div>
+        <div class="col-md-6">
+		    <h3>Sample output</h3>
+		    <pre id="expected">2015-06-18
+2015-06-18
+2015
+2016-01-01
+2016-04-18
+2015-06-08
+2016-08-21
+true
+P1M20D
+</pre>
+        </div>
+        </div>
+    </div>
+    <div id="submission-output" style="clear:both;">
+<h3>Result: <span class="result result-failure">0.00 % (0/1)</span></h3>
+
+<table class="table table-striped table-bordered table-condensed">
+<caption>Testing details</caption>
+<thead>
+    <tr>
+        <th width="5%">Test case #</th>
+        <th width="20%">Input</th>
+        <th width="25%">Output</th>
+        <th width="25%">Your output</th>
+        <th width="25%">Correct</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td>1</td>
+    <td><pre id="input_1">no imput
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">92</span>
+    	</div>
+    	<pre id="output_1">2015-06-18
+2015-06-18
+2015
+2016-01-01
+2016-04-18
+2015-06-08
+2016-08-21
+true
+P1M20D
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">114</span>
+    	</div>
+    	<pre id="your_output_1">null
+null
+Exception in thread "main" java.lang.NullPointerException
+	at LocalDateTest.main(LocalDateTest.java:13)
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_1" onclick="Code.viewDiff(1)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_1" class="diff"></pre>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+    
+  	<div class="modal fade" id="resetAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="myModalLabel">Warning</h3>
+	  	</div>
+		<div class="modal-body">
+			<p>Are you sure you want to reset the contents of the editor to the starter code?</p>
+		</div>
+  		<div class="modal-footer">
+   			<button type="button" id="btn-reset-yes" value="Yes" data-dismiss="modal" class="btn btn-danger btn-sm">Yes</button>
+   			<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  		</div>
+  		</div>
+  		</div>
+	</div>
+	
+	  	<div class="modal fade" id="yes_i_will_solve" tabindex="-1" role="dialog" aria-labelledby="yes_i_will_solve" aria-hidden="true">
+	  	  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="aprilFoolsLabel">Your solution</h3>
+	  	</div>
+		<div class="modal-body text-center">
+			<div style="margin-bottom: 10px;">
+				<img src="source_files/yay_happy.gif" class="img-polaroid">
+			</div>
+			<div id="terminal" class="typist-container" style="background-color: rgb(51, 51, 51); color: rgb(221, 221, 221); font-family: monospace; height: 80px;"></div>
+		</div>  	
+		</div>
+		</div>	
+	</div>
+
+<input type="hidden" name="isReadOnly" id="isReadOnly" value="false">
+
+
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+    <p>© CSE 2012 - 2020 | <a href="http://develop.finki.ukim.mk/projects/e-lab">Support &amp; Development</a></p>
+</footer>
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="source_files/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dataTables.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_004.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/typeahead.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/code.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/helper.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/diff_match_patch.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="source_files/codemirror.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dialog.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/fullscreen.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/searchcursor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/search.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/match-highlighter.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/matchbrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/closebrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clike.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/python.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/shell.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/commonlisp.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/x-mathjax-config;executed=true">
+	MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+	tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+    TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+    messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" src="source_files/MathJax.js" charset="utf-8"></script>
+<script src="source_files/jquery_002.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/problem.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clock.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/editor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_003.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function(){
+	
+	var isReadOnly = $('#isReadOnly').val() == "true";
+	var isTimeLimited = $('#isTimeLimited').val() == "true";
+	var hasHistory = $('#hasHistory').val() == "true";
+	
+	$(document).ready(function() {
+		if(!hasHistory) {
+			$('#restore').hide();
+		}
+		$('#warning').hide();
+	});
+
+	var textArea = document.getElementById('code');
+	var mode = "text/x-java";
+	
+	Code.Editor.init(textArea, mode, isReadOnly);
+	
+	Code.Execute = {
+		run : function() {
+			Code.Editor.clearErrors();
+			var code = Code.Editor.getCode();
+		    $.post('/code/run', { 
+		             code : code,
+		             'problemData.id' : 8423
+		        },
+		        function(data) {
+		            $('#output').html("");
+		        	if(data.success) {
+		        		$('#output').removeClass("output-error");
+		                $('#output').addClass("output-success");        		
+		        	} else {
+		        		$('#output').removeClass("output-success");
+		        		$('#output').addClass("output-error");
+		        		Code.Editor.markErrors(data.errors);
+		        	}
+		            $('#output').append(data.output);
+		            if(data.warning) {
+		            	$('#warning').html("");
+		            	$('#warning').append(data.warning);
+		            	$('#warning').show();
+		            	Code.Editor.markErrors(data.errors);
+		            } else {
+		            	$('#warning').hide();
+		            }
+		            $('#problem-revisions').load('/code/revisions', {
+		                'problemData.id' : 8423
+		            }, function() {
+		        		hasHistory = $('#hasHistory').val() == "true";
+		        		if(hasHistory) {
+		        			$('#restore').show();
+		        		}
+		            });
+		        }
+		    );
+		},
+		submit : function() {
+			var code = Code.Editor.getCode();
+	    	$.post('/submit', { 
+	             code : code,
+	             'problemData.id' : 8423
+	        },
+	        function(data) {
+	            $('#submission-output').html(data);
+	            $('#problem-revisions').load('/code/revisions', {
+	                'problemData.id' : 8423
+	            }, function(){
+	        		var hasHistory = $('#hasHistory').val() == "true";
+	        		if(hasHistory) {
+	        			$('#restore').show();
+	        		}
+	            });
+	            Code.Execute.attempts();
+	            $('html,body').animate({scrollTop: $("#submission-output").offset().top - 40},'slow');
+	        });
+		},
+		save : function(autosave) {
+			var code = Code.Editor.getCode();
+			$.post('/code/save', { 
+		        code : code,
+		        'problemData.id' : 8423
+		   		},
+		   		function(data) {
+			    	if(autosave) {
+			    		$("#auto-saved").fadeIn(300).delay(2000).fadeOut(300);
+			    	} else {
+			    		$("#saved").fadeIn(300).delay(2000).fadeOut(300);
+					}
+			    	$('#problem-revisions').load('/code/revisions', {
+		            	'problem.id' : 8423
+		        	});
+		   	});
+		},
+		reset : function() {
+			$.post('/code/reset', { 
+		         'problemData.id' : 8423
+		    	},
+		    	function(data) {
+		    		Code.Editor.setCode(data);
+		    	}
+			);
+		},
+		restore : function(){
+			var solutionHistoryId = $('#solutionHistory').val();
+			if(solutionHistoryId) {
+				$('#code').load(
+			            '/code/loadsolutionfromhistory',
+			            {
+			                'solutionHistoryId' : solutionHistoryId
+			            }, function(data) {
+			            	Code.Editor.setCode(data);
+			            }
+			     );
+			}
+		},
+		attempts: function() {
+			$('#attempts').load('/code/attempts', {
+            	'problem.id' : 5933
+            }, function() {
+            	var exceeded = $('#exceeded').val();
+            	if(exceeded == "true") {
+            		$('#submit').attr('disabled', true);
+            	}
+            });
+		}
+	}
+	$('#run').click(Code.Execute.run);
+	$('#submit').click(Code.Execute.submit);
+	//$('#save').click(Code.Execute.save(false));
+	$('#btn-reset-yes').click(Code.Execute.reset);
+	$('#restore').click(Code.Execute.restore);
+	// use closure
+	$('#format').click(function(){ return Code.Editor.format(8423) });
+    $('#analyze').click(function() { return Code.Editor.analyze(8423, function(data) {
+        console.log(data);
+        if(data.errors) {
+            $("#clang_output").show();
+            $("#output_link").attr("href", data.uri);
+        } else {
+            $("#clang_output").hide();
+        }
+    })});
+	var working = $('#working').hide();
+	$(document).ajaxStart(function() {
+    	$('#buttons').hide();
+        working.show();
+    }).ajaxStop(function() {
+        working.hide();
+        $('#buttons').show();
+    });
+	$('#select-theme').change(function(){
+		Code.Editor.setTheme($(this).val());
+	});
+	  
+	
+	$('.CodeMirror').jfontsize({
+		btnMinusClasseId: '#minus-btn',
+	    btnDefaultClasseId: '#default-btn',
+	    btnPlusClasseId: '#plus-btn',
+	    btnMinusMaxHits: 5,
+	    btnPlusMaxHits: 8,
+	    sizeChange: 1
+	});
+	
+	// Create a newDate() object
+	var dateOpened = new Date(1574295507000);
+	var dateEnd = new Date(parseInt($('#dateEnd').val()));
+	var serverTime = 1581016504422;
+	Code.Clock.init($('#time'), dateOpened, serverTime, dateEnd);
+	
+	if(isTimeLimited && !isReadOnly) {
+		Code.Clock.initTimeLimited($('#time-left'), dateEnd, serverTime, "/courses/finish?problemDataId=8423&courseId=111");	
+	}
+	
+	var dmp = new diff_match_patch();
+	
+	Code.viewDiff = function(test) {
+		var text2 = $('#output_' + test).html();
+		var text1 = $('#your_output_' + test).html();
+		var d = dmp.diff_main(text1, text2);
+		var ds = dmp.diff_prettyHtml(d);
+		$('#diff_' + test).html(ds);
+		$('#diff_' + test).show();
+	}
+	$('#setAutoBtn').hide();
+    $('#setFixedBtn').click(function() {
+        $(this).hide();
+        $('#setAutoBtn').show();
+        Code.Editor.setAutoSize();
+    });
+    $('#setAutoBtn').click(function() {
+        $(this).hide();
+        $('#setFixedBtn').show();
+        Code.Editor.setFixedSize();
+    });
+
+	$(document).bind('keydown', 'ctrl+shift+5', Code.Execute.run);
+	$(document).bind('keydown', 'ctrl+shift+6', Code.Execute.submit);
+	$(document).bind('keydown', 'ctrl+shift+0', Code.Execute.reset);
+
+	$('#terminal').typist({
+  		height: 80,
+  		speed : 'slow'
+	});
+	
+	 /* $('#yes_i_will_solve').on('shown.bs.modal', function(){
+		$('#terminal').typist('prompt')
+		  .typist('type', 'Кој ден сме денес?')
+		  .typist('echo', '1 Април')
+		  .typist('echo', 'Априлилили!');
+		(function(){function c(){var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},15500)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var f="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){console.warn("Could not find a node of the right size. Please try a different page.");return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()
+	}); */
+	
+})();
+</script>
+
+      
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('#btn-icon').toggleClass("fa-chevron-right fa-chevron-left");
+    });
+    </script>
+    
+</body></html>

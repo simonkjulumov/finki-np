@@ -117,12 +117,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/PizzaOrderTest.java</url>
-          <line>208</line>
+          <line>210</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/PizzaOrderTest.java</url>
-          <line>207</line>
+          <line>209</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>

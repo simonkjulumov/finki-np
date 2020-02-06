@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>ZonedDateTime | Code</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" media="screen" href="source_files/fonts.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap-yety.css">
+<link rel="stylesheet" media="screen" href="source_files/font-awesome.css">
+<!-- <link rel="stylesheet" media="screen" href="/public/DataTables/media/css/jquery.dataTables.min.css"> -->
+<link rel="stylesheet" media="screen" href="source_files/dataTables.css">
+<link rel="stylesheet" media="screen" href="source_files/main.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/dialog.css">
+<link rel="stylesheet" href="source_files/fullscreen.css">
+<link rel="stylesheet" href="source_files/neat.css">
+<link rel="stylesheet" href="source_files/elegant.css">
+<link rel="stylesheet" href="source_files/erlang-dark.css">
+<link rel="stylesheet" href="source_files/night.css">
+<link rel="stylesheet" href="source_files/monokai.css">
+<link rel="stylesheet" href="source_files/cobalt.css">
+<link rel="stylesheet" href="source_files/eclipse.css">
+<link rel="stylesheet" href="source_files/rubyblue.css">
+<link rel="stylesheet" href="source_files/lesser-dark.css">
+<link rel="stylesheet" href="source_files/xq-dark.css">
+<link rel="stylesheet" href="source_files/ambiance.css">
+<link rel="stylesheet" href="source_files/blackboard.css">
+<link rel="stylesheet" href="source_files/vibrant-ink.css">
+
+<link rel="shortcut icon" type="image/png" href="http://code.finki.ukim.mk/public/images/favicon.ico">        <style>    .typist-container {      overflow: hidden;      padding-left: 4px;    }    .typist-container p {      margin: 0 0 3px;    }    .typist-container p.prompt {      margin: 5px 0;    }    </style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+    <body class=""><div id="MathJax_Message" style="display: none;"></div>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+         <div class="navbar-header">
+		  	<a class="logo" href="http://code.finki.ukim.mk/" title="Go to home page">
+	<img src="source_files/logo.png" alt="Code">
+</a> 
+<!-- <a class="logo-title brand" href="/" title="Go to home page">Code</a> -->		  	            	<a class="logo-title" href="http://code.finki.ukim.mk/course/111/" title="Go to course problem sets index page">Напредно програмирање 2019/2020</a>
+          			  	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+          	</button>          
+		 </div>
+		<div class="navbar-collapse collapse" id="navbar-main">
+          	<ul class="nav navbar-nav">
+            	          	</ul>
+        
+        	<ul class="nav navbar-nav navbar-right">
+          				            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_languages">
+		<i class="fa fa-flag fa-fw"></i> Language <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_languages">
+       	<li><a href="http://code.finki.ukim.mk/langauge?locale=mk&amp;path=%2Fcourse%2F111%2Fproblem%2F5930%2F">Macedonian</a></li>
+		<li><a href="http://code.finki.ukim.mk/langauge?locale=en&amp;path=%2Fcourse%2F111%2Fproblem%2F5930%2F">English</a></li>
+    </ul>
+</li>		            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_courses">
+		<i class="fa fa-th fa-fw"></i> Courses <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_courses">
+        			<li><a href="http://code.finki.ukim.mk/course/61/"><i class="fa fa-angle-right fa-fw"></i> Алгоритми и податочни структури 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/48/"><i class="fa fa-angle-right fa-fw"></i> Алогоритми и податочни структури 2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/88/"><i class="fa fa-angle-right fa-fw"></i> Визуелно програмирање 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/111/"><i class="fa fa-angle-right fa-fw"></i> Напредно програмирање 2019/2020</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/37/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2014/2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/52/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2015/2016</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/86/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/102/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2018/2019</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/43/"><i class="fa fa-angle-right fa-fw"></i> Основи на веб дизајн</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/60/"><i class="fa fa-angle-right fa-fw"></i> Системи на знаење 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/30/"><i class="fa fa-angle-right fa-fw"></i> Структурно програмирање 2014</a></li> 
+		    </ul>
+</li>	            	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user">
+		<i class="fa fa-user fa-fw"></i> Симон Ќулумов <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user">
+        <li>
+			<a tabindex="-1" href="#"><i class="fa fa-eye fa-fw"></i> Student</a>
+		</li>	        
+        <li class="divider"></li>
+        <li>
+			<a href="http://code.finki.ukim.mk/logout"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+		</li>
+       </ul>
+</li>
+		         	        </ul>
+         </div>
+          
+	</div>
+</div>
+
+    <div class="container-fluid">
+        <div class="page-header">
+	<h2><i class="fa fa-angle-double-right"></i> <a href="http://code.finki.ukim.mk/course/111/problemset/1869/" title="">Java 8 DateTime API</a>  <small>(4)</small></h2>
+</div>      <div id="wrapper">
+      <button class="btn btn-default btn-xs" id="menu-toggle">
+          <i id="btn-icon" class="fa fa-chevron-right fa-fw"></i>
+      </button>
+      <div id="sidebar-wrapper">
+          <div class="well sidebar-nav">
+                <ul class="nav nav-pills nav-stacked">
+<li class="nav-header">Problems</li>
+	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5933/">1) LocalDate
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5932/">2) LocalTime
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5931/">3) LocalDateTime
+        </a></li>
+    	    <li class="active">
+    	<a href="http://code.finki.ukim.mk/course/111/problem/5930/">4) ZonedDateTime
+        </a></li>
+    </ul>          </div><!--/.well -->
+          <div class="help">
+                      </div>
+      </div>
+      <div id="problem-layout">
+      
+
+
+
+    <div id="clock" class="pull-right">
+        <span class="time-label">Opened:</span>
+      <ul>
+          <li id="time">03:57:50</li>          
+      </ul>
+    </div>
+    <h3 id="problem-name">ZonedDateTime <small>Problem 4 (0 / 0) </small></h3>
+
+<div class="row">    
+    <div id="problem-text" class="col-md-4">    
+    	<p>ZonedDateTime</p>
+    </div>
+    <div id="editor" class="col-md-8">
+    <div id="editor-header">
+    	<label for="code" class="pull-left">Your solution:</label>
+    	<div class="pull-right programming_language">
+    	Programming language:
+    	    		    					    		<span class="label label-info">Java</span>
+    			    			    		    	    	</div>
+    </div>
+    <div class="clearfix"></div>
+    <textarea id="code" name="code" style="display: none;">import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+
+/**
+ * ZonedDateTime tests
+ */
+public class ZonedDateTimeTest {
+    public static void main(String[] args) {
+        System.out.println(zonedDateTimeOf());
+        System.out.println(zonedDateTimeParse());
+        System.out.println(zonedDateTimeFormat());
+        System.out.println(toPST());
+        System.out.println(sameInstantAs());
+        System.out.println(sameLocalAs());
+    }
+
+    static ZonedDateTime zonedDateTimeOf() {
+        /**
+         * Create a {@link ZonedDateTime} with time of 2015-07-10 2:14:25.000 as Japan Standard Time
+         * by using {@link ZonedDateTime#of} and {@link ZoneId#of}
+         */
+        return null;
+    }
+
+    static ZonedDateTime zonedDateTimeParse() {
+        /**
+         * Create a {@link ZonedDateTime} with time of 2015-06-18 23:07:25.000 as Japan Standard Time
+         * by using {@link ZonedDateTime#parse}
+         */
+        return null;
+    }
+
+    static String zonedDateTimeFormat() {
+        ZonedDateTime zdt = DateAndTimes.ZDT_20150618_23073050;
+
+        /**
+         * Format {@link zdt} to a {@link String} as "2015_06_18_23_07_30_JST"
+         * by using {@link ZonedDateTime#format}
+         */
+        return null;
+    }
+
+    static ZonedDateTime toPST() {
+        LocalDateTime ldt = DateAndTimes.LDT_20150618_23073050;
+        /**
+         * Create a {@link ZonedDateTime} from {@link ldt} with Pacific Standard Time
+         */
+        return null;
+    }
+
+    static ZonedDateTime sameInstantAs() {
+        ZonedDateTime zdt = DateAndTimes.ZDT_20150618_23073050;
+        /**
+         * Create a {@link ZonedDateTime} same instant as {@link zdt} with Pacific Standard Time
+         * by using {@link ZonedDateTime#withZoneSameInstant}
+         */
+        return null;
+    }
+
+    static ZonedDateTime sameLocalAs() {
+        ZonedDateTime zdt = DateAndTimes.ZDT_20150618_23073050;
+        /**
+         * Create a {@link ZonedDateTime} same local time as {@link zdt} with Pacific Standard Time
+         * by using {@link ZonedDateTime#withZoneSameLocal}
+         */
+        return null;
+    }
+
+    static class DateAndTimes {
+
+        public static final LocalDateTime LDT_20150618_23073050 = LocalDateTime.of(2015, 6, 18, 23, 7, 30, 500000000);
+        public static final ZonedDateTime
+                ZDT_20150618_23073050 = ZonedDateTime.of(LDT_20150618_23073050, ZoneId.of("Asia/Tokyo"));
+    }
+}
+</textarea><div class="CodeMirror cm-s-default" style="height: 520px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 50px;"><textarea style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" tabindex="0" wrap="off"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 45px;"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar" style="display: block; bottom: 0px;"><div style="width: 1px; height: 1114px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div style="position: relative; min-height: 100%;"><div class="CodeMirror-sizer" style="min-width: 981px; margin-left: 45px; min-height: 1114px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: currentcolor none medium;"><div class="CodeMirror-measure"><pre><span>&nbsp;</span></pre></div><div style="position: relative; z-index: 1; display: none;"></div><div style=""><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">1</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">2</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">time</span>.<span class="cm-variable">LocalDateTime</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">3</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">time</span>.<span class="cm-variable">ZoneId</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">4</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">time</span>.<span class="cm-variable">ZonedDateTime</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">5</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">time</span>.<span class="cm-variable">format</span>.<span class="cm-variable">DateTimeFormatter</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">6</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">7</div></div><pre><span class="cm-comment">/**</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">8</div></div><pre> <span class="cm-comment">* ZonedDateTime tests</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">9</div></div><pre> <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">10</div></div><pre><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-variable">ZonedDateTimeTest</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">11</div></div><pre>    <span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-keyword">void</span> <span class="cm-variable">main</span>(<span class="cm-variable">String</span>[] <span class="cm-variable">args</span>) {</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">12</div></div><pre>        <span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">zonedDateTimeOf</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">13</div></div><pre>        <span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">zonedDateTimeParse</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">14</div></div><pre>        <span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">zonedDateTimeFormat</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">15</div></div><pre>        <span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">toPST</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">16</div></div><pre>        <span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">sameInstantAs</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">17</div></div><pre>        <span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">sameLocalAs</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">18</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">19</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">20</div></div><pre>    <span class="cm-keyword">static</span> <span class="cm-variable">ZonedDateTime</span> <span class="cm-variable">zonedDateTimeOf</span>() {</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">21</div></div><pre>        <span class="cm-comment">/**</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">22</div></div><pre>         <span class="cm-comment">* Create a {@link ZonedDateTime} with time of 2015-07-10 2:14:25.000 as Japan Standard Time</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">23</div></div><pre>         <span class="cm-comment">* by using {@link ZonedDateTime#of} and {@link ZoneId#of}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">24</div></div><pre>         <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">25</div></div><pre>        <span class="cm-keyword">return</span> <span class="cm-atom">null</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">26</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">27</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">28</div></div><pre>    <span class="cm-keyword">static</span> <span class="cm-variable">ZonedDateTime</span> <span class="cm-variable">zonedDateTimeParse</span>() {</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">29</div></div><pre>        <span class="cm-comment">/**</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">30</div></div><pre>         <span class="cm-comment">* Create a {@link ZonedDateTime} with time of 2015-06-18 23:07:25.000 as Japan Standard Time</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">31</div></div><pre>         <span class="cm-comment">* by using {@link ZonedDateTime#parse}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">32</div></div><pre>         <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">33</div></div><pre>        <span class="cm-keyword">return</span> <span class="cm-atom">null</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">34</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">35</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">36</div></div><pre>    <span class="cm-keyword">static</span> <span class="cm-variable">String</span> <span class="cm-variable">zonedDateTimeFormat</span>() {</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">37</div></div><pre>        <span class="cm-variable">ZonedDateTime</span> <span class="cm-variable">zdt</span> <span class="cm-operator">=</span> <span class="cm-variable">DateAndTimes</span>.<span class="cm-variable">ZDT_20150618_23073050</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">38</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">39</div></div><pre>        <span class="cm-comment">/**</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">40</div></div><pre>         <span class="cm-comment">* Format {@link zdt} to a {@link String} as "2015_06_18_23_07_30_JST"</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">41</div></div><pre>         <span class="cm-comment">* by using {@link ZonedDateTime#format}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">42</div></div><pre>         <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">43</div></div><pre>        <span class="cm-keyword">return</span> <span class="cm-atom">null</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">44</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">45</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">46</div></div><pre>    <span class="cm-keyword">static</span> <span class="cm-variable">ZonedDateTime</span> <span class="cm-variable">toPST</span>() {</pre></div></div><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 14px;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 1114px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-compiler-message"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 24px;"></div></div></div></div></div>
+    <div id="editor-control">
+    	<div class="row">
+    		<div class="col-md-4">
+    			<div id="problem-revisions">
+			    		<input type="hidden" name="hasHistory" id="hasHistory" value="false">
+	<span>No revisions</span>
+    			</div>
+	    		<button id="restore" class="btn btn-default btn-xs" style="display: none;"><i class="fa fa-undo"></i> Restore</button>
+    		</div>
+    		<div class="col-md-8">
+    		<div class="row">
+    			<div class="col-md-2">
+		    		Full Screen <b>F11</b>
+    			</div>
+                <div class="col-md-3">
+                    heigth:
+                    <button id="setFixedBtn" class="btn btn-default btn-xs">
+                        520px
+                    </button>
+                    <button id="setAutoBtn" class="btn btn-default btn-xs" style="display: none;">
+                        Auto
+                    </button>
+                </div>
+    			<div class="col-md-3">
+			    	<a class="jfontsize-button" id="minus-btn" style="cursor: pointer;">A-</a>
+			    	<a class="jfontsize-button" id="default-btn" style="cursor: pointer;">A</a>
+			    	<a class="jfontsize-button" id="plus-btn" style="cursor: pointer;">A+</a>
+    			</div>
+    			<div class="col-md-4">
+    			<label for="select-theme" id="select-theme-lbl" class="editor-control-label">
+		    		Select a theme: 
+		    	</label>
+		    	<select id="select-theme" class="form-control input-sm">
+			    	<option selected="selected">default</option>
+			    	<option>ambiance</option>
+			    	<option>blackboard</option>
+			    	<option>cobalt</option>
+			    	<option>eclipse</option>
+			    	<option>elegant</option>
+			    	<option>erlang-dark</option>
+			    	<option>lesser-dark</option>
+			    	<option>monokai</option>
+			    	<option>neat</option>
+			    	<option>night</option>
+			    	<option>rubyblue</option>
+			    	<option>vibrant-ink</option>
+			    	<option>xq-dark</option>
+		    	</select>
+    			</div>
+	    	</div>
+    		</div>
+    	</div>
+    </div>
+    
+    
+        <div class="form-actions" style="clear:both;">
+        <div id="buttons" style="display: block;">
+        	<div class="row">
+        		<div class="col-md-6">
+		            <button id="run" class="btn btn-info btn-sm"><i class="fa fa-play"></i> Run</button>
+		            <button id="submit" class="btn btn-primary btn-sm"><i class="fa fa-play-circle"></i> Submit</button>
+		            <a href="#resetAlert" role="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-retweet"></i> Reset</a>
+		            <button id="format" class="btn btn-default btn-sm"><i class="fa fa-magic"></i> Format</button>
+                    <!-- <button id="analyze" class="btn btn-default btn-sm"><i class="fa fa-cogs"></i> analyze</button> -->
+		            <!-- <a href="#yes_i_will_solve" role="button" class="btn btn-sm btn-warning pull-right" data-toggle="modal"><i class="fa fa-meh-o fa-fw"></i> Solve all my problems!</a> -->
+		            <!-- <button id="save" class="btn"><i class="fa fa-check"></i> Save</button> -->
+        		</div>
+        		<div class="col-md-6" id="attempts">
+        			 
+											<span>Unlimited attempts</span>
+					        		</div>
+        	</div>
+        </div>
+        <div id="working" style="display: none;">
+            <span id="working_msg">working...</span>
+            <img src="source_files/ajax-loader.gif">
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="program-output">
+        <h3>Program output
+        <img src="source_files/c.png" id="correct_img" style="display: none;">
+        <img src="source_files/w.png" id="wrong_img" style="display: none;"></h3>
+        <pre id="warning" class="pre-scrollable output-warning" style="display: none;"></pre>
+        <div id="clang_output" style="display: none;">
+            <h3><a id="output_link" target="_blank" class="text-danger">View report</a></h3>
+        </div>
+        <pre id="output" class="pre-scrollable"></pre>
+    </div>
+        <div id="sample-input" style="clear: both;">
+    	<div class="row">
+        <div class="col-md-6">
+            <h3>Sample input</h3>
+            <pre id="ex_input">no input
+</pre>
+        </div>
+        <div class="col-md-6">
+		    <h3>Sample output</h3>
+		    <pre id="expected">2015-07-10T02:14:25+09:00[Asia/Tokyo]
+2015-06-18T23:07:25+09:00[Asia/Tokyo]
+2015_06_18_23_07_30_JST
+2015-06-18T23:07:30.500-07:00[America/Los_Angeles]
+2015-06-18T07:07:30.500-07:00[America/Los_Angeles]
+2015-06-18T23:07:30.500-07:00[America/Los_Angeles]
+</pre>
+        </div>
+        </div>
+    </div>
+    <div id="submission-output" style="clear:both;">
+        
+    </div>
+    
+  	<div class="modal fade" id="resetAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="myModalLabel">Warning</h3>
+	  	</div>
+		<div class="modal-body">
+			<p>Are you sure you want to reset the contents of the editor to the starter code?</p>
+		</div>
+  		<div class="modal-footer">
+   			<button type="button" id="btn-reset-yes" value="Yes" data-dismiss="modal" class="btn btn-danger btn-sm">Yes</button>
+   			<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  		</div>
+  		</div>
+  		</div>
+	</div>
+	
+	  	<div class="modal fade" id="yes_i_will_solve" tabindex="-1" role="dialog" aria-labelledby="yes_i_will_solve" aria-hidden="true">
+	  	  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="aprilFoolsLabel">Your solution</h3>
+	  	</div>
+		<div class="modal-body text-center">
+			<div style="margin-bottom: 10px;">
+				<img src="source_files/yay_happy.gif" class="img-polaroid">
+			</div>
+			<div id="terminal" class="typist-container" style="background-color: rgb(51, 51, 51); color: rgb(221, 221, 221); font-family: monospace; height: 80px;"></div>
+		</div>  	
+		</div>
+		</div>	
+	</div>
+
+<input type="hidden" name="isReadOnly" id="isReadOnly" value="false">
+
+
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+    <p>© CSE 2012 - 2020 | <a href="http://develop.finki.ukim.mk/projects/e-lab">Support &amp; Development</a></p>
+</footer>
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="source_files/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dataTables.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_004.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/typeahead.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/code.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/helper.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/diff_match_patch.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="source_files/codemirror.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dialog.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/fullscreen.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/searchcursor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/search.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/match-highlighter.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/matchbrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/closebrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clike.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/python.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/shell.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/commonlisp.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/x-mathjax-config;executed=true">
+	MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+	tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+    TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+    messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" src="source_files/MathJax.js" charset="utf-8"></script>
+<script src="source_files/jquery_002.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/problem.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clock.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/editor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_003.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function(){
+	
+	var isReadOnly = $('#isReadOnly').val() == "true";
+	var isTimeLimited = $('#isTimeLimited').val() == "true";
+	var hasHistory = $('#hasHistory').val() == "true";
+	
+	$(document).ready(function() {
+		if(!hasHistory) {
+			$('#restore').hide();
+		}
+		$('#warning').hide();
+	});
+
+	var textArea = document.getElementById('code');
+	var mode = "text/x-java";
+	
+	Code.Editor.init(textArea, mode, isReadOnly);
+	
+	Code.Execute = {
+		run : function() {
+			Code.Editor.clearErrors();
+			var code = Code.Editor.getCode();
+		    $.post('/code/run', { 
+		             code : code,
+		             'problemData.id' : 8420
+		        },
+		        function(data) {
+		            $('#output').html("");
+		        	if(data.success) {
+		        		$('#output').removeClass("output-error");
+		                $('#output').addClass("output-success");        		
+		        	} else {
+		        		$('#output').removeClass("output-success");
+		        		$('#output').addClass("output-error");
+		        		Code.Editor.markErrors(data.errors);
+		        	}
+		            $('#output').append(data.output);
+		            if(data.warning) {
+		            	$('#warning').html("");
+		            	$('#warning').append(data.warning);
+		            	$('#warning').show();
+		            	Code.Editor.markErrors(data.errors);
+		            } else {
+		            	$('#warning').hide();
+		            }
+		            $('#problem-revisions').load('/code/revisions', {
+		                'problemData.id' : 8420
+		            }, function() {
+		        		hasHistory = $('#hasHistory').val() == "true";
+		        		if(hasHistory) {
+		        			$('#restore').show();
+		        		}
+		            });
+		        }
+		    );
+		},
+		submit : function() {
+			var code = Code.Editor.getCode();
+	    	$.post('/submit', { 
+	             code : code,
+	             'problemData.id' : 8420
+	        },
+	        function(data) {
+	            $('#submission-output').html(data);
+	            $('#problem-revisions').load('/code/revisions', {
+	                'problemData.id' : 8420
+	            }, function(){
+	        		var hasHistory = $('#hasHistory').val() == "true";
+	        		if(hasHistory) {
+	        			$('#restore').show();
+	        		}
+	            });
+	            Code.Execute.attempts();
+	            $('html,body').animate({scrollTop: $("#submission-output").offset().top - 40},'slow');
+	        });
+		},
+		save : function(autosave) {
+			var code = Code.Editor.getCode();
+			$.post('/code/save', { 
+		        code : code,
+		        'problemData.id' : 8420
+		   		},
+		   		function(data) {
+			    	if(autosave) {
+			    		$("#auto-saved").fadeIn(300).delay(2000).fadeOut(300);
+			    	} else {
+			    		$("#saved").fadeIn(300).delay(2000).fadeOut(300);
+					}
+			    	$('#problem-revisions').load('/code/revisions', {
+		            	'problem.id' : 8420
+		        	});
+		   	});
+		},
+		reset : function() {
+			$.post('/code/reset', { 
+		         'problemData.id' : 8420
+		    	},
+		    	function(data) {
+		    		Code.Editor.setCode(data);
+		    	}
+			);
+		},
+		restore : function(){
+			var solutionHistoryId = $('#solutionHistory').val();
+			if(solutionHistoryId) {
+				$('#code').load(
+			            '/code/loadsolutionfromhistory',
+			            {
+			                'solutionHistoryId' : solutionHistoryId
+			            }, function(data) {
+			            	Code.Editor.setCode(data);
+			            }
+			     );
+			}
+		},
+		attempts: function() {
+			$('#attempts').load('/code/attempts', {
+            	'problem.id' : 5930
+            }, function() {
+            	var exceeded = $('#exceeded').val();
+            	if(exceeded == "true") {
+            		$('#submit').attr('disabled', true);
+            	}
+            });
+		}
+	}
+	$('#run').click(Code.Execute.run);
+	$('#submit').click(Code.Execute.submit);
+	//$('#save').click(Code.Execute.save(false));
+	$('#btn-reset-yes').click(Code.Execute.reset);
+	$('#restore').click(Code.Execute.restore);
+	// use closure
+	$('#format').click(function(){ return Code.Editor.format(8420) });
+    $('#analyze').click(function() { return Code.Editor.analyze(8420, function(data) {
+        console.log(data);
+        if(data.errors) {
+            $("#clang_output").show();
+            $("#output_link").attr("href", data.uri);
+        } else {
+            $("#clang_output").hide();
+        }
+    })});
+	var working = $('#working').hide();
+	$(document).ajaxStart(function() {
+    	$('#buttons').hide();
+        working.show();
+    }).ajaxStop(function() {
+        working.hide();
+        $('#buttons').show();
+    });
+	$('#select-theme').change(function(){
+		Code.Editor.setTheme($(this).val());
+	});
+	  
+	
+	$('.CodeMirror').jfontsize({
+		btnMinusClasseId: '#minus-btn',
+	    btnDefaultClasseId: '#default-btn',
+	    btnPlusClasseId: '#plus-btn',
+	    btnMinusMaxHits: 5,
+	    btnPlusMaxHits: 8,
+	    sizeChange: 1
+	});
+	
+	// Create a newDate() object
+	var dateOpened = new Date(1581002394000);
+	var dateEnd = new Date(parseInt($('#dateEnd').val()));
+	var serverTime = 1581016623066;
+	Code.Clock.init($('#time'), dateOpened, serverTime, dateEnd);
+	
+	if(isTimeLimited && !isReadOnly) {
+		Code.Clock.initTimeLimited($('#time-left'), dateEnd, serverTime, "/courses/finish?problemDataId=8420&courseId=111");	
+	}
+	
+	var dmp = new diff_match_patch();
+	
+	Code.viewDiff = function(test) {
+		var text2 = $('#output_' + test).html();
+		var text1 = $('#your_output_' + test).html();
+		var d = dmp.diff_main(text1, text2);
+		var ds = dmp.diff_prettyHtml(d);
+		$('#diff_' + test).html(ds);
+		$('#diff_' + test).show();
+	}
+	$('#setAutoBtn').hide();
+    $('#setFixedBtn').click(function() {
+        $(this).hide();
+        $('#setAutoBtn').show();
+        Code.Editor.setAutoSize();
+    });
+    $('#setAutoBtn').click(function() {
+        $(this).hide();
+        $('#setFixedBtn').show();
+        Code.Editor.setFixedSize();
+    });
+
+	$(document).bind('keydown', 'ctrl+shift+5', Code.Execute.run);
+	$(document).bind('keydown', 'ctrl+shift+6', Code.Execute.submit);
+	$(document).bind('keydown', 'ctrl+shift+0', Code.Execute.reset);
+
+	$('#terminal').typist({
+  		height: 80,
+  		speed : 'slow'
+	});
+	
+	 /* $('#yes_i_will_solve').on('shown.bs.modal', function(){
+		$('#terminal').typist('prompt')
+		  .typist('type', 'Кој ден сме денес?')
+		  .typist('echo', '1 Април')
+		  .typist('echo', 'Априлилили!');
+		(function(){function c(){var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},15500)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var f="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){console.warn("Could not find a node of the right size. Please try a different page.");return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()
+	}); */
+	
+})();
+</script>
+
+      
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('#btn-icon').toggleClass("fa-chevron-right fa-chevron-left");
+    });
+    </script>
+    
+</body></html>
