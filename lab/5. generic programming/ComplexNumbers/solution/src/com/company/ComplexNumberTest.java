@@ -39,6 +39,7 @@ class ComplexNumber<R extends Number, I extends Number> implements Comparable<Co
         return imaginary;
     }
 }
+
 public class ComplexNumberTest {
 
     public static void main(String[] args) {
