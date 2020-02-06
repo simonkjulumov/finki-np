@@ -49,4 +49,10 @@
     </task>
     <servers />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="619" y="426" key="com.intellij.ide.util.TipDialog" timestamp="1581008960043">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="619" y="426" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581008960043" />
+  </component>
 </project>

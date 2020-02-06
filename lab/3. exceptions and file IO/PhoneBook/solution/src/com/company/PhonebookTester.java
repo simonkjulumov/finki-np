@@ -1,4 +1,303 @@
-package com.company;
+import java.io.*;
+import java.util.*;
+import java.util.stream.Collectors;
+
+class InvalidNumberException extends Exception {
+
+}
+
+class MaximumSizeExceddedException extends Exception {
+
+}
+
+class InvalidFormatException extends Exception {
+
+}
+
+class InvalidNameException extends Exception {
+    public InvalidNameException(String name) {
+        this.name = name;
+    }
+
+    public String name;
+}
+
+class PhoneOperators {
+    public static List<String> prefixes = new ArrayList<String>()
+    {
+        {
+            add("070");
+            add("071");
+            add("072");
+            add("075");
+            add("076");
+            add("077");
+            add("078");
+        }
+    };
+}
+
+class PhoneNumber implements Comparable<PhoneNumber> {
+    private static int phoneNumberLength = 9;
+    private int phoneNumber;
+    private String prefix;
+    private String formattedNumber;
+
+    public PhoneNumber(String phoneNumber) throws InvalidNumberException {
+        if(phoneNumber.length() != phoneNumberLength) {
+            throw new InvalidNumberException();
+        }
+
+        String prefix = phoneNumber.substring(0, 3);
+        if(!PhoneOperators.prefixes.contains(prefix)){
+            throw new InvalidNumberException();
+        }
+
+        try{
+            this.phoneNumber = Integer.parseInt(phoneNumber);
+        }
+        catch(Exception e) {
+            throw new InvalidNumberException();
+        }
+
+        this.prefix = prefix;
+        this.formattedNumber = phoneNumber;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public String getFormattedNumber() {
+        return formattedNumber;
+    }
+
+    @Override
+    public int compareTo(PhoneNumber phoneNumber) {
+        return this.getPhoneNumber() - phoneNumber.getPhoneNumber();
+    }
+
+    @Override
+    public String toString() {
+        return formattedNumber;
+    }
+}
+
+class Contact implements Comparable<Contact> {
+    private String name;
+    private PhoneNumber[] phoneNumbers;
+    private int phoneNumbersCount;
+    private int maximumNumberOfContacts = 5;
+
+    public Contact(String name, String... phoneNumbers) throws InvalidNameException, InvalidNumberException, MaximumSizeExceddedException  {
+        if(!nameIsValid(name)){
+            throw new InvalidNameException(name);
+        }
+
+        this.name = name;
+        this.phoneNumbersCount = 0;
+        this.phoneNumbers = new PhoneNumber[phoneNumbersCount];
+        for(String phoneNumber : phoneNumbers) {
+            addNumber(phoneNumber);
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringJoiner stringJoiner = new StringJoiner("\n", "", "\n");
+        stringJoiner.add(name);
+        stringJoiner.add(phoneNumbersCount + "");
+
+        String[] sortedNumbers = getNumbers();
+        for(String phoneNumber : sortedNumbers){
+            stringJoiner.add(phoneNumber);
+        }
+
+        return stringJoiner.toString();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String[] getNumbers() {
+        PhoneNumber[] numbers = Arrays.copyOf(phoneNumbers, phoneNumbers.length);
+        Arrays.sort(numbers);
+        return Arrays
+                .stream(numbers)
+                .map(x -> x.getFormattedNumber())
+                .toArray(String[]::new);
+    }
+
+    public void addNumber(String phoneNumber) throws InvalidNumberException, MaximumSizeExceddedException {
+        if(canAddPhoneNumber()) {
+            PhoneNumber[] phoneNumbersCopy = Arrays.copyOf(phoneNumbers, phoneNumbersCount + 1);
+            phoneNumbersCopy[phoneNumbersCount] = new PhoneNumber(phoneNumber);
+            phoneNumbers = phoneNumbersCopy;
+            ++phoneNumbersCount;
+        }
+        else{
+            throw new MaximumSizeExceddedException();
+        }
+    }
+
+    public static Contact valueOf(String s) throws InvalidFormatException {
+        try{
+            return new Contact(s);
+        }
+        catch(Exception ex){
+            throw new InvalidFormatException();
+        }
+    }
+
+    public boolean hasPhoneNumberWithPrefix(String prefix) {
+        for(PhoneNumber phoneNumber : phoneNumbers) {
+            if(phoneNumber.getPrefix().equals(prefix)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean canAddPhoneNumber() {
+        return phoneNumbersCount >= 0 && phoneNumbersCount < maximumNumberOfContacts;
+    }
+
+    private boolean nameIsValid(String name) {
+        return name.matches("[a-zA-Z0-9]{4,10}");
+    }
+
+    @Override
+    public int compareTo(Contact contact) {
+        return name.compareTo(contact.getName());
+    }
+}
+
+class PhoneBook {
+    private Contact[] contacts;
+    private int maximumNumberOfContacts = 250;
+
+    public PhoneBook() {
+        contacts = new Contact[0];
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Contact sorted[] = getContacts();
+        for (Contact contact : sorted) {
+            sb.append(contact.toString());
+            sb.append("\n");
+        }
+
+        return sb.toString();
+    }
+
+    public void addContact(Contact contact) throws MaximumSizeExceddedException, InvalidNameException {
+        if(numberOfContacts() == maximumNumberOfContacts) {
+            throw new MaximumSizeExceddedException();
+        }
+
+        if(contactExistsInPhoneBook(contact)) {
+            throw new InvalidNameException(contact.getName());
+        }
+
+        Contact[] newContacts = Arrays.copyOf(contacts, contacts.length + 1);
+        newContacts[contacts.length] = contact;
+        contacts = newContacts;
+    }
+
+    public Contact getContactForName(String name) {
+        return Arrays
+                .stream(contacts)
+                .filter(x -> x.getName().equals(name))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public int numberOfContacts() {
+        return contacts.length;
+    }
+
+    public Contact[] getContacts() {
+        Arrays.sort(contacts);
+        return Arrays.copyOf(contacts, contacts.length);
+    }
+
+    public boolean removeContact(String name) {
+        for(int i = 0; i < contacts.length; i++) {
+            if(contacts[i].getName().equals(name)) {
+                int index = 0;
+                Contact[] newContacts = new Contact[contacts.length - 1];
+                for(int j = 0; j < contacts.length; j ++) {
+                    if(i == j)
+                    {
+                        continue;
+                    }
+                    newContacts[index++] = contacts[j];
+                }
+                contacts = newContacts;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean saveAsTextFile(PhoneBook phonebook,String path) throws IOException, FileNotFoundException {
+        try {
+            File temp = new File(path);
+            temp.createNewFile(); // if file already exists will do nothing
+            PrintWriter pw = new PrintWriter(temp);
+            pw.print(phonebook.toString());
+            pw.flush();
+            pw.close(); // flushes before close
+        } catch (FileNotFoundException e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static PhoneBook loadFromTextFile(String path) throws IOException, InvalidFormatException, InvalidNumberException, InvalidNameException, MaximumSizeExceddedException {
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(path)))) {
+            String current;
+            PhoneBook phoneBook = new PhoneBook();
+            while ((current = br.readLine()) != null) {
+                String name = current;
+                int len = Integer.parseInt(br.readLine());
+                String phoneNumbers[] = new String[len];
+                for (int i = 0; i < len; i++) {
+                    phoneNumbers[i] = br.readLine();
+                }
+                Contact contact = new Contact(name, phoneNumbers);
+                phoneBook.addContact(contact);
+                br.readLine();
+            }
+            return phoneBook;
+        }
+    }
+
+    public Contact[] getContactsForNumber(String number_prefix) {
+        Contact[] contactsForNumber = Arrays
+                .stream(contacts)
+                .filter(x -> x.hasPhoneNumberWithPrefix(number_prefix))
+                .toArray(Contact[]::new);
+        Arrays.sort(contactsForNumber);
+
+        return contactsForNumber;
+    }
+
+    private boolean contactExistsInPhoneBook(Contact c) {
+        Contact exists = getContactForName(c.getName());
+        return exists != null;
+    }
+}
 
 public class PhonebookTester {
 
