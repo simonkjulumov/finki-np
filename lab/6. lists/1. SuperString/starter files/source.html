@@ -1,0 +1,5502 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Супер-стринг | Code</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" media="screen" href="source_files/fonts.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap-yety.css">
+<link rel="stylesheet" media="screen" href="source_files/font-awesome.css">
+<!-- <link rel="stylesheet" media="screen" href="/public/DataTables/media/css/jquery.dataTables.min.css"> -->
+<link rel="stylesheet" media="screen" href="source_files/dataTables.css">
+<link rel="stylesheet" media="screen" href="source_files/main.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/dialog.css">
+<link rel="stylesheet" href="source_files/fullscreen.css">
+<link rel="stylesheet" href="source_files/neat.css">
+<link rel="stylesheet" href="source_files/elegant.css">
+<link rel="stylesheet" href="source_files/erlang-dark.css">
+<link rel="stylesheet" href="source_files/night.css">
+<link rel="stylesheet" href="source_files/monokai.css">
+<link rel="stylesheet" href="source_files/cobalt.css">
+<link rel="stylesheet" href="source_files/eclipse.css">
+<link rel="stylesheet" href="source_files/rubyblue.css">
+<link rel="stylesheet" href="source_files/lesser-dark.css">
+<link rel="stylesheet" href="source_files/xq-dark.css">
+<link rel="stylesheet" href="source_files/ambiance.css">
+<link rel="stylesheet" href="source_files/blackboard.css">
+<link rel="stylesheet" href="source_files/vibrant-ink.css">
+
+<link rel="shortcut icon" type="image/png" href="http://code.finki.ukim.mk/public/images/favicon.ico">        <style>    .typist-container {      overflow: hidden;      padding-left: 4px;    }    .typist-container p {      margin: 0 0 3px;    }    .typist-container p.prompt {      margin: 5px 0;    }    </style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+    <body class=""><div id="MathJax_Message" style="display: none;"></div>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+         <div class="navbar-header">
+		  	<a class="logo" href="http://code.finki.ukim.mk/" title="Go to home page">
+	<img src="source_files/logo.png" alt="Code">
+</a> 
+<!-- <a class="logo-title brand" href="/" title="Go to home page">Code</a> -->		  	            	<a class="logo-title" href="http://code.finki.ukim.mk/course/111/" title="Go to course problem sets index page">Напредно програмирање 2019/2020</a>
+          			  	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+          	</button>          
+		 </div>
+		<div class="navbar-collapse collapse" id="navbar-main">
+          	<ul class="nav navbar-nav">
+            	          	</ul>
+        
+        	<ul class="nav navbar-nav navbar-right">
+          				            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_languages">
+		<i class="fa fa-flag fa-fw"></i> Language <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_languages">
+       	<li><a href="http://code.finki.ukim.mk/langauge?locale=mk&amp;path=%2Fcourse%2F111%2Fproblem%2F6075%2F">Macedonian</a></li>
+		<li><a href="http://code.finki.ukim.mk/langauge?locale=en&amp;path=%2Fcourse%2F111%2Fproblem%2F6075%2F">English</a></li>
+    </ul>
+</li>		            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_courses">
+		<i class="fa fa-th fa-fw"></i> Courses <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_courses">
+        			<li><a href="http://code.finki.ukim.mk/course/61/"><i class="fa fa-angle-right fa-fw"></i> Алгоритми и податочни структури 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/48/"><i class="fa fa-angle-right fa-fw"></i> Алогоритми и податочни структури 2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/88/"><i class="fa fa-angle-right fa-fw"></i> Визуелно програмирање 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/111/"><i class="fa fa-angle-right fa-fw"></i> Напредно програмирање 2019/2020</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/37/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2014/2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/52/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2015/2016</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/86/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/102/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2018/2019</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/43/"><i class="fa fa-angle-right fa-fw"></i> Основи на веб дизајн</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/60/"><i class="fa fa-angle-right fa-fw"></i> Системи на знаење 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/30/"><i class="fa fa-angle-right fa-fw"></i> Структурно програмирање 2014</a></li> 
+		    </ul>
+</li>	            	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user">
+		<i class="fa fa-user fa-fw"></i> Симон Ќулумов <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user">
+        <li>
+			<a tabindex="-1" href="#"><i class="fa fa-eye fa-fw"></i> Student</a>
+		</li>	        
+        <li class="divider"></li>
+        <li>
+			<a href="http://code.finki.ukim.mk/logout"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+		</li>
+       </ul>
+</li>
+		         	        </ul>
+         </div>
+          
+	</div>
+</div>
+
+    <div class="container-fluid">
+        <div class="page-header">
+	<h2><i class="fa fa-angle-double-right"></i> <a href="http://code.finki.ukim.mk/course/111/problemset/1892/" title="">Листи</a>  <small>(6)</small></h2>
+</div>      <div id="wrapper">
+      <button class="btn btn-default btn-xs" id="menu-toggle">
+          <i id="btn-icon" class="fa fa-chevron-right fa-fw"></i>
+      </button>
+      <div id="sidebar-wrapper">
+          <div class="well sidebar-nav">
+                <ul class="nav nav-pills nav-stacked">
+<li class="nav-header">Problems</li>
+	    <li class="active">
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6075/">1) Супер-стринг
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6076/">2) Листа на цели броеви
+        </a></li>
+    </ul>          </div><!--/.well -->
+          <div class="help">
+                <p>методoт:
+<code>removeLast(int k)</code> - ги отстранува <strong>последнo додадените</strong> подстрингови не тие кои се последни во листата.</p>
+          </div>
+      </div>
+      <div id="problem-layout">
+      
+
+
+
+    <div id="clock" class="pull-right">
+        <span class="time-label">Opened:</span>
+      <ul>
+          <li id="time">2 дена</li>          
+      </ul>
+    </div>
+    <h3 id="problem-name">Супер-стринг <small>Problem 1 (1 / 21) </small></h3>
+
+<div class="row">    
+    <div id="problem-text" class="col-md-4">    
+    	<p>Треба да се напише класа <strong>SuperString</strong>. Класата во позадина претставува листа на стрингови <code>LinkedList&lt;String&gt;</code> и ги нуди следните методи:</p>
+
+<ul>
+<li><code>SuperString()</code> - креира празен стринг</li>
+<li><code>append(String s)</code> - го додава стрингот на крајот во листата</li>
+<li><code>insert(String s)</code> - го додава стрингот на почеток на листата</li>
+<li><code>contains(String s):boolean</code> - враќа <code>true</code> доколку стрингот <code>s</code> се наоѓа во супер-стрингот. Стрингот <code>s</code> може да е разделен во повеќе подстрингови во листата. Пр: <code>list = [ "st" , "arz" , "andrej" ] , contains("tarzan") –&gt; true</code></li>
+<li><code>reverse()</code> - го превртува стрингот на следниов начин. Ги
+ превртува сите елементи во листата, а потоа и секој подстринг како 
+елемент  посебно го превртува.
+<code>list = [ "st" , "arz" , "andrej: ]; reverse(); list = [ "jerdna", "zra", "ts"]</code></li>
+<li><code>toString():String</code> - ги враќа конкатенирани сите елементи во листата <code>list = [ "st" , "arz" , "andrej"];  toString() -&gt;  "starzandrej"</code></li>
+<li><code>removeLast(int k)</code> – ги отстранува <strong>последнo додадените</strong> <code>k</code> подстрингови</li>
+</ul>
+    </div>
+    <div id="editor" class="col-md-8">
+    <div id="editor-header">
+    	<label for="code" class="pull-left">Your solution:</label>
+    	<div class="pull-right programming_language">
+    	Programming language:
+    	    		    					    		<span class="label label-info">Java</span>
+    			    			    		    	    	</div>
+    </div>
+    <div class="clearfix"></div>
+    <textarea id="code" name="code" style="display: none;">import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class SuperStringTest {
+
+    public static void main(String[] args) {
+        Scanner jin = new Scanner(System.in);
+        int k = jin.nextInt();
+        if (  k == 0 ) {
+            SuperString s = new SuperString();
+            while ( true ) {
+                int command = jin.nextInt();
+                if ( command == 0 ) {//append(String s)
+                    s.append(jin.next());
+                }
+                if ( command == 1 ) {//insert(String s)
+                    s.insert(jin.next());
+                }
+                if ( command == 2 ) {//contains(String s)
+                    System.out.println(s.contains(jin.next()));
+                }
+                if ( command == 3 ) {//reverse()
+                    s.reverse();
+                }
+                if ( command == 4 ) {//toString()
+                    System.out.println(s);
+                }
+                if ( command == 5 ) {//removeLast(int k)
+                    s.removeLast(jin.nextInt());
+                }
+                if ( command == 6 ) {//end
+                    break;
+                }
+            }
+        }
+    }
+
+}
+
+class SuperString {
+    private LinkedList&lt;String&gt; strings;
+    private Stack&lt;String&gt; lastAdded;
+
+    public SuperString() {
+        strings = new LinkedList&lt;&gt;();
+        lastAdded = new Stack&lt;&gt;();
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(String s : strings){
+            sb.append(s);
+        }
+        return sb.toString();
+    }
+
+    public void append(String s) {
+        strings.addLast(s);
+        lastAdded.push(s);
+    }
+
+    public void insert(String s) {
+        strings.addFirst(s);
+        lastAdded.push(s);
+    }
+
+    public boolean contains(String s) {
+        return this.toString().contains(s);
+    }
+
+    public void reverse() {
+        LinkedList&lt;String&gt; reversedList = new LinkedList&lt;&gt;();
+        for(String s : strings) {
+            reversedList.addFirst(getReversedString(s));
+        }
+
+        strings = new LinkedList&lt;&gt;(reversedList);
+    }
+
+    public void removeLast(int k) {
+        while(k &gt; 0) {
+            String toRemove = lastAdded.pop();
+            boolean removed = strings.remove(toRemove);
+            if(!removed)
+                strings.remove(getReversedString(toRemove));
+            k--;
+        }
+    }
+    
+    private String getReversedString(String s){
+        return new StringBuilder(s).reverse().toString();
+    }
+}</textarea><div class="CodeMirror cm-s-default" style="height: 520px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 75px; left: 130px;"><textarea style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" tabindex="0" wrap="off">/*</textarea></div><div class="CodeMirror-hscrollbar" style="left: 45px;"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar" style="display: block; bottom: 0px;"><div style="width: 1px; height: 568px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div style="position: relative; min-height: 100%;"><div class="CodeMirror-sizer" style="min-width: 541px; margin-left: 45px; min-height: 568px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: currentcolor none medium;"><div class="CodeMirror-measure"><pre><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span class="cm-comment">/</span><span class="cm-comment">*</span></pre></div><div style="position: relative; z-index: 1; display: none;"></div><div style=""><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">1</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">Scanner</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">2</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">3</div></div><pre><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-variable">SuperStringTest</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">4</div></div><pre><span class="cm-tab">    </span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">5</div></div><pre><span class="cm-tab">    </span><span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-keyword">void</span> <span class="cm-variable">main</span>(<span class="cm-variable">String</span>[] <span class="cm-variable">args</span>) {</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">6</div></div><pre>        <span class="cm-comment">/*</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">7</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">Scanner jin = new Scanner(System.in);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">8</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">int k = jin.nextInt();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">9</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if (  k == 0 ) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">10</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">SuperString s = new SuperString();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">11</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">while ( true ) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">12</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">int command = jin.nextInt();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">13</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if ( command == 0 ) {//append(String s)</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">14</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">s.append(jin.next());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">15</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">16</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if ( command == 1 ) {//insert(String s)</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">17</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">s.insert(jin.next());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">18</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">19</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if ( command == 2 ) {//contains(String s)</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">20</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(s.contains(jin.next()));</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">21</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">22</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if ( command == 3 ) {//reverse()</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">23</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">s.reverse();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">24</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">25</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if ( command == 4 ) {//toString()</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">26</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">System.out.println(s);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">27</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">28</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if ( command == 5 ) {//removeLast(int k)</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">29</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">s.removeLast(jin.nextInt());</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">30</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">31</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">if ( command == 6 ) {//end</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">32</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">break;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">33</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">34</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">35</div></div><pre><span class="cm-tab">    </span><span class="cm-tab">    </span><span class="cm-comment">}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">36</div></div><pre>        <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">37</div></div><pre><span class="cm-tab">    </span>}</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">38</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">39</div></div><pre>}</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">40</div></div><pre>&nbsp;</pre></div></div><div class="CodeMirror-cursor" style="left: 84px; top: 70px; height: 14px; visibility: hidden;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none; visibility: hidden;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 568px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-compiler-message"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 24px;"></div></div></div></div></div>
+    <div id="editor-control">
+    	<div class="row">
+    		<div class="col-md-4">
+    			<div id="problem-revisions">	<label for="revision" class="editor-control-label">Revision:</label>
+	
+<select name="solutionHistory" size="1" id="solutionHistory" class="form-control input-sm">
+    					<option value="9403136" title="2020-02-10 19:34:43.0" selected="selected">3 seconds ago - 19:34:43
+</option>					<option value="9403131" title="2020-02-10 19:34:09.0">37 seconds ago - 19:34:09
+</option>					<option value="9396413" title="2020-02-08 22:15:47.0">1 day ago - 22:15:47
+</option>					<option value="9396410" title="2020-02-08 22:12:48.0">1 day ago - 22:12:48
+</option>					<option value="9396408" title="2020-02-08 22:12:30.0">1 day ago - 22:12:30
+</option>					<option value="9396406" title="2020-02-08 22:10:45.0">1 day ago - 22:10:45
+</option>					<option value="9396398" title="2020-02-08 22:08:23.0">1 day ago - 22:08:23
+</option>					<option value="9396394" title="2020-02-08 22:07:52.0">1 day ago - 22:07:52
+</option>					<option value="9396382" title="2020-02-08 22:05:06.0">1 day ago - 22:05:06
+</option>					<option value="9396375" title="2020-02-08 22:02:56.0">1 day ago - 22:02:56
+</option>					<option value="9396364" title="2020-02-08 22:00:52.0">1 day ago - 22:00:52
+</option>					<option value="9396352" title="2020-02-08 21:59:02.0">1 day ago - 21:59:02
+</option>					<option value="9396348" title="2020-02-08 21:57:15.0">1 day ago - 21:57:15
+</option>					<option value="9396342" title="2020-02-08 21:56:09.0">1 day ago - 21:56:09
+</option>					<option value="9396339" title="2020-02-08 21:55:31.0">1 day ago - 21:55:31
+</option>					<option value="9396338" title="2020-02-08 21:55:08.0">1 day ago - 21:55:08
+</option>					<option value="9396336" title="2020-02-08 21:54:19.0">1 day ago - 21:54:19
+</option>					<option value="9396331" title="2020-02-08 21:53:25.0">1 day ago - 21:53:25
+</option>					<option value="9396317" title="2020-02-08 21:51:21.0">1 day ago - 21:51:21
+</option>					<option value="9396308" title="2020-02-08 21:50:41.0">1 day ago - 21:50:41
+</option>					<option value="9396306" title="2020-02-08 21:50:20.0">1 day ago - 21:50:20
+</option>					<option value="9396254" title="2020-02-08 21:43:40.0">1 day ago - 21:43:40
+</option>					<option value="9396239" title="2020-02-08 21:42:31.0">1 day ago - 21:42:31
+</option>			    </select>
+
+	<input type="hidden" name="hasHistory" id="hasHistory" value="true">
+</div>
+	    		<button id="restore" class="btn btn-default btn-xs"><i class="fa fa-undo"></i> Restore</button>
+    		</div>
+    		<div class="col-md-8">
+    		<div class="row">
+    			<div class="col-md-2">
+		    		Full Screen <b>F11</b>
+    			</div>
+                <div class="col-md-3">
+                    heigth:
+                    <button id="setFixedBtn" class="btn btn-default btn-xs">
+                        520px
+                    </button>
+                    <button id="setAutoBtn" class="btn btn-default btn-xs" style="display: none;">
+                        Auto
+                    </button>
+                </div>
+    			<div class="col-md-3">
+			    	<a class="jfontsize-button" id="minus-btn" style="cursor: pointer;">A-</a>
+			    	<a class="jfontsize-button" id="default-btn" style="cursor: pointer;">A</a>
+			    	<a class="jfontsize-button" id="plus-btn" style="cursor: pointer;">A+</a>
+    			</div>
+    			<div class="col-md-4">
+    			<label for="select-theme" id="select-theme-lbl" class="editor-control-label">
+		    		Select a theme: 
+		    	</label>
+		    	<select id="select-theme" class="form-control input-sm">
+			    	<option selected="selected">default</option>
+			    	<option>ambiance</option>
+			    	<option>blackboard</option>
+			    	<option>cobalt</option>
+			    	<option>eclipse</option>
+			    	<option>elegant</option>
+			    	<option>erlang-dark</option>
+			    	<option>lesser-dark</option>
+			    	<option>monokai</option>
+			    	<option>neat</option>
+			    	<option>night</option>
+			    	<option>rubyblue</option>
+			    	<option>vibrant-ink</option>
+			    	<option>xq-dark</option>
+		    	</select>
+    			</div>
+	    	</div>
+    		</div>
+    	</div>
+    </div>
+    
+    
+        <div class="form-actions" style="clear:both;">
+        <div id="buttons" style="display: block;">
+        	<div class="row">
+        		<div class="col-md-6">
+		            <button id="run" class="btn btn-info btn-sm"><i class="fa fa-play"></i> Run</button>
+		            <button id="submit" class="btn btn-primary btn-sm"><i class="fa fa-play-circle"></i> Submit</button>
+		            <a href="#resetAlert" role="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-retweet"></i> Reset</a>
+		            <button id="format" class="btn btn-default btn-sm"><i class="fa fa-magic"></i> Format</button>
+                    <!-- <button id="analyze" class="btn btn-default btn-sm"><i class="fa fa-cogs"></i> analyze</button> -->
+		            <!-- <a href="#yes_i_will_solve" role="button" class="btn btn-sm btn-warning pull-right" data-toggle="modal"><i class="fa fa-meh-o fa-fw"></i> Solve all my problems!</a> -->
+		            <!-- <button id="save" class="btn"><i class="fa fa-check"></i> Save</button> -->
+        		</div>
+        		<div class="col-md-6" id="attempts"> 
+	<span>Unlimited attempts</span>
+</div>
+        	</div>
+        </div>
+        <div id="working" style="display: none;">
+            <span id="working_msg">working...</span>
+            <img src="source_files/ajax-loader.gif">
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="program-output">
+        <h3>Program output
+        <img src="source_files/c.png" id="correct_img" style="display: none;">
+        <img src="source_files/w.png" id="wrong_img" style="display: none;"></h3>
+        <pre id="warning" class="pre-scrollable output-warning" style="display: none;"></pre>
+        <div id="clang_output" style="display: none;">
+            <h3><a id="output_link" target="_blank" class="text-danger">View report</a></h3>
+        </div>
+        <pre id="output" class="pre-scrollable"></pre>
+    </div>
+        <div id="sample-input" style="clear: both;">
+    	<div class="row">
+        <div class="col-md-6">
+            <h3>Sample input</h3>
+            <pre id="ex_input">0
+1 ej`
+ 	0 Gaj
+ 	1 r
+ 	0 du
+ 	1 d
+ 	1 n
+ 	1 A
+ 	0 K
+ 	2 aj
+ 	2 Gaj
+ 	2 Gajd
+ 	2 Gajdu
+ 	2 GajduK
+ 	2 Gajduk
+ 	2 Gajdur
+ 	2 Gajdun
+ 	2 ej`GajrdudnAK
+ 	2 An
+ 	2 Kassandra
+ 	2 dnA
+ 	2 Kand
+ 	2 ejGaj
+        2 Andrej`GajduK
+ 	6
+</pre>
+        </div>
+        <div class="col-md-6">
+		    <h3>Sample output</h3>
+		    <pre id="expected">true
+true
+true
+true
+true
+false
+false
+false
+false
+true
+false
+false
+false
+false
+true
+</pre>
+        </div>
+        </div>
+    </div>
+    <div id="submission-output" style="clear:both;">
+<h3>Result: <span class="result result-failure">0.00 % (0/10)</span></h3>
+
+<table class="table table-striped table-bordered table-condensed">
+<caption>Testing details</caption>
+<thead>
+    <tr>
+        <th width="5%">Test case #</th>
+        <th width="20%">Input</th>
+        <th width="25%">Output</th>
+        <th width="25%">Your output</th>
+        <th width="25%">Correct</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td>1</td>
+    <td><pre id="input_1">0
+1 ej`
+ 	0 Gaj
+ 	1 r
+ 	0 du
+ 	1 d
+ 	1 n
+ 	1 A
+ 	0 K
+ 	2 aj
+ 	2 Gaj
+ 	2 Gajd
+ 	2 Gajdu
+ 	2 GajduK
+ 	2 Gajduk
+ 	2 Gajdur
+ 	2 Gajdun
+ 	2 ej`GajrdudnAK
+ 	2 An
+ 	2 Kassandra
+ 	2 dnA
+ 	2 Kand
+ 	2 ejGaj
+        2 Andrej`GajduK
+ 	6
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">98</span>
+    	</div>
+    	<pre id="output_1">true
+true
+true
+true
+true
+false
+false
+false
+false
+true
+false
+false
+false
+false
+true
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_1"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_1" onclick="Code.viewDiff(1)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_1" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>2</td>
+    <td><pre id="input_2">0
+ 	0 `st`
+ 	0 `arz`
+ 	0 `andrej`
+ 	1 `st`
+ 	0 `arz`
+ 	1 `andr`
+ 	1 `ej`
+ 	4
+ 	5 1
+  	4
+ 	0 `asd`
+ 	1 `qwe`
+ 	1 `ert`
+ 	1 `yui`
+ 	4
+ 	5 2
+ 	4
+  	0 `aa`
+ 	0 `aadv`
+ 	0 `vbn`
+ 	1 `123`
+ 	1 `456`
+ 	1 `789`
+ 	0 `147`
+ 	1 `258`
+ 	0 `369`
+ 	0 `723`
+ 	4
+ 	5 5
+ 	4
+ 	3 
+ 	4
+ 	5 8
+ 	4
+ 	6
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">430</span>
+    	</div>
+    	<pre id="output_2">`ej``andr``st``st``arz``andrej``arz`
+`andr``st``st``arz``andrej``arz`
+`yui``ert``qwe``andr``st``st``arz``andrej``arz``asd`
+`qwe``andr``st``st``arz``andrej``arz``asd`
+`258``789``456``123``qwe``andr``st``st``arz``andrej``arz``asd``aa``aadv``vbn``147``369``723`
+`456``123``qwe``andr``st``st``arz``andrej``arz``asd``aa``aadv``vbn`
+`nbv``vdaa``aa``dsa``zra``jerdna``zra``ts``ts``rdna``ewq``321``654`
+`zra``jerdna``zra``ts``ts`
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_2"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_2" onclick="Code.viewDiff(2)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_2" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>3</td>
+    <td><pre id="input_3">0
+2 FKaebb
+1 tLBsphCNBdAWnCvb
+4 
+5 0
+5 0
+0 pYGrDqIMhnJEtcADsK
+0 rIHTsFkyVc
+2 Zpw
+4 
+1 wdjYfNqcH
+6
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">78</span>
+    	</div>
+    	<pre id="output_3">false
+tLBsphCNBdAWnCvb
+false
+tLBsphCNBdAWnCvbpYGrDqIMhnJEtcADsKrIHTsFkyVc
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_3"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_3" onclick="Code.viewDiff(3)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_3" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>4</td>
+    <td><pre id="input_4">0
+0 'ag'
+1 'f'
+0 'd'
+0 'ag'
+1 'ag'
+4
+5 1
+4
+6
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">36</span>
+    	</div>
+    	<pre id="output_4">'ag''f''ag''d''ag'
+'f''ag''d''ag'
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_4"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_4" onclick="Code.viewDiff(4)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_4" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>5</td>
+    <td><pre id="input_5">0
+2 OWcgNg
+0 nibZeYPQdHpyBwL
+4 
+1 kIdDdAEfCy
+1 k
+1 rhap
+2 qw
+3 
+4 
+1 TxFislqdACSeAeIkClij
+0 OFvnRapSqkTse
+1 vSHDrSwflVbwfh
+2 wblInIEtoHdiHlNxiN
+4 
+4 
+1 GZADexlmKaFQWLgnqAY
+3 
+2 XgZTLnWrgdgDRvjZmGOH
+4 
+1 xCztTayiL
+5 7
+2 pPqYDwN
+5 0
+5 0
+0 hdGFIqso
+0 FGnOfhOcskH
+0 qemeDZwHMnkDANIvUCK
+1 ExybGS
+1 vJDheFrAXhr
+4 
+3 
+4 
+5 2
+2 oaFSVJxMaIFOUi
+3 
+5 4
+2 aHACFGDkBbPkL
+0 DZQwvZjAqoRRGFj
+5 0
+0 HwJcirEzuDumpMS
+3 
+0 XSETJdQuqhfhrboCpss
+2 mkbhVtFsqGoJDp
+2 zMtmYFReBiXNHr
+1 uTTD
+4 
+4 
+1 zebsh
+4 
+1 SYpZTpo
+2 VrQ
+5 6
+1 OQLLiANusfmzQ
+0 pbbYQrDkC
+3 
+1 eouoqIH
+2 YBBXbFeAhYcjntP
+1 QXNJQlnMv
+4 
+2 FcamcGcRIquTNScF
+5 3
+5 0
+3 
+1 mESI
+1 xqi
+3 
+4 
+4 
+4 
+1 cjpnyUEErl
+2 ZLqu
+2 hzIqZbDX
+3 
+4 
+0 hEtaQvFXFb
+5 3
+4 
+2 I
+2 aMCItZBvPB
+4 
+4 
+5 0
+5 2
+0 w
+3 
+4 
+5 0
+4 
+0 dz
+5 0
+5 0
+4 
+3 
+1 aoCvrAEMxOdmJiWoEC
+2 TwoKKXVXisquKxFfYe
+3 
+4 
+3 
+1 Ni
+4 
+0 hyxbrboaPRwxdxbeNeT
+2 pDZncWZxAbsL
+1 qPmelauKmVniamkJm
+3 
+2 KerXeNaXwnNu
+3 
+3 
+1 KNrVdBSyczDFdg
+2 THfwMGaWeEFzKrrMiRh
+4 
+4 
+3 
+5 3
+4 
+0 USt
+5 3
+0 LiWcMsdhnjFKIQubzZn
+4 
+5 1
+2 npaUhfC
+1 SPuUS
+1 bNWuR
+4 
+0 nkckCXwm
+0 cXDnvcSc
+3 
+1 SgXMifYzskIZKmnSu
+3 
+0 LaNSshSoZXqAHwWLkF
+5 2
+0 GXhCuaQBODswcJabYMH
+0 X
+4 
+3 
+4 
+1 pFLgdA
+5 6
+1 CmBSElXGMrmSgX
+2 TBfws
+0 fqWKIleO
+3 
+4 
+5 5
+5 0
+5 0
+0 irp
+4 
+2 oduXLZB
+1 x
+2 jUtBGzZm
+3 
+4 
+4 
+5 1
+2 OYgC
+0 GvSx
+0 MHMj
+2 kHkTONQ
+5 2
+5 0
+2 LWCDPVcvFOFqPKrD
+3 
+0 VZXaeZqpKQmnAn
+0 zFSJwxFzOFbjhGygbROX
+0 msofXBpzkqaCeiJdi
+0 YHHZZppGnKGDjoDhH
+0 qwYfgvLsEyC
+2 jpQSRwUHGDYQnbQWzEf
+4 
+1 vUhVkIGdgarbKoBSAvNf
+4 
+2 CCNpPuqsYnzWfTpknsY
+2 rBvgP
+2 Xpy
+4 
+1 psDFJAKU
+0 qwALntKGYQcGDIN
+4 
+4 
+5 6
+5 1
+4 
+0 ziPnjmCafum
+0 cDqZfD
+4 
+4 
+4 
+2 HrdhOqZM
+4 
+3 
+3 
+0 JgmjxkaNFsENg
+2 hwfvgjTry
+4 
+5 1
+5 4
+1 NZkZHEbv
+4 
+2 HVri
+5 1
+4 
+2 NUZiWzVDOo
+4 
+4 
+2 GGyMZBMOoszKVPJcnzh
+0 tOdVcD
+4 
+5 1
+4 
+3 
+1 eGAaqbvYnh
+0 jTbEs
+2 Tg
+0 mZG
+3 
+1 RPRksBvnw
+2 BTi
+3 
+0 ij
+1 SHfNuNMsVQzhQ
+4 
+5 2
+0 XbRLnpOVBIYIkAYDOSN
+0 ZzC
+2 gNUpyOijzoCFkjF
+4 
+1 mIHqlNk
+4 
+0 Symptapelem
+3 
+4 
+1 pUREQpc
+3 
+5 9
+0 raUDUmYolteDEBzzV
+3 
+4 
+4 
+0 kHzAPTsKVRydZk
+4 
+5 1
+2 RnHv
+5 1
+3 
+1 GB
+4 
+5 1
+4 
+1 EBurdLhtU
+0 mcLHgJIuhr
+3 
+0 aGeMzJhBWUGyd
+4 
+5 1
+4 
+5 2
+5 0
+2 zpsj
+2 tdKbCAXPP
+5 0
+0 jVqRMjqy
+4 
+4 
+3 
+4 
+3 
+1 XcVvJvZDWnb
+5 2
+1 ekyXC
+5 1
+4 
+4 
+2 zYhmzlbGxBH
+5 0
+5 0
+3 
+4 
+3 
+3 
+4 
+4 
+3 
+5 0
+3 
+1 cOqT
+0 QpMGCLIq
+0 HI
+0 kYvMUpJYIgyeM
+4 
+5 2
+1 SXGmezbVvYjvzOwRrLSy
+4 
+1 RPc
+5 3
+0 vzyLIoqrhruyiev
+1 zJzP
+1 jo
+5 4
+4 
+5 0
+1 GoTYfsw
+2 KgYKDkLSKgZfwHlHNb
+0 ZsaFTizUksn
+4 
+5 1
+4 
+4 
+2 wXlJTWkzQeYaHcYkhUa
+0 cbFgHWiScGwbno
+5 0
+0 rBMNvdsDwGh
+0 VGgRDl
+3 
+1 gPG
+4 
+1 U
+1 MJcuJXjjECV
+2 tzFDl
+3 
+1 XiTfsPT
+4 
+0 hbfrrDqYsBq
+2 alRPmvAg
+3 
+3 
+0 BaBYNM
+1 ModgdXjPJqlqvIrh
+2 AITqndHqBJM
+5 2
+3 
+0 tQLMqzX
+4 
+1 r
+1 hHOseakTC
+5 11
+0 nnrRlB
+3 
+1 UiGFbLYBF
+1 JsRuQRYEPmXcohlGaG
+1 acEx
+5 2
+5 2
+1 FCAncFNObuyHawjpsu
+5 2
+0 wUYAYWNpGeiKQwQTU
+1 MrMPNOoliH
+2 qDLLidXfqUJpUAnJx
+4 
+2 elzWmvSDYe
+1 RR
+4 
+0 xt
+4 
+1 omwwWE
+3 
+0 fKaJSwPlgdtPDE
+5 6
+3 
+0 nM
+4 
+0 fsIh
+5 2
+5 0
+5 0
+2 UXMlUJublzSR
+3 
+4 
+0 XiNegzjFvQel
+0 MDdBqE
+1 VTCOaxsRPZbBUk
+3 
+2 EEnApKOhMEvH
+3 
+0 ErsANXDzECgQhsFUsK
+2 PPnieTqDFoQZkcsfqTVl
+2 q
+3 
+2 FldRZLmfvaFByMGDiM
+0 HeAZMDswnWLlKv
+0 vKwCXoesWti
+5 3
+3 
+1 piwoakuGFlyt
+2 rsKreHnVvnmGz
+5 3
+0 CKGGZxzqzGMOpjYrVbKy
+4 
+3 
+4 
+1 vlAKSiHLkhD
+4 
+4 
+4 
+2 nHdxvD
+2 YbtrralpipFxcV
+1 q
+0 zAvHSlsIXNuIYOFuMFCO
+3 
+0 ZN
+2 sGXZoNxftlYycN
+0 AYTPLpspWvq
+4 
+4 
+4 
+0 IhYNdAKTifGfDGRenEsl
+4 
+1 DZUVWVk
+0 HIhCpiYXeAqKQNa
+4 
+1 OY
+0 mhaIGqjJZTGIA
+5 4
+0 sEJCPduqkIxAfYZDn
+5 1
+2 Hkex
+1 LSqnhcYprXCXNhLALc
+3 
+0 vVZLPBebwS
+5 5
+2 ubeMPrVuzSfGaxeN
+5 3
+1 KxEreHa
+5 2
+2 BDm
+2 RQxHx
+0 tgkwtsyyx
+2 Me
+2 nkMlGnxrgYYsiMxEjaV
+4 
+5 1
+4 
+2 nYZgCoXJoeTkipsu
+2 ajRYmAt
+2 jONdh
+1 qBfz
+0 WmtPwrVxBF
+5 3
+3 
+3 
+0 RevsjDHbeE
+4 
+1 hbmRofkVrpbVcroR
+4 
+5 1
+3 
+0 dI
+2 yFEZKexx
+3 
+1 JHjcimiPSeGEUkj
+2 GvYIfoJGy
+5 3
+0 tsvPDmh
+3 
+4 
+5 0
+3 
+3 
+5 0
+3 
+4 
+2 YE
+5 0
+4 
+1 oEApqROCdfBwMowwV
+0 sTCsCxbBai
+5 3
+5 0
+1 sTEKgquABwOmEezq
+5 0
+5 0
+2 HFs
+3 
+2 rVQjyb
+5 0
+3 
+4 
+0 TiWSqxOojL
+2 diP
+4 
+3 
+0 bPvOVHdu
+3 
+0 Ns
+4 
+1 eTjDsJyYyA
+4 
+5 1
+3 
+1 suJmCJkCWNCEeRx
+5 3
+1 tHVedS
+2 fdIVFJPSydYPI
+4 
+0 IASAwJpkovMf
+1 WizZkt
+2 QfAFcsZiLzhrpxcZxRLD
+1 unxMOHiBzertxAY
+0 IcGWBffXDCmLN
+5 6
+2 ci
+0 sCHprnF
+1 tBPefaJW
+0 naQNkTJjCbxgLWkTDU
+0 ACiFelTh
+0 FocanAyZtaqfQIdCP
+2 KUTKEFBHiFfgbmoQ
+3 
+5 6
+1 jrDsWiQSolvZBOSUDJ
+0 ADf
+4 
+0 zIOUOgbtosJJsFqxG
+3 
+4 
+3 
+1 bSuEgnksJri
+1 ExPBzHZoRTWmjjL
+3 
+5 4
+4 
+3 
+3 
+1 NtTj
+4 
+3 
+0 ehhgzMoWlNTAwpAIoj
+4 
+1 LLCFUaW
+5 1
+5 2
+2 dnD
+4 
+4 
+1 sXHnzfHoZzsWsQv
+2 XPEFzafoXuCRih
+5 2
+1 XCD
+1 sGKgcwfRJOLcqHNAw
+3 
+5 0
+4 
+1 HBN
+0 ejhYePIFAxhluY
+1 YsyOcSuoihiHyncM
+1 NEhYFK
+1 gTfMtfbqFJr
+4 
+4 
+0 CwMVCYssxZqD
+2 UZbVKi
+4 
+4 
+3 
+3 
+3 
+3 
+5 7
+0 qISDt
+0 Xfw
+2 JVZyHfLbUdB
+4 
+0 qCtwZkdLCscybfYRXJD
+4 
+4 
+0 PuZEmgmdnJmGUuC
+1 VNqhEkJRaOOxYgAcV
+1 PAsUtUQeNYzxUcGC
+4 
+1 DhdjDBdgyqVV
+1 tKIDUGuLyhEvVUm
+0 nwjBejDAmdhkeUL
+1 mhAzbeMhmfDtdJz
+1 HkvK
+1 nZlfxYuJvZKPDqpCbkHo
+2 lqGNJIs
+1 hm
+0 YcbSMYRRkKtBi
+0 kfIYZt
+5 13
+1 BpESTNnItf
+0 AMjHdYTHeHqS
+0 Ao
+1 JNkbuQ
+0 fwzu
+3 
+2 mZrMjibCmuBlufWaAK
+4 
+4 
+0 tBVCLVRaup
+3 
+5 9
+0 HeKEngB
+1 UTqO
+3 
+4 
+5 1
+4 
+4 
+1 fsEQbaaSOnnrixd
+1 KNHOrwR
+1 jXZKZZuCbJ
+3 
+3 
+0 UwjRlgdEXEp
+4 
+0 VWhzuyiXhzHlPrq
+5 2
+4 
+3 
+4 
+0 vwPXH
+0 BHDEnMgfkIbnUajf
+1 zRFbOkkfdKchFjqroksz
+3 
+0 GwmyoOrZCgm...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">11180</span>
+    	</div>
+    	<pre id="output_5">false
+nibZeYPQdHpyBwL
+false
+LwBypHdQPYeZbinyCfEAdDdIkkpahr
+false
+vSHDrSwflVbwfhTxFislqdACSeAeIkClijLwBypHdQPYeZbinyCfEAdDdIkkpahrOFvnRapSqkTse
+vSHDrSwflVbwfhTxFislqdACSeAeIkClijLwBypHdQPYeZbinyCfEAdDdIkkpahrOFvnRapSqkTse
+false
+esTkqSpaRnvFOrhapkkIdDdAEfCynibZeYPQdHpyBwLjilCkIeAeSCAdqlsiFxThfwbVlfwSrDHSvYAqngLWQFaKmlxeDAZG
+false
+vJDheFrAXhrExybGSkIdDdAEfCynibZeYPQdHpyBwLhdGFIqsoFGnOfhOcskHqemeDZwHMnkDANIvUCK
+KCUvINADknMHwZDemeqHkscOhfOnGFosqIFGdhLwBypHdQPYeZbinyCfEAdDdIkSGbyxErhXArFehDJv
+false
+false
+false
+false
+uTTDSMpmuDuzEricJwHjFGRRoqAjZvwQZDLwBypHdQPYeZbinXSETJdQuqhfhrboCpss
+uTTDSMpmuDuzEricJwHjFGRRoqAjZvwQZDLwBypHdQPYeZbinXSETJdQuqhfhrboCpss
+zebshuTTDSMpmuDuzEricJwHjFGRRoqAjZvwQZDLwBypHdQPYeZbinXSETJdQuqhfhrboCpss
+false
+false
+QXNJQlnMveouoqIHCkDrQYbbpnibZeYPQdHpyBwLQzmfsuNAiLLQO
+false
+nibZeYPQdHpyBwLQzmfsuNAiLLQOISEmiqx
+nibZeYPQdHpyBwLQzmfsuNAiLLQOISEmiqx
+nibZeYPQdHpyBwLQzmfsuNAiLLQOISEmiqx
+false
+false
+xqimESIOQLLiANusfmzQLwBypHdQPYeZbinlrEEUynpjc
+mESIOQLLiANusfmzQLwBypHdQPYeZbin
+true
+false
+mESIOQLLiANusfmzQLwBypHdQPYeZbin
+mESIOQLLiANusfmzQLwBypHdQPYeZbin
+wnibZeYPQdHpyBwL
+wnibZeYPQdHpyBwL
+wnibZeYPQdHpyBwLdz
+false
+wnibZeYPQdHpyBwLdzCEoWiJmdOxMEArvCoa
+NiaoCvrAEMxOdmJiWoECzdLwBypHdQPYeZbinw
+false
+false
+false
+KNrVdBSyczDFdgTeNebxdxwRPaobrbxyhwnibZeYPQdHpyBwLdzCEoWiJmdOxMEArvCoaiNmJkmainVmKualemPq
+KNrVdBSyczDFdgTeNebxdxwRPaobrbxyhwnibZeYPQdHpyBwLdzCEoWiJmdOxMEArvCoaiNmJkmainVmKualemPq
+NiaoCvrAEMxOdmJiWoECzdLwBypHdQPYeZbinw
+zdLwBypHdQPYeZbinwLiWcMsdhnjFKIQubzZn
+false
+bNWuRSPuUSzdLwBypHdQPYeZbinw
+bNWuRSPuUSzdLwBypHdQPYeZbinwnkckCXwmcXDnvcScGXhCuaQBODswcJabYMHX
+XHMYbaJcwsDOBQauChXGcScvnDXcmwXCkcknwnibZeYPQdHpyBwLdzSUuPSRuWNb
+false
+OelIKWqfSPuUSzdLwBypHdQPYeZbinwXgSmrMGXlESBmC
+LwBypHdQPYeZbinirp
+false
+false
+prinibZeYPQdHpyBwLx
+prinibZeYPQdHpyBwLx
+false
+false
+false
+false
+LwBypHdQPYeZbinirpVZXaeZqpKQmnAnzFSJwxFzOFbjhGygbROXmsofXBpzkqaCeiJdiYHHZZppGnKGDjoDhHqwYfgvLsEyC
+vUhVkIGdgarbKoBSAvNfLwBypHdQPYeZbinirpVZXaeZqpKQmnAnzFSJwxFzOFbjhGygbROXmsofXBpzkqaCeiJdiYHHZZppGnKGDjoDhHqwYfgvLsEyC
+false
+false
+false
+vUhVkIGdgarbKoBSAvNfLwBypHdQPYeZbinirpVZXaeZqpKQmnAnzFSJwxFzOFbjhGygbROXmsofXBpzkqaCeiJdiYHHZZppGnKGDjoDhHqwYfgvLsEyC
+psDFJAKUvUhVkIGdgarbKoBSAvNfLwBypHdQPYeZbinirpVZXaeZqpKQmnAnzFSJwxFzOFbjhGygbROXmsofXBpzkqaCeiJdiYHHZZppGnKGDjoDhHqwYfgvLsEyCqwALntKGYQcGDIN
+psDFJAKUvUhVkIGdgarbKoBSAvNfLwBypHdQPYeZbinirpVZXaeZqpKQmnAnzFSJwxFzOFbjhGygbROXmsofXBpzkqaCeiJdiYHHZZppGnKGDjoDhHqwYfgvLsEyCqwALntKGYQcGDIN
+LwBypHdQPYeZbinirpVZXaeZqpKQmnAn
+LwBypHdQPYeZbinirpVZXaeZqpKQmnAnziPnjmCafumcDqZfD
+LwBypHdQPYeZbinirpVZXaeZqpKQmnAnziPnjmCafumcDqZfD
+LwBypHdQPYeZbinirpVZXaeZqpKQmnAnziPnjmCafumcDqZfD
+false
+LwBypHdQPYeZbinirpVZXaeZqpKQmnAnziPnjmCafumcDqZfD
+false
+LwBypHdQPYeZbinirpVZXaeZqpKQmnAnziPnjmCafumcDqZfDJgmjxkaNFsENg
+NZkZHEbvLwBypHdQPYeZbin
+false
+LwBypHdQPYeZbin
+false
+LwBypHdQPYeZbin
+LwBypHdQPYeZbin
+false
+LwBypHdQPYeZbintOdVcD
+LwBypHdQPYeZbin
+false
+false
+SHfNuNMsVQzhQeGAaqbvYnhnibZeYPQdHpyBwLjTbEsmZGwnvBskRPRij
+false
+eGAaqbvYnhnibZeYPQdHpyBwLjTbEsmZGwnvBskRPRXbRLnpOVBIYIkAYDOSNZzC
+mIHqlNkeGAaqbvYnhnibZeYPQdHpyBwLjTbEsmZGwnvBskRPRXbRLnpOVBIYIkAYDOSNZzC
+melepatpmySCzZNSODYAkIYIBVOpnLRbXRPRksBvnwGZmsEbTjLwBypHdQPYeZbinhnYvbqaAGekNlqHIm
+VzzBEDetloYmUDUarLwBypHdQPYeZbin
+VzzBEDetloYmUDUarLwBypHdQPYeZbin
+VzzBEDetloYmUDUarLwBypHdQPYeZbinkHzAPTsKVRydZk
+false
+GBnibZeYPQdHpyBwL
+nibZeYPQdHpyBwL
+rhuIJgHLcmLwBypHdQPYeZbinUthLdruBEaGeMzJhBWUGyd
+rhuIJgHLcmLwBypHdQPYeZbinUthLdruBE
+false
+false
+LwBypHdQPYeZbinjVqRMjqy
+LwBypHdQPYeZbinjVqRMjqy
+yqjMRqVjnibZeYPQdHpyBwL
+LwBypHdQPYeZbin
+LwBypHdQPYeZbin
+false
+nibZeYPQdHpyBwL
+nibZeYPQdHpyBwL
+nibZeYPQdHpyBwL
+cOqTnibZeYPQdHpyBwLQpMGCLIqHIkYvMUpJYIgyeM
+SXGmezbVvYjvzOwRrLSycOqTnibZeYPQdHpyBwLQpMGCLIq
+nibZeYPQdHpyBwL
+false
+GoTYfswnibZeYPQdHpyBwLZsaFTizUksn
+GoTYfswnibZeYPQdHpyBwL
+GoTYfswnibZeYPQdHpyBwL
+false
+gPGlDRgGVhGwDsdvNMBronbwGcSiWHgFbcLwBypHdQPYeZbinwsfYToG
+false
+XiTfsPTGoTYfswnibZeYPQdHpyBwLcbFgHWiScGwbnorBMNvdsDwGhVGgRDlGPgUVCEjjXJucJM
+false
+false
+qBsYqDrrfbhMJcuJXjjECVUgPGlDRgGVhGwDsdvNMBronbwGcSiWHgFbcLwBypHdQPYeZbinwsfYToGTPsfTiXtQLMqzX
+false
+MrMPNOoliHnibZeYPQdHpyBwLwUYAYWNpGeiKQwQTU
+false
+RRMrMPNOoliHnibZeYPQdHpyBwLwUYAYWNpGeiKQwQTU
+RRMrMPNOoliHnibZeYPQdHpyBwLwUYAYWNpGeiKQwQTUxt
+nibZeYPQdHpyBwLnM
+false
+LwBypHdQPYeZbin
+false
+false
+true
+false
+false
+LwBypHdQPYeZbinXiNegzjFvQelCKGGZxzqzGMOpjYrVbKy
+yKbVrYjpOMGzqzxZGGKCleQvFjzgeNiXnibZeYPQdHpyBwL
+vlAKSiHLkhDyKbVrYjpOMGzqzxZGGKCleQvFjzgeNiXnibZeYPQdHpyBwL
+vlAKSiHLkhDyKbVrYjpOMGzqzxZGGKCleQvFjzgeNiXnibZeYPQdHpyBwL
+vlAKSiHLkhDyKbVrYjpOMGzqzxZGGKCleQvFjzgeNiXnibZeYPQdHpyBwL
+false
+false
+false
+OCFMuFOYIuNXIslSHvAzLwBypHdQPYeZbinXiNegzjFvQelCKGGZxzqzGMOpjYrVbKyDhkLHiSKAlvqZNAYTPLpspWvq
+OCFMuFOYIuNXIslSHvAzLwBypHdQPYeZbinXiNegzjFvQelCKGGZxzqzGMOpjYrVbKyDhkLHiSKAlvqZNAYTPLpspWvq
+OCFMuFOYIuNXIslSHvAzLwBypHdQPYeZbinXiNegzjFvQelCKGGZxzqzGMOpjYrVbKyDhkLHiSKAlvqZNAYTPLpspWvq
+OCFMuFOYIuNXIslSHvAzLwBypHdQPYeZbinXiNegzjFvQelCKGG...</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_5"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_5" onclick="Code.viewDiff(5)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_5" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>6</td>
+    <td><pre id="input_6">0
+4 
+3 
+2 oCUZ
+4 
+4 
+5 0
+0 JOWZCbLsGJ
+2 D
+5 0
+4 
+4 
+4 
+2 DlJzHpbQjXSRHOSt
+5 0
+1 MRCWeBaIFHXxkM
+0 zJoGQuyjYOkDuZW
+4 
+2 zRDmsGWqoISyGGmcsvCW
+4 
+2 ltwEvSuhIIvvXjREA
+4 
+2 obuQuMnXRICohs
+3 
+3 
+0 NnuVEwXHkXpsRMT
+3 
+0 ajEHvnkJlNDyGHHUo
+0 oA
+5 0
+1 ifOWRsOZdNWieYsMpf
+5 2
+4 
+5 0
+4 
+0 QXskoUKhoumSsUJgPqbW
+2 ynnTPFBSP
+2 lBbWHCDaobdZNV
+1 rjNEkqiccma
+1 w
+1 R
+1 ajnQgmPyLpmXlNCT
+3 
+1 w
+1 XbJLRgIGXAEYGqN
+5 5
+1 tUOpEINcLsSplHMuonJ
+4 
+4 
+3 
+0 gAm
+2 twOixrey
+2 KeqdXUYxpLiLEIk
+2 qx
+2 pxwvPQbTksxO
+1 CNpklxvgBnnMazGXop
+1 XMwVqI
+0 rbpCo
+3 
+3 
+2 tJbxVsdyblnFWznoXqaz
+0 xhXGmARZKlbhFazkN
+5 5
+3 
+3 
+1 zsSMpByhRYdWyNzF
+0 ocZVhtcLtyzgrKvRhqs
+0 WWZIQbamLOURlAOV
+5 0
+5 7
+3 
+4 
+4 
+1 UwNwoJG
+3 
+2 dtdmUoKkMVZMIUoQAWw
+0 sSFVZkhyXqKzuI
+5 3
+0 xnZvnUBxowvcgBt
+0 U
+3 
+3 
+5 3
+0 ewY
+3 
+5 1
+3 
+5 0
+4 
+0 FuvEBAKDEXgmxRhkrI
+4 
+5 0
+1 LjLpyRBVQfpAoSR
+0 sufMQpnNSFoP
+4 
+2 YMDindXsEBedeMrEqx
+1 LEjbjHWSMVYWqXwRkAn
+1 WHjCZoPdMcuEge
+2 nWTjk
+2 QYMhqLzVYhAXP
+1 AiqRHCsGtZuuy
+3 
+5 7
+2 qZv
+4 
+2 aZJkxDc
+3 
+2 gcEnWUQThZHnA
+1 ae
+1 Rokh
+5 0
+0 pJHFVq
+2 xSkmPYuVBsyobaEFXm
+5 1
+5 2
+5 0
+4 
+3 
+1 GQzsSr
+3 
+5 0
+5 1
+0 jHapItNrhfxwfXW
+4 
+1 C
+2 URiD
+4 
+0 imoPLHTtMoshEDODKC
+3 
+1 EizmlweBPYcLWDsAsc
+1 bAUL
+1 QZcJRqpezl
+3 
+4 
+0 LcGEzXTkKaEHhbwA
+1 tXZSSXtTzEy
+1 cTus
+4 
+4 
+2 wGjyfeVgKKUh
+4 
+1 uCwMVxnXZz
+2 cxAsxe
+2 TGERgaLDEmsOAG
+4 
+0 zmwXx
+1 looQqnvNpNPUeyPoGjux
+4 
+2 CMpgT
+5 0
+0 VnZKtDlLTfc
+2 yIfllBhNXGXQLu
+5 4
+3 
+0 fUyxGhzJqLdsHEHka
+3 
+3 
+1 WQHL
+4 
+0 bBWCfrQSR
+0 H
+5 2
+0 O
+4 
+3 
+4 
+5 7
+1 mRZBTpMCpgcQOMsdq
+0 jiAvA
+3 
+1 LsDUlQ
+0 muoNlJOC
+1 LcUrpiiOYmv
+1 oMuhYclfcS
+2 uPmZp
+4 
+1 Inauy
+0 vxDUowaDuIhGmQhT
+2 rwxjYiZBrVIKFFycdXox
+0 wCQiCQF
+1 lC
+3 
+1 PmHAviUpk
+4 
+2 xhffNiQi
+4 
+2 oGEncTZTyaTBpOXhlP
+0 mRRMLyFoBO
+0 G
+0 ovBJvrhJRCryrvxOI
+1 ostZjpgHSmkWEYmWw
+2 ZZrBnrl
+3 
+3 
+5 16
+3 
+1 glkUSySPTQbRWfRNID
+0 ZNJA
+4 
+3 
+2 isaSMQVdMluRwEBHfOV
+2 iLsIZgveuOutJOBL
+1 IGPtSnbgWuFUzWEBHMP
+0 lqVtgfHgdIMZiAVVn
+2 TLwYVpUJqZas
+0 aTCccmkGAUyP
+2 p
+5 1
+2 gEnUuHPksDKD
+5 5
+5 3
+2 MbzWiu
+4 
+3 
+1 rixEFSFSypfwqHyEJz
+2 ZXWLEgExq
+0 pViVaqtvbpNH
+4 
+4 
+5 1
+4 
+3 
+1 TdjwOSlfGoe
+5 2
+5 0
+0 GKPERzvR
+2 skLcRefrTDcRWzr
+2 qbuvMN
+0 GosRComioPCh
+2 v
+4 
+4 
+3 
+4 
+0 MoNDUdePcojdFUzXBUee
+5 2
+0 hDZiuxpxiS
+5 2
+1 z
+3 
+0 ReaAjOwg
+5 2
+3 
+5 0
+4 
+4 
+3 
+0 IcQMh
+3 
+1 RDiZRYDKZRewfUxBySr
+5 0
+1 aEEdlEYLbTmfL
+4 
+1 KOXWPCaQrfHziUZj
+3 
+3 
+3 
+4 
+4 
+3 
+4 
+0 XdKxHstLOODhtPxFmi
+4 
+0 BENSCPwwDZIiJrEwcU
+2 HugbBoz
+4 
+5 0
+2 ttcYnzIqwLLBUljEEl
+2 zpfVg
+2 dMCnhwyqJAim
+4 
+2 FuLPFGAQQicL
+1 hlFkX
+3 
+1 WDBSDFeFutkDmRrOnoNp
+3 
+1 IbZgUievIWUj
+2 iRJeuzPUSmVRdUepyf
+1 igEls
+0 qNFx
+3 
+4 
+2 IbzrTMuJOFmLeDpL
+4 
+2 XpIoeInfLwvHyAUvUxu
+4 
+2 EZ
+2 IfsEGYwHlickGR
+0 NBCMqpviaTlNvicCPcul
+4 
+2 vvcpGaEUdxye
+0 AjYIMqJTOKM
+5 8
+3 
+0 vd
+4 
+2 ClGdjBlnFqJ
+2 eLvDuBFqgoYLsW
+0 VlEBRVZJnmqlaZRoRVB
+5 1
+2 RyErJQswcWZsEFPlble
+2 vxGvOosm
+2 rvUPSGKWnpVI
+0 MJHIYARJcOEjAHlbezXz
+5 1
+3 
+3 
+3 
+2 MJdwScXTSRVGwES
+4 
+4 
+2 Usdo
+2 cWmSJKP
+3 
+3 
+2 unMSdJBATSgkR
+0 Tn
+5 5
+0 gYBmJIWcZdHoW
+3 
+3 
+4 
+5 0
+2 XKEMkBJyGx
+0 Ui
+3 
+4 
+5 1
+4 
+2 rqslrUqpdrUUZyNs
+5 1
+0 hOpQAjNvFXEjKw
+3 
+0 cAEF
+0 hRv
+5 2
+4 
+2 oelPaVSnPvTZhngyewnB
+5 2
+4 
+0 POBZoslxamy
+3 
+2 aJAQ
+3 
+4 
+1 QLnU
+4 
+5 1
+3 
+5 2
+4 
+1 ZtytI
+0 vuqdHgabZKAnIUVd
+5 0
+2 EqnqZPOeCcJMeRmEVoKp
+4 
+1 iHdmGihTktefvVNn
+2 jWRaYRR
+2 ucsPhUefVqFWua
+1 tETZDwD
+5 1
+1 kkaAFvBJogHReOmvn
+4 
+3 
+1 QydArKAbxPdMLXRz
+0 SpqdyeiyYvthDxiPq
+1 mkKbAvnu
+3 
+0 Pz
+2 NxebHwhL
+2 sFFNohhdu
+4 
+0 lzSxyhhe
+0 ADhgQXqeZErdEQGXOs
+0 d
+1 hU
+5 9
+3 
+4 
+2 gXTPDKwSThqJn
+3 
+1 LRPPX
+3 
+3 
+5 1
+5 3
+2 fySNMbh
+3 
+1 NrgSCBHwtcmvjbILNic
+3 
+3 
+5 0
+1 ycydOGKyMpI
+2 Ah
+1 WWLZgMTc
+1 sVpcxjigJmorRhqcFYn
+0 tSbzhg
+3 
+3 
+1 KzUg
+5 5
+3 
+2 HTECb
+1 LfmFjvvVvcBkRyhjClH
+5 0
+1 wndV
+0 bWyO
+4 
+0 CSCfBPDwPhRVWaW
+3 
+3 
+2 njyJOlri
+0 jVSHMwLccNdk
+5 0
+0 BxV
+4 
+2 piokOaCBOzLVpnLuf
+3 
+5 2
+3 
+2 nVBvBSvpSa
+3 
+0 GRrcGTK
+5 5
+1 ncfxMaKyrBh
+5 0
+3 
+5 0
+2 FbNBEHqwvCWgZXehEc
+5 2
+5 0
+5 0
+5 0
+5 0
+3 
+3 
+2 hrPGWHwVINGBuCMWEuo
+3 
+3 
+4 
+0 sPitF
+0 pZeYC
+4 
+1 RPMG
+0 gynzJQOdr
+2 HZjS
+1 KjeLlfVgBKQKCz
+5 2
+2 wyTSXnsygJUcMtKQ
+5 1
+5 2
+3 
+0 RTckmfuHtIWG
+0 Th
+5 1
+0 KwGwC
+3 
+1 CowORZiVFkS
+0 MscnILGJ
+5 2
+0 E
+5 0
+2 ylXiTFgkJMeZTEnEgb
+4 
+2 ZHCJQkY
+0 SwpRQRgnhDWbEqfweuNO
+1 TOTjPcXMHEGcsvv
+1 TsUyZDNEOr
+1 QVMcna
+1 S
+5 7
+3 
+5 0
+1 ixVsEEIsyvXBs
+2 WydJgsUQVPPlqPyBuCtP
+5 1
+1 RtZe
+5 1
+3 
+3 
+1 ioFWyyeuGUTJgjTxfsM
+5 0
+2 EbdMZzzNEjm
+0 xIahkdCajGXEvupavHc
+1 ThlFEtPQC
+3 
+1 uvPJKNnkbv
+1 ESTgtUyJmOgEMQer
+2 DPlW
+2 CW
+3 
+2 jqyaCzbXOJARq
+4 
+1 FNauuSF
+0 FGTTOPUpUzwASV
+1 jRAiVaZRdJFd
+4 
+0 OvTmJMgOjSzfA
+5 1
+3 
+2 RnlfNJjWMbRjbDU
+6
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">5736</span>
+    	</div>
+    	<pre id="output_6">false
+
+
+false
+JOWZCbLsGJ
+JOWZCbLsGJ
+JOWZCbLsGJ
+false
+MRCWeBaIFHXxkMJOWZCbLsGJzJoGQuyjYOkDuZW
+false
+MRCWeBaIFHXxkMJOWZCbLsGJzJoGQuyjYOkDuZW
+false
+MRCWeBaIFHXxkMJOWZCbLsGJzJoGQuyjYOkDuZW
+false
+TMRspXkHXwEVunNWZuDkOYjyuQGoJzJGsLbCZWOJMkxXHFIaBeWCRMajEHvnkJlNDyGHHUo
+TMRspXkHXwEVunNWZuDkOYjyuQGoJzJGsLbCZWOJMkxXHFIaBeWCRMajEHvnkJlNDyGHHUo
+false
+false
+tUOpEINcLsSplHMuonJWbqPgJUsSmuohKUoksXQoUHHGyDNlJknvHEjaMRCWeBaIFHXxkMJOWZCbLsGJzJoGQuyjYOkDuZWNnuVEwXHkXpsRMTamcciqkENjr
+tUOpEINcLsSplHMuonJWbqPgJUsSmuohKUoksXQoUHHGyDNlJknvHEjaMRCWeBaIFHXxkMJOWZCbLsGJzJoGQuyjYOkDuZWNnuVEwXHkXpsRMTamcciqkENjr
+false
+false
+false
+false
+false
+MRCWeBaIFHXxkMJOWZCbLsGJzJoGQuyjYOkDuZWNnuVEwXHkXpsRMT
+MRCWeBaIFHXxkMJOWZCbLsGJzJoGQuyjYOkDuZWNnuVEwXHkXpsRMT
+false
+JGsLbCZWOJMkxXHFIaBeWCRM
+JGsLbCZWOJMkxXHFIaBeWCRMFuvEBAKDEXgmxRhkrI
+LjLpyRBVQfpAoSRJGsLbCZWOJMkxXHFIaBeWCRMFuvEBAKDEXgmxRhkrIsufMQpnNSFoP
+false
+false
+false
+false
+JOWZCbLsGJ
+false
+false
+false
+JGsLbCZWOJ
+JGsLbCZWOJjHapItNrhfxwfXW
+false
+CJGsLbCZWOJjHapItNrhfxwfXW
+CJGsLbCZWOJjHapItNrhfxwfXWimoPLHTtMoshEDODKCcsAsDWLcYPBewlmziELUAblzepqRJcZQ
+cTustXZSSXtTzEyCJGsLbCZWOJjHapItNrhfxwfXWimoPLHTtMoshEDODKCcsAsDWLcYPBewlmziELUAblzepqRJcZQLcGEzXTkKaEHhbwA
+cTustXZSSXtTzEyCJGsLbCZWOJjHapItNrhfxwfXWimoPLHTtMoshEDODKCcsAsDWLcYPBewlmziELUAblzepqRJcZQLcGEzXTkKaEHhbwA
+false
+cTustXZSSXtTzEyCJGsLbCZWOJjHapItNrhfxwfXWimoPLHTtMoshEDODKCcsAsDWLcYPBewlmziELUAblzepqRJcZQLcGEzXTkKaEHhbwA
+false
+false
+uCwMVxnXZzcTustXZSSXtTzEyCJGsLbCZWOJjHapItNrhfxwfXWimoPLHTtMoshEDODKCcsAsDWLcYPBewlmziELUAblzepqRJcZQLcGEzXTkKaEHhbwA
+looQqnvNpNPUeyPoGjuxuCwMVxnXZzcTustXZSSXtTzEyCJGsLbCZWOJjHapItNrhfxwfXWimoPLHTtMoshEDODKCcsAsDWLcYPBewlmziELUAblzepqRJcZQLcGEzXTkKaEHhbwAzmwXx
+false
+false
+WQHLAwbhHEaKkTXzEGcLQZcJRqpezlbAULEizmlweBPYcLWDsAscCKDODEhsoMtTHLPomiWXfwxfhrNtIpaHjJOWZCbLsGJCyEzTtXSSZXtsuTcfUyxGhzJqLdsHEHka
+WQHLAwbhHEaKkTXzEGcLQZcJRqpezlbAULEizmlweBPYcLWDsAscCKDODEhsoMtTHLPomiWXfwxfhrNtIpaHjJOWZCbLsGJCyEzTtXSSZXtsuTcfUyxGhzJqLdsHEHkaO
+OakHEHsdLqJzhGxyUfcTustXZSSXtTzEyCJGsLbCZWOJjHapItNrhfxwfXWimoPLHTtMoshEDODKCcsAsDWLcYPBewlmziELUAblzepqRJcZQLcGEzXTkKaEHhbwALHQW
+false
+oMuhYclfcSLcUrpiiOYmvLsDUlQAvAijbAULEizmlweBPYcLWDsAscCKDODEhsoMtTHLPomiWXfwxfhrNtIpaHjJOWZCbLsGJCqdsMOQcgpCMpTBZRmmuoNlJOC
+false
+PmHAviUpkFQCiQCwThQmGhIuDawoUDxvCOJlNoummRZBTpMCpgcQOMsdqCJGsLbCZWOJjHapItNrhfxwfXWimoPLHTtMoshEDODKCcsAsDWLcYPBewlmziELUAbjiAvAQlUDsLvmYOiiprUcLScflcYhuMoyuanICl
+false
+PmHAviUpkFQCiQCwThQmGhIuDawoUDxvCOJlNoummRZBTpMCpgcQOMsdqCJGsLbCZWOJjHapItNrhfxwfXWimoPLHTtMoshEDODKCcsAsDWLcYPBewlmziELUAbjiAvAQlUDsLvmYOiiprUcLScflcYhuMoyuanICl
+false
+false
+glkUSySPTQbRWfRNIDEizmlweBPYcLWDsAscCKDODEhsoMtTHLPomiWXfwxfhrNtIpaHjJOWZCbLsGJCZNJA
+false
+false
+false
+true
+false
+false
+JGsLbCZWOJ
+false
+rixEFSFSypfwqHyEJzJOWZCbLsGJpViVaqtvbpNH
+rixEFSFSypfwqHyEJzJOWZCbLsGJpViVaqtvbpNH
+rixEFSFSypfwqHyEJzJOWZCbLsGJ
+false
+false
+true
+JGsLbCZWOJGKPERzvRGosRComioPCh
+JGsLbCZWOJGKPERzvRGosRComioPCh
+hCPoimoCRsoGRvzREPKGJOWZCbLsGJ
+JOWZCbLsGJ
+JOWZCbLsGJ
+aEEdlEYLbTmfLRDiZRYDKZRewfUxBySrhMQcIJOWZCbLsGJ
+JGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDRLfmTbLYEldEEajZUizHfrQaCPWXOK
+JGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDRLfmTbLYEldEEajZUizHfrQaCPWXOK
+KOXWPCaQrfHziUZjaEEdlEYLbTmfLRDiZRYDKZRewfUxBySrhMQcIJOWZCbLsGJ
+KOXWPCaQrfHziUZjaEEdlEYLbTmfLRDiZRYDKZRewfUxBySrhMQcIJOWZCbLsGJXdKxHstLOODhtPxFmi
+false
+KOXWPCaQrfHziUZjaEEdlEYLbTmfLRDiZRYDKZRewfUxBySrhMQcIJOWZCbLsGJXdKxHstLOODhtPxFmiBENSCPwwDZIiJrEwcU
+false
+false
+false
+KOXWPCaQrfHziUZjaEEdlEYLbTmfLRDiZRYDKZRewfUxBySrhMQcIJOWZCbLsGJXdKxHstLOODhtPxFmiBENSCPwwDZIiJrEwcU
+false
+false
+xFNqWDBSDFeFutkDmRrOnoNpUcwErJiIZDwwPCSNEBimFxPthDOOLtsHxKdXJGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDRLfmTbLYEldEEajZUizHfrQaCPWXOKXkFlhjUWIveiUgZbIslEgi
+false
+xFNqWDBSDFeFutkDmRrOnoNpUcwErJiIZDwwPCSNEBimFxPthDOOLtsHxKdXJGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDRLfmTbLYEldEEajZUizHfrQaCPWXOKXkFlhjUWIveiUgZbIslEgi
+false
+xFNqWDBSDFeFutkDmRrOnoNpUcwErJiIZDwwPCSNEBimFxPthDOOLtsHxKdXJGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDRLfmTbLYEldEEajZUizHfrQaCPWXOKXkFlhjUWIveiUgZbIslEgi
+false
+false
+xFNqWDBSDFeFutkDmRrOnoNpUcwErJiIZDwwPCSNEBimFxPthDOOLtsHxKdXJGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDRLfmTbLYEldEEajZUizHfrQaCPWXOKXkFlhjUWIveiUgZbIslEgiNBCMqpviaTlNvicCPcul
+false
+KOXWPCaQrfHziUZjaEEdlEYLbTmfLRDiZRYDKZRewfUxBySrhMQcIJOWZCbLsGJXdKxHstLOODhtPxFmivd
+false
+false
+false
+false
+false
+false
+dvimFxPthDOOLtsHxKdXJGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDRLfmTbLYEldEEajZUizHfrQaCPWXOK
+dvimFxPthDOOLtsHxKdXJGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDRLfmTbLYEldEEajZUizHfrQaCPWXOK
+false
+false
+false
+JGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDRgYBmJIWcZdHoW
+false
+iUWoHdZcWIJmBYgRDiZRYDKZRewfUxBySrhMQcIJOWZCbLsGJ
+WoHdZcWIJmBYgRDiZRYDKZRewfUxBySrhMQcIJOWZCbLsGJ
+false
+wKjEXFvNjAQpOhJGsLbCZWOJIcQMhrSyBxUfweRZKDYRZiDR
+false
+JGsLbCZWOJIcQMh
+false
+JGsLbCZWOJIcQMhPOBZoslxamy
+QLnUJGsLbCZWOJIcQMhPOBZoslxamy
+JOWZCbLsGJ
+false
+ZtytIJOWZCbLsGJvuqdHgabZKAnIUVd
+false
+false
+kkaAFvBJogHReOmvniHdmGihTktefvVNnZtytIJOWZCbLsGJvuqdHgabZKAnIUVd
+false
+...</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_6"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_6" onclick="Code.viewDiff(6)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_6" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>7</td>
+    <td><pre id="input_7">0
+2 XfZSHYNziLWbfIaGe
+1 gZYZqMpvBtYD
+3 
+2 GqkYwoAVD
+0 WpihDHVGQESymXmUgsM
+1 zzRi
+0 izeLQkXOOxDCi
+2 bwARKEqCEHEq
+0 KkJBwpYkKqMRH
+2 glvrXRmveqxVRlEjrB
+0 SA
+1 BhaSpRupOVrDUacsHPx
+1 p
+5 6
+4 
+2 oDLApadSbo
+3 
+3 
+1 lNbYYkpZumIOtmzuBZjy
+1 eYFamezFJFWX
+4 
+3 
+3 
+1 sIcfj
+3 
+5 0
+2 R
+1 lqHDEtyKkC
+0 pRpGIJgxj
+4 
+3 
+2 LwFzCSit
+2 KEhQBTKSagVD
+5 0
+5 4
+5 1
+1 okSPspyVvaYoVwz
+2 xg
+0 Lb
+3 
+0 ZgSTCcvXhvGXseWgrmN
+0 vyJRz
+0 CZchKAJTyPTcU
+1 pyWLUNMWRUcvhVsqpHa
+3 
+3 
+5 6
+1 LLNrjUqUImiLJRdiZ
+2 XPSLKgZczTD
+1 wVAHJPyrJtrjDNXtUB
+1 dEfBQC
+4 
+2 XFRnHMvFZagYAeAdPp
+2 bg
+4 
+1 gRK
+2 TRly
+4 
+0 Vvp
+4 
+2 IfwKHOSVBDo
+4 
+2 uFDUmnGxgbZHaIp
+5 0
+2 BHCdUDIdlwGPFIrNC
+1 aJsn
+2 iBar
+3 
+4 
+0 SfnduYpLawhnf
+1 tMAsgRfBRma
+3 
+0 AcyhoZCWHSyRByqlgJR
+1 bHLWFqOzu
+0 wlKYFmXPoFYLduUvDII
+0 ObFFnXrTOkQFXt
+1 wvLtqOuTDoYYstX
+2 N
+4 
+5 9
+0 jxDQfiEFD
+4 
+3 
+3 
+4 
+3 
+4 
+4 
+2 vRmvYUkIgtUItTpMN
+4 
+1 sNTRi
+5 6
+5 0
+1 FsAbXyyxCMJIdIhnlrC
+5 2
+3 
+1 yKcEGZumbFyUV
+0 oVOqWYSTKvC
+1 RsANzrJWiMB
+2 chHzsHrEqvqYK
+0 hnyOl
+0 krCvDBEmLLbE
+0 lVNtHEGIsKmXppQd
+1 qmktTlCBWWJ
+0 mXCWlMTgiErHyFVlkXV
+2 DVeVyGamucBaBOaD
+5 5
+5 1
+5 0
+4 
+1 eZKfibvjYEVgpGvFyh
+3 
+0 FcTXTbzBGzOQRjLpi
+2 cZSGGjAGAAfejTtVlckn
+0 eLVMFImYINsyDUo
+2 Al
+3 
+3 
+3 
+5 0
+0 ziUhjWukLYcpJ
+3 
+1 J
+0 eUXXAeZ
+2 rkMCH
+1 CgRVYFZcDNmBrB
+0 WOSNm
+4 
+1 lQUYp
+4 
+4 
+3 
+3 
+1 IjwQ
+3 
+2 hqoXdkmehwBC
+1 X
+1 IaVLvrrDRv
+1 lcSZ
+3 
+4 
+2 elZLUBguECo
+1 pcTUxUAbsfV
+1 hnHF
+4 
+2 qBTQUTYgVuXheS
+1 ffSdSXyRfkiDdYM
+4 
+4 
+1 rkPdcukIygBOxR
+1 cBVyWcUCsqnUMhs
+5 12
+4 
+5 1
+2 m
+1 ytz
+4 
+3 
+5 8
+2 oo
+4 
+3 
+3 
+3 
+2 TAHYeIOtGMdLX
+5 0
+5 0
+0 VTag
+0 dNhUSeWAoaKqP
+1 iJlCkLlcaFj
+3 
+1 ewGgrVFGjQfr
+3 
+0 hxdFUzIrwhHFN
+3 
+4 
+4 
+4 
+4 
+2 NMNbitSiqUTUHakU
+2 uqKJPYbJnSlhEALa
+4 
+1 TOOn
+2 OyLioKqlUIywbRd
+1 UYexmBZRkXmixvugvB
+5 5
+4 
+4 
+5 1
+3 
+1 adLvIeSerhosuIJP
+0 VLYBcHkkD
+5 0
+0 dfgk
+3 
+5 1
+1 v
+1 lUvZNKdphmtHy
+2 BoFAEKXADPmAgpC
+3 
+0 LtKyIDMWeRZcK
+5 2
+2 yzUgFDAWFNKgvlnrLPcl
+2 bnOsP
+5 3
+2 YnPkgUdYmyaLokYrfxr
+2 RLp
+5 0
+4 
+3 
+4 
+1 JZuubhDLBvOAvWth
+3 
+5 0
+1 nkR
+0 tdlUDv
+0 yi
+3 
+2 HxH
+4 
+5 1
+4 
+2 WixoJVpQCBAQzc
+2 hmgcKNHCWUjoNMOb
+5 4
+4 
+5 0
+4 
+3 
+4 
+3 
+2 zHARuWjiGYZk
+2 yafqfEoe
+3 
+5 0
+1 BUTYlJgjxBHafJwFtue
+5 1
+4 
+0 v
+3 
+5 0
+4 
+0 zRyHipGAOE
+4 
+2 adiszSrQoIFQf
+0 CWN
+2 WQIhqWzJRqgCgnrkIC
+0 fWJCwPS
+4 
+0 FdJXhQga
+5 2
+1 qvj
+1 khsygMJKCzCJEG
+4 
+1 sjrQ
+3 
+4 
+1 NYseGFNaEl
+1 Eu
+0 fTzU
+3 
+5 0
+4 
+3 
+5 1
+1 gTejdETHcuTUOEr
+0 lwumfl
+4 
+0 dBvVOMybfLIpGjUWdZPf
+0 OUmAPqUdExYVhWNS
+3 
+2 HJbkkbFrtYjRmzEx
+1 lNNdpxEcKbuCqCSP
+4 
+1 cEcjrDDJodUBLUeiwTl
+0 BChzzPPDVHmpJwkexnwK
+5 5
+0 OjzotVhLDgD
+1 JOPTYQixkxDuPOS
+2 LyNlLCLCIcQbODpTDorE
+0 ogcBV
+0 ccaEHu
+3 
+2 KcbpSvyeSkvYrFupjy
+3 
+4 
+1 QQaLTEiDpNqKwtWgzJJ
+0 uWtABzlHWy
+5 15
+2 hgwqnxZkvczHx
+0 gJPXxXExIZNPbg
+4 
+5 1
+3 
+3 
+1 jsHOoXbvYiShDfHJwI
+2 WZQLNCPLhXZsk
+3 
+3 
+0 xlrBot
+4 
+5 2
+0 qB
+2 N
+1 mVWn
+2 IFmFt
+2 eUqLaCP
+4 
+1 YZpnmEDFKYQTm
+3 
+1 CuCdevfaWtXJn
+4 
+4 
+3 
+2 bdrThdERNSJNDn
+0 TraQYMUxZrwqiIvH
+5 1
+5 3
+3 
+2 vHdJuxaXVZt
+0 slDcurIUnkOhRHqERJ
+1 r
+0 AHLWh
+0 FxZFSpuSrFfVSKmQt
+5 4
+2 BJvTunjFhpkvtmvTbtqF
+5 2
+4 
+0 uBrSfGJynSUmbo
+0 fwSJUhfFocMXwVn
+1 nUBFTDFAAZEGuAdw
+5 1
+0 xUnZHuiVekpdcvDXf
+0 bY
+1 uYtEmdcTD
+2 sZtjDGmcbRMnGniiPc
+3 
+1 I
+3 
+3 
+3 
+2 MzbYyJlAdzlB
+4 
+2 tKqYIhJEiSUCIVO
+2 ReCtlf
+2 PzaFY
+1 OTFrzsOOtdbIbeM
+3 
+2 WHFKPFFHAQvoIowCyj
+0 nw
+1 TBOwusI
+4 
+3 
+2 UiDSZXk
+3 
+1 DNVMlfauijnOpxFwDOw
+3 
+0 GudSKQFPKDIKpNRW
+4 
+5 11
+5 0
+3 
+5 0
+2 RRkmfQCcdcYAG
+5 0
+1 WoMmf
+1 rTWsehRPHhfkBzwq
+4 
+0 mteiEPXXna
+4 
+1 PBxHAtWxFSCSkMk
+4 
+5 2
+0 gekJRpTEjKNFayxx
+1 Hpx
+2 T
+4 
+2 cTUklBvRSZUCmAAj
+5 4
+3 
+2 dTbNLg
+0 ECHroSSooiDbM
+0 IiPpDhxZTAtKoRO
+0 fXbHOP
+0 BnhnCDLMQcToiaFTGV
+0 rSAAtcAzAEmaKclJiOy
+4 
+0 VbtSSakDoQvpT
+2 NLoNDdSgflXghoQiySo
+0 Q
+2 tkvQAYvOgBloZMJGthF
+4 
+5 6
+2 hpznZcCmCENCuqzFC
+4 
+2 EAgJguOvZsBCCYdPc
+5 0
+0 QsvuK
+2 FJTYtG
+1 ldkwJoQZTW
+5 3
+4 
+4 
+4 
+3 
+3 
+0 nWZlUgRyxZPhzDRHADSq
+0 WypwtkuruPS
+0 ZLjYFgLK
+2 IEsfsmaFu
+4 
+2 oaRYxjd
+0 YdxlHfSzzZmOLMCL
+0 xqHhLPe
+2 otGDWYrWmgRPjPF
+0 FYFONncDnrwaiJkX
+5 0
+4 
+4 
+5 3
+1 juSMYoNDdsmpB
+4 
+1 BE
+0 LMA
+4 
+5 5
+1 yPdRJTGMFK
+4 
+4 
+3 
+1 AhaGIDEe
+0 AZRqzkfBLhhF
+1 EryYhiKoG
+4 
+5 4
+1 n
+2 QbfKWhmNZHMSw
+2 Z
+2 oZtTJnYPSrntjxW
+5 0
+3 
+1 kMRkMzd
+5 2
+3 
+1 UCVNBJe
+5 0
+5 0
+5 2
+1 PDyvCvsBU
+0 OwfqRuJFOgWcvPUjs
+0 Kc
+2 ttYXCoiWpOXwrdk
+1 vapO
+4 
+2 zWIz
+2 fYArQbtRuZNRWYMho
+1 szwKAWn
+1 FyMP
+2 NEILHQBoiI
+5 5
+1 nOmj
+1 VRFdWZnIorpAb
+4 
+4 
+0 d
+5 4
+2 CDvRNsGB
+3 
+3 
+3 
+5 0
+3 
+3 
+0 aQjzvrctAvctq
+0 uafbCDM
+1 MPReoqtr
+3 
+1 PjVoCWhkZFolKX
+3 
+4 
+3 
+5 2
+0 c
+3 
+5 3
+4 
+4 
+5 0
+2 OXTmyidGYmwwRdyGK
+5 0
+2 wtxqcRTba
+5 0
+4 
+5 0
+3 
+0 wfdXahsN
+5 0
+4 
+4 
+0 DXQe
+4 
+1 DlHWRCRLcyfJbVXPg
+1 NHUjeiOEpchNMvFDB
+1 YPkKOdeSCMHBwhxcUxb
+1 sNplfvUTlMTuAvUNFH
+4 
+2 PFOwfqHN
+2 dJriLYxuXDAJhbt
+0 DegJGsFnXgOx
+2 DmtnUF
+3 
+0 hZxADjvV
+3 
+0 XsAmNcobUWAdu
+1 utjqGNLEMFHVga
+2 yA
+1 Y
+0 YBcweirbubyOvflRIH
+3 
+0 eALEWsZp
+3 
+2 eYolLaGUmWx
+5 11
+4 
+3 
+2 gjwQAhWydfdkPepyTdTe
+4 
+3 
+2 PbVelRfM
+1 ehYWRUaikWuGS
+3 
+1 PWPZKEgpm
+1 XTLDQAMGChPFfP
+5 0
+1 VqqLTRBVupFBKjY
+5 2
+0 TPNBTKmGbgnMibnIqUn
+0 wQGyowTztQsT
+3 
+2 ZuhIoOtnCjbzGb
+2 NjtbrYT
+5 0
+3 
+3 
+2 sIsorwkFbpKFBfWl
+4 
+2 DbzPYllv
+3 
+3 
+5 3
+3 
+0 kJyD
+0 CSNyOwVnwRbP
+5 0
+2 nTgTrShJVuzjt
+4 
+0 UBSlLl
+4 
+2 zPatCGSBBuWLKKEV
+3 
+2 kDaEolQ
+0 CoAyeaNgAxKNOQmzoh
+1 Zj
+2 uexwQ
+5 6
+0 AoVHujtR
+2 oaGsSKYDFJmCTKdmyQk
+2 QomTSwMLnV
+3...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">13852</span>
+    	</div>
+    	<pre id="output_7">false
+false
+false
+false
+DYtBvpMqZYZgWpihDHVGQESymXmUgsM
+false
+eYFamezFJFWXlNbYYkpZumIOtmzuBZjyDYtBvpMqZYZgWpihDHVGQESymXmUgsM
+false
+lqHDEtyKkCMsgUmXmySEQGVHDhipWgZYZqMpvBtYDyjZBuzmtOImuZpkYYbNlXWFJFzemaFYejfcIspRpGIJgxj
+false
+false
+false
+false
+dEfBQCwVAHJPyrJtrjDNXtUBLLNrjUqUImiLJRdiZMsgUmXmySEQGVHDhipWgZYZqMpvBtYD
+false
+false
+dEfBQCwVAHJPyrJtrjDNXtUBLLNrjUqUImiLJRdiZMsgUmXmySEQGVHDhipWgZYZqMpvBtYD
+false
+gRKdEfBQCwVAHJPyrJtrjDNXtUBLLNrjUqUImiLJRdiZMsgUmXmySEQGVHDhipWgZYZqMpvBtYD
+gRKdEfBQCwVAHJPyrJtrjDNXtUBLLNrjUqUImiLJRdiZMsgUmXmySEQGVHDhipWgZYZqMpvBtYDVvp
+false
+gRKdEfBQCwVAHJPyrJtrjDNXtUBLLNrjUqUImiLJRdiZMsgUmXmySEQGVHDhipWgZYZqMpvBtYDVvp
+false
+false
+false
+pvVDYtBvpMqZYZgWpihDHVGQESymXmUgsMZidRJLimIUqUjrNLLBUtXNDjrtJryPJHAVwCQBfEdKRgnsJa
+true
+wvLtqOuTDoYYstXbHLWFqOzufnhwaLpYudnfSaJsngRKdEfBQCwVAHJPyrJtrjDNXtUBLLNrjUqUImiLJRdiZMsgUmXmySEQGVHDhipWgZYZqMpvBtYDVvpamRBfRgsAMtAcyhoZCWHSyRByqlgJRwlKYFmXPoFYLduUvDIIObFFnXrTOkQFXt
+gRKdEfBQCwVAHJPyrJtrjDNXtUBLLNrjUqUImiLJRdiZMsgUmXmySEQGVHDhipWgZYZqMpvBtYDjxDQfiEFD
+gRKdEfBQCwVAHJPyrJtrjDNXtUBLLNrjUqUImiLJRdiZMsgUmXmySEQGVHDhipWgZYZqMpvBtYDjxDQfiEFD
+DFEifQDxjDYtBvpMqZYZgWpihDHVGQESymXmUgsMZidRJLimIUqUjrNLLBUtXNDjrtJryPJHAVwCQBfEdKRg
+DFEifQDxjDYtBvpMqZYZgWpihDHVGQESymXmUgsMZidRJLimIUqUjrNLLBUtXNDjrtJryPJHAVwCQBfEdKRg
+false
+DFEifQDxjDYtBvpMqZYZgWpihDHVGQESymXmUgsMZidRJLimIUqUjrNLLBUtXNDjrtJryPJHAVwCQBfEdKRg
+false
+false
+yKcEGZumbFyUVgZYZqMpvBtYDoVOqWYSTKvC
+false
+false
+false
+CgRVYFZcDNmBrBJJpcYLkuWjhUizCvKTSYWqOVoDYtBvpMqZYZgVUyFbmuZGEcKyhyFvGpgVEYjvbifKZeFcTXTbzBGzOQRjLpieLVMFImYINsyDUoeUXXAeZWOSNm
+lQUYpCgRVYFZcDNmBrBJJpcYLkuWjhUizCvKTSYWqOVoDYtBvpMqZYZgVUyFbmuZGEcKyhyFvGpgVEYjvbifKZeFcTXTbzBGzOQRjLpieLVMFImYINsyDUoeUXXAeZWOSNm
+lQUYpCgRVYFZcDNmBrBJJpcYLkuWjhUizCvKTSYWqOVoDYtBvpMqZYZgVUyFbmuZGEcKyhyFvGpgVEYjvbifKZeFcTXTbzBGzOQRjLpieLVMFImYINsyDUoeUXXAeZWOSNm
+false
+IjwQlQUYpCgRVYFZcDNmBrBJJpcYLkuWjhUizCvKTSYWqOVoDYtBvpMqZYZgVUyFbmuZGEcKyhyFvGpgVEYjvbifKZeFcTXTbzBGzOQRjLpieLVMFImYINsyDUoeUXXAeZWOSNmXvRDrrvLVaIZScl
+false
+hnHFpcTUxUAbsfVIjwQlQUYpCgRVYFZcDNmBrBJJpcYLkuWjhUizCvKTSYWqOVoDYtBvpMqZYZgVUyFbmuZGEcKyhyFvGpgVEYjvbifKZeFcTXTbzBGzOQRjLpieLVMFImYINsyDUoeUXXAeZWOSNmXvRDrrvLVaIZScl
+false
+ffSdSXyRfkiDdYMhnHFpcTUxUAbsfVIjwQlQUYpCgRVYFZcDNmBrBJJpcYLkuWjhUizCvKTSYWqOVoDYtBvpMqZYZgVUyFbmuZGEcKyhyFvGpgVEYjvbifKZeFcTXTbzBGzOQRjLpieLVMFImYINsyDUoeUXXAeZWOSNmXvRDrrvLVaIZScl
+ffSdSXyRfkiDdYMhnHFpcTUxUAbsfVIjwQlQUYpCgRVYFZcDNmBrBJJpcYLkuWjhUizCvKTSYWqOVoDYtBvpMqZYZgVUyFbmuZGEcKyhyFvGpgVEYjvbifKZeFcTXTbzBGzOQRjLpieLVMFImYINsyDUoeUXXAeZWOSNmXvRDrrvLVaIZScl
+JJpcYLkuWjhUizCvKTSYWqOVoDYtBvpMqZYZgVUyFbmuZGEcKyhyFvGpgVEYjvbifKZeFcTXTbzBGzOQRjLpieLVMFImYINsyDUoeUXXAeZ
+true
+ytzJJpcYLkuWjhUizCvKTSYWqOVoDYtBvpMqZYZgVUyFbmuZGEcKyhyFvGpgVEYjvbifKZeFcTXTbzBGzOQRjLpieLVMFImYINsyDUo
+false
+gZYZqMpvBtYD
+false
+NFHhwrIzUFdxhewGgrVFGjQfrPqKaoAWeSUhNdgaTVgZYZqMpvBtYDjFaclLkClJi
+NFHhwrIzUFdxhewGgrVFGjQfrPqKaoAWeSUhNdgaTVgZYZqMpvBtYDjFaclLkClJi
+NFHhwrIzUFdxhewGgrVFGjQfrPqKaoAWeSUhNdgaTVgZYZqMpvBtYDjFaclLkClJi
+NFHhwrIzUFdxhewGgrVFGjQfrPqKaoAWeSUhNdgaTVgZYZqMpvBtYDjFaclLkClJi
+false
+false
+NFHhwrIzUFdxhewGgrVFGjQfrPqKaoAWeSUhNdgaTVgZYZqMpvBtYDjFaclLkClJi
+false
+PqKaoAWeSUhNdgaTVgZYZqMpvBtYD
+PqKaoAWeSUhNdgaTVgZYZqMpvBtYD
+false
+false
+false
+false
+false
+DYtBvpMqZYZgVTag
+gaTVgZYZqMpvBtYD
+false
+iyvDUldtJZuubhDLBvOAvWthgaTVgZYZqMpvBtYDRkn
+vDUldtJZuubhDLBvOAvWthgaTVgZYZqMpvBtYDRkn
+false
+false
+gZYZqMpvBtYD
+gZYZqMpvBtYD
+DYtBvpMqZYZg
+false
+false
+DYtBvpMqZYZg
+vgZYZqMpvBtYD
+vgZYZqMpvBtYDzRyHipGAOE
+false
+false
+vgZYZqMpvBtYDzRyHipGAOECWNfWJCwPS
+khsygMJKCzCJEGqvjvgZYZqMpvBtYDzRyHipGAOECWN
+NWCEOAGpiHyRzDYtBvpMqZYZgvjvqGEJCzCKJMgyshkQrjs
+UzTfsjrQkhsygMJKCzCJEGqvjvgZYZqMpvBtYDzRyHipGAOECWNlEaNFGesYNuE
+gTejdETHcuTUOErEuNYseGFNaElNWCEOAGpiHyRzDYtBvpMqZYZgvjvqGEJCzCKJMgyshkQrjslwumfl
+false
+lNNdpxEcKbuCqCSPSNWhVYxEdUqPAmUOfPZdWUjGpILfbyMOVvBdlfmuwlsjrQkhsygMJKCzCJEGqvjvgZYZqMpvBtYDzRyHipGAOECWNlEaNFGesYNuErEOUTucHTEdjeTg
+false
+false
+JOPTYQixkxDuPOSlfmuwlsjrQkhsygMJKCzCJEGqvjvgZYZqMpvBtYDzRyHipGAOECWNlEaNFGesYNuErEOUTucHTEdjeTgOjzotVhLDgDogcBVccaEHu
+false
+vgZYZqMpvBtYDgJPXxXExIZNPbg
+false
+jsHOoXbvYiShDfHJwIvgZYZqMpvBtYDxlrBot
+false
+false
+false
+mVWnvgZYZqMpvBtYDqB
+CuCdevfaWtXJnBqDYtBvpMqZYZgvnWVmmTQYKFDEmnpZY
+CuCdevfaWtXJnBqDYtBvpMqZYZgvnWVmmTQYKFDEmnpZY
+false
+false
+false
+DYtBvpMqZYZg
+false
+false
+uYtEmdcTDDYtBvpMqZYZguBrSfGJynSUmbofwSJUhfFocMXwVnxUnZHuiVekpdcvDXfbYI
+false
+false
+false
+false
+TBOwusIIYbfXDvcdpkeViuHZnUxnVwXMcoFfhUJSwfobmUSnyJGfSrBugZYZqMpvBtYDDTcdmEtYuMebIbdtOOszrFTOnw
+false
+wnOTFrzsOOtdbIbeMuYtEmdcTDDYtBvpMqZYZguBrSfGJynSUmbofwSJUhfFocMXwVnxUnZHuiVekpdcvDXfbYIIsuwOBTwODwFxpOnjiuaflMVNDGudSKQFPKDIKpNRW
+false
+rTWsehRPHhfkBzwqWoMmfgZYZqMpvBtYD
+rTWsehRPHhfkBzwqWoMmfgZYZqMpvBtYDmteiEPXXna
+PBxHAtWxFSCSkMkrTWsehRPHhfkBzwqWoMmfgZYZqMpvBtYDmteiEPXXna
+true
+HpxrTWsehRPHhfkBzwqWoMmfgZYZqMpvBtYDgekJRpTEjKNFayxx
+false
+false
+DYtBvpMqZYZgECHroSSooiDbMIiPpDhxZTAtKoROfXbHOPBnhnCDLMQcToiaFTGVrSAAtcAzAEmaKclJiOy
+...</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_7"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_7" onclick="Code.viewDiff(7)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_7" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>8</td>
+    <td><pre id="input_8">0
+4 
+5 0
+2 nIzOTtApXcFoPVQHJDQ
+5 0
+0 yIBljPI
+5 0
+2 ipZH
+4 
+2 dzhuIscPuqUquSrC
+4 
+5 0
+5 0
+1 PUKIPaSdYfGrD
+0 FlIVcSUHJiHa
+1 aNXJxBQNZxvbbUOGGCST
+4 
+2 WnexjpjKcOvnMnPI
+4 
+3 
+2 LlBUFCXX
+0 sZuHdXyeuQMdrjXkytPY
+3 
+3 
+2 ryjaWyWgcpRygDlKMS
+1 VoWPMWhGXsLAOn
+0 AhlUBRHaRsoVZZQ
+5 4
+0 TviwD
+4 
+1 UZrh
+3 
+1 XIaAXGtitD
+5 5
+2 nW
+5 0
+3 
+5 0
+3 
+2 mxPrWHArWvwj
+5 0
+4 
+4 
+1 iWCZQyBesNPlpQG
+3 
+1 SKMWRjRK
+4 
+5 0
+0 aSi
+2 hFavJtRKa
+5 3
+2 AfqDNpqHXEujcrpps
+3 
+5 0
+3 
+4 
+0 vjeQ
+3 
+4 
+3 
+1 LDq
+2 Jtr
+4 
+3 
+5 2
+1 Uiro
+0 cMEpUPyDl
+0 Vv
+1 qVbQQizAndoYOdYj
+1 VCLLjGJhUFzFKMaTHuog
+4 
+0 OlYPxINeYqdpQSlGk
+0 BCgcjTnByngidm
+0 xHmnRqdxGa
+0 HmwpCKQn
+1 iraKrONdIMoNBOCmRVS
+0 vgjRznHVrnIPnayUsjb
+4 
+3 
+4 
+1 GO
+3 
+3 
+0 DDCzvgQY
+2 j
+4 
+1 CRaGPpDSeioQRRYN
+3 
+1 oljnLbjV
+3 
+0 nFIznBAFCM
+5 16
+2 afucEOOxfaazbPevIBJC
+3 
+0 rT
+1 QivioGuNKNfNInGiulN
+3 
+1 RXiZVuQAbcK
+1 XPNnCYqkAKQD
+4 
+4 
+4 
+4 
+5 0
+0 AeTPXmbFsbZSTKfeOaM
+2 dJveSwSGYKYqs
+2 vgCOPSLNvAb
+5 2
+4 
+0 vvfAJesCsH
+1 okIzemce
+4 
+1 xXBt
+3 
+2 uzuojubHbPnUFPBMkmXN
+2 IOWOL
+1 Eavj
+0 ABPayaOfkGPgtS
+1 mkfODKktVAK
+3 
+2 gFvUsRyPjGjGPdP
+4 
+1 IfPztKkTbWFBjRoeLh
+2 EEwwWBfXlP
+1 EUNk
+2 DXrCTGLXoymAZvGZRgO
+5 10
+5 0
+1 HQxmJygtTJIH
+4 
+3 
+2 DbApUcFlKIrHOdddF
+1 CKs
+4 
+4 
+3 
+1 UOGY
+4 
+2 ZMHUFnP
+5 3
+4 
+2 gZkYSCDtWQp
+5 0
+1 vdruvjVHBRGAel
+0 xPPpduIUjYG
+1 kDMTKIGkYpr
+3 
+4 
+0 WkjlbpHerIiYgpJ
+4 
+4 
+3 
+5 0
+4 
+4 
+4 
+2 TNU
+4 
+1 YjwN
+1 iSCeFWSMr
+4 
+2 REGrUgYCnivpg
+4 
+3 
+3 
+4 
+3 
+3 
+5 0
+4 
+3 
+1 ZjLZIFzUWNkGue
+1 SWneAWrwRe
+3 
+4 
+5 6
+0 HxRJnDoXlhvPvaOiR
+4 
+5 0
+4 
+4 
+4 
+2 LVRuTYDOwdfTfJf
+2 sACTrCgDF
+4 
+2 lChPKsWziRjRRtJRGfuw
+0 uUMSszgZxdXGFPMbJ
+4 
+3 
+2 ESjEckpGtm
+3 
+4 
+2 uIFTncAUWYQHtAsBUOdz
+1 wOhWXYiGR
+3 
+4 
+5 3
+4 
+5 2
+2 GcGmwGpYgIE
+3 
+2 Y
+2 J
+1 VjYNPxRB
+3 
+2 InZMbIUgTRplYbWKu
+0 RVQduORkogmdTBdWzETq
+4 
+0 ulVL
+5 4
+4 
+4 
+2 mwTOxVINQH
+0 onEGUaHOedATlWJS
+1 mABwzZbntznF
+3 
+4 
+2 jmoxrOy
+4 
+1 OGqTiQoushMhSPZObaA
+4 
+0 scCRZziYVycszSQ
+2 AxJOmjdefEUf
+1 lHuIifhKnIsovtZoww
+4 
+2 ptBVBYvhosBT
+0 WpUvPswIliwRHtI
+2 qR
+2 ZuUDav
+4 
+2 xAkwPksuqwulEBZLBDMy
+0 PVS
+5 0
+4 
+4 
+3 
+5 6
+5 1
+3 
+1 xMlmdCeMhAUa
+0 WIHPoKV
+0 ys
+0 fOGFaSqvcAi
+5 4
+1 TAuYDChsaF
+0 Xxe
+0 IcLwBWUlXCSNGksvID
+3 
+3 
+4 
+5 3
+0 XZIwvfe
+5 0
+5 1
+1 yaSKtjlTSWy
+1 rVgZ
+0 rwqmfuquGypWTLrGdN
+3 
+2 wAvbGmXJyKYbgYdwn
+5 2
+5 1
+4 
+0 OCEJiBrSh
+3 
+5 0
+0 gzCr
+1 MTs
+4 
+2 pEG
+2 eMCSVhpzYlXzQODJTir
+2 cwByMOdTdimFOPw
+4 
+1 HhzDJjwhnOe
+4 
+4 
+3 
+4 
+4 
+0 rGiJRzjJqTSfqRyCxEN
+3 
+4 
+1 EfJHsSWkSEodOsRA
+1 xxtNhfTKzwpDiOodwHrx
+4 
+4 
+2 gbBTQvkBbBIa
+5 1
+0 u
+4 
+3 
+2 uVwFshPbjje
+5 6
+2 vCyPGdHVXZjKMKpKcx
+3 
+5 0
+1 qtBjgkwOx
+5 2
+1 lTnuaxrMNxTvejSu
+4 
+3 
+2 prrj
+2 nGizQvAPtteEWIwr
+0 qnLfIiItI
+3 
+4 
+2 ZoJaghhqQUjPXXdgydo
+2 woSKrklbOxFjWmI
+4 
+2 ADyzsvFutO
+3 
+0 mVHUDjYrG
+2 ZSElbi
+4 
+2 UzyhtcooNGaC
+1 rrBgVKaIQjKzEoMvCGdc
+0 dQmaodGOVkGPm
+0 qHxUwbYE
+3 
+5 0
+3 
+2 y
+1 lqtT
+3 
+4 
+3 
+1 x
+3 
+0 AoSfnrw
+4 
+1 ejRIkt
+4 
+3 
+5 1
+2 yUnt
+0 IHDx
+2 KKTiueF
+2 buarrIiyWEkBADGVOmN
+5 0
+3 
+5 9
+3 
+2 ywwyhAufdBUgge
+4 
+0 EOB
+0 SVGs
+0 eUgkCXkDvZSmKQtVB
+2 VFKopJJfWGN
+3 
+3 
+5 0
+3 
+0 IDVtJrhD
+0 fbrpSf
+0 GBWl
+0 rGeJUXmqkgKtMbGSXQq
+4 
+5 1
+2 x
+2 CsnV
+2 EqbJcwMdKzPE
+4 
+2 etyRdTIjToYKe
+2 zdPGgpdfAtSQNCXfPtK
+2 FXmdjHFHBvSqyqr
+2 AmNwVvGjeXN
+0 apmwcTVjwoylGyJd
+2 wlcRugV
+4 
+1 WTXfL
+2 krwRzxK
+5 2
+1 i
+3 
+4 
+3 
+4 
+3 
+4 
+5 4
+5 0
+1 a
+5 2
+5 3
+2 FdYeTqQUtwJubWnsfN
+3 
+2 Qr
+3 
+2 okHZJdPygG
+5 0
+0 pCCOpHcaTZD
+1 kR
+3 
+2 YsAVNaUF
+5 1
+3 
+5 0
+4 
+4 
+2 AFmrYoEDCaARnP
+2 t
+4 
+1 d
+2 CCzfX
+0 SUKDJdvgrLiO
+5 2
+0 ZsIVLWaxCPWbgmfRGPb
+2 zIOTie
+2 mRaXVYHZmVMWOzqOt
+3 
+0 dx
+1 uamUOexYCQbOFQUlryug
+4 
+4 
+2 WFMIuFgrxX
+0 mSVvHOltxTvBx
+5 4
+4 
+4 
+2 KGDToJXqEXUpYpY
+5 0
+5 0
+2 qTHLHQFTgRZWCxfOW
+1 DxjFfyoyKdKGuygS
+5 0
+1 GIlKtm
+5 1
+0 jQOZZw
+5 3
+3 
+1 xv
+4 
+1 jGtrbnSUEdzn
+3 
+2 GG
+2 jDlTnLAYrcRBQ
+0 BcwuOHAlm
+4 
+2 e
+3 
+5 1
+4 
+4 
+3 
+4 
+1 oR
+0 kNPPlLlrhIsCOVG
+1 DSCrwhrRowlnRGrY
+5 1
+0 ShYy
+2 LtpfxoVavx
+2 ZuALequZJZWkiOzc
+0 BGYFCpJuUK
+4 
+2 oTiNF
+3 
+4 
+2 sOVaoAsmDuYOHb
+2 INKVWignCsFTzpoJGQ
+4 
+0 GQwqJEpFuOpEmgepYSE
+1 SNyTnDSDJ
+4 
+3 
+3 
+2 aIxaQ
+0 ewqA
+4 
+0 sQxXmVlsAyxSo
+5 1
+1 oFUaPezFOwZa
+0 bPKVExk
+1 xKmTGkzRqrlvuZOuSS
+4 
+5 1
+5 3
+5 5
+4 
+3 
+2 MPqh
+5 1
+3 
+0 bWkexDUYdW
+0 QYVzzWbEwTYZvLfi
+0 yK
+1 VPoqJ
+1 iHzeEUVlGVols
+3 
+0 MjHcSMydIdNl
+5 0
+0 cMCHfPsO
+3 
+1 JkQqBLWAOg
+4 
+1 EAxAzGkpLB
+0 RVYwGWSXBABSrySUw
+1 seVXuEjrwVSJQ
+1 pzseKytwswdPomB
+4 
+2 YGykLYgOaBxOC
+4 
+0 NOwRjwHLAIfpbILganIA
+0 H
+3 
+5 10
+3 
+5 5
+0 yTPGGQKMOZFqd
+3 
+5 2
+2 EqoBIHdYROGHipfcGG
+3 
+1 xOFKomdoEzgznFi
+5 1
+2 NnEjKHtRLaeZfuqq
+1 zwtwmmcLZMQwJUeYMDqs
+3 
+3 
+2 PawOPcfkqBEUk
+3 
+0 TSzU
+2 dynbLNkTz
+5 0
+2 xRbxitYpnmwgAPyM
+1 fAvAI
+4 
+2 TwrmpchERKCCdiqe
+4 
+5 2
+1 xtSHoHGdJJf
+4 
+5 2
+0 DuGoOVNUUycfBZfyY
+5 1
+0 QhQBbkCjGzeXFUv
+2 KaLBXmMbZceap
+2 PvsnAIKovexjOxpCGmB
+2 PGvnSWTC
+4 
+3 
+4 
+0 pW
+3 
+4 
+5 1
+5 0
+5 1
+1 cBU
+2 mADQBGYoGiJcKvhuogRp
+0 SjnFFbBBpacLY
+1 FdjHiGpFvdgmGx
+1 BtlWdVQ
+4 
+2 gITpgVmq
+3 
+3 
+0 Y
+5 0
+2 E
+2 TNaYn
+2 mTzfueUGdY
+5 3
+0 z
+2 jwRvZTsqEbwKgWBef
+0 eCmvSHNhFKZ
+5 2
+1 UtWugjnjlx
+1 VEfearzmfkLcbxqmdoRQ
+4 
+5 1
+5 2
+5 1
+2 HraRFCj
+0 rmMXK
+4 
+4 
+1 WqbrdQ
+5 1
+3 
+3 
+1 NnUegpxkBPommFt
+3 
+2 oMqHddmxROnNVyuxAmC
+5 1
+3 
+3 
+1 dEie
+3 
+4 
+0 oOrynuKo
+2 bvepIjKigKQHeMUpeuYM
+4 
+4 
+5 0
+3 
+0 y
+1 UPMldwOqJ
+2 KAhItHQaBsECV
+0 jdXwLDcmRnZtGN
+4 
+2 vufAhbeXBxHRKzaVGo
+3 
+1 gp
+5 7
+1 iwnnIQTJDBQabxs
+1 PNbpROjjrMdaZBNhdm...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">13312</span>
+    	</div>
+    	<pre id="output_8">false
+false
+yIBljPI
+false
+yIBljPI
+aNXJxBQNZxvbbUOGGCSTPUKIPaSdYfGrDyIBljPIFlIVcSUHJiHa
+false
+aNXJxBQNZxvbbUOGGCSTPUKIPaSdYfGrDyIBljPIFlIVcSUHJiHa
+false
+false
+aHiJHUScVIlFIPjlBIyDrGfYdSaPIKUPTviwD
+false
+false
+yIBljPI
+yIBljPI
+SKMWRjRKIPjlBIyGQplPNseByQZCWi
+false
+false
+IPjlBIy
+QejvyIBljPI
+false
+LDqIPjlBIyvjeQ
+VCLLjGJhUFzFKMaTHuogqVbQQizAndoYOdYjUiroyIBljPIcMEpUPyDlVv
+iraKrONdIMoNBOCmRVSVCLLjGJhUFzFKMaTHuogqVbQQizAndoYOdYjUiroyIBljPIcMEpUPyDlVvOlYPxINeYqdpQSlGkBCgcjTnByngidmxHmnRqdxGaHmwpCKQnvgjRznHVrnIPnayUsjb
+bjsUyanPInrVHnzRjgvnQKCpwmHaGxdqRnmHxmdignyBnTjcgCBkGlSQpdqYeNIxPYlOvVlDyPUpEMcIPjlBIyoriUjYdOYodnAziQQbVqgouHTaMKFzFUhJGjLLCVSVRmCOBNoMIdNOrKari
+true
+GObjsUyanPInrVHnzRjgvnQKCpwmHaGxdqRnmHxmdignyBnTjcgCBkGlSQpdqYeNIxPYlOvVlDyPUpEMcIPjlBIyoriUjYdOYodnAziQQbVqgouHTaMKFzFUhJGjLLCVSVRmCOBNoMIdNOrKariDDCzvgQY
+false
+XPNnCYqkAKQDRXiZVuQAbcKTrIPjlBIyNluiGnINfNKNuGoiviQ
+XPNnCYqkAKQDRXiZVuQAbcKTrIPjlBIyNluiGnINfNKNuGoiviQ
+XPNnCYqkAKQDRXiZVuQAbcKTrIPjlBIyNluiGnINfNKNuGoiviQ
+XPNnCYqkAKQDRXiZVuQAbcKTrIPjlBIyNluiGnINfNKNuGoiviQ
+false
+false
+RXiZVuQAbcKTrIPjlBIyNluiGnINfNKNuGoiviQ
+okIzemceRXiZVuQAbcKTrIPjlBIyNluiGnINfNKNuGoiviQvvfAJesCsH
+false
+false
+false
+StgPGkfOayaPBAxXBtokIzemceRXiZVuQAbcKTrIPjlBIyNluiGnINfNKNuGoiviQvvfAJesCsHjvaEKAVtkKDOfkm
+false
+false
+HQxmJygtTJIHTrIPjlBIy
+false
+CKsyIBljPIrTHIJTtgyJmxQH
+CKsyIBljPIrTHIJTtgyJmxQH
+UOGYHQxmJygtTJIHTrIPjlBIysKC
+false
+TrIPjlBIy
+false
+GYjUIudpPPxyIBljPIrTleAGRBHVjvurdvrpYkGIKTMDk
+GYjUIudpPPxyIBljPIrTleAGRBHVjvurdvrpYkGIKTMDkWkjlbpHerIiYgpJ
+GYjUIudpPPxyIBljPIrTleAGRBHVjvurdvrpYkGIKTMDkWkjlbpHerIiYgpJ
+JpgYiIreHpbljkWkDMTKIGkYprvdruvjVHBRGAelTrIPjlBIyxPPpduIUjYG
+JpgYiIreHpbljkWkDMTKIGkYprvdruvjVHBRGAelTrIPjlBIyxPPpduIUjYG
+JpgYiIreHpbljkWkDMTKIGkYprvdruvjVHBRGAelTrIPjlBIyxPPpduIUjYG
+false
+JpgYiIreHpbljkWkDMTKIGkYprvdruvjVHBRGAelTrIPjlBIyxPPpduIUjYG
+iSCeFWSMrYjwNJpgYiIreHpbljkWkDMTKIGkYprvdruvjVHBRGAelTrIPjlBIyxPPpduIUjYG
+false
+iSCeFWSMrYjwNJpgYiIreHpbljkWkDMTKIGkYprvdruvjVHBRGAelTrIPjlBIyxPPpduIUjYG
+iSCeFWSMrYjwNJpgYiIreHpbljkWkDMTKIGkYprvdruvjVHBRGAelTrIPjlBIyxPPpduIUjYG
+iSCeFWSMrYjwNJpgYiIreHpbljkWkDMTKIGkYprvdruvjVHBRGAelTrIPjlBIyxPPpduIUjYG
+iSCeFWSMrYjwNJpgYiIreHpbljkWkDMTKIGkYprvdruvjVHBRGAelTrIPjlBIyxPPpduIUjYGeuGkNWUzFIZLjZeRwrWAenWS
+vdruvjVHBRGAelTrIPjlBIyxPPpduIUjYGHxRJnDoXlhvPvaOiR
+vdruvjVHBRGAelTrIPjlBIyxPPpduIUjYGHxRJnDoXlhvPvaOiR
+vdruvjVHBRGAelTrIPjlBIyxPPpduIUjYGHxRJnDoXlhvPvaOiR
+vdruvjVHBRGAelTrIPjlBIyxPPpduIUjYGHxRJnDoXlhvPvaOiR
+false
+false
+vdruvjVHBRGAelTrIPjlBIyxPPpduIUjYGHxRJnDoXlhvPvaOiR
+false
+vdruvjVHBRGAelTrIPjlBIyxPPpduIUjYGHxRJnDoXlhvPvaOiRuUMSszgZxdXGFPMbJ
+false
+vdruvjVHBRGAelTrIPjlBIyxPPpduIUjYGHxRJnDoXlhvPvaOiRuUMSszgZxdXGFPMbJ
+false
+JbMPFGXdxZgzsSMUuRiOavPvhlXoDnJRxHGYjUIudpPPxyIBljPIrTleAGRBHVjvurdvRGiYXWhOw
+GYjUIudpPPxyIBljPIrTleAGRBHVjvurdv
+false
+false
+false
+false
+yIBljPIrTBRxPNYjVRVQduORkogmdTBdWzETq
+yIBljPI
+yIBljPI
+false
+SJWlTAdeOHaUGEnoIPjlBIyFnztnbZzwBAm
+false
+SJWlTAdeOHaUGEnoIPjlBIyFnztnbZzwBAm
+OGqTiQoushMhSPZObaASJWlTAdeOHaUGEnoIPjlBIyFnztnbZzwBAm
+false
+lHuIifhKnIsovtZowwOGqTiQoushMhSPZObaASJWlTAdeOHaUGEnoIPjlBIyFnztnbZzwBAmscCRZziYVycszSQ
+false
+false
+false
+lHuIifhKnIsovtZowwOGqTiQoushMhSPZObaASJWlTAdeOHaUGEnoIPjlBIyFnztnbZzwBAmscCRZziYVycszSQWpUvPswIliwRHtI
+false
+lHuIifhKnIsovtZowwOGqTiQoushMhSPZObaASJWlTAdeOHaUGEnoIPjlBIyFnztnbZzwBAmscCRZziYVycszSQWpUvPswIliwRHtIPVS
+lHuIifhKnIsovtZowwOGqTiQoushMhSPZObaASJWlTAdeOHaUGEnoIPjlBIyFnztnbZzwBAmscCRZziYVycszSQWpUvPswIliwRHtIPVS
+TAuYDChsaFIPjlBIyXxeIcLwBWUlXCSNGksvID
+false
+yIBljPI
+MTshSrBiJECOIPjlBIygzCr
+false
+false
+false
+MTshSrBiJECOIPjlBIygzCr
+HhzDJjwhnOeMTshSrBiJECOIPjlBIygzCr
+HhzDJjwhnOeMTshSrBiJECOIPjlBIygzCr
+rCzgyIBljPIOCEJiBrShsTMeOnhwjJDzhH
+rCzgyIBljPIOCEJiBrShsTMeOnhwjJDzhH
+NExCyRqfSTqJjzRJiGrHhzDJjwhnOeMTshSrBiJECOIPjlBIygzCr
+xxtNhfTKzwpDiOodwHrxEfJHsSWkSEodOsRANExCyRqfSTqJjzRJiGrHhzDJjwhnOeMTshSrBiJECOIPjlBIygzCr
+xxtNhfTKzwpDiOodwHrxEfJHsSWkSEodOsRANExCyRqfSTqJjzRJiGrHhzDJjwhnOeMTshSrBiJECOIPjlBIygzCr
+false
+EfJHsSWkSEodOsRANExCyRqfSTqJjzRJiGrHhzDJjwhnOeMTshSrBiJECOIPjlBIygzCru
+false
+false
+lTnuaxrMNxTvejSuIPjlBIy
+false
+false
+ItIiIfLnqlTnuaxrMNxTvejSuIPjlBIy
+false
+false
+ItIiIfLnqlTnuaxrMNxTvejSuIPjlBIy
+false
+false
+yIBljPIuSjevTxNMrxaunTlqnLfIiItImVHUDjYrG
+false
+true
+EYbwUxHqmPGkVOGdoamQdGrYjDUHVmItIiIfLnqlTnuaxrMNxTvejSuIPjlBIycdGCvMoEzKjQIaKVgBrrTtql
+EYbwUxHqmPGkVOGdoamQdGrYjDUHVmItIiIfLnqlTnuaxrMNxTvejSuIPjlBIycdGCvMoEzKjQIaKVgBrrTtqlxAoSfnrw
+ejRIktEYbwUxHqmPGkVOGdoamQdGrYjDUHVmItIiIfLnqlTnuaxrMNxTvejSuIPjlBIycdGCvMoEzKjQIaKVgBrrTtqlxAoSfnrw
+false
+false
+false
+false
+yIBljPIuSjevTxNMrxaunTl
+false
+BVtQKmSZvDkXCkgUesGVSBOElTnuaxrMNxTvejSuIPjlBIyIDVtJrhDfbrpSfGBWlrGeJUXmqkgKtMbGSXQq
+true
+false
+false
+BVtQKmSZvDkXCkgUesGVSBOElTnuaxrMNxTvejSuIPjlBIyIDVtJrhDfbrpSfGBWl
+false
+false
+false
+false
+false
+BVtQKmSZvDkXCkgUesGVSBOElTnuaxrMNxTvejSuIPjlBIyIDVtJrhDfbrpSfGBWlapmwcTVjwoylGyJd
+false
+lWBGfSprbfDhrJtVDIyIBljPIuSjevTxNMrxaunTlEOBSVGseUgkCXkDvZSm...</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_8"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_8" onclick="Code.viewDiff(8)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_8" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>9</td>
+    <td><pre id="input_9">0
+2 FJZfPbqqjLmNwoDU
+2 HwXouuoTgvwBkDh
+3 
+5 0
+3 
+5 0
+5 0
+3 
+1 IcQSyHdz
+5 0
+1 ElqecWkaABvgcu
+1 ZmBYpYhWGVuiqqJfXFn
+1 auGL
+5 2
+3 
+5 1
+2 sXt
+1 BywkhfSTPnQhrjrI
+3 
+4 
+1 gPVLCTCKffWwx
+3 
+3 
+0 OntCkbdduBVCavjx
+1 dlmPojMfOweHXoaQ
+1 mfAunbD
+1 Jfq
+5 6
+4 
+5 0
+0 BaTfON
+3 
+0 xHPhtgxfUzlOBoX
+1 KCkoTgdBabuoGOdESPT
+1 rzrYIvXfchrB
+2 bLQY
+3 
+3 
+4 
+4 
+4 
+1 AoPfztbz
+4 
+0 TXsBdwwflpOJXYcit
+2 bMNOIHDRxmCRYlRtMvd
+3 
+4 
+3 
+0 iGGLwzcHifFnwRW
+4 
+0 YEZNAZuvwJYBjJx
+2 rTCD
+2 IWoIj
+2 RPmYjMi
+2 qTYxjqYms
+1 gK
+1 lOa
+2 krl
+5 10
+1 yRRxntRLIGsTFKmn
+1 cxlIUDhySQfIaDxDbo
+2 oMkcgTfImusrK
+3 
+1 panFywlFTCEwjlxEHhj
+4 
+4 
+3 
+0 TBToibvJXrMThl
+5 2
+2 RHgqOi
+2 OJOK
+3 
+5 1
+4 
+5 1
+3 
+3 
+3 
+5 0
+0 f
+1 mKpEjfNupbtuJ
+0 SxboTVTxF
+2 fyvIQWKmEruV
+2 bdqxYkTXNfqOUGW
+1 RLSFJF
+1 cIutffLVFqffxiWX
+2 OHUONKjMZtz
+1 qsFD
+2 suL
+1 hJFWWWCHlAbUJxY
+1 RclbnSdqQYA
+3 
+2 uQG
+0 RJbcFKtaBE
+0 KruKkqaaJKJ
+3 
+5 3
+4 
+1 bYSxVZjrQuYomUuJ
+4 
+3 
+1 yKVdR
+0 GORVWistSAdJJOmJMMYH
+5 0
+4 
+3 
+1 dVbqD
+0 TkD
+5 0
+5 2
+2 At
+3 
+1 LyDKFL
+0 jXNBMBldfqbklDZ
+1 dYFvnzOEXPm
+1 sa
+2 dyPoWURiZioUwh
+2 dXTONRQx
+0 yEhkBmwuZ
+2 VxAZNQLmPqClP
+5 1
+0 vQYVOgeqBBhI
+4 
+2 VWJnwpffBh
+2 PIi
+1 iudvFiiJxXISMQcWUr
+3 
+0 NhFsdrGoTtQgJyq
+3 
+1 HDPMpMM
+2 iaNIJcPhUMtxTJrzJoOQ
+5 12
+5 1
+4 
+5 5
+3 
+1 GYRWSYjbMvPDmg
+1 iecmtrp
+5 0
+4 
+0 qCBAgQbaeXvCW
+3 
+3 
+2 QwBCipDPeoJwIgsYdaL
+0 yvcNceyJADZCSdH
+1 Tm
+1 yPFioqJotYdNoqfXdZO
+4 
+1 kJpjMkCBSpH
+5 1
+4 
+3 
+4 
+0 yWEWbpoVWTgzjkc
+1 TS
+2 MmGGZemO
+1 YMTTeRGdVrZSvBBds
+0 KROlaTogKEX
+1 VRJOsaGDWNx
+1 DYPhseDQdWqAtoUJ
+0 ZAUdJIMn
+5 4
+3 
+3 
+3 
+1 BpKlYEb
+2 EiCshVhpKlGPbXAMIo
+4 
+2 rY
+3 
+0 eubMVBulEEBxzdc
+2 coDpqHKCOq
+4 
+1 zKNhiCAUcRdiJuRRC
+5 9
+1 nEsj
+2 BppRccLYDhtUtLvWMxHH
+3 
+1 FwHWrh
+3 
+4 
+2 ptXpfRStEHdQHZAqqS
+0 SdMrsjWasaqYXOxClrq
+4 
+1 kqS
+3 
+2 oCpNfqmcXzL
+3 
+3 
+1 H
+5 4
+1 lEVKQKFqzItspwrMcuYd
+0 VlTobrevxyeeaZ
+0 gxThEvQZvtNTvoNPb
+2 MjSwHVPGXYVnVLKMbV
+0 UVzNYejkWCILCuy
+1 bgVBFDgOBuVcvyOJ
+1 yeovhsHBMRADydTfOM
+4 
+4 
+5 4
+4 
+2 uTscMNOrY
+0 XTEwZrXXGmRUd
+5 1
+2 lJJ
+4 
+0 Q
+4 
+0 JtmupYZWCiwl
+2 EKo
+4 
+4 
+1 fQchsX
+5 8
+3 
+2 KhNxStsX
+0 aqmH
+1 DPEAhCrz
+3 
+1 jW
+0 FbgZpeXeGrsQp
+3 
+4 
+1 OwtfWS
+0 hqKPawMALDpRcXckqe
+2 PThjChLGEpEZ
+2 LsIQZWYQbsYv
+4 
+5 7
+0 tfrGN
+1 WERzF
+0 dvTn
+5 3
+0 AJsmC
+2 IiwQWzlWpugQaltBY
+5 0
+5 1
+3 
+3 
+0 rCBUmHTU
+0 WWXtALCm
+0 F
+4 
+0 xVzvTHQRmRFN
+0 LhtPpuTSmWtKThFQSPpm
+2 fxDYUoTZLVnLCNFF
+1 lfZpUGVD
+2 psKtwFOWm
+0 bYtgDYyMb
+2 qpRao
+5 3
+3 
+3 
+5 4
+3 
+1 qAPfx
+1 ejZciEfHgtj
+5 2
+2 SmhxGHPZQfBkiwiQ
+4 
+5 0
+5 0
+0 P
+4 
+4 
+1 fvththV
+4 
+1 fONpDwAHxSwirPhsE
+3 
+3 
+2 bqXPLNSj
+1 fWKpRtlZVpjcRTbJ
+1 eAyjJGtgrgb
+5 0
+3 
+4 
+4 
+4 
+3 
+0 bXERlTz
+4 
+3 
+0 bgL
+5 4
+2 pwdw
+4 
+0 wOlMNXRwMzJgVpQDZMWx
+0 RxsQktTQHBqy
+3 
+3 
+3 
+1 cfqnfQFJ
+4 
+5 1
+2 hkNrcBUuPcyXjLX
+3 
+5 5
+4 
+4 
+0 ybonfJZXRoKeq
+2 qgEGMWhnq
+2 laZmsfoF
+5 0
+4 
+3 
+0 fLKhrEabUznye
+4 
+2 DRkSfVHijpkj
+1 YqT
+3 
+1 L
+2 v
+1 tZAz
+3 
+1 WZsLkCNxXyNaQS
+5 0
+2 rObWJfUhCzJBTgpqa
+1 NrQf
+1 dOX
+3 
+2 ZSDLsATejYF
+5 3
+3 
+3 
+3 
+0 DTpAuviQFrEeaX
+5 0
+3 
+3 
+3 
+3 
+2 sLFBmdVyfMBVSUpoANLK
+2 PYd
+3 
+5 3
+0 XXY
+4 
+3 
+0 HwjWoLmrVWohv
+3 
+1 FwXznhKOCwqbN
+2 PKf
+0 NAHxgALaJgSsDmsQeHe
+2 ezffeTbkHlctpM
+4 
+3 
+2 RbaHkIUyFzl
+5 1
+0 zpIZVKzodnww
+5 3
+0 KUbqJsgraY
+1 wJuzEZeb
+1 zQoNGYXlRWslEsXhSCKb
+1 wjQPRtIDrTICqqn
+5 0
+1 OKbfKcvDBl
+3 
+3 
+1 aeliHAlf
+3 
+3 
+4 
+4 
+3 
+5 6
+2 FmuIPewMiWKXlZh
+4 
+2 ABVqUAiBkzevP
+5 0
+3 
+0 xdlpwcCmV
+5 1
+2 aRZJXSSiYyk
+3 
+2 iTiuZrVfqDoLLqJpC
+3 
+0 BnnCDCRmAUIdIrjdyIG
+3 
+5 2
+0 ofrnBRXztXBlNuN
+5 2
+1 AZaiuELG
+1 XDopibuBbpKoFGwxu
+0 hnFlOMoZZQkG
+5 3
+0 t
+0 imoMsZjUzzYn
+2 LDlVCpfznZALRI
+1 YRhX
+2 j
+1 eV
+0 iF
+5 6
+4 
+3 
+4 
+0 DDrDsGQwWfMekEHrnSG
+1 lJ
+0 EAaACyAdfzyAChDRr
+0 PWlKzLhYoQHIkapI
+5 1
+2 VbvYZSabRvCaXafVfzB
+3 
+4 
+0 BxXhXaMRUqjTlPKlf
+5 2
+4 
+3 
+2 LRtDzaJRzvdcZSqUTK
+3 
+1 sTpwtioxTBiXmosA
+1 RO
+4 
+3 
+1 UIHhRB
+3 
+0 wAIrhsKWuc
+5 5
+5 1
+4 
+0 LuTgZVTjbqaHBOi
+0 FY
+5 2
+2 YBlgCDWA
+2 DmSKzftwDKdHTIrA
+2 vJmnzl
+4 
+4 
+3 
+2 GDMmeYyc
+5 1
+4 
+1 alOXlKskvrvBbtRMYFkH
+0 zIURldIzcpeNSPETEpVa
+4 
+3 
+3 
+1 WTmXSysrjQgMR
+2 amBnSXXtTEIU
+5 2
+2 KDnaeLgw
+3 
+5 1
+4 
+5 0
+2 iKemYwLHcJREo
+1 MdMJUghRoQkuMk
+2 yLkXyzCPpHkd
+5 0
+2 eTUEZEqvXV
+5 0
+1 U
+0 CmMcgKktENHiObdDu
+5 2
+4 
+2 xR
+4 
+5 1
+4 
+1 RrXKsalGWDfznrXmI
+0 BSNLpyaAEYXqCc
+3 
+3 
+5 0
+1 psas
+4 
+2 vrb
+1 dZYcMyoLyR
+5 2
+4 
+4 
+3 
+4 
+1 oAvRbZAoF
+2 KPGO
+1 NQMDXGPhn
+3 
+5 0
+3 
+5 1
+0 mG
+2 tDvZoZOsYpPCHfXUKEbo
+3 
+3 
+0 IBtTuV
+2 QeNGipBFnFBCKb
+3 
+0 HQVjjaFCgsSAI
+1 P
+2 EujZvGrj
+4 
+4 
+5 1
+2 pmsJOfhbqHaBlBI
+1 zrXQZnfaQ
+4 
+4 
+0 EWAWkYTohFAVQ
+1 eJzKxdzvjcEosTkik
+4 
+5 9
+1 VzHQNixgdgyCS
+5 0
+4 
+0 aAfWmoICnlQY
+3 
+3 
+1 PAD
+1 pUrwhIBAXJqrtyW
+3 
+2 qAtzBjbq
+2 xIJGxXKbtwIeWjSO
+5 4
+5 0
+0 suozRnMwY
+2 AMhXIOr
+4 
+3 
+0 zIJgdfkRDIgyM
+5 2
+4 
+1 qgjSYKakvU
+5 1
+2 fu
+1 CslHcMWapkxMdwne
+1 oETJphcZcy
+5 2
+1 QYggiYJNyQs
+1 DjHyOAnDdxXkXUSc
+0 NfCwOQnRxlgdG
+5 0
+4 
+2 DomA
+1 exjbwbLlckCf
+4 
+3 
+3 
+5 4
+1 tkzIhl
+3 
+0 aOiqS
+2 tzNenuFDAKxKD
+0 I
+4 
+2 Xd
+4 
+1 ZYriaehXzBRR
+1 zdIsbce
+5 5
+4 
+5 0
+2 cVnDqjyN
+1 J
+0 poerKgUvnRhJXp
+1 HdNIAaPl
+4 
+2 bUWuXCyfzhJeryfXLUb
+5 2
+5 0
+2 tE
+5 1
+3 
+3 
+1 WpGGOJppLGoJnyvGhT
+4 
+2 eHhWJS
+4 
+2 pjSrtLGeTfOMBA
+4 
+4 
+1 DMmWqv
+1 EmZZydjiJ
+0 gOcjYMTAMxLCBZXD
+5 2
+3 
+4 
+4 
+2 OZSUcFtc
+5 1
+0 EIlxbr
+4 
+0 WZHmpr
+0 K
+1 sLPNvoViLdAugUdlNLv
+1 aBgtKqsJLK
+3 
+5 6
+2 eHuqauciAIOrNTiEQ
+2 zOKEzopm
+1 pgY
+1 UBOenI
+1 QYKOQgYnuAc
+2 tRwHniYG
+1 tUvmKVjYJERjAy
+...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">9482</span>
+    	</div>
+    	<pre id="output_9">false
+false
+false
+IcQSyHdzIrjrhQnPTSfhkwyB
+IcQSyHdz
+false
+rzrYIvXfchrBKCkoTgdBabuoGOdESPTNOfTaBzdHySQcIxHPhtgxfUzlOBoX
+rzrYIvXfchrBKCkoTgdBabuoGOdESPTNOfTaBzdHySQcIxHPhtgxfUzlOBoX
+rzrYIvXfchrBKCkoTgdBabuoGOdESPTNOfTaBzdHySQcIxHPhtgxfUzlOBoX
+AoPfztbzrzrYIvXfchrBKCkoTgdBabuoGOdESPTNOfTaBzdHySQcIxHPhtgxfUzlOBoX
+false
+ticYXJOplfwwdBsXTXoBOlzUfxgthPHxIcQSyHdzBaTfONTPSEdOGoubaBdgTokCKBrhcfXvIYrzrzbtzfPoA
+AoPfztbzrzrYIvXfchrBKCkoTgdBabuoGOdESPTNOfTaBzdHySQcIxHPhtgxfUzlOBoXTXsBdwwflpOJXYcitiGGLwzcHifFnwRW
+false
+false
+false
+false
+false
+false
+panFywlFTCEwjlxEHhjIcQSyHdznmKFTsGILRtnxRRyobDxDaIfQSyhDUIlxc
+panFywlFTCEwjlxEHhjIcQSyHdznmKFTsGILRtnxRRyobDxDaIfQSyhDUIlxc
+false
+false
+IcQSyHdznmKFTsGILRtnxRRy
+false
+false
+false
+false
+false
+hJFWWWCHlAbUJxYqsFDcIutffLVFqffxiWXRLSFJFmKpEjfNupbtuJzdHySQcIfSxboTVTxF
+bYSxVZjrQuYomUuJhJFWWWCHlAbUJxYqsFDcIutffLVFqffxiWXRLSFJFmKpEjfNupbtuJzdHySQcIfSxboTVTxF
+yKVdRFxTVTobxSfIcQSyHdzJutbpuNfjEpKmFJFSLRXWixffqFVLfftuIcDFsqYxJUbAlHCWWWFJhJuUmoYuQrjZVxSYbGORVWistSAdJJOmJMMYH
+false
+false
+false
+false
+sadYFvnzOEXPmLyDKFLyKVdRFxTVTobxSfIcQSyHdzJutbpuNfjEpKmFJFSLRXWixffqFVLfftuIcDFsqYxJUbAlHCWWWFJhJuUmoYuQrjZVxSYbGORVWistSAdJJOmJMMYHjXNBMBldfqbklDZvQYVOgeqBBhI
+false
+false
+false
+FxTVTobxSfIcQSyHdzJutbpuNfjEpKmFJFSLRXWixffqFVLfftuIc
+iecmtrpGYRWSYjbMvPDmgzdHySQcI
+false
+yPFioqJotYdNoqfXdZOTmiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWyvcNceyJADZCSdH
+yPFioqJotYdNoqfXdZOTmiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWyvcNceyJADZCSdH
+HdSCZDAJyecNcvyWCvXeabQgABCqIcQSyHdzgmDPvMbjYSWRYGprtmceimTOZdXfqoNdYtoJqoiFPy
+false
+false
+BpKlYEbckjzgTWVopbWEWyyPFioqJotYdNoqfXdZOTmiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWyvcNceyJADZCSdHSTsdBBvSZrVdGReTTMY
+false
+false
+YMTTeRGdVrZSvBBdsTSHdSCZDAJyecNcvyWCvXeabQgABCqIcQSyHdzgmDPvMbjYSWRYGprtmceimTOZdXfqoNdYtoJqoiFPyyWEWbpoVWTgzjkcbEYlKpBeubMVBulEEBxzdc
+false
+nEsjWCvXeabQgABCqIcQSyHdzgmDPvMbjYSWRYGprtmceihrWHwF
+false
+nEsjWCvXeabQgABCqIcQSyHdzgmDPvMbjYSWRYGprtmceihrWHwFSdMrsjWasaqYXOxClrq
+false
+false
+yeovhsHBMRADydTfOMbgVBFDgOBuVcvyOJlEVKQKFqzItspwrMcuYdiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWjsEnVlTobrevxyeeaZgxThEvQZvtNTvoNPbUVzNYejkWCILCuy
+yeovhsHBMRADydTfOMbgVBFDgOBuVcvyOJlEVKQKFqzItspwrMcuYdiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWjsEnVlTobrevxyeeaZgxThEvQZvtNTvoNPbUVzNYejkWCILCuy
+lEVKQKFqzItspwrMcuYdiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWjsEnVlTobrevxyeeaZ
+false
+false
+lEVKQKFqzItspwrMcuYdiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWjsEnVlTobrevxyeeaZ
+lEVKQKFqzItspwrMcuYdiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWjsEnVlTobrevxyeeaZQ
+false
+lEVKQKFqzItspwrMcuYdiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWjsEnVlTobrevxyeeaZQJtmupYZWCiwl
+lEVKQKFqzItspwrMcuYdiecmtrpGYRWSYjbMvPDmgzdHySQcIqCBAgQbaeXvCWjsEnVlTobrevxyeeaZQJtmupYZWCiwl
+false
+pQsrGeXepZgbFDPEAhCrzIcQSyHdzgmDPvMbjYSWRYGaqmHWj
+false
+false
+OwtfWSpQsrGeXepZgbFDPEAhCrzIcQSyHdzgmDPvMbjYSWRYGaqmHWjhqKPawMALDpRcXckqe
+false
+IcQSyHdzrCBUmHTUWWXtALCmF
+false
+false
+false
+false
+zdHySQcI
+zdHySQcIP
+zdHySQcIP
+fvththVzdHySQcIP
+false
+PIcQSyHdzVhthtvfEshPriwSxHAwDpNOfJbTRcjpVZltRpKWfbgrgtGJjyAe
+PIcQSyHdzVhthtvfEshPriwSxHAwDpNOfJbTRcjpVZltRpKWfbgrgtGJjyAe
+PIcQSyHdzVhthtvfEshPriwSxHAwDpNOfJbTRcjpVZltRpKWfbgrgtGJjyAe
+eAyjJGtgrgbfWKpRtlZVpjcRTbJfONpDwAHxSwirPhsEfvththVzdHySQcIPbXERlTz
+false
+PIcQSyHdzVhthtvfEshPriwSxHAwDpNOf
+cfqnfQFJyqBHQTtkQsxRxWMZDQpVgJzMwRXNMlOwfONpDwAHxSwirPhsEfvththVzdHySQcIP
+false
+IcQSyHdz
+IcQSyHdz
+false
+false
+IcQSyHdzybonfJZXRoKeq
+qeKoRXZJfnobyzdHySQcIfLKhrEabUznye
+false
+false
+false
+false
+false
+false
+eynzUbaErhKLfIcQSyHdzybonfJZXRoKeqTqYXXY
+false
+false
+FwXznhKOCwqbNvhoWVrmLoWjwHeynzUbaErhKLfIcQSyHdzybonfJZXRoKeqTqYXXYNAHxgALaJgSsDmsQeHe
+false
+aeliHAlfOKbfKcvDBlwjQPRtIDrTICqqnzQoNGYXlRWslEsXhSCKbwJuzEZebYXXYqTqeKoRXZJfnobyzdHySQcIfLKhrEabUznyeKUbqJsgraY
+aeliHAlfOKbfKcvDBlwjQPRtIDrTICqqnzQoNGYXlRWslEsXhSCKbwJuzEZebYXXYqTqeKoRXZJfnobyzdHySQcIfLKhrEabUznyeKUbqJsgraY
+false
+eynzUbaErhKLfIcQSyHdzybonfJZXRoKeqTqYXXY
+false
+false
+false
+false
+true
+IcQSyHdzybonfJZXRoKeq
+qeKoRXZJfnobyzdHySQcI
+false
+rRDhCAyzfdAyCAaAEGSnrHEkeMfWwQGsDrDDIcQSyHdzybonfJZXRoKeqJl
+GSnrHEkeMfWwQGsDrDDIcQSyHdzybonfJZXRoKeqJl
+false
+ROsTpwtioxTBiXmosAGSnrHEkeMfWwQGsDrDDIcQSyHdzybonfJZXRoKeqJl
+IcQSyHdzybonfJZXRoKeq
+false
+false
+false
+IcQSyHdzybonfJZXRoKeq
+IcQSyHdzybonfJZXRoKeq
+false
+zdHySQcI
+alOXlKskvrvBbtRMYFkHzdHySQcIzIURldIzcpeNSPETEpVa
+false
+false
+IcQSyHdz
+false
+false
+false
+MdMJUghRoQkuMkIcQSyHdz
+false
+MdMJUghRoQkuMkIcQSyHdz
+IcQSyHdz
+psasRrXKsalGWDfznrXmIIcQSyHdzBSNLpyaAEYXqCc
+false
+RrXKsalGWDfznrXmIIcQSyHdzBSNLpyaAEYXqCc
+RrXKsalGWDfznrXmIIcQSyHdzBSNLpyaAEYXqCc
+cCqXYEAaypLNSBzdHySQcIImXrnzfDWGlasKXrR
+false
+false
+false
+false
+PVuTtBIGmRrXKsalGWDfznrXmIIcQSyHdzBSNLpyaAEYXqCcFoAZbRvAoHQVjjaFCgsSAI
+PVuTtBIGmRrXKsalGWDfznrXmIIcQSyHdzBSNLpyaAEYXqCcFoAZbRvAoHQVjjaFCgsSAI
+false
+zrXQZnfaQVuTtBIGmRrXKsalGWDfznrXmIIcQSyHdzBSNLpyaAEYXqCcFoAZbRvAoHQVjjaFCgsSAI
+zrXQZnfaQVuTtBIGmRrXKsalGWDfznrXmIIcQSyHdzBSNLpyaAEYXqCcFo...</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_9"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_9" onclick="Code.viewDiff(9)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_9" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>10</td>
+    <td><pre id="input_10">0
+3 
+5 0
+3 
+4 
+0 siNn
+1 cLUhDGyXgu
+5 0
+3 
+4 
+1 qD
+0 Y
+5 3
+5 0
+5 0
+3 
+0 FZGuDtacEpCfr
+1 KbTUHyQhtKRdxGOs
+1 QwEGJmahqJrrCHGeoFk
+4 
+2 lmZznItqkfxs
+0 XzAeNtOvnYlDXids
+1 H
+4 
+3 
+1 urkkNvzfDiXbmNtJV
+1 GF
+4 
+2 QPIiumo
+3 
+3 
+3 
+4 
+4 
+4 
+2 xNbLcJByVhjAA
+3 
+5 2
+4 
+2 laQNbyZcbWkEXlZ
+1 YM
+0 BIqKBMjziYzcTlvfQn
+1 nVzeTZ
+4 
+0 JYKqINLGhqWmCicCpz
+2 cNvgtRMVTLntT
+1 BDYFItUMoCN
+1 QeVFELnaMcb
+1 cCWIRK
+3 
+1 yKwwvcyvYDy
+1 ysRYHFbanstxo
+2 AbEP
+3 
+3 
+5 7
+3 
+1 AgnNZrCyvSwK
+2 MptpMNVIeJXSCZUJYp
+1 cJdQzZCnfDkhyM
+5 4
+5 2
+1 CZoiVkalIPBdWRVaBX
+1 UuurQNAdhMbLj
+0 yAtglOPjwPsgdjTy
+4 
+4 
+5 3
+5 0
+1 WXljsKGZZAtZT
+1 FCqjQMJYxwzjN
+0 tIYMlTXwRbpdhlW
+2 XVTKIVAjlmOgQfP
+5 4
+5 0
+3 
+5 1
+1 ae
+2 CuHwPe
+4 
+2 PjkIRrdZBCcHMHQFBHE
+4 
+2 EtgzWFouGXKDYu
+1 R
+5 0
+5 3
+4 
+3 
+5 0
+0 zCZqvzuPTPAb
+0 IUUGR
+5 2
+1 pcRolAbVzJZttoCDlf
+0 ar
+1 oyoQVLVddFx
+0 gGaZOoAwIIYKGs
+0 uwWySRIGw
+0 h
+2 zg
+1 Szgjzk
+1 qm
+2 oRVQiTrOfEpV
+0 kvm
+1 Bv
+5 0
+1 weWLLzUoxHZKJnq
+5 10
+5 0
+1 Zj
+4 
+0 yXPwlzlajgfAfYjeTjc
+5 3
+2 IqmXpdJUnkusLCQ
+5 0
+5 0
+3 
+5 0
+4 
+1 rRUVZXLGvRUMJyJlDdd
+4 
+1 bvfokpVdOo
+1 DpTOBPtzKzchgJxyOP
+2 Y
+4 
+4 
+3 
+2 h
+3 
+4 
+0 uWiNZrhK
+2 cFmmLeMYzMX
+0 mElgSSPMWlxjSYQWS
+3 
+5 4
+2 deRjnamuRqe
+5 1
+5 0
+4 
+3 
+1 ZXeiCn
+2 D
+4 
+0 geXBPrp
+5 0
+3 
+4 
+5 1
+3 
+2 YdanlimUpQabcJxm
+5 0
+5 1
+2 IrtReiOqvo
+2 gjZHNAiXD
+2 l
+3 
+4 
+5 0
+0 Wusr
+2 Th
+0 V
+0 mViJExXdDVC
+5 0
+4 
+1 rSIZoPkjyWGygMPG
+3 
+5 4
+5 0
+1 ERdqe
+5 1
+0 LLDGJclgXAANT
+5 0
+3 
+5 1
+5 0
+0 XLUKmsmKW
+3 
+3 
+2 q
+2 uWhSGjhYK
+5 1
+4 
+0 EyVcockRKtVsC
+1 WrZOTosVKgdlihVqQacc
+0 HoznWcipCq
+1 sbuIizvZRZGBd
+5 4
+5 0
+1 FntEMnYw
+3 
+2 TOBAduHFXTiX
+4 
+2 cBAlskm
+3 
+4 
+5 1
+0 mxTzMYvFBtzSpd
+2 lsDOXOEZTOGjEQegaXhN
+5 1
+2 GqnyhokSzuBqmxTRmgT
+3 
+0 DlgAnjTUCQxNWHWjpg
+3 
+3 
+3 
+5 0
+5 1
+1 BRYu
+0 DnyGfpfLLmU
+5 0
+4 
+3 
+0 HWbhejBzvzY
+2 Quy
+4 
+5 0
+4 
+1 Zoaaajij
+3 
+5 3
+1 xKpXKgkNDORjTl
+4 
+3 
+4 
+5 2
+3 
+5 0
+0 xIKMUpOONdgqoqSUyV
+1 PFutUQ
+3 
+5 2
+1 roVHeWNuGZnlf
+3 
+4 
+2 ecIWBmS
+5 1
+4 
+1 SCSHdFHYkL
+3 
+1 Nn
+2 RePCpIWq
+2 ibgwNEWsVTBtjqRcA
+5 0
+1 xcmgxHCwPsbURqpPx
+1 orKWRGOqwtbncKajk
+5 0
+4 
+2 zycLNeR
+2 dbOPXeYOiUMXPbvZ
+0 UHHyxWcmrH
+0 f
+3 
+4 
+0 YXsBa
+4 
+3 
+2 ZJpsfin
+5 2
+1 XXenfiYuePuwpjvkbyfC
+0 ckgQQjiRzos
+2 RxHbLtRhQzOaL
+0 hYyEyMPd
+0 xndQIqGnqqKY
+3 
+4 
+2 hbeFOapynUrHWKJHI
+5 4
+1 y
+3 
+0 XGZuCVCuIN
+4 
+5 7
+4 
+0 GkMK
+0 HiP
+1 yPtZZW
+5 1
+2 FyoyYZQdrHZwUpyugypq
+2 kfABlfNBmuJiCXebZUrW
+0 HhCDFLQCPYKIlw
+1 o
+4 
+3 
+2 EVlVSwq
+0 OXsdB
+5 3
+2 tcHWeYA
+1 WrnawutazPmoJD
+3 
+3 
+5 1
+4 
+0 FQdGiJez
+5 3
+1 kJRWNoT
+1 skaJECmTbwpSDlf
+0 cjYBdkOdRs
+1 qkxqXVwVeI
+1 Y
+1 ZL
+0 ZYIpFABN
+2 ZfatgNOMq
+2 WGMsdD
+0 neIxIH
+1 kaJHYfvhYWpLHPuk
+4 
+4 
+1 IQeWwYTBmkinlwNfAg
+2 YbfTcPcBU
+4 
+2 koMrr
+2 tEwoXkQGrhgpmakO
+3 
+1 NY
+0 FtmcYOXz
+5 12
+4 
+4 
+1 AAjdMKs
+5 0
+3 
+4 
+1 rAhUsOaCx
+0 IUICh
+3 
+4 
+4 
+4 
+2 EZijUlC
+4 
+0 AuyGdRRUG
+5 2
+3 
+0 RMl
+5 0
+2 fnTdcYg
+5 0
+0 By
+1 pUMUJ
+4 
+0 XBlbJwjKgcuWpQKvuS
+3 
+2 Qn
+5 5
+0 UowLNqSqYKubDudSyF
+3 
+2 J
+2 VfuKMIyNtqzpzGq
+5 1
+5 1
+1 mLMrlNMEmvOBsJVWP
+1 Oi
+1 lRIDepYGFm
+0 gxVIDCPpV
+1 twAOyb
+4 
+0 gqoyYvXEJeINgCxetKn
+1 eGgiMYOE
+5 1
+0 yxkkKxAeOpGEaIoo
+5 5
+3 
+2 JpMfCOOkbxyFWeXxz
+1 EdyG
+3 
+4 
+3 
+0 OUhiIeQKKG
+5 3
+3 
+5 0
+1 rFAXiOg
+4 
+4 
+3 
+3 
+0 XU
+0 erXHhEjEu
+1 ZX
+2 ZEzawEOGXskzIt
+0 aEUClItOqKhvRujfzof
+4 
+1 DhwCBsuvHCsokYDvb
+0 ayUKBiAzpuiQUTGgHGEp
+5 1
+3 
+1 INqTeUr
+4 
+4 
+4 
+1 FEKPLzlxLzB
+1 KRsnhKPjpUorGf
+1 aglfgUxvDuprjstGUD
+0 pUNocGazomPy
+2 lcGITxZzbDTKRlNiMlu
+5 2
+3 
+1 cywwSGhjpUlEX
+3 
+0 sb
+4 
+3 
+3 
+2 kcOirrITjwzLnrughj
+0 wp
+3 
+4 
+1 piQalxLdZ
+0 RwAgShSj
+2 GCbuTqYJ
+4 
+1 DcMQAUc
+3 
+3 
+2 uyAHPEUJzq
+5 11
+1 uWYrZufelhcpAp
+1 kymPMDJfJdAgIaDjO
+0 VNyIMTfHPfiok
+3 
+3 
+1 TZGFaje
+2 CCdfndOwlGHWqHrs
+0 x
+4 
+3 
+3 
+2 cMUOghPcrppuIikmu
+4 
+2 u
+0 GAMCxLzsy
+1 wTWwlerFXMRzbvJViobN
+1 NsqFrKbxAKIFLcnafJ
+4 
+5 13
+3 
+2 MpsjTCbFZ
+3 
+2 wkElAAWSiXZP
+1 nwjt
+0 xottQukyrGkGopwgG
+4 
+3 
+4 
+1 eTiy
+1 cGRGeuyaYddsgKUn
+3 
+0 xkILhyZLQNBaBgQJcmz
+3 
+1 VmoTZTd
+3 
+3 
+4 
+3 
+5 4
+5 0
+2 JtdtdMSzmL
+0 gHJtzRztFvWtm
+4 
+1 xFKgcWLEEWMNiHOSL
+3 
+4 
+3 
+0 EhEnPJxKMy
+2 LWTmnjlHH
+3 
+0 iXfxaiybqtlZxDGhw
+2 dXthEkGZkjTfDOMplwYr
+5 1
+4 
+1 HYuviACtb
+4 
+1 zoPSHHZCxEK
+3 
+5 1
+0 xeTnejCvr
+4 
+0 ynkh
+1 X
+1 dnfpaQfFVW
+5 4
+3 
+5 2
+5 0
+0 MfvksZ
+1 iHxjXZY
+2 JVEbuLhxdbutw
+3 
+4 
+2 AJoTKKYd
+2 ppJQExjuwvBj
+0 FrJycBAAPyeQ
+4 
+1 GPXihIziUKXBNzYWa
+2 gmwmqGmVItaPmwozSo
+4 
+3 
+1 QcZBFFZWyestVfnRPG
+4 
+1 qsbvgUJgcvTAjDbvdtph
+2 DifOWzxGKHRFwWnmihmj
+3 
+1 VbPDTwTrlUkSgCw
+3 
+1 MU
+5 6
+3 
+2 clcjIlseaDx
+3 
+1 YxzAVvmYnJw
+4 
+1 PXGZfHIuiVhY
+3 
+0 KlEPyGxlFy
+4 
+2 J
+0 gDkQKstgDHixQCUoW
+4 
+4 
+5 8
+3 
+1 XoNsEbm
+2 PZrDFdJAILPa
+2 gPlGhNYoQzXGIOdWMVZ
+0 SBdd
+2 SzcCWhdQMwzPESA
+3 
+5 1
+3 
+2 GnFFTNCNWjddU
+4 
+4 
+5 0
+0 GAnfqlsAiFlAsE
+1 NnGVu
+4 
+3 
+4 
+3 
+5 0
+5 1
+4 
+4 
+3 
+1 InS
+5 2
+4 
+4 
+3 
+1 wQSwCUuNSqaItTjpgolm
+4 
+0 nRXLbvPVLYTd
+0 ntinomgRnyq
+2 eOwmyyoCIRQkWTHMCIV
+0 jHvc
+1 kPkiPWjAoWvrokAfaUp
+1 zgwtHpjGf
+2 deqbaWdu
+3 
+4 
+4 
+1 YlgBEPA
+1 V
+4 
+3 
+4 
+2 ArdTcKSV
+3 
+0 SeXuznFhRYsfOEeHb
+1 rbMjHd
+4 
+3 
+1 aaRFgciUGbIXhhXB
+5 8
+2 KHVuRmEcNFzQUzKM
+3 
+4 
+0 hMopKKTCsUMnFaLbffc
+5 0
+1 qKTHgCArW
+4 
+0 zrCfqFcqOJgn
+5 8
+3 
+0 EYRcFqTqmjHuvKKp
+0 jumeRM
+5 3
+3 
+1 YPca
+4 
+5 1
+3 
+1 MUog
+2 EKQzcNZnOS
+2 slCo
+3 
+2 owusSeyExYCQud
+1 rO
+4 
+0 ppsicHMRRccWpb
+3 
+5 3
+1 idwWPBjQLManvRGjEpcm
+3 
+5 1
+0 cwXnpZGeZLRHZezNZbZT
+5 0
+3 
+1 KlOQSHNoiusOdFs
+2 KY
+4 
+4 
+2 FiPCHNOvmlpZ
+2 YlftAJE
+3 
+5 ...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">9891</span>
+    	</div>
+    	<pre id="output_10">nNisugXyGDhULc
+QwEGJmahqJrrCHGeoFkKbTUHyQhtKRdxGOssiNnFZGuDtacEpCfr
+false
+HQwEGJmahqJrrCHGeoFkKbTUHyQhtKRdxGOssiNnFZGuDtacEpCfrXzAeNtOvnYlDXids
+GFurkkNvzfDiXbmNtJVsdiXDlYnvOtNeAzXrfCpEcatDuGZFnNissOGxdRKthQyHUTbKkFoeGHCrrJqhamJGEwQH
+false
+HQwEGJmahqJrrCHGeoFkKbTUHyQhtKRdxGOssiNnFZGuDtacEpCfrXzAeNtOvnYlDXidsVJtNmbXiDfzvNkkruFG
+HQwEGJmahqJrrCHGeoFkKbTUHyQhtKRdxGOssiNnFZGuDtacEpCfrXzAeNtOvnYlDXidsVJtNmbXiDfzvNkkruFG
+HQwEGJmahqJrrCHGeoFkKbTUHyQhtKRdxGOssiNnFZGuDtacEpCfrXzAeNtOvnYlDXidsVJtNmbXiDfzvNkkruFG
+false
+sdiXDlYnvOtNeAzXrfCpEcatDuGZFnNissOGxdRKthQyHUTbKkFoeGHCrrJqhamJGEwQH
+false
+nVzeTZYMsdiXDlYnvOtNeAzXrfCpEcatDuGZFnNissOGxdRKthQyHUTbKkFoeGHCrrJqhamJGEwQHBIqKBMjziYzcTlvfQn
+false
+false
+false
+UuurQNAdhMbLjCZoiVkalIPBdWRVaBXrfCpEcatDuGZFnNissOGxdRKthQyHUTbKkFoeGHCrrJqhamJGEwQyAtglOPjwPsgdjTy
+UuurQNAdhMbLjCZoiVkalIPBdWRVaBXrfCpEcatDuGZFnNissOGxdRKthQyHUTbKkFoeGHCrrJqhamJGEwQyAtglOPjwPsgdjTy
+false
+false
+aesiNnFZGuDtacEpCfr
+false
+aesiNnFZGuDtacEpCfr
+false
+siNn
+false
+false
+ZjpcRolAbVzJZttoCDlfnNis
+false
+siNn
+rRUVZXLGvRUMJyJlDddsiNn
+false
+DpTOBPtzKzchgJxyOPbvfokpVdOorRUVZXLGvRUMJyJlDddsiNn
+DpTOBPtzKzchgJxyOPbvfokpVdOorRUVZXLGvRUMJyJlDddsiNn
+true
+DpTOBPtzKzchgJxyOPbvfokpVdOorRUVZXLGvRUMJyJlDddsiNn
+false
+false
+nNis
+false
+ZXeiCnsiNn
+prPBXegnNisnCieXZ
+false
+false
+false
+false
+nNis
+false
+nNisWusrVmViJExXdDVC
+false
+false
+nNis
+false
+siNnwYnMEtnF
+false
+FntEMnYwnNis
+false
+false
+BRYunNisDnyGfpfLLmU
+false
+UmLLfpfGynDsiNnuYRBHWbhejBzvzY
+UmLLfpfGynDsiNnuYRBHWbhejBzvzY
+xKpXKgkNDORjTlBRYunNis
+siNnuYRBlTjRODNkgKXpKx
+nNisflnZGuNWeHVor
+false
+nNis
+false
+false
+orKWRGOqwtbncKajkxcmgxHCwPsbURqpPxNnsiNnLkYHFdHSCS
+false
+false
+fHrmcWxyHHUSCSHdFHYkLnNisnNxPpqRUbsPwCHxgmcxkjaKcnbtwqOGRWKro
+fHrmcWxyHHUSCSHdFHYkLnNisnNxPpqRUbsPwCHxgmcxkjaKcnbtwqOGRWKroYXsBa
+false
+false
+YKqqnGqIQdnxdPMyEyYhsozRijQQgkcHrmcWxyHHUSCSHdFHYkLnNisnNxPpqRUbsPwCHxgmcxkjaKcnbtwqOGRWKroCfybkvjpwuPeuYifneXX
+false
+orKWRGOqwtbncKajkxcmgxHCwPsbURqpPxNnsiNnLkYHFdHSCSUHHyxWcmrHyXGZuCVCuIN
+siNn
+false
+false
+osiNnGkMKHiPHhCDFLQCPYKIlw
+false
+false
+PiHKMkGnNis
+false
+false
+kaJHYfvhYWpLHPukZLYqkxqXVwVeIskaJECmTbwpSDlfkJRWNoTnNiscjYBdkOdRsZYIpFABNneIxIH
+kaJHYfvhYWpLHPukZLYqkxqXVwVeIskaJECmTbwpSDlfkJRWNoTnNiscjYBdkOdRsZYIpFABNneIxIH
+false
+IQeWwYTBmkinlwNfAgkaJHYfvhYWpLHPukZLYqkxqXVwVeIskaJECmTbwpSDlfkJRWNoTnNiscjYBdkOdRsZYIpFABNneIxIH
+false
+false
+siNn
+siNn
+nNissKMdjAA
+hCIUIAAjdMKssiNnxCaOsUhAr
+hCIUIAAjdMKssiNnxCaOsUhAr
+hCIUIAAjdMKssiNnxCaOsUhAr
+false
+hCIUIAAjdMKssiNnxCaOsUhAr
+false
+pUMUJrAhUsOaCxnNissKMdjAARMlBy
+false
+false
+false
+twAOyblRIDepYGFmOimLMrlNMEmvOBsJVWPnNisgxVIDCPpV
+false
+OimLMrlNMEmvOBsJVWPnNisGydE
+rFAXiOgmLMrlNMEmvOBsJVWPnNis
+rFAXiOgmLMrlNMEmvOBsJVWPnNis
+false
+ZXrFAXiOgmLMrlNMEmvOBsJVWPnNisXUerXHhEjEuaEUClItOqKhvRujfzof
+INqTeUrfozfjuRvhKqOtIlCUEauEjEhHXreUXsiNnPWVJsBOvmEMNlrMLmgOiXAFrXZbvDYkosCHvusBCwhD
+INqTeUrfozfjuRvhKqOtIlCUEauEjEhHXreUXsiNnPWVJsBOvmEMNlrMLmgOiXAFrXZbvDYkosCHvusBCwhD
+INqTeUrfozfjuRvhKqOtIlCUEauEjEhHXreUXsiNnPWVJsBOvmEMNlrMLmgOiXAFrXZbvDYkosCHvusBCwhD
+false
+KRsnhKPjpUorGfFEKPLzlxLzBINqTeUrfozfjuRvhKqOtIlCUEauEjEhHXreUXsiNnPWVJsBOvmEMNlrMLmgOiXAFrXZbvDYkosCHvusBCwhDXElUpjhGSwwycsb
+false
+pwbscywwSGhjpUlEXDhwCBsuvHCsokYDvbZXrFAXiOgmLMrlNMEmvOBsJVWPnNisXUerXHhEjEuaEUClItOqKhvRujfzofrUeTqNIBzLxlzLPKEFfGroUpjPKhnsRK
+false
+piQalxLdZpwbscywwSGhjpUlEXDhwCBsuvHCsokYDvbZXrFAXiOgmLMrlNMEmvOBsJVWPnNisXUerXHhEjEuaEUClItOqKhvRujfzofrUeTqNIBzLxlzLPKEFfGroUpjPKhnsRKRwAgShSj
+false
+false
+TZGFajekymPMDJfJdAgIaDjOuWYrZufelhcpApZXrFAXiOgmLMrlNMEmvOBsJVWPnNisXUerXHhEjEuVNyIMTfHPfiokx
+false
+TZGFajekymPMDJfJdAgIaDjOuWYrZufelhcpApZXrFAXiOgmLMrlNMEmvOBsJVWPnNisXUerXHhEjEuVNyIMTfHPfiokx
+true
+NsqFrKbxAKIFLcnafJwTWwlerFXMRzbvJViobNTZGFajekymPMDJfJdAgIaDjOuWYrZufelhcpApZXrFAXiOgmLMrlNMEmvOBsJVWPnNisXUerXHhEjEuVNyIMTfHPfiokxGAMCxLzsy
+false
+false
+nwjtnNisxottQukyrGkGopwgG
+GgwpoGkGrykuQttoxsiNntjwn
+VmoTZTdzmcJQgBaBNQLZyhLIkxcGRGeuyaYddsgKUneTiyGgwpoGkGrykuQttoxsiNntjwn
+false
+nwjtnNisxottQukyrGkGopwgGgHJtzRztFvWtm
+mtWvFtzRztJHgGgwpoGkGrykuQttoxsiNntjwnLSOHiNMWEELWcgKFx
+false
+false
+yMKxJPnEhEmtWvFtzRztJHgGgwpoGkGrykuQttoxsiNntjwnLSOHiNMWEELWcgKFx
+HYuviACtbyMKxJPnEhEmtWvFtzRztJHgGgwpoGkGrykuQttoxsiNntjwnLSOHiNMWEELWcgKFx
+xFKgcWLEEWMNiHOSLnwjtnNisxottQukyrGkGopwgGgHJtzRztFvWtmEhEnPJxKMybtCAivuYHxeTnejCvr
+false
+ZskvfMxFKgcWLEEWMNiHOSLnwjtnNisxottQukyrGkGopwgGgHJtzRztFvWtmYZXjxHi
+false
+false
+ZskvfMxFKgcWLEEWMNiHOSLnwjtnNisxottQukyrGkGopwgGgHJtzRztFvWtmYZXjxHiFrJycBAAPyeQ
+false
+GPXihIziUKXBNzYWaZskvfMxFKgcWLEEWMNiHOSLnwjtnNisxottQukyrGkGopwgGgHJtzRztFvWtmYZXjxHiFrJycBAAPyeQ
+QcZBFFZWyestVfnRPGQeyPAABcyJrFiHxjXZYmtWvFtzRztJHgGgwpoGkGrykuQttoxsiNntjwnLSOHiNMWEELWcgKFxMfvksZaWYzNBXKUizIhiXPG
+false
+false
+YxzAVvmYnJwiHxjXZYmtWvFtzRztJHgGgwpoGkGrykuQttoxsiNntjwnLSOHiNMWEELWcgKFxMfvksZ
+ZskvfMxFKgcWLEEWMNiHOSLnwjtnNisxottQukyrGkGopwgGgHJtzRztFvWtmYZXjxHiwJnYmvVAzxYYhViuIHfZGXPKlEPyGxlFy
+true
+ZskvfMxFKgcWLEEWMNiHOSLnwjtnNisxottQukyrGkGopwgGgHJtzRz...</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_10"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_10" onclick="Code.viewDiff(10)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_10" class="diff"></pre>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+    
+  	<div class="modal fade" id="resetAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="myModalLabel">Warning</h3>
+	  	</div>
+		<div class="modal-body">
+			<p>Are you sure you want to reset the contents of the editor to the starter code?</p>
+		</div>
+  		<div class="modal-footer">
+   			<button type="button" id="btn-reset-yes" value="Yes" data-dismiss="modal" class="btn btn-danger btn-sm">Yes</button>
+   			<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  		</div>
+  		</div>
+  		</div>
+	</div>
+	
+	  	<div class="modal fade" id="yes_i_will_solve" tabindex="-1" role="dialog" aria-labelledby="yes_i_will_solve" aria-hidden="true">
+	  	  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="aprilFoolsLabel">Your solution</h3>
+	  	</div>
+		<div class="modal-body text-center">
+			<div style="margin-bottom: 10px;">
+				<img src="source_files/yay_happy.gif" class="img-polaroid">
+			</div>
+			<div id="terminal" class="typist-container" style="background-color: rgb(51, 51, 51); color: rgb(221, 221, 221); font-family: monospace; height: 80px;"></div>
+		</div>  	
+		</div>
+		</div>	
+	</div>
+
+<input type="hidden" name="isReadOnly" id="isReadOnly" value="false">
+
+
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+    <p>© CSE 2012 - 2020 | <a href="http://develop.finki.ukim.mk/projects/e-lab">Support &amp; Development</a></p>
+</footer>
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="source_files/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dataTables.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_004.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/typeahead.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/code.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/helper.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/diff_match_patch.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="source_files/codemirror.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dialog.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/fullscreen.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/searchcursor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/search.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/match-highlighter.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/matchbrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/closebrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clike.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/python.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/shell.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/commonlisp.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/x-mathjax-config;executed=true">
+	MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+	tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+    TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+    messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" src="source_files/MathJax.js" charset="utf-8"></script>
+<script src="source_files/jquery_002.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/problem.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clock.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/editor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_003.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function(){
+	
+	var isReadOnly = $('#isReadOnly').val() == "true";
+	var isTimeLimited = $('#isTimeLimited').val() == "true";
+	var hasHistory = $('#hasHistory').val() == "true";
+	
+	$(document).ready(function() {
+		if(!hasHistory) {
+			$('#restore').hide();
+		}
+		$('#warning').hide();
+	});
+
+	var textArea = document.getElementById('code');
+	var mode = "text/x-java";
+	
+	Code.Editor.init(textArea, mode, isReadOnly);
+	
+	Code.Execute = {
+		run : function() {
+			Code.Editor.clearErrors();
+			var code = Code.Editor.getCode();
+		    $.post('/code/run', { 
+		             code : code,
+		             'problemData.id' : 8598
+		        },
+		        function(data) {
+		            $('#output').html("");
+		        	if(data.success) {
+		        		$('#output').removeClass("output-error");
+		                $('#output').addClass("output-success");        		
+		        	} else {
+		        		$('#output').removeClass("output-success");
+		        		$('#output').addClass("output-error");
+		        		Code.Editor.markErrors(data.errors);
+		        	}
+		            $('#output').append(data.output);
+		            if(data.warning) {
+		            	$('#warning').html("");
+		            	$('#warning').append(data.warning);
+		            	$('#warning').show();
+		            	Code.Editor.markErrors(data.errors);
+		            } else {
+		            	$('#warning').hide();
+		            }
+		            $('#problem-revisions').load('/code/revisions', {
+		                'problemData.id' : 8598
+		            }, function() {
+		        		hasHistory = $('#hasHistory').val() == "true";
+		        		if(hasHistory) {
+		        			$('#restore').show();
+		        		}
+		            });
+		        }
+		    );
+		},
+		submit : function() {
+			var code = Code.Editor.getCode();
+	    	$.post('/submit', { 
+	             code : code,
+	             'problemData.id' : 8598
+	        },
+	        function(data) {
+	            $('#submission-output').html(data);
+	            $('#problem-revisions').load('/code/revisions', {
+	                'problemData.id' : 8598
+	            }, function(){
+	        		var hasHistory = $('#hasHistory').val() == "true";
+	        		if(hasHistory) {
+	        			$('#restore').show();
+	        		}
+	            });
+	            Code.Execute.attempts();
+	            $('html,body').animate({scrollTop: $("#submission-output").offset().top - 40},'slow');
+	        });
+		},
+		save : function(autosave) {
+			var code = Code.Editor.getCode();
+			$.post('/code/save', { 
+		        code : code,
+		        'problemData.id' : 8598
+		   		},
+		   		function(data) {
+			    	if(autosave) {
+			    		$("#auto-saved").fadeIn(300).delay(2000).fadeOut(300);
+			    	} else {
+			    		$("#saved").fadeIn(300).delay(2000).fadeOut(300);
+					}
+			    	$('#problem-revisions').load('/code/revisions', {
+		            	'problem.id' : 8598
+		        	});
+		   	});
+		},
+		reset : function() {
+			$.post('/code/reset', { 
+		         'problemData.id' : 8598
+		    	},
+		    	function(data) {
+		    		Code.Editor.setCode(data);
+		    	}
+			);
+		},
+		restore : function(){
+			var solutionHistoryId = $('#solutionHistory').val();
+			if(solutionHistoryId) {
+				$('#code').load(
+			            '/code/loadsolutionfromhistory',
+			            {
+			                'solutionHistoryId' : solutionHistoryId
+			            }, function(data) {
+			            	Code.Editor.setCode(data);
+			            }
+			     );
+			}
+		},
+		attempts: function() {
+			$('#attempts').load('/code/attempts', {
+            	'problem.id' : 6075
+            }, function() {
+            	var exceeded = $('#exceeded').val();
+            	if(exceeded == "true") {
+            		$('#submit').attr('disabled', true);
+            	}
+            });
+		}
+	}
+	$('#run').click(Code.Execute.run);
+	$('#submit').click(Code.Execute.submit);
+	//$('#save').click(Code.Execute.save(false));
+	$('#btn-reset-yes').click(Code.Execute.reset);
+	$('#restore').click(Code.Execute.restore);
+	// use closure
+	$('#format').click(function(){ return Code.Editor.format(8598) });
+    $('#analyze').click(function() { return Code.Editor.analyze(8598, function(data) {
+        console.log(data);
+        if(data.errors) {
+            $("#clang_output").show();
+            $("#output_link").attr("href", data.uri);
+        } else {
+            $("#clang_output").hide();
+        }
+    })});
+	var working = $('#working').hide();
+	$(document).ajaxStart(function() {
+    	$('#buttons').hide();
+        working.show();
+    }).ajaxStop(function() {
+        working.hide();
+        $('#buttons').show();
+    });
+	$('#select-theme').change(function(){
+		Code.Editor.setTheme($(this).val());
+	});
+	  
+	
+	$('.CodeMirror').jfontsize({
+		btnMinusClasseId: '#minus-btn',
+	    btnDefaultClasseId: '#default-btn',
+	    btnPlusClasseId: '#plus-btn',
+	    btnMinusMaxHits: 5,
+	    btnPlusMaxHits: 8,
+	    sizeChange: 1
+	});
+	
+	// Create a newDate() object
+	var dateOpened = new Date(1581128387000);
+	var dateEnd = new Date(parseInt($('#dateEnd').val()));
+	var serverTime = 1581359568577;
+	Code.Clock.init($('#time'), dateOpened, serverTime, dateEnd);
+	
+	if(isTimeLimited && !isReadOnly) {
+		Code.Clock.initTimeLimited($('#time-left'), dateEnd, serverTime, "/courses/finish?problemDataId=8598&courseId=111");	
+	}
+	
+	var dmp = new diff_match_patch();
+	
+	Code.viewDiff = function(test) {
+		var text2 = $('#output_' + test).html();
+		var text1 = $('#your_output_' + test).html();
+		var d = dmp.diff_main(text1, text2);
+		var ds = dmp.diff_prettyHtml(d);
+		$('#diff_' + test).html(ds);
+		$('#diff_' + test).show();
+	}
+	$('#setAutoBtn').hide();
+    $('#setFixedBtn').click(function() {
+        $(this).hide();
+        $('#setAutoBtn').show();
+        Code.Editor.setAutoSize();
+    });
+    $('#setAutoBtn').click(function() {
+        $(this).hide();
+        $('#setFixedBtn').show();
+        Code.Editor.setFixedSize();
+    });
+
+	$(document).bind('keydown', 'ctrl+shift+5', Code.Execute.run);
+	$(document).bind('keydown', 'ctrl+shift+6', Code.Execute.submit);
+	$(document).bind('keydown', 'ctrl+shift+0', Code.Execute.reset);
+
+	$('#terminal').typist({
+  		height: 80,
+  		speed : 'slow'
+	});
+	
+	 /* $('#yes_i_will_solve').on('shown.bs.modal', function(){
+		$('#terminal').typist('prompt')
+		  .typist('type', 'Кој ден сме денес?')
+		  .typist('echo', '1 Април')
+		  .typist('echo', 'Априлилили!');
+		(function(){function c(){var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},15500)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var f="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){console.warn("Could not find a node of the right size. Please try a different page.");return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()
+	}); */
+	
+})();
+</script>
+
+      
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('#btn-icon').toggleClass("fa-chevron-right fa-chevron-left");
+    });
+    </script>
+    
+</body></html>

@@ -1,0 +1,2745 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Студентски досиеа (60 поени) | Code</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" media="screen" href="source_files/fonts.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap.css">
+<link rel="stylesheet" media="screen" href="source_files/bootstrap-yety.css">
+<link rel="stylesheet" media="screen" href="source_files/font-awesome.css">
+<!-- <link rel="stylesheet" media="screen" href="/public/DataTables/media/css/jquery.dataTables.min.css"> -->
+<link rel="stylesheet" media="screen" href="source_files/dataTables.css">
+<link rel="stylesheet" media="screen" href="source_files/main.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/codemirror.css">
+<link rel="stylesheet" href="source_files/dialog.css">
+<link rel="stylesheet" href="source_files/fullscreen.css">
+<link rel="stylesheet" href="source_files/neat.css">
+<link rel="stylesheet" href="source_files/elegant.css">
+<link rel="stylesheet" href="source_files/erlang-dark.css">
+<link rel="stylesheet" href="source_files/night.css">
+<link rel="stylesheet" href="source_files/monokai.css">
+<link rel="stylesheet" href="source_files/cobalt.css">
+<link rel="stylesheet" href="source_files/eclipse.css">
+<link rel="stylesheet" href="source_files/rubyblue.css">
+<link rel="stylesheet" href="source_files/lesser-dark.css">
+<link rel="stylesheet" href="source_files/xq-dark.css">
+<link rel="stylesheet" href="source_files/ambiance.css">
+<link rel="stylesheet" href="source_files/blackboard.css">
+<link rel="stylesheet" href="source_files/vibrant-ink.css">
+
+<link rel="shortcut icon" type="image/png" href="http://code.finki.ukim.mk/public/images/favicon.ico">        <style>    .typist-container {      overflow: hidden;      padding-left: 4px;    }    .typist-container p {      margin: 0 0 3px;    }    .typist-container p.prompt {      margin: 5px 0;    }    </style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0 !important; padding: 0 !important; margin: 0 !important; vertical-align: 0 !important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap ! important}
+.MathJax img {display: inline ! important; float: none ! important}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block; overflow: hidden; width: 1px; height: 60ex}
+.MathJax .MathJax_EmBox {display: block; overflow: hidden; width: 1px; height: 60em}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('http://code.finki.ukim.mk/public/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+    <body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+         <div class="navbar-header">
+		  	<a class="logo" href="http://code.finki.ukim.mk/" title="Go to home page">
+	<img src="source_files/logo.png" alt="Code">
+</a> 
+<!-- <a class="logo-title brand" href="/" title="Go to home page">Code</a> -->		  	            	<a class="logo-title" href="http://code.finki.ukim.mk/course/111/" title="Go to course problem sets index page">Напредно програмирање 2019/2020</a>
+          			  	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+          	</button>          
+		 </div>
+		<div class="navbar-collapse collapse" id="navbar-main">
+          	<ul class="nav navbar-nav">
+            	          	</ul>
+        
+        	<ul class="nav navbar-nav navbar-right">
+          				            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_languages">
+		<i class="fa fa-flag fa-fw"></i> Language <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_languages">
+       	<li><a href="http://code.finki.ukim.mk/langauge?locale=mk&amp;path=%2Fcourse%2F111%2Fproblem%2F6314%2F">Macedonian</a></li>
+		<li><a href="http://code.finki.ukim.mk/langauge?locale=en&amp;path=%2Fcourse%2F111%2Fproblem%2F6314%2F">English</a></li>
+    </ul>
+</li>		            <li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_courses">
+		<i class="fa fa-th fa-fw"></i> Courses <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user_courses">
+        			<li><a href="http://code.finki.ukim.mk/course/61/"><i class="fa fa-angle-right fa-fw"></i> Алгоритми и податочни структури 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/48/"><i class="fa fa-angle-right fa-fw"></i> Алогоритми и податочни структури 2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/88/"><i class="fa fa-angle-right fa-fw"></i> Визуелно програмирање 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/111/"><i class="fa fa-angle-right fa-fw"></i> Напредно програмирање 2019/2020</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/37/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2014/2015</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/52/"><i class="fa fa-angle-right fa-fw"></i> Објектно ориентирано програмирање 2015/2016</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/86/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2017/2018</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/102/"><i class="fa fa-angle-right fa-fw"></i> Оперативни системи 2018/2019</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/43/"><i class="fa fa-angle-right fa-fw"></i> Основи на веб дизајн</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/60/"><i class="fa fa-angle-right fa-fw"></i> Системи на знаење 2016/2017</a></li> 
+					<li><a href="http://code.finki.ukim.mk/course/30/"><i class="fa fa-angle-right fa-fw"></i> Структурно програмирање 2014</a></li> 
+		    </ul>
+</li>	            	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user">
+		<i class="fa fa-user fa-fw"></i> Симон Ќулумов <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="user">
+        <li>
+			<a tabindex="-1" href="#"><i class="fa fa-eye fa-fw"></i> Student</a>
+		</li>	        
+        <li class="divider"></li>
+        <li>
+			<a href="http://code.finki.ukim.mk/logout"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+		</li>
+       </ul>
+</li>
+		         	        </ul>
+         </div>
+          
+	</div>
+</div>
+
+    <div class="container-fluid">
+        <div class="page-header">
+	<h2><i class="fa fa-angle-double-right"></i> <a href="http://code.finki.ukim.mk/course/111/problemset/1934/" title="">Испитни задачи</a>  <small>(1)</small></h2>
+</div>      <div id="wrapper">
+      <button class="btn btn-default btn-xs" id="menu-toggle">
+          <i id="btn-icon" class="fa fa-chevron-right fa-fw"></i>
+      </button>
+      <div id="sidebar-wrapper">
+          <div class="well sidebar-nav">
+                <ul class="nav nav-pills nav-stacked">
+<li class="nav-header">Problems</li>
+	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6311/">1) Преводи (30 поени)
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6312/">2) Именик (35 поени)
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6313/">3) Блоковска структура (35 поени)
+        </a></li>
+    	    <li class="active">
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6314/">4) Студентски досиеа (60 поени)
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6315/">5) Генерички кластер (40 поени)
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6316/">6) Word Vectors (40 поени)
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6317/">7) Discounts (50 поени)
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6319/">9) Мој ДДВ 1 
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6320/">10) Мој ДДВ 2 (30)
+        </a></li>
+    		    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6321/">12) Генерички евалуатор (30)
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6322/">13) File System (40)
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6323/">14) Лабораториски вежби (40)
+        </a></li>
+    	    <li>
+    	<a href="http://code.finki.ukim.mk/course/111/problem/6324/">15) Message System (60)
+        </a></li>
+    </ul>          </div><!--/.well -->
+          <div class="help">
+                      </div>
+      </div>
+      <div id="problem-layout">
+      
+
+
+
+    <div id="clock" class="pull-right">
+        <span class="time-label">Opened:</span>
+      <ul>
+          <li id="time">1 ден</li>          
+      </ul>
+    </div>
+    <h3 id="problem-name">Студентски досиеа (60 поени) <small>Problem 4 (0 / 0) </small></h3>
+
+<div class="row">    
+    <div id="problem-text" class="col-md-4">    
+    	<p>Да се имплементира класа <code>StudentRecords</code> која ќе 
+чита од влезен тек (стандарден влез, датотека, ...) податоци за 
+студентски досиеа. Податоците содржат (код - единствен стринг), насока 
+(стринг од 3 букви) и низа со оценки (цели броеви од 6 - 10). Сите 
+податоци се разделени со едно празно место. Пример за форматот на 
+податоците:</p>
+
+<pre><code>ioqmx7 MT 10 8 10 8 10 7 6 9 9 9 6 8 6 6 9 9 8
+</code></pre>
+
+<p>Ваша задача е да ги имплементирате методите:</p>
+
+<ul>
+<li><code>StudentRecords()</code> - default конструктор</li>
+<li><code>int readRecords(InputStream inputStream)</code> - метод за читање на податоците кој враќа вкупно прочитани записи</li>
+<li><code>void writeTable(OutputStream outputStream)</code> - метод кој 
+ги печати сите записите за сите студенти групирани по насока (најпрво се
+ печати името на насоката), а потоа се печатат сите записи за студентите
+ од таа насока сортирани според просекот во опаѓачки редослед (ако имаат
+ ист просек според кодот лексикографски) во формат <code>kod prosek</code>, каде што просекот е децимален број заокружен на две децимали. Пример <code>jeovz8 8.47</code>. Насоките се сортирани лексикографски. Комплексноста на методот да не надминува <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-1-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-1"><span style="display: inline-block; position: relative; width: 2.419em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(1.863em, 1000em, 3.209em, -0.468em); top: -2.786em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-4" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-5" style="font-family: MathJax_Math; font-style: italic;">N<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.085em;"></span></span><span class="mo" id="MathJax-Span-6" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.786em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.383em; vertical-align: -0.381em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-1">O(N)</script> во однос на бројот на записи.</li>
+<li><code>void writeDistribution(OutputStream outputStream)</code> - 
+метод за печатење на дистрибуцијата на бројот на оценки по насока, 
+притоа насоките се сортирани по бројот на десетки во растечки редослед 
+(прва е насоката со најмногу оценка десет). Дистрибуцијата на оценки се 
+печати во следниот формат:</li>
+</ul>
+
+<pre>NASOKA
+[оценка со 2 места порамнети во десно] | [по еден знак * на секои 10 оценки] ([вкупно оценки])
+</pre>
+<p>Пример:</p>
+
+<pre>KNI
+ 6 | ***********(103)
+ 7 | ******************(173)
+ 8 | *******************(184)
+ 9 | *****************(161)
+10 | **************(138)
+</pre>
+<p>Комплексноста на овој метод да не надминува <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-2-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-7"><span style="display: inline-block; position: relative; width: 8.871em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(1.863em, 1000em, 3.209em, -0.468em); top: -2.786em; left: 0em;"><span class="mrow" id="MathJax-Span-8"><span class="mi" id="MathJax-Span-9" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-10" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-11" style="font-family: MathJax_Math; font-style: italic;">N<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.085em;"></span></span><span class="mo" id="MathJax-Span-12" style="font-family: MathJax_Main; padding-left: 0.222em;">∗</span><span class="mi" id="MathJax-Span-13" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.222em;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.081em;"></span></span><span class="mo" id="MathJax-Span-14" style="font-family: MathJax_Main; padding-left: 0.222em;">∗</span><span class="mi" id="MathJax-Span-15" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.222em;">l</span><span class="mi" id="MathJax-Span-16" style="font-family: MathJax_Math; font-style: italic;">o</span><span class="msubsup" id="MathJax-Span-17"><span style="display: inline-block; position: relative; width: 0.878em; height: 0px;"><span style="position: absolute; clip: rect(2.056em, 1000em, 3.048em, -0.508em); top: -2.671em; left: 0em;"><span class="mi" id="MathJax-Span-18" style="font-family: MathJax_Math; font-style: italic;">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.671em;"></span></span><span style="position: absolute; top: -2.257em; left: 0.458em;"><span class="mn" id="MathJax-Span-19" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 2.498em;"></span></span></span></span><span class="mo" id="MathJax-Span-20" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-21" style="font-family: MathJax_Math; font-style: italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.081em;"></span></span><span class="mo" id="MathJax-Span-22" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-23" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.786em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.383em; vertical-align: -0.381em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-2">O(N * M*log_2(M))</script> за N записи и M насоки.</p>
+    </div>
+    <div id="editor" class="col-md-8">
+    <div id="editor-header">
+    	<label for="code" class="pull-left">Your solution:</label>
+    	<div class="pull-right programming_language">
+    	Programming language:
+    	    		    					    		<span class="label label-info">Java</span>
+    			    			    		    	    	</div>
+    </div>
+    <div class="clearfix"></div>
+    <textarea id="code" name="code" style="display: none;">import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.*;
+
+/**
+ * January 2016 Exam problem 1
+ */
+public class StudentRecordsTest {
+  public static void main(String[] args) {
+    System.out.println("=== READING RECORDS ===");
+    StudentRecords studentRecords = new StudentRecords();
+    int total = studentRecords.readRecords(System.in);
+    System.out.printf("Total records: %d\n", total);
+    System.out.println("=== WRITING TABLE ===");
+    studentRecords.writeTable(System.out);
+    System.out.println("=== WRITING DISTRIBUTION ===");
+    studentRecords.writeDistribution(System.out);
+  }
+}
+
+// your code here</textarea><div class="CodeMirror cm-s-default" style="height: 520px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 271px; left: 98px;"><textarea style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" tabindex="0" wrap="off">*/</textarea></div><div class="CodeMirror-hscrollbar" style="left: 45px;"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div style="position: relative; min-height: 100%;"><div class="CodeMirror-sizer" style="min-width: 493px; margin-left: 45px; min-height: 344px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: currentcolor none medium;"><div class="CodeMirror-measure"><pre><span> </span><span> </span><span> </span><span> </span><span class="cm-comment">*</span><span class="cm-comment">/</span></pre></div><div style="position: relative; z-index: 1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 108px; top: 112px; width: 144px; height: 14px;"></div></div><div style=""><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">1</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">io</span>.<span class="cm-variable">InputStream</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">2</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">io</span>.<span class="cm-variable">OutputStream</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">3</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">io</span>.<span class="cm-variable">PrintWriter</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">4</div></div><pre><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-operator">*</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">5</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">6</div></div><pre><span class="cm-comment">/**</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">7</div></div><pre> <span class="cm-comment">* January 2016 Exam problem 1</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">8</div></div><pre> <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">9</div></div><pre><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-variable">StudentRecordsTest</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">10</div></div><pre>  <span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-keyword">void</span> <span class="cm-variable">main</span>(<span class="cm-variable">String</span>[] <span class="cm-variable">args</span>) {</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">11</div></div><pre>      <span class="cm-comment">/*</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">12</div></div><pre>    <span class="cm-comment">System.out.println("=== READING RECORDS ===");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">13</div></div><pre>    <span class="cm-comment">StudentRecords studentRecords = new StudentRecords();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">14</div></div><pre>    <span class="cm-comment">int total = studentRecords.readRecords(System.in);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">15</div></div><pre>    <span class="cm-comment">System.out.printf("Total records: %d\n", total);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">16</div></div><pre>    <span class="cm-comment">System.out.println("=== WRITING TABLE ===");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">17</div></div><pre>    <span class="cm-comment">studentRecords.writeTable(System.out);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">18</div></div><pre>    <span class="cm-comment">System.out.println("=== WRITING DISTRIBUTION ===");</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">19</div></div><pre>    <span class="cm-comment">studentRecords.writeDistribution(System.out);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">20</div></div><pre>    <span class="cm-comment">*/</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">21</div></div><pre>  }</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">22</div></div><pre>}</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">23</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -45px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 20px; width: 16px;">24</div></div><pre><span class="cm-comment">// your code here</span></pre></div></div><div class="CodeMirror-cursor" style="left: 52px; top: 266px; height: 14px;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 344px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-compiler-message"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 24px;"></div></div></div></div></div>
+    <div id="editor-control">
+    	<div class="row">
+    		<div class="col-md-4">
+    			<div id="problem-revisions">	<label for="revision" class="editor-control-label">Revision:</label>
+	
+<select name="solutionHistory" size="1" id="solutionHistory" class="form-control input-sm">
+    					<option value="9403052" title="2020-02-10 19:21:43.0" selected="selected">2 seconds ago - 19:21:43
+</option>					<option value="9403049" title="2020-02-10 19:21:29.0">16 seconds ago - 19:21:29
+</option>					<option value="9403046" title="2020-02-10 19:21:12.0">33 seconds ago - 19:21:12
+</option>			    </select>
+
+	<input type="hidden" name="hasHistory" id="hasHistory" value="true">
+</div>
+	    		<button id="restore" class="btn btn-default btn-xs" style="display: block;"><i class="fa fa-undo"></i> Restore</button>
+    		</div>
+    		<div class="col-md-8">
+    		<div class="row">
+    			<div class="col-md-2">
+		    		Full Screen <b>F11</b>
+    			</div>
+                <div class="col-md-3">
+                    heigth:
+                    <button id="setFixedBtn" class="btn btn-default btn-xs">
+                        520px
+                    </button>
+                    <button id="setAutoBtn" class="btn btn-default btn-xs" style="display: none;">
+                        Auto
+                    </button>
+                </div>
+    			<div class="col-md-3">
+			    	<a class="jfontsize-button" id="minus-btn" style="cursor: pointer;">A-</a>
+			    	<a class="jfontsize-button" id="default-btn" style="cursor: pointer;">A</a>
+			    	<a class="jfontsize-button" id="plus-btn" style="cursor: pointer;">A+</a>
+    			</div>
+    			<div class="col-md-4">
+    			<label for="select-theme" id="select-theme-lbl" class="editor-control-label">
+		    		Select a theme: 
+		    	</label>
+		    	<select id="select-theme" class="form-control input-sm">
+			    	<option selected="selected">default</option>
+			    	<option>ambiance</option>
+			    	<option>blackboard</option>
+			    	<option>cobalt</option>
+			    	<option>eclipse</option>
+			    	<option>elegant</option>
+			    	<option>erlang-dark</option>
+			    	<option>lesser-dark</option>
+			    	<option>monokai</option>
+			    	<option>neat</option>
+			    	<option>night</option>
+			    	<option>rubyblue</option>
+			    	<option>vibrant-ink</option>
+			    	<option>xq-dark</option>
+		    	</select>
+    			</div>
+	    	</div>
+    		</div>
+    	</div>
+    </div>
+    
+    
+        <div class="form-actions" style="clear:both;">
+        <div id="buttons" style="display: block;">
+        	<div class="row">
+        		<div class="col-md-6">
+		            <button id="run" class="btn btn-info btn-sm"><i class="fa fa-play"></i> Run</button>
+		            <button id="submit" class="btn btn-primary btn-sm"><i class="fa fa-play-circle"></i> Submit</button>
+		            <a href="#resetAlert" role="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-retweet"></i> Reset</a>
+		            <button id="format" class="btn btn-default btn-sm"><i class="fa fa-magic"></i> Format</button>
+                    <!-- <button id="analyze" class="btn btn-default btn-sm"><i class="fa fa-cogs"></i> analyze</button> -->
+		            <!-- <a href="#yes_i_will_solve" role="button" class="btn btn-sm btn-warning pull-right" data-toggle="modal"><i class="fa fa-meh-o fa-fw"></i> Solve all my problems!</a> -->
+		            <!-- <button id="save" class="btn"><i class="fa fa-check"></i> Save</button> -->
+        		</div>
+        		<div class="col-md-6" id="attempts"> 
+	<span>Unlimited attempts</span>
+</div>
+        	</div>
+        </div>
+        <div id="working" style="display: none;">
+            <span id="working_msg">working...</span>
+            <img src="source_files/ajax-loader.gif">
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="program-output">
+        <h3>Program output
+        <img src="source_files/c.png" id="correct_img" style="display: none;">
+        <img src="source_files/w.png" id="wrong_img" style="display: none;"></h3>
+        <pre id="warning" class="pre-scrollable output-warning" style="display: none;"></pre>
+        <div id="clang_output" style="display: none;">
+            <h3><a id="output_link" target="_blank" class="text-danger">View report</a></h3>
+        </div>
+        <pre id="output" class="pre-scrollable"></pre>
+    </div>
+        <div id="sample-input" style="clear: both;">
+    	<div class="row">
+        <div class="col-md-6">
+            <h3>Sample input</h3>
+            <pre id="ex_input">sneft1 KNI 9 10 8 8 10 9 6 7 7 6 9 9 7 7 10 9 6 10 10 8 6 7 9 7 9 7 6
+zriou9 PET 8 7 8 6 9 6 8 7 9
+cfsxo2 IKI 7 7 9 6 9 9 7 8 8 8 8 7 10 9 8 10 9 9
+bttqe4 MT 7 6 6 10 10 9 9 9 7 7 9 10 10 9 10 9 8 8 8 10 8 6 8 8 9 7 6 6 8 9 6
+jlzva2 KNI 7 7 6 8 8 10 9
+hdgfb1 MT 6 10 10 6 10 9 8 9 6 10 8 7
+smbuk7 PET 6 10 10 8 7 7 8 7 7 8 10 6 7 8 10 9 7 6 7 8 10 10 6 6 7 8 10 7 8
+bdkfp6 KNI 9 10 7 6 9 7 7 7 7 7 6 7 7 7 9 8 6 7 8 7 10 8 7 6 8 6 10 7 8 8 8 6 8 10 6 8 9 8 8
+xmdwf8 IKI 7 9 6 7 10 9 9 8 10
+pftyc4 PET 10 9 7 8 8 10 9 8 9 6 8 10 7 7 7 9 6 6 8 6 9 10 9 6 8 7 8 9
+jfjfs4 IKI 7 7 9 8 8 10 8
+cqrvl4 KNI 8 6 6 8 7 7 7 8 10 7 7 7 9 10 9 8 7 10 7 7 9 8 7 10 8 8 8 10 6 10
+tuiph5 IKI 7 8 10 7 6 7 8 6 8 8 8 10 6 9 6 9 9 7 10 9 7 10 8 9
+hdhvz2 KNI 8 8 6 8 10 8 8 8 8 7 8 8 9 10 10 9 10 10 8 7 7 8 7 10 8 9 7 9 9
+ahnvq3 MT 10 8 7 6 9 9 9 9 9 9 10 8 6 10 6 10 6 9 9 8 8 9 8 7 6 8 8 8 10 8 8 8 10 7
+vcnre2 MT 10 10 7 7 9 6 8 7 9 8 6 8 6 8 8 6 8 10 8 6 8 8 10
+muxjy1 KNI 7 6 7 10 10 7 9 9 6 9 7
+lmydq2 IKI 8 10 6 7 8 9 7 8 8 9 6 9 8 7 7 7 9 7 8 9 6 8 9 10 9 8
+blxlk8 MT 10 9 7 8 8 6 6 10 9 7 7 10 6 9 7 8 6 6 8 7 6 7 8 9 8 6
+dutir8 MT 7 7 7 7 6 9 10 9 9 10 9 10 6 8 10 8 8 6 6 10 7 8 6 8 8 7 9 6 8
+ddjle7 PET 8 7 8 7 8 10 9 8 9 7 6 7 9 10 7 10 7 8 6 8 10 7 10 8 6 9 10 9 8 8
+bptwb7 PET 7 6 9 7 7 9 8 6 8 10 10 10
+leoji7 PET 8 10 10 6 9 9 9 6 8 9 6 10
+poksu0 KNI 9 10 7 6 8 10 9 8 7 7 10 8 8 7 8 9 9 9 10 8 10 10 9 7 9
+ybbmm8 MT 9 6 6 8 8 9 7 8 7 10 9 6 8 8 6 10 7 7 10 8 10 7 8 7 10 7 8 9 10 6 10 10 7
+kpumn7 PET 9 10 9 7 9 9 9 6 6 8 6 8 8 8 7 9 8 10 7 10 7 9 6 7 7 6 7 10 9 7 9 9
+ahmsq2 PET 7 8 6 9 8 9 6 7 8 9 8 6 6 8 10 7 8 9 10 8 7 8 8 9 6 8 9 7 7 6 8 7 7 9 10 6 6 9 9
+evvjd7 MT 9 7 8 7 8 6 8 8 7 8 10 9 10
+cscbh7 IKI 10 6 10 7 10 8 9 6 8 7 6 9 6 7 9 7 9 9 8 7 8 6 8 9 7 8 8 8 8 9 8 10 9 10
+zhrfg5 MT 10 10 9 6 7 6 9 6 7 10 8 9 8 9 9 8 7 8 8 9 8 7 8
+chnhu2 PET 6 9 9 10 9 10 7 6 10 8 9 6 9 7 9 9 8 6 9 8 10 9 9 7 7 10 7 9 6 10 9 9 10 6 8 8 9 10
+lpomu8 IKI 6 9 8 8 9 7 6
+gpkmd2 IKI 7 7 9 10 7 7 6 8 7 8 6 7 7 7 6 9 7 9 8 8
+mvoek1 PET 8 10 10 9 6 10 6 9 8 8 10 8 7 10 8 7 6 9 9 8 10 7 7 10 8 6 8 8 7 7 9 7 8 7 6 10 6 9 8
+gkzah3 MT 7 8 10 8 7 9 9 9 10 10 8 8 10 6 10 8 9 7 10
+ulvgi9 MT 8 7 9 9 7 7 8 9 8 6 7 7 6 9
+hkoee0 KNI 9 9 9 6 9 8 7 6 7 9 10 6 8 8 9 9 6 7 6 7 9 9 10 8 9 8 8
+fktma4 IKI 6 9 8 10 10 8 9 8 10 8 7 8 6 8 10 9 10 9 9 8 7 9 7 7
+mpkxj0 IKI 6 9 7 6 8 9 10 8 9 7 9 9 8 8 8 7 10 9 9 6 8 6
+yduky4 IKI 9 6 10 9 8 9 8 8 6 9 8 9 8 7 8 7 9 10 9 7 6 7 8 9 7 7
+exbwu9 MT 8 9 10 9 7 8 8 9 8 9 10 7 9 8 6 8 10 7 6 8 9 8 6 10 8 8 8 8 7 6 8 9 7 9 7 8
+qppka3 PET 9 9 9 8 9 8 7 8 7 9 7 7 9 9 8 8 9 8 9 8 7 8 7 10 10 9 6 7 8 8 8 9 7 10
+miemu8 PET 8 10 9 9 8 6 9 7 6 10 9 9 7 10 9 8 9 9 9 7 10 9 9 7 7 8 8 6 9 9 7 10 9 8
+zixwa3 IKI 9 9 6 10 9 7 8 6 8 6 8 6 7 10 9 7 7 8 6 8 8 6 6 6 6 7 9 8 9 7 8 9 10
+scvsw2 KNI 10 7 9 8 9 10 8 8 7 7 7 9 10 9 10
+jngew7 MT 9 7 10 10 7 8 10 8 8 7 7 7 8 10 9 9 6 9 7 8 8 8 6 8 8 9 10 10 7 9 7 9 9
+qztli2 MT 7 9 7 6 7 7 10 9 6 7 9 7 8 6 9 8 7 6 7 8 6 6 8 6 9 7
+kijez3 PET 6 9 6 8 9 7 6 6
+pruqw4 KNI 8 8 9 7 9 10 7 10 6 9 7 7 9 6 7 9 8 10 6 10 7 9 10 7 7 6 9
+vyuoj4 PET 9 8 7 6 10 9 7 7 7 8 7 6 8 9 10 9 9 8 7
+csnkc3 KNI 6 10 7 9 9 7 8 10 9 7 7 8 7 9 9 8 8 6
+gzefs0 KNI 8 10 8 9 8 10 6 7 10 10 6 6 6 7 9 9 6 7 7 10
+felxm5 PET 6 6 9 10 10 8 9 8 8
+pxipx1 PET 7 8 7 8 10 6 9 8 7 8 8 6 9 9 7 7 9 8 8 7 8 10 8 9 8 9 9 9 9 8 7
+lsfcd5 KNI 10 7 8 7 9 7 9 7 7 7 8 10 7 6 9 8 10 6 10 10 10 10 10 9 7 10 8 8 9 9 6
+mrgkn3 PET 7 7 7 7 10 7 8 8 6 9 6 8 7 9 9 9 9 10 7 8 10 8 9 7 10 10 10 9 9 7
+hyazl2 IKI 10 10 8 7 9 7 6 8 9 9 7 7 10 8 10 7 10 6 8 6 10 8 8 9 7 9 8 7 6 6 7 8 8 9
+fbvux2 IKI 6 9 10 7 8 10 9 8 10 7 9
+hkpfz1 MT 7 7 8 6 10 8 9 10 10 9 8 8 6 6 9 9 8 9 7 10 6 10
+qaucf4 KNI 7 8 7 10 7 10 9 8 8 9 9 8
+hgcdl0 KNI 7 8 7 9 8 7 8 9 9 10 7 8 8 10 6 10 7 10 6 8 8 6 9 10 9 8 9
+lfxrv7 IKI 9 8 9 10 6 9 9 8 8
+vktdd7 PET 6 6 9 7 8 8 8 8 9
+njwtf2 MT 10 7 10 6 8 8 6 6 8 8 6 10 10 6 9 8 7 8 10 10 10 10 10 8
+ipfek1 PET 10 7 8 9 9 7 8 8 7 10 7 7 8 8 6 8 9 9 7 9 8 10 10 6 7 9 9 8 8
+qoclm9 KNI 7 8 8 8 9
+luyep9 KNI 8 6 9 8 7 9 8 10 8 7 9 6 7 8 6 7 7 6 6 9 10 8 10 10 10
+qlacn1 IKI 7 10 9 9 8
+uyfsw4 KNI 8 10 7 9 8 7 7 6 8 8 8 9 9 8 8 9 7 9 6 9 8 7 9 8 6 10 8 10
+aiabu7 IKI 6 9 7 7 9 9 8 10 10 8 8 9 9 9 6 8 9 8 6 9 8 8 7 9 6 8 7 10 9 8 9 9 8 9 8 9 7 6 6
+mktft1 KNI 10 6 9 7 7 10 8 8 10 9 6 9 10 6 8 8 9 6 7 9 7
+gnecd1 KNI 6 10 6 9 8 9 6 6 6 8 8 8 10 10 9 9 8 10 10 7 7
+mhplc3 KNI 9 9 7 6 7 10 9 6 8 7 6 8 9
+loxlc6 PET 6 8 9 7 8 9 7 9 7 7 8 6 9 7 7 8
+uwxun5 IKI 7 6 8 8 7 8 10 10 7 10 8 8 7 8 8 9 7 7 9 7 8
+ubtzp6 KNI 6 9 6 8 10 8 8 9 6 8
+ebyix4 KNI 8 10 6 8 8 9 7 10 8 9 6 7 7 7 6 8 8 8 6 10 10 8 8 7 8 10 6 6 9 8 8 9 6 7
+gipon6 KNI 8 9 6 8 8 10 6 8 10 10 7 6 10 7 9 9
+lcblz5 IKI 10 9 10 8 10 10 6 9 6 7 9 8 7 8 8 8 6 9 7 8
+uqlrl5 KNI 9 7 7 10 9 8 7 10 8 9 9 8 10 6 6 8 9 7 7 9 8 6 8 7 7 10 10 10 7 10 6 10 9 7 10 7 10 8 7 6
+smnpk6 MT 10 8 9 7 9 9 8 8 9 7 7 8 8 7 6 6 6 8 9 7 9 6 6 8 7 6 9 6 6 9 7
+dnfiv5 MT 7 7 9 9 9 9 10 6 10 7 9 9 8 6 6 8 6 9 6 9 10 8 8
+uscdn7 IKI 8 6 7 8 8 10 10 9 10 10 8 8 7
+bdcat0 PET 7 10 8 8 6 7 6 6 10 10 9 8 9 6 7 7 7 9 6 10 10 8 10 10 10 6 8 7 8 8 7 7 9 10 10 10 10 7 9 8
+jejra2 KNI 8 9 9 10 7 6 7 10
+vfrwz6 MT 8 8 7 10 7 7 7 7 9 6 10 10 9 8 8 7 8 8 8 10 8 9 8 6 8 10 6
+pzhww8 KNI 6 7 6 9 8 10 8 7 9 8 8
+otplh1 MT 8 8 6 9 10 8 10 9 8 8 9 8 6 9 6 8
+qnydp8 MT 7 8 6 8 10 7 7 6 9 8 9 9 6 9 10
+mndmo8 PET 10 8 7 7 8 7 9 8 6 8 9 9 6 9 9 7 10
+ynnih1 IKI 8 6 10 6 6 8 9 9 9 10 9 9 8 9
+cwwce2 PET 8 9 6 10 9 7 8
+ugwfy9 IKI 9 9 8 7 8 10 9 6 9 10 8
+sogrh5 PET 7 10 7 8 7 7 9 10 8 9 8 9 9 7 8 6 10 8 6 8 9 9 7 9 7 8 8 9 8 9 6 10 8 7 7 7 8 10 8 9
+gufnd5 PET 8 9 6 8 7 10 10 8 7 7 9 9 9 9 6 10 9
+duflt3 IKI 6 7 6 8 6 6 10 7 7 7 7 7 7 10 8 7 7 9 8 7 6 7 9 8
+nefim6 PET 6 8 6 7 7 8 8 6 8 8 10 9
+uhevv3 MT 7 9 6 6 10 9 7 7 10 7 10 9 10 8 9 6 10 9 9
+ovyja3 IKI 10 9 10 8 6 10 9 6 7
+dovut1 IKI 8 6 6 8 7 6 9 7 9 8 8 7 7 8 9 8 10 6 9 8 9 10 7 9 10 7 8 9 8 7 8
+vbgwe4 PET 9 10 8 9 9 9 10 10 10 8 9
+tmsfi3 IKI 9 8 10 6 6 6 7 6
+shvui0 IKI 6 8 8 7 6
+cmwkj0 PET 7 10 7 8 6 8 9 9 6 9 7 9 8 9 7 8 8 8 6 9 9 6 10 6 6 6 8
+fbzxl5 PET 8 6 6 10 8 7 6 7 7 10 7 6 10 9 9 8
+pllmk2 KNI 8 10 7 8 6 9 8 9 7 9 6 10 7 9 9 9 10 10 8 7 7 10 7 8 6 8 9 7
+kmwhp5 PET 9 7 9 7 8 7 10 10 10 7 6 8 8 7 6 9 8 7 7 8 7 8 6 10 8 9 9 6 9 10 8 10 6 7 10 9 7
+mieyn4 MT 8 9 6 9 9 8 9 6 6 10 6 7 7 6 10 8 7 10 7 10 10 8 7 9 6 10 10 7 9 8 8 7 8 6 8 7 9
+uswaf5 IKI 10 8 10 7 7 6 9 9
+dqbcp0 MT 9 7 9 9 8 9 10 9 10 8 7 8 7 7 6 9 8 7 9 9 10 8 9
+kmgob4 IKI 7 7 9 6 9 8 9
+jeovz8 PET 9 7 7 7 10 8 7 10 8 7 8 10 10 9 8 10 9
+laesp5 PET 7 7 8 7 9 7 9 7 9 6 7 9 9 8 10 7
+qtsgn0 KNI 9 10 10 6 9 10 10 10
+xazoa3 KNI 7 8 8 10 8 6 7 7 7 8 10 8 6 7 9 7 10
+pcefm4 MT 10 8 10 10 8 8 7 7 9 7 7 10 8 7 8 10 9 9 8 9 6
+rwoll0 MT 7 7 8 9 8 7 9 9 7 8 9 6 6 9 8 7 7 8 9 10 7 10 8 8 9 10 8 7 7 8 6 8 10 8 9 10 7 10 8 6
+tcqbl4 KNI 9 8 7 9 7 7 7 7 9 9 10 9 6 9 9 6 6 8 6 10 7 7 8 9 10 8 8 8 6 9 8 7 9 9 7 8 8
+cvkic9 IKI 7 7 8 9 9 7 8 9 8
+nqehh1 PET 9 9 6 6 7 7 7 9 8 6 7 10 8 6 10 6 10 7 9 8 6 7
+kywvp1 IKI 9 9 10 10 7 8 8 7 6 8 6 7 9 6 8 8 10 8 10 7
+neize7 IKI 8 7 10 6 6 9 9 9 8 10 8 9 7 8 8 7 6 6 10 7 8 7 6 8 9 9 9 7 6 9 8 9 8 9 10 8 7 8 10
+wedcg2 KNI 8 10 8 8 7 9 10 10 8 10 9 10 8 9 7 10 6 8 7 7 9 9 10 8 9 6
+tzeaj6 IKI 9 7 9 7 10 9 9 9 6 9 10 9 8 6 8 9 6 9 10 6 9 6 8 6
+pjncv7 PET 8 10 10 9 6 7 7 9 8 8 9 8 8 9 9 10 8 8 9
+kohaq2 IKI 9 7 8 10 8 9 8 8 8 10 6 7 9 8 9 7 7 10 8 8 8 8
+pwrfj3 PET 6 9 7 8 6 8 10 6 10 8 8 8 9 8 8 8 7 7 8 9 10 6 10 8 7 8
+ikklx0 KNI 8 7 7 8 9 8 7 7 7 8 8 6 7 9 7 8 6 10 7 10
+fownu2 PET 7 9 7 9 8 8 9 9 9 9 9 8 9 7 9 7
+tcvmn0 KNI 9 9 10 9 10 10 7 10 8 6 9 9 6 8 9 8 9 7 8 8 9 7 7 8 10 8 10 10 9 6 8 7 9 9 6 7 7 8 9 9
+mgkqu9 MT 8 9 8 9 10 7 6 9 6
+livuj3 MT 9 6 10 7 6 8 8 8 9 7 8 9 10 8 10 8 7 8 7 9 9 9 10 8 8 7 9 8 6 6 9 8 10 7 9 7 6
+hauab3 MT 6 8 6 7 9 8 8 7 7 8
+zrxza1 IKI 9 7 9 6 8 8 8 7 7 6 8 6 10 9 7 7 7 10 7 9 7 7 10 7 7 8 8 8 9 6 7 10 8 9 6
+zqmyo4 MT 6 8 6 8 7 9 8 10 10 9 10 9 9 10 6 7 8 10 7 10 7 9 6 8 7 7 6 6 7 9 8 7 7
+unpml9 PET 7 8 6 7 8 6 7 9 8 8 7 9 9 7 8 6 10 9 8 6 10 6 9 10
+vwwxd3 KNI 6 7 10 8 8 7
+oetcl5 IKI 9 6 9 8 9 8 7 6 7 8 7 10 8 7 10 9 9 10 10
+ooltt8 IKI 7 10 7 6 10 10 10 10 9 7 9 6 10 9 9 9 7 7 6 7
+bvrhj6 IKI 7 10 8 8 9 7 8 9 7 9 9 8 10 7 10 7 8 10 10 6 7 10 6 7 6 9 9 8 7 7 8 6 7
+xetgd7 PET 6 7 7 9 9 7 8 7 7 9 10 8 6 9 10 8 9 9 7 7 8 8
+ewuck9 MT 6 7 9 8 9 8 8 9 6 10 9 9 8 6 8 9 7 7 8 6
+gjxzg6 MT 10 8 6 9 7
+</pre>
+        </div>
+        <div class="col-md-6">
+		    <h3>Sample output</h3>
+		    <pre id="expected">=== READING RECORDS ===
+Total records: 143
+=== WRITING TABLE ===
+IKI
+qlacn1 8.60
+fbvux2 8.45
+ugwfy9 8.45
+lfxrv7 8.44
+uscdn7 8.38
+fktma4 8.33
+ovyja3 8.33
+xmdwf8 8.33
+ynnih1 8.29
+oetcl5 8.26
+ooltt8 8.25
+uswaf5 8.25
+cfsxo2 8.22
+kohaq2 8.18
+lcblz5 8.15
+jfjfs4 8.14
+tzeaj6 8.08
+aiabu7 8.08
+cscbh7 8.06
+kywvp1 8.05
+neize7 8.03
+bvrhj6 8.00
+cvkic9 8.00
+hyazl2 8.00
+mpkxj0 8.00
+tuiph5 8.00
+yduky4 8.00
+lmydq2 7.96
+uwxun5 7.95
+dovut1 7.94
+kmgob4 7.86
+zrxza1 7.77
+zixwa3 7.67
+lpomu8 7.57
+gpkmd2 7.50
+duflt3 7.38
+tmsfi3 7.25
+shvui0 7.00
+KNI
+qtsgn0 9.25
+scvsw2 8.53
+poksu0 8.48
+wedcg2 8.46
+hdhvz2 8.34
+qaucf4 8.33
+lsfcd5 8.32
+tcvmn0 8.30
+jejra2 8.25
+gipon6 8.19
+hgcdl0 8.19
+uqlrl5 8.15
+pllmk2 8.14
+gnecd1 8.10
+uyfsw4 8.07
+mktft1 8.05
+pruqw4 8.04
+csnkc3 8.00
+hkoee0 8.00
+qoclm9 8.00
+sneft1 8.00
+cqrvl4 7.97
+luyep9 7.96
+gzefs0 7.95
+tcqbl4 7.95
+muxjy1 7.91
+jlzva2 7.86
+ebyix4 7.82
+xazoa3 7.82
+pzhww8 7.82
+ubtzp6 7.80
+mhplc3 7.77
+ikklx0 7.70
+vwwxd3 7.67
+bdkfp6 7.62
+MT
+gkzah3 8.58
+dqbcp0 8.35
+pcefm4 8.33
+uhevv3 8.32
+njwtf2 8.29
+hdgfb1 8.25
+jngew7 8.24
+ahnvq3 8.24
+hkpfz1 8.18
+bttqe4 8.13
+otplh1 8.13
+zhrfg5 8.09
+evvjd7 8.08
+ybbmm8 8.06
+exbwu9 8.06
+livuj3 8.05
+rwoll0 8.05
+dnfiv5 8.04
+vfrwz6 8.04
+gjxzg6 8.00
+mgkqu9 8.00
+mieyn4 7.97
+qnydp8 7.93
+zqmyo4 7.91
+dutir8 7.90
+vcnre2 7.87
+ewuck9 7.85
+ulvgi9 7.64
+blxlk8 7.62
+smnpk6 7.58
+hauab3 7.40
+qztli2 7.38
+PET
+vbgwe4 9.18
+jeovz8 8.47
+pjncv7 8.42
+miemu8 8.35
+chnhu2 8.34
+leoji7 8.33
+fownu2 8.31
+gufnd5 8.29
+mrgkn3 8.23
+felxm5 8.22
+qppka3 8.21
+bdcat0 8.20
+cwwce2 8.14
+ipfek1 8.14
+ddjle7 8.13
+sogrh5 8.10
+bptwb7 8.08
+pxipx1 8.06
+mndmo8 8.06
+mvoek1 8.05
+kmwhp5 8.03
+kpumn7 8.00
+pftyc4 8.00
+pwrfj3 7.96
+xetgd7 7.95
+vyuoj4 7.95
+laesp5 7.88
+smbuk7 7.86
+unpml9 7.83
+ahmsq2 7.77
+fbzxl5 7.75
+cmwkj0 7.74
+vktdd7 7.67
+nqehh1 7.64
+loxlc6 7.63
+nefim6 7.58
+zriou9 7.56
+kijez3 7.13
+=== WRITING DISTRIBUTION ===
+KNI
+ 6 | ***********(103)
+ 7 | ******************(173)
+ 8 | *******************(184)
+ 9 | *****************(161)
+10 | **************(138)
+PET
+ 6 | ************(119)
+ 7 | ********************(193)
+ 8 | **********************(215)
+ 9 | **********************(215)
+10 | **************(131)
+MT
+ 6 | *************(124)
+ 7 | ***************(149)
+ 8 | *********************(202)
+ 9 | *****************(164)
+10 | *************(125)
+IKI
+ 6 | ***********(108)
+ 7 | ****************(160)
+ 8 | *******************(190)
+ 9 | ******************(178)
+10 | ***********(104)
+</pre>
+        </div>
+        </div>
+    </div>
+    <div id="submission-output" style="clear:both;">
+<h3>Result: <span class="result result-failure">0.00 % (0/6)</span></h3>
+
+<table class="table table-striped table-bordered table-condensed">
+<caption>Testing details</caption>
+<thead>
+    <tr>
+        <th width="5%">Test case #</th>
+        <th width="20%">Input</th>
+        <th width="25%">Output</th>
+        <th width="25%">Your output</th>
+        <th width="25%">Correct</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td>1</td>
+    <td><pre id="input_1">sneft1 KNI 9 10 8 8 10 9 6 7 7 6 9 9 7 7 10 9 6 10 10 8 6 7 9 7 9 7 6
+zriou9 PET 8 7 8 6 9 6 8 7 9
+cfsxo2 IKI 7 7 9 6 9 9 7 8 8 8 8 7 10 9 8 10 9 9
+bttqe4 MT 7 6 6 10 10 9 9 9 7 7 9 10 10 9 10 9 8 8 8 10 8 6 8 8 9 7 6 6 8 9 6
+jlzva2 KNI 7 7 6 8 8 10 9
+hdgfb1 MT 6 10 10 6 10 9 8 9 6 10 8 7
+smbuk7 PET 6 10 10 8 7 7 8 7 7 8 10 6 7 8 10 9 7 6 7 8 10 10 6 6 7 8 10 7 8
+bdkfp6 KNI 9 10 7 6 9 7 7 7 7 7 6 7 7 7 9 8 6 7 8 7 10 8 7 6 8 6 10 7 8 8 8 6 8 10 6 8 9 8 8
+xmdwf8 IKI 7 9 6 7 10 9 9 8 10
+pftyc4 PET 10 9 7 8 8 10 9 8 9 6 8 10 7 7 7 9 6 6 8 6 9 10 9 6 8 7 8 9
+jfjfs4 IKI 7 7 9 8 8 10 8
+cqrvl4 KNI 8 6 6 8 7 7 7 8 10 7 7 7 9 10 9 8 7 10 7 7 9 8 7 10 8 8 8 10 6 10
+tuiph5 IKI 7 8 10 7 6 7 8 6 8 8 8 10 6 9 6 9 9 7 10 9 7 10 8 9
+hdhvz2 KNI 8 8 6 8 10 8 8 8 8 7 8 8 9 10 10 9 10 10 8 7 7 8 7 10 8 9 7 9 9
+ahnvq3 MT 10 8 7 6 9 9 9 9 9 9 10 8 6 10 6 10 6 9 9 8 8 9 8 7 6 8 8 8 10 8 8 8 10 7
+vcnre2 MT 10 10 7 7 9 6 8 7 9 8 6 8 6 8 8 6 8 10 8 6 8 8 10
+muxjy1 KNI 7 6 7 10 10 7 9 9 6 9 7
+lmydq2 IKI 8 10 6 7 8 9 7 8 8 9 6 9 8 7 7 7 9 7 8 9 6 8 9 10 9 8
+blxlk8 MT 10 9 7 8 8 6 6 10 9 7 7 10 6 9 7 8 6 6 8 7 6 7 8 9 8 6
+dutir8 MT 7 7 7 7 6 9 10 9 9 10 9 10 6 8 10 8 8 6 6 10 7 8 6 8 8 7 9 6 8
+ddjle7 PET 8 7 8 7 8 10 9 8 9 7 6 7 9 10 7 10 7 8 6 8 10 7 10 8 6 9 10 9 8 8
+bptwb7 PET 7 6 9 7 7 9 8 6 8 10 10 10
+leoji7 PET 8 10 10 6 9 9 9 6 8 9 6 10
+poksu0 KNI 9 10 7 6 8 10 9 8 7 7 10 8 8 7 8 9 9 9 10 8 10 10 9 7 9
+ybbmm8 MT 9 6 6 8 8 9 7 8 7 10 9 6 8 8 6 10 7 7 10 8 10 7 8 7 10 7 8 9 10 6 10 10 7
+kpumn7 PET 9 10 9 7 9 9 9 6 6 8 6 8 8 8 7 9 8 10 7 10 7 9 6 7 7 6 7 10 9 7 9 9
+ahmsq2 PET 7 8 6 9 8 9 6 7 8 9 8 6 6 8 10 7 8 9 10 8 7 8 8 9 6 8 9 7 7 6 8 7 7 9 10 6 6 9 9
+evvjd7 MT 9 7 8 7 8 6 8 8 7 8 10 9 10
+cscbh7 IKI 10 6 10 7 10 8 9 6 8 7 6 9 6 7 9 7 9 9 8 7 8 6 8 9 7 8 8 8 8 9 8 10 9 10
+zhrfg5 MT 10 10 9 6 7 6 9 6 7 10 8 9 8 9 9 8 7 8 8 9 8 7 8
+chnhu2 PET 6 9 9 10 9 10 7 6 10 8 9 6 9 7 9 9 8 6 9 8 10 9 9 7 7 10 7 9 6 10 9 9 10 6 8 8 9 10
+lpomu8 IKI 6 9 8 8 9 7 6
+gpkmd2 IKI 7 7 9 10 7 7 6 8 7 8 6 7 7 7 6 9 7 9 8 8
+mvoek1 PET 8 10 10 9 6 10 6 9 8 8 10 8 7 10 8 7 6 9 9 8 10 7 7 10 8 6 8 8 7 7 9 7 8 7 6 10 6 9 8
+gkzah3 MT 7 8 10 8 7 9 9 9 10 10 8 8 10 6 10 8 9 7 10
+ulvgi9 MT 8 7 9 9 7 7 8 9 8 6 7 7 6 9
+hkoee0 KNI 9 9 9 6 9 8 7 6 7 9 10 6 8 8 9 9 6 7 6 7 9 9 10 8 9 8 8
+fktma4 IKI 6 9 8 10 10 8 9 8 10 8 7 8 6 8 10 9 10 9 9 8 7 9 7 7
+mpkxj0 IKI 6 9 7 6 8 9 10 8 9 7 9 9 8 8 8 7 10 9 9 6 8 6
+yduky4 IKI 9 6 10 9 8 9 8 8 6 9 8 9 8 7 8 7 9 10 9 7 6 7 8 9 7 7
+exbwu9 MT 8 9 10 9 7 8 8 9 8 9 10 7 9 8 6 8 10 7 6 8 9 8 6 10 8 8 8 8 7 6 8 9 7 9 7 8
+qppka3 PET 9 9 9 8 9 8 7 8 7 9 7 7 9 9 8 8 9 8 9 8 7 8 7 10 10 9 6 7 8 8 8 9 7 10
+miemu8 PET 8 10 9 9 8 6 9 7 6 10 9 9 7 10 9 8 9 9 9 7 10 9 9 7 7 8 8 6 9 9 7 10 9 8
+zixwa3 IKI 9 9 6 10 9 7 8 6 8 6 8 6 7 10 9 7 7 8 6 8 8 6 6 6 6 7 9 8 9 7 8 9 10
+scvsw2 KNI 10 7 9 8 9 10 8 8 7 7 7 9 10 9 10
+jngew7 MT 9 7 10 10 7 8 10 8 8 7 7 7 8 10 9 9 6 9 7 8 8 8 6 8 8 9 10 10 7 9 7 9 9
+qztli2 MT 7 9 7 6 7 7 10 9 6 7 9 7 8 6 9 8 7 6 7 8 6 6 8 6 9 7
+kijez3 PET 6 9 6 8 9 7 6 6
+pruqw4 KNI 8 8 9 7 9 10 7 10 6 9 7 7 9 6 7 9 8 10 6 10 7 9 10 7 7 6 9
+vyuoj4 PET 9 8 7 6 10 9 7 7 7 8 7 6 8 9 10 9 9 8 7
+csnkc3 KNI 6 10 7 9 9 7 8 10 9 7 7 8 7 9 9 8 8 6
+gzefs0 KNI 8 10 8 9 8 10 6 7 10 10 6 6 6 7 9 9 6 7 7 10
+felxm5 PET 6 6 9 10 10 8 9 8 8
+pxipx1 PET 7 8 7 8 10 6 9 8 7 8 8 6 9 9 7 7 9 8 8 7 8 10 8 9 8 9 9 9 9 8 7
+lsfcd5 KNI 10 7 8 7 9 7 9 7 7 7 8 10 7 6 9 8 10 6 10 10 10 10 10 9 7 10 8 8 9 9 6
+mrgkn3 PET 7 7 7 7 10 7 8 8 6 9 6 8 7 9 9 9 9 10 7 8 10 8 9 7 10 10 10 9 9 7
+hyazl2 IKI 10 10 8 7 9 7 6 8 9 9 7 7 10 8 10 7 10 6 8 6 10 8 8 9 7 9 8 7 6 6 7 8 8 9
+fbvux2 IKI 6 9 10 7 8 10 9 8 10 7 9
+hkpfz1 MT 7 7 8 6 10 8 9 10 10 9 8 8 6 6 9 9 8 9 7 10 6 10
+qaucf4 KNI 7 8 7 10 7 10 9 8 8 9 9 8
+hgcdl0 KNI 7 8 7 9 8 7 8 9 9 10 7 8 8 10 6 10 7 10 6 8 8 6 9 10 9 8 9
+lfxrv7 IKI 9 8 9 10 6 9 9 8 8
+vktdd7 PET 6 6 9 7 8 8 8 8 9
+njwtf2 MT 10 7 10 6 8 8 6 6 8 8 6 10 10 6 9 8 7 8 10 10 10 10 10 8
+ipfek1 PET 10 7 8 9 9 7 8 8 7 10 7 7 8 8 6 8 9 9 7 9 8 10 10 6 7 9 9 8 8
+qoclm9 KNI 7 8 8 8 9
+luyep9 KNI 8 6 9 8 7 9 8 10 8 7 9 6 7 8 6 7 7 6 6 9 10 8 10 10 10
+qlacn1 IKI 7 10 9 9 8
+uyfsw4 KNI 8 10 7 9 8 7 7 6 8 8 8 9 9 8 8 9 7 9 6 9 8 7 9 8 6 10 8 10
+aiabu7 IKI 6 9 7 7 9 9 8 10 10 8 8 9 9 9 6 8 9 8 6 9 8 8 7 9 6 8 7 10 9 8 9 9 8 9 8 9 7 6 6
+mktft1 KNI 10 6 9 7 7 10 8 8 10 9 6 9 10 6 8 8 9 6 7 9 7
+gnecd1 KNI 6 10 6 9 8 9 6 6 6 8 8 8 10 10 9 9 8 10 10 7 7
+mhplc3 KNI 9 9 7 6 7 10 9 6 8 7 6 8 9
+loxlc6 PET 6 8 9 7 8 9 7 9 7 7 8 6 9 7 7 8
+uwxun5 IKI 7 6 8 8 7 8 10 10 7 10 8 8 7 8 8 9 7 7 9 7 8
+ubtzp6 KNI 6 9 6 8 10 8 8 9 6 8
+ebyix4 KNI 8 10 6 8 8 9 7 10 8 9 6 7 7 7 6 8 8 8 6 10 10 8 8 7 8 10 6 6 9 8 8 9 6 7
+gipon6 KNI 8 9 6 8 8 10 6 8 10 10 7 6 10 7 9 9
+lcblz5 IKI 10 9 10 8 10 10 6 9 6 7 9 8 7 8 8 8 6 9 7 8
+uqlrl5 KNI 9 7 7 10 9 8 7 10 8 9 9 8 10 6 6 8 9 7 7 9 8 6 8 7 7 10 10 10 7 10 6 10 9 7 10 7 10 8 7 6
+smnpk6 MT 10 8 9 7 9 9 8 8 9 7 7 8 8 7 6 6 6 8 9 7 9 6 6 8 7 6 9 6 6 9 7
+dnfiv5 MT 7 7 9 9 9 9 10 6 10 7 9 9 8 6 6 8 6 9 6 9 10 8 8
+uscdn7 IKI 8 6 7 8 8 10 10 9 10 10 8 8 7
+bdcat...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">2558</span>
+    	</div>
+    	<pre id="output_1">=== READING RECORDS ===
+Total records: 143
+=== WRITING TABLE ===
+IKI
+qlacn1 8.60
+fbvux2 8.45
+ugwfy9 8.45
+lfxrv7 8.44
+uscdn7 8.38
+fktma4 8.33
+ovyja3 8.33
+xmdwf8 8.33
+ynnih1 8.29
+oetcl5 8.26
+ooltt8 8.25
+uswaf5 8.25
+cfsxo2 8.22
+kohaq2 8.18
+lcblz5 8.15
+jfjfs4 8.14
+tzeaj6 8.08
+aiabu7 8.08
+cscbh7 8.06
+kywvp1 8.05
+neize7 8.03
+bvrhj6 8.00
+cvkic9 8.00
+hyazl2 8.00
+mpkxj0 8.00
+tuiph5 8.00
+yduky4 8.00
+lmydq2 7.96
+uwxun5 7.95
+dovut1 7.94
+kmgob4 7.86
+zrxza1 7.77
+zixwa3 7.67
+lpomu8 7.57
+gpkmd2 7.50
+duflt3 7.38
+tmsfi3 7.25
+shvui0 7.00
+KNI
+qtsgn0 9.25
+scvsw2 8.53
+poksu0 8.48
+wedcg2 8.46
+hdhvz2 8.34
+qaucf4 8.33
+lsfcd5 8.32
+tcvmn0 8.30
+jejra2 8.25
+gipon6 8.19
+hgcdl0 8.19
+uqlrl5 8.15
+pllmk2 8.14
+gnecd1 8.10
+uyfsw4 8.07
+mktft1 8.05
+pruqw4 8.04
+csnkc3 8.00
+hkoee0 8.00
+qoclm9 8.00
+sneft1 8.00
+cqrvl4 7.97
+luyep9 7.96
+gzefs0 7.95
+tcqbl4 7.95
+muxjy1 7.91
+jlzva2 7.86
+ebyix4 7.82
+xazoa3 7.82
+pzhww8 7.82
+ubtzp6 7.80
+mhplc3 7.77
+ikklx0 7.70
+vwwxd3 7.67
+bdkfp6 7.62
+MT
+gkzah3 8.58
+dqbcp0 8.35
+pcefm4 8.33
+uhevv3 8.32
+njwtf2 8.29
+hdgfb1 8.25
+jngew7 8.24
+ahnvq3 8.24
+hkpfz1 8.18
+bttqe4 8.13
+otplh1 8.13
+zhrfg5 8.09
+evvjd7 8.08
+ybbmm8 8.06
+exbwu9 8.06
+livuj3 8.05
+rwoll0 8.05
+dnfiv5 8.04
+vfrwz6 8.04
+gjxzg6 8.00
+mgkqu9 8.00
+mieyn4 7.97
+qnydp8 7.93
+zqmyo4 7.91
+dutir8 7.90
+vcnre2 7.87
+ewuck9 7.85
+ulvgi9 7.64
+blxlk8 7.62
+smnpk6 7.58
+hauab3 7.40
+qztli2 7.38
+PET
+vbgwe4 9.18
+jeovz8 8.47
+pjncv7 8.42
+miemu8 8.35
+chnhu2 8.34
+leoji7 8.33
+fownu2 8.31
+gufnd5 8.29
+mrgkn3 8.23
+felxm5 8.22
+qppka3 8.21
+bdcat0 8.20
+cwwce2 8.14
+ipfek1 8.14
+ddjle7 8.13
+sogrh5 8.10
+bptwb7 8.08
+pxipx1 8.06
+mndmo8 8.06
+mvoek1 8.05
+kmwhp5 8.03
+kpumn7 8.00
+pftyc4 8.00
+pwrfj3 7.96
+xetgd7 7.95
+vyuoj4 7.95
+laesp5 7.88
+smbuk7 7.86
+unpml9 7.83
+ahmsq2 7.77
+fbzxl5 7.75
+cmwkj0 7.74
+vktdd7 7.67
+nqehh1 7.64
+loxlc6 7.63
+nefim6 7.58
+zriou9 7.56
+kijez3 7.13
+=== WRITING DISTRIBUTION ===
+KNI
+ 6 | ***********(103)
+ 7 | ******************(173)
+ 8 | *******************(184)
+ 9 | *****************(161)
+10 | **************(138)
+PET
+ 6 | ************(119)
+ 7 | ********************(193)
+ 8 | **********************(215)
+ 9 | **********************(215)
+10 | **************(131)
+MT
+ 6 | *************(124)
+ 7 | ***************(149)
+ 8 | *********************(202)
+ 9 | *****************(164)
+10 | *************(125)
+IKI
+ 6 | ***********(108)
+ 7 | ****************(160)
+ 8 | *******************(190)
+ 9 | ******************(178)
+10 | ***********(104)
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_1"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_1" onclick="Code.viewDiff(1)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_1" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>2</td>
+    <td><pre id="input_2">eiwze2 KNI 6 9 10 6 8 6 10 9 9 8 8 8 10 7 9 9 9 8 9 10 7 10 10 8 9 10 7 6 7 10 8 8 7
+ixyyp4 MT 6 8 10 7 9 6
+czgbf4 IKI 7 6 7 7 6 10 8 8 9 8 6 8 7 10 6 9 8 7 9 7 8 9 8
+crido5 IKI 9 8 6 9 7 8 10 10 8 8 10 7 8 10 9 8 8 8 7 8 9 7
+apcoi1 IKI 8 9 9 7 7 8 10 8 7 7 8 7 6 10 9 8 8 9 6 7 7 6 8 8 8 7 10 8 7 8 8 8 9 10 7 9 8 10 8 8
+mxery5 KNI 8 7 8 8 10 8 9 8 7 8 8 8 10 10 9 8 7 6 9 9 9 9 9 9 9 6 8
+zmpbq7 MT 9 6 7 8 9 9 6 7 10 6 7 8 10 8 7 9 7 7 7 8 10 7 7 8 6 9 8 8 9
+woszo0 MT 9 9 9 8 8 6 7 8 7 7 7 7 7 7 7 7 10 10 9 8 9 10 6
+ygtfv9 KNI 9 9 7 8 9 9 8 9 8 8 9 6 6 6
+pwovd1 PET 6 8 7 10 7 7 10 6 8
+ksbva7 MT 10 6 10 8 8 8 10 8 7 8 7 10 7
+ycgwd3 MT 6 10 8 8 7 8 6 9 9 10 8 8 8 10 7 10 7 7 7 7 7 9 8 6 9
+jwcrr9 IKI 9 7 9 6 10 8 7 6 8 7 8 10 10 8 7 10 6 8 6 9 10 8 8 9 8 7 10
+bkqgw7 PET 6 6 10 8 7 6 8 9 9 9 6
+wysws6 MT 9 6 8 8 8 8 8 8 10 9 6 10 8
+xupcb3 KNI 8 8 6 8 8 8 10 10 7 7 7 6 8 10 9 8 7 6 8
+empol0 KNI 10 6 10 8 10 10 9 7 9 9 6 10 9 7 8 7 8 9 7 8 9 8 10 6 8
+zfosn8 KNI 7 6 10 8 9 8 7 9 10 10 6 9 10 6 9 8 7 10 8 7 8 9 7 8 6 7 10 8 10 6 7 9 6 6 8 10 8 8 8 7
+sreqo5 KNI 6 8 7 10 8 7 7 9 9 9 10 9
+gzplb0 KNI 7 6 9 7 10 7 8 10 8 6 10 7 9 8 7 9 7
+ettzs3 MT 7 7 7 7 8 8 8 8 9 8 9 9 6 6 7 8 6 7 7 7 8 10 9 7 9
+hkxjo2 MT 7 10 9 9 6 7 10 8 10 7 9 9 7 6 7 7 8 9 6 8 9 8 9 6 8 6 9 8 8 10 6 8 8 7
+ddunk9 IKI 10 9 6 7 6 9 6 9 9 8 8 9 9 6 6 6 9 8 9 10 8 7 7 7 7 6 7 8 8 9 10 9 8 8 10
+nzbuq0 IKI 7 8 7 7 10 10 7 9 10 6 9 7 8 8 10 7 10 7 10 9 7 7 6 10 7 9
+vfntq4 KNI 6 9 8 6 9 10 6 9 7 7 7 7 8 9 6 7 6 8 10 8 7
+baajw4 IKI 9 6 9 8 9 9 9 9 8 7 6 8 9 8 9 9 7 8 8 6 6 7 10 6 10 9 7 6 7 9 7 9 7 8 7 7 9
+ofhzp2 PET 7 6 6 8 10 8 9 8 7 8 7 10 7 6 7 7 10 9 10 10 10 10 7 7 8 10 8 6 9 8 7 8 7 8 7 8 6 9 9 7
+puxpu3 PET 8 8 9 9 8 8 8 8 7 6 6 10 7 9 7 8 8 10 7 8 10 9 10 7 8 9
+vltyx8 IKI 6 9 7 10 8 9 6 7
+avmzi7 MT 7 10 8 7 10 7 10 8 6 9
+dqhqe7 MT 7 6 8 8 6 10 8 7 8 8 7 8 6 6 7 9 9 6 10 8 6 7 7 8 6 10 9 9 6 7 10
+akxwf5 PET 6 9 8 9 10 10 8 10 7 9 8 10 10
+exhwf9 MT 7 8 10 6 7 6 9 10 10 8 8 9 8 9 7 6 7 7 8 7
+zzidg7 MT 7 9 7 9 10 6 7 10 7 8 6 8 9 8 8 9
+iohhv2 PET 7 9 9 8 9 6 10 9 6 10 6 8 7 6 9 9 7 10 8
+mpjmd4 IKI 8 9 10 8 10 8 7 7 8 8 9 6 10 7 10 6 8 8 9 7 8 8 8 6 8 6 8 10 9 9 8 6 10 8 6 8
+hdtxm6 IKI 7 7 10 8 6 10 8 10 7 9 9 8 8 10
+xaaqf6 KNI 10 8 10 6 6 8 8 10 9 9 7 6 7 7 10 8 7 8 8 7 7 8 7 6 7 9 7 8 8 7 6 6 8 9 9 8 8 6 6
+cnvra4 MT 8 6 8 9 6 9 7 9 6 6 10 6 8 8 9 10 6 8 7 10 10 6 9 8 9 7 7 9 8 9 8 7
+jbhxv6 IKI 9 7 7 6 7 7 8 9 9 6 10 9 7 6 6 7 8 10 7 7 10 8 10 8 7
+utsip1 PET 6 6 8 10 7 10 6 9 10 7 8 8 7 6 10 9 8 8 6 7 10 7 7 8 8 6
+gkjlu4 KNI 6 8 7 6 7 7 6 6 8 7 7 9 7 8 8 7 8 8 7 8 8 6 9 7 7 8 8 8 6
+rxzaz7 MT 9 10 7 8 6 9
+zflvv7 IKI 6 8 7 9 10 10 9 7 8 10 10 10 8 7 9 10 7 6 8 8 7 8 9 9 8 9 8 8 7 8 8 9 6 6
+scnve1 KNI 6 9 7 9 8 10 7 9 7 10 6 6 8 9 7 9 7 9 9 8 8 8 7 9
+mtdsk4 IKI 10 9 6 7 8 8 6 6 7 8 8 8 6 6 8 8 8 6 8 10 7 9 9 9 9 7 9 7
+tmkjy7 KNI 6 8 6 9 9 6 10 6 10 9 6 8 6 9 9 9 8 10 7 8 6
+gouuo8 IKI 10 9 10 8 7 9 10 10 8 6 10 10 7 6 10 10 8 8 10 6 7 10 8 6 10 7 8 7 9 8 6 10 7 7 6
+jgreq0 IKI 10 10 7 8 6 8 8 7 7 8 9 10 8 8 9 6 7 9 8 6 9 9 6 6 7 10 10 10
+axdtb2 KNI 9 9 9 8 8 9 8 7 9 9 8 8 9 10 9 7 8 7 9 7 9 9 10 8 8 6 7 10
+ceqbq1 MT 9 10 9 10 6 9 10 9 8 10 9 8 10 7 9 7 9
+lsdaj2 KNI 8 6 10 10 8 8 10 8 9 8 6 6 10 10 10 6 10 6 7 9 8 9 8 10 8 7 10 6 7 10 9 8 10 8 8 8 6 8
+agvkx6 IKI 10 9 7 8 7 7 7 9 10 6 8 7 7 8 6 7 10 10 8 10 8 8 7 6 8 10 7 8 7
+ylorc2 PET 10 9 10 6 10 9 9 8 8 7 8 10 6 7 9 8 9 7 8 7 10 8 9 6 10 10 6 6 8 9 9 9
+unehe4 MT 7 7 9 7 8 8 8 9 7 9 6 10
+uqbnx1 KNI 10 6 9 9 10 10 7 7 8 9 9 8 6 8 9 9 7 6 9 8 7 6 7 10 8 6 7 6 10 9 10 9 8 8 8 10 7
+zgxpg2 PET 9 9 6 6 8 7 8 6 8 6 7 10 6 8 10 7 8 7 9 8 9
+ugxzf6 PET 9 8 8 6 6 10 7 9 8 8 9 10 9 6 9 9 8 7 9 9 9 8 7 10 9 6 7 8
+hneir2 MT 10 7 6 10 6 9 10 8 8 6 9 9 9 9 7 8 7 7 7 8 8 9 9 6 10 6 7 9 8 8 6 6 8 6 7 10
+ahsry4 MT 8 10 7 9 8 9 8 7 9 9 8 8 9 9 6 6 6 9 6 8 9 9 8 10 6 7 10 9 9 7
+rymtg7 KNI 8 8 9 9 6 9 7
+eayat8 KNI 8 7 9 9 7 10 7 10 9 6 7 6 8 9 7 8 8 8 8 9 10 7 10 10 10 8 7 7 7 6 9 7 8 6 7 8 10
+surkf9 IKI 10 10 6 6 9 10 10 7 9 8 10 8 6 8 7 6 7 8 10 8
+zdjfh1 KNI 6 9 10 6 6 8 8 8 6 10 9 6 6 6 7 8 6 6 9 6 8 6 9 8 8 6 6 10 6 10 7 9 6 9 8 9
+bujdo3 IKI 8 8 7 8 7 7 8 7 7 6 8 10 8 7 8 7 7 6 8 7 6 8 7 7
+jmtvm7 MT 8 9 8 10 10 7 6 7 6 10 8 9 7 6 10 6 6
+jumrr8 KNI 8 8 9 7 9 7 8 10 9 9 10 9 8 8
+gysad9 MT 7 10 8 7 8 7 8 7
+vltvi2 KNI 8 8 9 8 10 10 8 7 7 7 10 7 8 10 8 8 9 8 10 7 7
+pwwlj0 MT 9 10 6 6 6 7 8 10 8 7 6 6 6 7 6 6 10 9
+anzxs9 KNI 10 10 8 7 7 7 6 9 8 7 9 7 10 9 10 8 10 9 6 7 8 6 7 8 7 8 6 6 6 10 8 8 6 7 8 9 8 7
+jvrbe2 MT 8 7 8 9 6 9 7 8 7 6 7 10 9 6 8 8 8 8 7 9 7 7 8 8 10
+peodb2 MT 8 8 10 8 8 7 6 8 6 9 8 8 6 6 7 9 9 7 8 9 8 6 7 7 9 8 10 6 9 8
+qfzfn8 IKI 8 8 8 6 8
+vsovy3 KNI 8 7 9 8 8 7 8 9 6 10 6 7 8 6 8 6 6 9 7 6 8 9 9 8 7 9 9 6 8 7 10 10 9 8 6 10 7
+mnjul7 IKI 9 9 10 7 9 10 9 7 8
+wzvlo8 MT 6 9 10 7 7 9 7 7 7 10 8 8 9 7 6 8 7 7
+kjyyf2 MT 7 6 7 8 9 6 10 7 9 9 9 6 8 8 6 9
+sypfh5 PET 7 10 7 6 6 6 10 9 7 7 9 8 7
+mxovd1 MT 6 7 8 9 8 10 9 7 6 9 7 7 7 10 6 10 7 6 9 10 8 6 7 8 9 7 10 9 10 7 6 6 9 6 8 9 9 8
+ismpp9 PET 8 8 8 7 8 7 8 9 9 6 9 6 6 7 8 ...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">1839</span>
+    	</div>
+    	<pre id="output_2">=== READING RECORDS ===
+Total records: 95
+=== WRITING TABLE ===
+IKI
+mnjul7 8.67
+hdtxm6 8.36
+crido5 8.27
+gouuo8 8.23
+nzbuq0 8.15
+surkf9 8.15
+zflvv7 8.15
+jwcrr9 8.11
+jgreq0 8.07
+kfwda5 8.06
+mpjmd4 8.03
+apcoi1 8.00
+ogfbf4 8.00
+ddunk9 7.94
+agvkx6 7.93
+baajw4 7.89
+jbhxv6 7.80
+mtdsk4 7.75
+vltyx8 7.75
+czgbf4 7.74
+qfzfn8 7.60
+bujdo3 7.38
+KNI
+jumrr8 8.50
+axdtb2 8.36
+eiwze2 8.33
+empol0 8.32
+mxery5 8.30
+vltvi2 8.29
+sreqo5 8.25
+lsdaj2 8.24
+otzqi7 8.23
+hxyys4 8.21
+uqbnx1 8.11
+zkfuf3 8.05
+eayat8 8.03
+rymtg7 8.00
+scnve1 8.00
+zfosn8 8.00
+gzplb0 7.94
+ygtfv9 7.93
+tmkjy7 7.86
+xupcb3 7.84
+anzxs9 7.82
+vsovy3 7.81
+xjoxe9 7.80
+skrhh6 7.79
+xaaqf6 7.67
+vfntq4 7.62
+zdjfh1 7.53
+gkjlu4 7.31
+MT
+ceqbq1 8.76
+arecb6 8.35
+ksbva7 8.23
+avmzi7 8.20
+qkesr7 8.19
+rxzaz7 8.17
+wysws6 8.15
+ahsry4 8.10
+nhcyg5 8.10
+ddnuf6 8.08
+zzidg7 8.00
+ycgwd3 7.96
+unehe4 7.92
+woszo0 7.91
+hkxjo2 7.91
+cnvra4 7.91
+mxovd1 7.89
+hneir2 7.86
+exhwf9 7.85
+zmpbq7 7.83
+jmtvm7 7.82
+jvrbe2 7.80
+peodb2 7.77
+gysad9 7.75
+kjyyf2 7.75
+wzvlo8 7.72
+ettzs3 7.68
+ixyyp4 7.67
+dqhqe7 7.65
+pwwlj0 7.39
+PET
+akxwf5 8.77
+ylorc2 8.28
+puxpu3 8.15
+ugxzf6 8.14
+iohhv2 8.05
+ofhzp2 7.98
+lfhdk9 7.93
+lqocw3 7.86
+zstss1 7.82
+utsip1 7.77
+ismpp9 7.74
+zgxpg2 7.71
+pwovd1 7.67
+bkqgw7 7.64
+sypfh5 7.62
+=== WRITING DISTRIBUTION ===
+KNI
+ 6 | ************(119)
+ 7 | ***************(149)
+ 8 | ********************(194)
+ 9 | ****************(155)
+10 | ************(111)
+IKI
+ 6 | ********(79)
+ 7 | **************(138)
+ 8 | ****************(160)
+ 9 | **********(100)
+10 | **********(98)
+MT
+ 6 | ***********(106)
+ 7 | ***************(148)
+ 8 | ****************(158)
+ 9 | **************(139)
+10 | *********(89)
+PET
+ 6 | *******(65)
+ 7 | *********(82)
+ 8 | *********(83)
+ 9 | *******(69)
+10 | *******(63)
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_2"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_2" onclick="Code.viewDiff(2)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_2" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>3</td>
+    <td><pre id="input_3">juvum3 KNI 7 7 8 9 7 8 6 10
+mopnd4 PET 6 6 8 9 10 9 7 6 9
+rdzln9 KNI 6 9 8 10 9 8 9 6 10 7 10 9
+yffoh8 KNI 7 9 8 6 7 9 6 7 7
+mtwgu0 KNI 9 9 8 9 7 7 8 7 7 9 8 8 8 9 7 6 7 10 8 6 6 6 7 7 10 8 10
+akptn6 KNI 9 8 8 7 10 8 8 9 7 7 9 10 7 10 8 8 7 6 10
+gcqty2 MT 7 7 8 8 10 6 7 8 6 7 9 10 8 7 9 9 8 9 7 8 10 9 10 6 6 7 10 6 8 6 8 7 6
+zwyuc2 PET 9 9 10 10 9 9 10 6 7 7 7 8 8 10 6 8 6 6 6 7 10
+xjxkb0 PET 8 8 9 7 6 10 9 6 9 6 7 7 7 8 10 6 9 7 8 9 8 7 9 10 9 8 7 9 8 9 7 8 6 7 10 10
+qcjoo3 KNI 6 7 10 7 7 6 8 9 8 8 9 8 7
+nejkb9 MT 6 8 6 9 9 7 9 10 6 8 7 10 6 9 9 7 10 10 8 9 10 8 10
+fyell7 KNI 7 6 7 9 7 9 9 6
+aopiz1 PET 7 9 6 6 7 7
+vbvxi7 IKI 7 6 8 9 8 8 8 7 6 8 8 8 6 6 7 7 8 7 8 8 10 8 8 7 8 9 7 8 10 6 7 8 10 8 8 9 6 8 10 10
+yushg7 KNI 8 8 8 8 9 7 8 6 7 9 9 6 6 6 8 8 8 9 10 7 8 8 6 8 8 9 7 6 10 7 10 9 7 9 7 7 8
+vjopz7 KNI 7 8 10 7 7 9 8 9 7 6 7 8 10 9 7 9 9 10 8
+cmfdu7 MT 6 7 10 6 9 10 9 10 8 10 10 7 8 8 10 9 8 6 9 9 9 10 8 8 10 8 8 8 10 7 7 7 9 9 6 10 7 7 8
+wwpas5 KNI 7 7 7 9 8 9 7 7 6 7 6 9 6 10 7 10
+pastq5 IKI 8 8 8 7 10 7 7 6 6 9 8 6 7 8 7 8 6 8 7 6 8 9 6 10 7 10 10 9 6 9 10 8 6 8 8
+tsnzp6 PET 7 9 9 9 7 8 6 8 6 10 7 7 6 10 6 8 7 7 6 9 9 8 10 8 9
+wjfwn4 IKI 7 8 7 9 10 9 6 9 7 8 6 7 9 7 9 9 8 8 8 8 7 7 7 10 7
+epwwi3 KNI 10 10 10 7 6 8 7 8 7 7 7 9 10 7 6 9 7 9 9 7 10 7 6 6
+czajn1 IKI 10 8 8 8 6 8 8 6 9 8 10 8 7 9 7 9 6 10 10 6 7 10 8 7 6 8 6 7 10 10
+aaygp6 KNI 10 8 8 9 10 6 10 9 9 6 10 7 10 8 8 6 6 6 8 8 6 7 7 9 10 8 9 10 9 9 8
+dpebg6 PET 8 6 6 9 9 8 10 9 9 8 8 8 7 10 10 10 8 9 9 8 9 6 7 9 8 6 9 8
+mswck8 MT 8 9 8 10 7 8 10 8 8 9 8
+uumzo5 MT 8 6 8 9 9 8 6 7 7 8 10 7 8 9 8
+pdvwh5 MT 9 7 6 7 10 10 8 7 6 7
+zovbe9 MT 6 8 7 9 9 10 7 9 10 7 8 6 10 7 7 9 7 7 10 10 6 8
+lwnka2 PET 7 9 7 9 7 9 7 6 7 10 8 8 9 8 8
+gxalt1 PET 10 7 7 6 8 7 7 9 10 7 8 7 10 10 6 7 9
+tesid4 KNI 8 9 8 9 7 7 8 9 6 8 8 7 8 8 8 8 6 9 6 9 9 7 7 10 7 10
+mzlue3 KNI 8 7 6 8 9 8 10 9 9 9 8 9 10 6 8 10 10 8 10 7 7 8 6 7 6
+rvcft4 IKI 8 10 8 8 6 9 9 7 9 9 9 10 6 8 7 9 10 8 10 7 10 6 7 8 10 8 7
+xtitd4 IKI 8 9 10 7 8 9 7 10 8 7 8 10 9 7 9 6 10 9 6 7 10 8 9 8 7 9 9 8 8 8 6 10 7 8 10 9
+rrpag2 PET 10 10 7 6 9 7 7 9 9 9 10 8 9 10 7 6 7 8 9 6 8 8 10 9 6 7 10 8 8 8 6
+ulyku7 PET 10 8 7 8 10 9 9 8 8 10 8 7
+gquty8 MT 8 10 7 9 8 8 7 8 9 8 6 7 10 9 9 10 10 10 10 7 7 10
+ggqzt3 MT 7 9 7 9 9 7 10
+hjnah9 IKI 10 8 6 10 8 10 9 8 10 8 10 10
+dvnur5 IKI 7 7 6 9 7 6 8 8 6 10 8 6 8 7 9 8 10
+tqibd4 IKI 6 7 10 10 7 10 10 7 10 6 7
+thljn8 MT 8 8 9 7 7 6
+lwqen2 IKI 8 6 7 9 7 10 6 6 6 10 6 10 7 10 9 6 8 8 6
+odnew4 IKI 9 7 10 9 9 10 7 9 8 10 7 6 8 6 6 9 8 6 10 8 6 9 6 6 6 10 8 9 8 7 7 6 8
+xxndt1 PET 7 9 10 7 6 8 10 10 9
+twddd9 IKI 7 10 7 8 6 7 6 10 9 9 9 10 8 7 10 9 8 7 8 6 9 8 8 7 8 10 7 8 7 10 6 9 10 6 8 8 8 10 8
+ghuho0 PET 10 6 7 9 7 7 6 10 7 10
+rrxgv0 IKI 6 6 8 7 6 7 10 8 6 8 10 9 6 7 6 8 6 8 8 6 10 6 7 7 8 6 8 9 7 8 7 9 9 10 8 9 7 7 6
+igsmk4 KNI 6 9 6 8 7 10 8 6 10 7 9 9 8 8 8 6 9 10 8
+hzrkc1 PET 8 7 9 6 9 8 9 10 7 7 6 8 8 7 7 6 8 7 6
+zvkwe9 PET 8 6 7 7 8 9 8 8 7 8 9 8 9 6 8 6 8 10 8 10 6
+eondx0 MT 9 6 9 7 8 6 9 10
+xhgqb2 IKI 10 8 9 7 9 6 9 9 9 9
+aqjky7 KNI 9 6 8 7 6 8 6 10 9 7 6 8 7 9 8 9 6 9 7 8 9 9 6 6 8 6 6 10
+xswjx5 MT 6 10 7 9 6 8 8 7 8 7 8 9 9 9 8 10 8 6 10 9 7 6 8 8 6
+laltv0 MT 6 8 7 8 9 7 8 6 7 6 10 7 8 6 10 8 10
+fcqqf2 IKI 6 10 7 9 10 8 8 10 7 7 7 8 8 8 7 8 10 7 9 8 8 10 8 8 8 8 7 8 9 7 6 10 6
+jtbfm9 KNI 10 7 8 6 10 7 7 8 7 6 8 8 7 7 9 10 8 10 7 8 8 6 7 10 8 10 7 9 9 7 9 6 10 10 7
+fhctm4 IKI 8 7 7 8 9 9 8 6 9 8 6 10 6 10 9 8 10 8 7 8 7 7 9 10 7 7 9 10 7 10 10
+dgwdm1 MT 6 6 9 7 10 8 10 8 9 6
+isfyy8 PET 8 10 9 8 8 8 8 7 8 8 8 7 8 9 10 7 6 8 9 7 10 9 10 8 8 6 10 10 8 10 9 10 8 10
+kfvqn4 MT 10 8 6 10 8 10 10 8 8 9 8 7 6 7 7 6 8 8 6 9
+dmulz6 PET 9 8 6 7 7
+lxgwj1 MT 7 9 8 10 7 9 9 9 6 7 10 6 6
+jcwbg1 KNI 6 8 8 7 6 9 10 6 7 7 8 10 9 7 6 10 6
+xtwsd9 PET 6 6 7 6 7 9 6 8 7 10 10 8 6 8 8 6 9 7 7 9 10 10 7 9 10 9 8 7 6 7 6 8 7 8 6 8 6
+woawz7 MT 7 8 6 8 9 6 6 7 8 10 7 8 6 10 7 9 9 7 8 9 9 9 8 9 6 6 10 7 7 7 8
+vyuqu6 PET 10 9 10 9 8 7 6 6 6 7 7 7 10 6 8 8 8 9 10 7 7 9 8 8 8 9 9 7 7 7 6 9 6 8 10
+wbcbc5 PET 8 9 6 10 9 8 9 6 6 7 6 7 8 6 10 8 9 7
+xcffy1 KNI 7 7 6 10 7
+wbzgo2 IKI 6 9 8 10 9 8 7 7 6 8 6 7 6 8 7 8 10 7 6 8 10 10 9 9 10 10 8 7 7
+nbmvq1 PET 9 6 7 7 6 8 9 8 9 7 8 10 7 6 7 8 9 7 7 8 9 8 6 10 8 10 9 10 7
+gltok5 MT 6 6 10 10 8 8 9 10 6 10 7 8 10 7 8 10 10 8 8 10
+gqbyw9 MT 7 7 8 7 9 8 6 10 6 9 9
+byzsy7 PET 10 9 6 7 10 8 6 8 10 8 9 8 6 10 10 9 9 6 6 8 8 7 9
+fndgf1 IKI 7 9 8 9 7 7 8 9 9 7 6 7 10 9 8 8 8 9 7 8 6
+rbije0 KNI 7 10 7 6 6
+ooilj6 PET 8 6 7 6 8 10 7 10 9 9 9 10 8 9 8 9 7 8 8 8 7 6 7 6 8 8 7 6 6 10 6 7 8
+yjofo4 PET 6 10 8 6 9 9 7 7 7 8 7 8 7 8 7 8 9 8 9 10 7 7 10 10 6 7
+lbmxz4 KNI 9 7 7 10 8 7 8 9 8 9 9 10 7 7 7 7 6 6 7 9 10 8 7 8 9 6 7 8 9 9 8
+nbeyo2 KNI 9 10 6 8 7 8 6 8 9 9 8 8 10 8 7 10 7 8 7 9 9 8 8 9 7
+tohyj7 PET 6 8 8 7 8 7 8 8 6 7 8 8 7 8 8 6 7
+ydifx4 IKI 8 8 10 8 7 9 10 7 9 9 8 8 8 6 9 9 8 6 6 9
+dxonv1 KNI 6 9 7 7 9
+pnqyq8 MT 7 7 7 9 6 9 9 9 7 7 8 9
+vqxqo0 IKI 6 6 8 10 9 9 7 9 6 8
+rghft5 IKI 6 9 8 9 9 9 6 8 6 6
+yzxso2 KNI 9 6 6 8 10 8 6 9 6 9 6 10 7 10 6 8 9 9 9 6 9 9 8 7 10 7 9 6...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">3082</span>
+    	</div>
+    	<pre id="output_3">=== READING RECORDS ===
+Total records: 177
+=== WRITING TABLE ===
+IKI
+hjnah9 8.92
+rqggy3 8.54
+xhgqb2 8.50
+wnbqp3 8.37
+otapd8 8.35
+xtitd4 8.28
+rvcft4 8.26
+uxcyu7 8.25
+fpfsf2 8.22
+fhctm4 8.19
+tqibd4 8.18
+eyegq1 8.17
+twddd9 8.10
+ydifx4 8.10
+fcqqf2 8.03
+czajn1 8.00
+dunpp1 8.00
+edlio3 8.00
+wbzgo2 7.97
+gmqtf0 7.96
+pnswc8 7.94
+fndgf1 7.90
+evyfu4 7.89
+upcul1 7.89
+wjfwn4 7.88
+mnwsr2 7.88
+olehw1 7.87
+iccjr0 7.85
+vbvxi7 7.83
+odnew4 7.82
+ygsds8 7.81
+mwgif3 7.80
+vqxqo0 7.80
+fqgzp2 7.78
+pastq5 7.74
+hvpkj2 7.74
+yhesk7 7.70
+dvnur5 7.65
+lwqen2 7.63
+rghft5 7.60
+fawhf6 7.55
+rrxgv0 7.54
+vfitl7 7.48
+ofqod8 7.44
+KNI
+gpsvn2 9.33
+ertqs4 8.71
+rdzln9 8.42
+ytzvk5 8.33
+bzprl7 8.24
+akptn6 8.21
+niqan5 8.20
+aaygp6 8.19
+vefvk5 8.17
+vjopz7 8.16
+mzlue3 8.12
+nbeyo2 8.12
+rigew1 8.08
+yzxso2 8.08
+jtbfm9 8.03
+igsmk4 8.00
+ruoxy1 8.00
+tzxlj5 8.00
+lbmxz4 7.94
+tesid4 7.92
+vztek4 7.92
+fhofb6 7.92
+epwwi3 7.88
+luqgo3 7.88
+rzcok4 7.86
+vqcsc0 7.86
+kojrm7 7.83
+mtwgu0 7.81
+yushg7 7.81
+rqtfn4 7.77
+juvum3 7.75
+cklrw9 7.73
+qcjoo3 7.69
+ggeqz9 7.68
+jcwbg1 7.65
+vsgrk2 7.63
+wwpas5 7.63
+aqjky7 7.61
+dxonv1 7.60
+pbbop9 7.60
+fyell7 7.50
+xcffy1 7.40
+yffoh8 7.33
+rbije0 7.20
+MT
+gquty8 8.50
+mswck8 8.45
+gltok5 8.45
+cmfdu7 8.33
+plknc1 8.31
+nejkb9 8.30
+rxcac1 8.30
+ggqzt3 8.29
+lhhki6 8.25
+pbmfi3 8.16
+iqzcq5 8.15
+aucmp2 8.09
+fskdd2 8.07
+zovbe9 8.05
+eondx0 8.00
+ddxgo2 7.97
+kfvqn4 7.95
+lxgwj1 7.92
+dgwdm1 7.90
+xswjx5 7.88
+uumzo5 7.87
+pnqyq8 7.83
+gqbyw9 7.82
+wappk6 7.81
+gcqty2 7.79
+ilfje6 7.77
+woawz7 7.77
+fkmfd0 7.77
+gezbd8 7.75
+laltv0 7.71
+pdvwh5 7.70
+tapwz8 7.60
+thljn8 7.50
+ujqyr4 7.33
+buexp9 7.32
+PET
+mvunn0 8.64
+ulyku7 8.50
+wyaju9 8.47
+volvq3 8.45
+xxndt1 8.44
+isfyy8 8.44
+pchpp9 8.39
+pdhll9 8.31
+otpfb3 8.30
+dpebg6 8.25
+sfwzx0 8.24
+yujkw3 8.22
+zlxqv7 8.22
+byzsy7 8.13
+rwgnr2 8.13
+rrpag2 8.10
+xycsn8 8.09
+knpjj9 8.08
+blnet3 8.07
+pxgue2 8.06
+kucmg5 8.06
+giltr0 8.05
+bqqeh4 8.00
+hauam8 8.00
+phwrx8 8.00
+xjxkb0 8.00
+zwyuc2 8.00
+zprwk0 7.96
+gxalt1 7.94
+lwnka2 7.93
+nbmvq1 7.93
+htqze6 7.92
+ghuho0 7.90
+vgdac4 7.90
+skmax7 7.89
+vyuqu6 7.89
+yjofo4 7.88
+fbfgj4 7.88
+tsnzp6 7.84
+zvkwe9 7.81
+mopnd4 7.78
+ooilj6 7.76
+kopgs7 7.72
+wbcbc5 7.72
+nlgfq4 7.69
+wejag3 7.66
+xtwsd9 7.62
+hzrkc1 7.53
+qkagv7 7.47
+dmulz6 7.40
+tohyj7 7.35
+ephvz3 7.25
+ugblm0 7.17
+aopiz1 7.00
+=== WRITING DISTRIBUTION ===
+PET
+ 6 | *********************(203)
+ 7 | ***************************(264)
+ 8 | ********************************(316)
+ 9 | **************************(257)
+10 | *********************(204)
+IKI
+ 6 | ********************(197)
+ 7 | ***********************(230)
+ 8 | *****************************(285)
+ 9 | **********************(219)
+10 | ******************(179)
+KNI
+ 6 | **************(135)
+ 7 | **********************(212)
+ 8 | *********************(209)
+ 9 | *******************(183)
+10 | *************(129)
+MT
+ 6 | *************(124)
+ 7 | *****************(161)
+ 8 | *******************(182)
+ 9 | ***************(146)
+10 | *************(122)
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_3"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_3" onclick="Code.viewDiff(3)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_3" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>4</td>
+    <td><pre id="input_4">qukpj9 IKI 8 9 6 9 10 9 9
+rsjgw9 PET 8 9 8 7 7 9 9 6 8 8 9 7 7 8 8 9 6 8 7 9 7 6 8 9 7 7 9 8 7 8 8 6 8 9 6 7 6
+jkcsd8 KNI 9 8 8 8 6 9 8 8 8 7 7 8 7 6 8 10 10 7 9 8 10 7 6 8 7 8 6 8 10 6 7
+luhkk2 KNI 8 7 9 8 7 6 10 8 7 8 8 6 9 6 9 6 9 10 9 6 6 10 10 10 6 9 7
+ldrtd6 IKI 10 8 6 9 7 8 9 9 8 10 8 8 8 10 6 8 8 7 6 7 8 10 8 7 10 8 8 8 10 10 10 10 7 10
+wddrc9 PET 10 8 10 8 8 9 9 7 7 7 6 8
+ciacm2 KNI 8 9 7 7 8 7
+xvveq9 KNI 8 8 8 6 7 7 7 6 10 7 8 6 8 7 8 8 8 10 8 9 8
+jtgqp5 PET 6 6 6 9 9 9 10 9 7 10 6 10 8 6
+kglnf3 KNI 8 8 9 9 9 8 8 9 7 10 6 8 8 8 6 9 9 10 10 8 6 8 7 9 9 7 7 8 8 6 7
+efbva3 IKI 10 7 8 7 9 9 8
+ysyjs4 KNI 9 6 10 7 10 8 9 10 9 9 10 10 9
+ihyav3 IKI 8 7 10 7 10 6 8 9 6 10 9 6 6 9 7 10 9 9 9 9 8 8 9 6 7 10 10 8 8 9 8
+ziyoh2 PET 7 7 9 9 6 7 6 6 7 10 7 6 8 7 7 6 6 7 9 10 10 6 10 9 8
+hizho9 MT 8 8 8 10 7 9 9 7 6
+whdol3 MT 9 6 10 9 6 6 7 9 6 7 10 6 6 6 9 6 9 6 8 6 8
+bfeit2 MT 6 10 6 7 6 8 6 9 10 9 6 9 7 7 10
+xxtgg0 KNI 9 6 8 7 7 10 7 9 7 8 8 8 6 6 7 7 7 10 7 6 7 10 8 9 10 8 9 10
+ggqci2 MT 7 7 9 9 8 8 8 9 8 8 10 8 8 8 8 9 8
+xpztr8 IKI 7 7 10 7 9 10 6 6 6 8 8 6 8 8 8 7 9 6 6 6 10 6 7 7 6 9 9 6 8 7 6 10 7 10 9 10 10 8
+tuwqw4 PET 9 10 6 10 7 7 6 6 8 6 9 10 8
+yyskp7 PET 7 9 9 7 7 9 7 7
+ckhst5 IKI 9 9 10 6 10 6 8 8 8 8 7 7 7 7 10 10 8 7 10 8
+mvlmg6 PET 9 7 9 9 9 6 9 8 7 6 8 6 10 9 8 10 7 10 9 8 6 8 6 7 10 8 10 8 8 6 9 7 10 7 9 7 9 8 10
+ucpsu4 MT 6 10 9 10 9 8 7 8 7 7 9 7 9 7 6 10 9 6 6 7 8 8 9 8 6 7 6
+oiwzf2 MT 9 10 8 9 8 10 7
+nmtem2 PET 8 7 10 7 7 8 9 6 7
+uqlnz5 PET 7 10 8 8 9 8 9 10 6 8 10 9 9 8 10 6 8 9 7 6 7 8 8 6 8 6 9 6 10 9 7 10 10 7 9 10 9 8 8
+rmcrn2 MT 9 10 9 6 8 6 6 7 10 9 9 8 7 8 9 10 10 10 10 7 10 8 10 9 7 8 7 7 6 6 8 6
+kcjzo6 IKI 10 8 10 8 6 9 7 8 9 6 6 9 9 7 9 9 8 7 10 6 8 9 8 10 9
+mfgfo0 KNI 9 7 9 9 9 10 8 9 7 9 7 7 9 8 7 7 9 10 10 6 9 8 10 8 10 6
+flyln6 PET 8 6 10 8 7 10 9 10
+lljvk6 MT 7 7 8 10 8 8 8 8 8 8 8 7 6 8 10 9 6
+ejohb9 IKI 8 7 8 10 8 8 7 7 9 9 8 10 9 7 10 9 9 9 8 10 10 7 6 8 9 10 8 8 6 7 9 8 8 9 8 8 9 6
+ctbtj7 IKI 8 8 10 6 7 8 8 10 10 8 8 7 7 7 8 10 6 9 10 7
+jwtxo9 KNI 10 8 10 10 7 8 9 6 9 7 7 8 7 7 9 8 7 9 8
+kkcnt1 MT 6 8 8 9 9 7 9 8 8 7 9 9 9 6 7 7 9 8 7 7 10 7 7 6 6 6 6 9 6 7 9
+deoxo9 KNI 8 10 7 7 7 6 6 9 8 7 8 9 9 8 8 8 8 8 9 9 7 9 7 9 6 7 7 9 8
+pzlrb4 MT 7 10 7 7 8 6 6 9 9 10 8 9 9 8 9 9 8 8 9 8 10 9 10 10 7 8 6 10
+ezckq9 KNI 9 6 10 6 8 9 10 8 9 9 10 6 9 8 8 6 7 7
+zkqrp7 PET 6 7 9 8 6 6 6 9 10 6 8 9 8 10 9 9 8 9 10 8 7 8 7 8 10 10 8 8 10
+agjbj1 PET 7 10 10 9 6 8 8 6 10 7 6 9 10 10 8 10 8 6 7 7
+awzjy7 MT 8 6 7 7 9 9 6 6 7 9 10 6 7 6 9 10 8 9 6 8 10 7 9 7 7
+ctltn9 KNI 7 8 7 8 8 9 6 7 9 9 8 7 9 6 8 7 9 9 8 9 9
+xqebz5 KNI 7 8 8 7 7 8 10 7 9 8 7 8 7 6 7 9 10 8 8 8 6 9 6 6 10 10
+nbtcc9 MT 8 8 9 7 6 9 8 9 8 7 8 6 8 8 6 8 10 9 10 9 10 8 9 9 6
+vmuby8 KNI 8 6 9 8 7 9 8 9 7 7 9 7 9 6 10 9 7 9 9 8 8 8 8 6 10 10 9 9 10 10 7 6 8 7 9 9 7
+dhaol6 IKI 7 8 7 6 7 9 6 9 10 10 9 7 8 6 8 10 8 7 7 8 9 8 9 8 10 7 8 8 8 10 9 8 8 8 7 10 9
+funvy1 MT 7 6 8 9 10 9 7 7 7 9 8 9 10 10 8 7 6 9 8 7 9 9 9 9 7 8 8 10 10 8 10 6 7 9 7
+zbqyn7 KNI 8 8 9 6 6 10 8 9 7 10 10 9 9 9 9 10 8 10 9 7 7 10 6 7 6 9 6 6 10
+sjdhm4 KNI 10 7 7 10 8 6 9 6 8 8 8
+qsqwa1 IKI 9 9 8 8 9 8 9 8 7 6 7
+lgrlb7 IKI 6 9 8 7 8 8 7 6 9 9 9 10 10 9 8 8 6 7 9 6 8 6 9 7 7 8 7 9 10 9 9
+csfsf1 PET 9 10 8 7 7 8 8 7 9
+npztp3 KNI 6 7 7 10 10 7 9 8 6 10 9 7 9 6 7 6 9 7 8 9 7
+hztpj8 PET 9 10 8 10 7 7 10 8 9 7 8 8 8 8 6 7 10 8 8
+jxgqh4 IKI 8 9 8 8 8 8 10 8
+okouj2 IKI 10 9 8 7 6 10 8 6 8 9 10 7 9 7 6 8 10 9 6 8 8 10 7 8 6 6 9 9 7 8 8 6 9 9 9 8
+iyfxn7 IKI 7 10 6 6 9 9 8 9 8 6 8 8 9 6 7 10 8 10 7 10 8 6 9 9 10
+azgrf8 IKI 10 8 9 10 9 8 9 10 10 9 9 6 9 7 10 6 8 10 9
+eezje1 MT 10 8 7 8 9 8 10 7 7 7 7 8 10 8 6 7 9 10 9 9 6 9 6 10 7 7 7 6 6
+qkrni6 KNI 6 9 9 7 8 8 8 9 9 10 8 7 8 10 9 6 9 8 8 6 8 8 6 7 8 10 7 10 8 7 8 7 7 6
+hcicv6 IKI 9 7 8 7 10 7 8 6 8 7 10 9 6 9 6 6 10 7
+qmvci5 KNI 6 7 6 6 8 6 6 8 9 9 7 8 7 7 8 7 8 6 8 8 6 8 10 10 8 8
+dxcow3 IKI 7 9 6 8 7 10 10 8 8 9 8 6 8 10 8 10 7 9 9 6 10 8 9 9 7 6 10 7 6 9 9 10 6 7 9 8 8 10 9
+fpkvo2 IKI 9 9 6 8 7 8 6 7 8 9 9 6 8 9 9 7 9 7 9 9 10 10 7 6 10 9 8 9 7 7 7 6 6 9 8
+ssdzo6 PET 9 10 9 9 9 9 10 10 10 8 8 9 8 7 9
+utvnp2 KNI 9 7 7 8 8 9 7 8 8 7 8 6 10 8 6 6 8 8 10 7 6 8 7 8 8 7 7 6 10 8 9 6 8 10 7 7 9 6 9 8
+etwpu4 KNI 7 6 9 10 8 6 9 10 6 6 7 7 8 7 9
+rgdqx7 PET 8 6 10 6 8 8 8 10 6 10 8 7 8 8 8 7 10 10 6 10 8
+orgrp2 KNI 8 8 6 8 10 8 7 8 7 6 7 8 6 8 6 7
+mzkir9 KNI 8 9 8 8 9 9 9 9 8 9 10 7 8 7 8 7 8 8 6 10 8 8 8 9 6 8 7 7 8 6 6 7 7 9 7 8 8 8 9 8
+uyzjt0 IKI 7 9 9 10 9 9 8 7 7 6 7 7 6 10 7 10 7 8 6 10 8 9 8 7 8
+rtaoc6 KNI 8 9 6 8 8 8 6 6 7 9 9 10 7 7 9
+eywds3 KNI 8 9 6 7 10 7 9 10 9 10 7 7 7 6 7 10 8 7 7 7 8 6 8 7 10 6 8 7 6 8 8 7 7 6 7 6
+</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">1520</span>
+    	</div>
+    	<pre id="output_4">=== READING RECORDS ===
+Total records: 75
+=== WRITING TABLE ===
+IKI
+azgrf8 8.74
+qukpj9 8.57
+jxgqh4 8.38
+ldrtd6 8.35
+efbva3 8.29
+ejohb9 8.26
+ihyav3 8.23
+dxcow3 8.21
+kcjzo6 8.20
+ckhst5 8.15
+dhaol6 8.14
+iyfxn7 8.12
+ctbtj7 8.10
+lgrlb7 8.00
+okouj2 8.00
+qsqwa1 8.00
+uyzjt0 7.96
+fpkvo2 7.94
+hcicv6 7.78
+xpztr8 7.71
+KNI
+ysyjs4 8.92
+mfgfo0 8.35
+zbqyn7 8.21
+vmuby8 8.16
+jwtxo9 8.11
+ezckq9 8.06
+kglnf3 8.03
+ctltn9 7.95
+luhkk2 7.93
+mzkir9 7.93
+qkrni6 7.91
+sjdhm4 7.91
+xxtgg0 7.89
+deoxo9 7.86
+xqebz5 7.85
+npztp3 7.81
+jkcsd8 7.81
+rtaoc6 7.80
+utvnp2 7.73
+xvveq9 7.71
+ciacm2 7.67
+etwpu4 7.67
+eywds3 7.58
+qmvci5 7.50
+orgrp2 7.38
+MT
+oiwzf2 8.71
+pzlrb4 8.36
+ggqci2 8.24
+funvy1 8.20
+rmcrn2 8.13
+nbtcc9 8.12
+hizho9 8.00
+lljvk6 7.88
+eezje1 7.86
+ucpsu4 7.74
+bfeit2 7.73
+awzjy7 7.72
+kkcnt1 7.61
+whdol3 7.38
+PET
+ssdzo6 8.93
+flyln6 8.50
+hztpj8 8.21
+uqlnz5 8.21
+zkqrp7 8.17
+mvlmg6 8.13
+csfsf1 8.11
+agjbj1 8.10
+rgdqx7 8.10
+wddrc9 8.08
+jtgqp5 7.93
+tuwqw4 7.85
+yyskp7 7.75
+nmtem2 7.67
+rsjgw9 7.65
+ziyoh2 7.60
+=== WRITING DISTRIBUTION ===
+IKI
+ 6 | ********(73)
+ 7 | *********(90)
+ 8 | **************(134)
+ 9 | ************(118)
+10 | *********(89)
+KNI
+ 6 | **********(97)
+ 7 | ***************(144)
+ 8 | ******************(174)
+ 9 | *************(123)
+10 | ********(78)
+PET
+ 6 | ******(51)
+ 7 | *******(63)
+ 8 | *********(81)
+ 9 | *******(64)
+10 | ******(58)
+MT
+ 6 | ******(58)
+ 7 | *******(66)
+ 8 | ********(74)
+ 9 | ********(74)
+10 | *****(46)
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_4"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_4" onclick="Code.viewDiff(4)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_4" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>5</td>
+    <td><pre id="input_5">cuhjd3 PET 8 6 10 8 7 9 10 9
+vsgyo4 IKI 8 6 9 7 8 10 7 9 8 9 9 8 8 9 8 8 8 8 9 7 6 7 7 9
+waany2 IKI 8 7 10 7 8 7 8 10 8 9 6 6 7 10 9 9 7 6
+fkzhb5 IKI 7 9 7 6 6 8 8 9 8 9 6 8 8 9 9 10 7 6 8 9 9 9 7 6 9 6 8 7
+vsneg0 PET 10 9 7 6 8 6 9 6 10 7 6 10 8 10 8
+yocbh2 MT 7 9 8 6 10 8 10 8 6 7 7 9 9 8 7
+mzvro7 MT 10 9 9 10 7 6 9 7 8 9 7 8 7 7
+vgeuq2 KNI 8 7 8 7 10 10 9 7 7 8 7 9 7 6 10 8 6 6 9 7 9 8 10 7 9 9 8 8 9 6 10 6 6 7 10 6 9 9
+mgndj2 PET 9 6 9 8 7 8 8 7 10 8 8 8 10 9 10 8 7 9 9 10 9 8 8 8 9 9 10 8 7
+uecbu5 MT 8 7 8 7 10 8 8 8 7 10 9 6 9 8 8 10 8 9 9 6 6 7 9 8 6 9 6 9
+zshyq1 KNI 9 9 9 7 8 10 10
+juafh3 PET 7 6 9 7 8 7 7 7 10 7 8 8
+wiavh7 KNI 8 10 9 7 7 7 8 6 6 10 10 8 10 8 6 7 8 8 7 7 8 7 9 8 8 6 9 8 10 7 9 7 6 7 8 9 9
+gertw0 MT 7 8 8 6 10 10 9 9 8 8 8 8 6 8 7 6
+saunm8 PET 10 9 7 8 10 9 6 6 10 8 6 8 7 8 6 8 8 7 8 7 6 9 7 6 6 9 9 8 9 8
+goact2 IKI 8 8 8 10 6 9 10 9 10 7 10 6 7 7 7 10 6 10 9 9 8 10 9 10 8 6 6 8 6 6 10 8 10 10 7 7 7 8 8
+rkmkc7 IKI 8 8 10 6 8 10 9 10 10 8 8 6 8 8 8 10 10 9 7 9 8 7 10 9 10 9
+xqyrv6 IKI 8 6 8 8 8 9 8 6 7 6 9
+ufcbn1 IKI 9 6 6 8 6 6 10 8 8 6 7 9 9 9 10 7 9 10 7 7 8 8 6 8 9 6 10
+gtgmx7 KNI 6 9 6 9 7 8 6 6 10 6 9 8 8 6 8 10 10 6 7 6 8 7 10 7 9 9 10 8 10 9 7 6 7 9 8 7 9 8 7
+ryuac7 PET 7 9 10 8 9 10 8 6 9 8 9 9
+cznbp2 MT 8 7 9 10 9 8 8 8 8 6 7 7 7 8 8 9 6 9
+xrfnb0 IKI 10 9 9 10 7 8 9 8 8 8 9 9 7 10 8 6 8
+cugcg7 IKI 7 8 8 9 9 9 8 8 7 6 9 7 9 10 9 10 6 8 9 7 6 8 10
+pynql7 IKI 10 8 9 7 8 8 8 7 9 7 9 8 8
+zplnk5 KNI 9 9 6 6 7 8 6 8 9 9 8 6 10 8 8 6 6 8 8 8 6 6 6 7 7 6 7 9
+vsbzj7 KNI 6 7 7 8 8 7 6 6 9 9 8 10 6 8 7 10 6
+nuysn5 PET 10 7 9 8 7 8 9 9 8 7 7 9 6 7 9 9 7
+rhfcy4 KNI 9 8 6 9 6 9 6 8 9 7 9 6 8 7 9 6 9 7 8 7 7 7 6 8 9 9 7 9 6
+koswj8 IKI 10 8 8 7 8 10
+uamjn8 KNI 8 9 9 6 6 6 8 8 9 6 9 9 8 6 7 9 7 9 9 8 9 7 10 7 7 7 9 10 7
+ywiuo5 IKI 8 10 9 10 10 7 10 6 7
+luves2 PET 6 7 10 9 10
+myxwz7 PET 7 8 8 9 8 9 7 6 8 8 8 10 7 6 6
+xurjw3 IKI 9 8 6 6 10 9 9
+fsipl1 KNI 10 8 8 8 8 7 6 6 7 7 8 6 7 8 7
+rnpof6 MT 7 8 6 10 9 9
+owxob2 PET 8 6 9 8 9 8 9 9 10 9 10 7 7
+ywcfb6 KNI 9 8 9 8 7 8 10 6 8 7 9 9 10 7 7 8 6 10 9 10 8 9 9 9 9 9 6 7 6
+nrpkk3 PET 10 9 8 7 7 8 8 8 6 9 9 9 10 8 8 10 7 10 10 8 7 6 8 10 7 8 8 7 6 10 9 8 9 7 9 9 8 6
+jjwmd7 MT 6 9 9 8 8 8 6 8 8 9 8 10 8 7 8
+eigvz2 MT 9 6 10 8 9 8 10 9 8 8 7 9 6 8 9 7 8 8 8 8 8 7 10
+wwvdj1 KNI 7 6 7 6 8 7 7 9 9 6 8 9 10 8 7 7 6 9 7 8 9 8 7 8 9 10 7 9 6 10 6 9 7 10 9 10 10 7 9
+hvhbv8 KNI 6 10 10 9 6 8 7 10 8 7 9 10 6 6 9 10 6 10 7 6 7 9 7
+utrhv9 KNI 7 8 7 10 8 6 9 8 8 7 8 8 9 9 9 8 6 9 10 6 9 6 7 7 7 7 8 6 6 10 7 6 10 10 7
+itbzi6 PET 8 7 7 6 7 8 7 7 7 6 9 8 9 9 8 7 6 10 7 7 8 10 9 10 6 8 6 8 6 9 8 7 7
+aziht5 MT 9 8 8 6 9 7 10 10 10 6 6 8 7 10 9 6 7 10 8 6 10 9 9 10 8 6 6 6 9 8 6 6 9
+oljfz7 KNI 6 8 9 9 10 8 7 8 8 10 8 8 9 6
+floyz5 IKI 10 9 8 7 8 7 10 8 8 8 8 10 7 8 8 6 8 7 7 6 6 8 9 8 7 8 9 8 8 6 10 7
+jrkec7 KNI 8 6 10 7 10 9 10 8 10 8
+mnxah1 MT 8 8 7 8 8 8 7
+ydurf0 IKI 9 7 10 8 9 9 9 7 9 6 9 6 10 7 6 8 8 9 6 6 9 7 7 9 9
+jswha8 IKI 9 9 7 7 6 8 8 9 6 10 7 8 10 8 7 9
+dcwij9 KNI 7 10 9 10 6 8 10 7 8 8 8 9 8 8 6 9 7 9 9 7 8 10 9 6 9 7 9 9 10 8 7 10
+sbntg4 KNI 9 8 9 10 7 9 8 7 7 7 7 10 9 7 9 10 6 10 6 7 9
+odwup6 KNI 9 10 8 9 7 8 7 10 7 6 9 7 6 6 10 8 9 7 10 6 10 9 8 10 6 8 8 8 9 8 7
+jidjr5 PET 7 10 7 8 10 6 7 10
+ufnla5 MT 9 9 10 9 7 7 6 8 8 10 6 10 8 9 7 7 6 9 7 8 9 9 6 10 9 7 9 10 6 7 10 8 7 8 9 6 8 10 10
+yaptv9 KNI 9 8 8 7 8 7 9 8 7 10 9 6 8 7 6 7 7 10 7 7 6
+chrts1 PET 7 9 7 10 8 7 9 9 10 10 6 8 7 7 9 7 10 7 9 10 10 6 9 9 7 8 8 9 10 7 7 6 6 9
+kwgin0 PET 7 8 8 8 8 8 8 9 10 7 7
+rzsxl5 KNI 10 8 8 9 6 9 10 7 9 8 7 7 6 10 8 8 10 8 6 9 7 7 9 6 7 7
+ymtwi5 PET 9 10 9 9 7 10 7 7 7 7 8 10 10 8 8 7 6 9 10 10 8 7 9 9 9 10 8 7 9
+tvecj8 KNI 8 8 10 9 8 8 8 6 8 7 7 7
+fmpey1 MT 8 6 7 7 8 8 7 7 9 10 9 10 9 9 8 6 6 9 6 8 8 8 7 9 10 7 10 10 8 9 6 10 8 10
+ookrq3 IKI 10 9 7 10 9 9 8
+ipmhv4 PET 10 9 7 6 8 8 10 8 6 8 7 9 10 9 8 6 9 9 9 7 9 7 6 10 6 7 9 7 6 9 10 9 10 10
+cpkgi2 PET 9 7 7 8 9 9 8 9 7 7 10 9 6 9 10 8 6 8 8 8 7 10 9 9 8 8 7 6 10 7 8
+akjie3 KNI 8 6 6 8 7 9 8 8 8 9 9 8 9 9 7 10 8 6 6 9 8 10
+xwoim9 KNI 9 9 9 7 8 7 10 8 6 9 8 8 10 9 8 8 8 10 10 7 10 8 6 8 10 9 8 10 6 10 8 7 6 7
+efoem7 MT 8 9 7 7 10 9 8 8 7 8 8 7 10 9 8 9 8 8 9 9 6 7 7 10 6 10 10 9 10 7
+itrvh8 KNI 7 6 8 8 9
+sqsjy5 KNI 8 8 9 8 7 7 9 7 8 6 10 10 10 10
+codtc8 KNI 7 9 10 9 10 8 10 8 7 6 9 9 6 6 10 7 8 6 9 9 7 7 8 9 6 6 6 7 6 9 9 7 8 8 6 6 10
+xsyny0 MT 8 8 6 9 7 7 6 6 7 6 10 7 9 8 9
+nckhy2 KNI 10 7 8 7 6 8 9 10 10 8 10 8 8 6 10 8
+dldog1 KNI 9 6 7 6 10 9
+dzjgc5 KNI 6 8 6 8 8 7 6 9 10 9 9 10 10 10 7 7
+ngsjq3 PET 7 10 7 10 10 8 9
+edcqc1 IKI 8 6 7 8 8 9 9 6 8 8 7 10 6 9 6 8
+omgqa8 IKI 7 7 9 9 8 6 7 9 8 8 7 7 6 7 7 10 6 6 10 9 8 9 10 8 9 7 9 7 8 8
+ghirp6 IKI 9 8 9 8 8 9 9 8 8 9 8 8 10 8 7 8 6 8 6 7 9 9 6 6 10 6 6 10 6 7 9 9 7 7
+segsw4 MT 6 9 10 9 9 6 7 7 7 6 7 8 8 6 9 7 8 6 7 7 6 8
+ziksa2 IKI 6 7 9 7 10 6 7 7 6 7 9 8 6 7 6 7 6 7 8 7 7 7 9 7 8 6 9 6 7 10 8 9 8 7 8 7 9
+alnko7 KNI 7 8 7 8 10 6 7 9 7 8 9 6 7 10 6 9 9 6 7 10 9 9 7 8 6 8 7
+ktmtq6 IKI 9 9 8 10 6 7 7 9 7 10 8 10 10 9 6 8 6 7 8 6 9 9 10 8 9
+gkrai5 MT 7 8 6 7 8 10 6 7 7 9 7 6 8...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">2667</span>
+    	</div>
+    	<pre id="output_5">=== READING RECORDS ===
+Total records: 150
+=== WRITING TABLE ===
+IKI
+ookrq3 8.86
+rkmkc7 8.58
+ywiuo5 8.56
+koswj8 8.50
+qbbyt8 8.43
+sawqz8 8.43
+xrfnb0 8.41
+uhvcw3 8.41
+ujykn3 8.23
+ktmtq6 8.20
+mwajw8 8.18
+goact2 8.15
+pynql7 8.15
+xurjw3 8.14
+cugcg7 8.13
+ovyib7 8.10
+jswha8 8.00
+vsgyo4 8.00
+ydurf0 7.96
+vmclu8 7.92
+waany2 7.89
+ghirp6 7.88
+floyz5 7.88
+hbweo2 7.87
+omgqa8 7.87
+ufcbn1 7.85
+aganr7 7.81
+fkzhb5 7.79
+yyzvb6 7.77
+edcqc1 7.69
+hdzdj9 7.63
+mgxyt2 7.61
+rzcpn5 7.59
+xqyrv6 7.55
+dlaqr9 7.50
+ziksa2 7.43
+KNI
+zshyq1 8.86
+jrkec7 8.60
+moieb0 8.50
+mnnuj2 8.44
+gqcqq6 8.43
+euhcj6 8.38
+sqsjy5 8.36
+wtjbi5 8.32
+nckhy2 8.31
+dcwij9 8.28
+xwoim9 8.26
+ywcfb6 8.17
+ajxaj7 8.15
+oljfz7 8.14
+sbntg4 8.14
+dzjgc5 8.13
+hkwcp7 8.08
+jydso0 8.07
+odwup6 8.06
+akjie3 8.00
+wwvdj1 7.97
+hvhbv8 7.96
+vgeuq2 7.95
+uzvzh8 7.94
+rzsxl5 7.92
+uamjn8 7.90
+wiavh7 7.89
+bnqxh0 7.85
+gtgmx7 7.85
+dldog1 7.83
+tvecj8 7.83
+ejocr9 7.80
+kpupe8 7.80
+utrhv9 7.80
+codtc8 7.78
+alnko7 7.78
+bfrya6 7.78
+fqssw0 7.72
+vjqfs1 7.71
+yaptv9 7.67
+rhfcy4 7.62
+itrvh8 7.60
+vsbzj7 7.53
+booer5 7.52
+fsipl1 7.40
+zplnk5 7.39
+MT
+opfgw3 8.38
+efoem7 8.27
+urdgt7 8.19
+eigvz2 8.17
+rnpof6 8.17
+ufnla5 8.15
+fmpey1 8.15
+ghsgj7 8.13
+hmcvp2 8.12
+xzwol7 8.11
+qeuvp5 8.10
+zkdno6 8.07
+mzvro7 8.07
+cnred0 8.05
+jjwmd7 8.00
+vlynd4 8.00
+uecbu5 7.96
+aziht5 7.94
+yocbh2 7.93
+kdjaq0 7.93
+drgnn2 7.89
+cznbp2 7.89
+gertw0 7.88
+wsjow1 7.86
+frrcm4 7.84
+fgspi4 7.75
+mnxah1 7.71
+gkrai5 7.63
+mgkpt1 7.63
+atxdl4 7.60
+xsyny0 7.53
+segsw4 7.41
+xvyir9 6.75
+PET
+ngsjq3 8.71
+ryuac7 8.50
+orevm9 8.47
+mgndj2 8.41
+ymtwi5 8.41
+luves2 8.40
+rnipg8 8.39
+owxob2 8.38
+cuhjd3 8.38
+wpgkc9 8.30
+kkrkz4 8.23
+nrpkk3 8.18
+ipmhv4 8.18
+chrts1 8.15
+jidjr5 8.13
+fzexe3 8.11
+cpkgi2 8.10
+ujwsa7 8.08
+bldih2 8.04
+kwgin0 8.00
+nuysn5 8.00
+vsneg0 8.00
+spzyc4 7.97
+fycsy2 7.80
+iixsp5 7.80
+saunm8 7.77
+hwnde6 7.71
+inwyc4 7.70
+ailme3 7.68
+jusfe3 7.67
+myxwz7 7.67
+kezej0 7.64
+itbzi6 7.64
+juafh3 7.58
+wenqz1 7.33
+=== WRITING DISTRIBUTION ===
+KNI
+ 6 | *******************(181)
+ 7 | ************************(237)
+ 8 | ***************************(269)
+ 9 | ************************(236)
+10 | *****************(163)
+IKI
+ 6 | *************(130)
+ 7 | ******************(178)
+ 8 | *********************(205)
+ 9 | ******************(179)
+10 | ************(118)
+PET
+ 6 | *********(90)
+ 7 | *****************(163)
+ 8 | ********************(196)
+ 9 | ****************(155)
+10 | ************(113)
+MT
+ 6 | ************(116)
+ 7 | ****************(154)
+ 8 | *********************(201)
+ 9 | *****************(168)
+10 | **********(94)
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_5"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_5" onclick="Code.viewDiff(5)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_5" class="diff"></pre>
+    </td>
+</tr>
+<tr>
+    <td>6</td>
+    <td><pre id="input_6">zafvn4 IKI 9 8 9 8 7 9 9 8 8 8 7 6 7 8 9 9 10 7 6 10 9 9 8 9 10 7 8 10 10 8
+piofc2 KNI 10 9 10 10 10 8 8 10 8 6 6 7 6 6 6 6 7 9
+wqjgq8 MT 8 10 6 8 6 7 6 9 9 8 9 7 8 10 8 10 7 6 9 7 10 6 9 10
+aigiw9 IKI 8 6 8 7 10 9 8 8 8 9 6 7 9 7 7 9 8 7 8 7 7 9 8 7 8 9
+kzqje3 KNI 9 8 7 8 9 9 8 6 6 8 9 6
+zkysd4 KNI 7 10 10 8 8 10 9 7 6 10 10 8 9 7 6 6 8 6 6 7 6 6 8 7 9 9 9 6 6 9 8 8 10 8 9 8 8 8 9 7
+qaelq3 PET 6 8 8 9 7 8 6 7 6 8 8 8 7 8 6 6
+fwivc0 KNI 6 10 8 9 9
+rkwvj6 PET 8 6 8 9 6 7 8 6
+rjtsw0 KNI 8 7 8 8 8 8 9 7 10 9 9 8 8 7 10 9 10 9 9 10 6 6 8 6 9
+ydpwm3 IKI 9 10 10 7 8 10 6 10 8 9 7 10 7 8 9 7 7 8
+mbegv3 IKI 7 10 6 9 9 10 7 6 8 8 8 7 9 10 10 9 10 6 8 6 8 7 9 6 8 8 6 7 7 6 7 9 9 6
+xaqac2 KNI 7 9 6 6 7 7 9 9 6 6 8 8 9 8 7 10
+mvfkz9 PET 8 7 9 6 6 6 6 9 8 7 7 8 9 6 7 9 10 9 7 8 9 8 10 6 8 6 6 6 7 6 10 8
+lrlkw9 MT 7 8 7 7 6 10 8 8 7 8 7 7 10 8 10 8 10 10 7 8 9 8 9 10 9 6 7 6 10 7 8 9 10 8
+paias9 KNI 9 7 8 9 10 10 9 7 9 8 10 7 8 8 9 7 7 10 7 6 6 9 7 10 7 8 9 7 9 6 8 8 8 7 9 7 6 10
+prkpr8 PET 7 7 6 8 9 10 8
+zqhrn2 MT 7 6 10 6 8 7 6 7 10 8 8 10 6 7 6 6 6
+enadw9 PET 10 9 6 6 6 6 7 9 9 7 10 9 10 9 10 6 8 10 6 8 10 6 9
+vbbxg8 PET 10 8 7 10 10 9 8
+szpib0 MT 8 10 7 8 8 9
+ptbju8 IKI 10 9 8 9 9 8 9 7 7 8 8 7 8 9 9
+lpvzi7 KNI 10 7 6 8 9 8 6 6 7 8 9 7 6 8 10 9 6 7 9 9 9 8 10 7 10 6 8 7 8 6 8 7 10 7 6 8 6 8 7 9
+dveda7 KNI 6 7 9 8 9 7 10 8 10 9 8 10 8 8 10 7 9 9 10 7 6 10
+wiuxp5 KNI 10 8 7 8 10 7 8 9 6 10 8 8 10 7 8 10 6 9
+helkj0 KNI 9 9 7 8 9 8 6 7 9 10 7 10 9 7 10 6 8 7 9 9 8 8 7 10 6 6
+pofdk9 KNI 8 7 7 6 7
+pczrs8 KNI 10 8 7 9 7 10 10 8 9 7 10 7 6 7 8 6 9 8 10 9 6 7 9 10
+vvpgx4 IKI 6 6 8 9 7 6 9 8 8 6 6 6 8 7 9 7 8 9 8 6 9 7 10 7 10 8 6 7 8 10 6 8 10 8 10 8 6
+spfxk3 KNI 6 7 8 10 9 7 10 8 9 9 8 8 9 9 9 10 8 8 8 10 7 7 10 9 7 9 9 7 6 8 7 10 7 8
+muplp3 IKI 9 7 8 7 8 6 7 9 8 6 9 7 7 8
+njyxb3 MT 7 8 8 9 8 10 10 8 10 9 10 9 6 6 9 10 7 7 9 7 8 10 6 8 6 10 9 6 9 6 9
+bfvva5 KNI 8 9 9 10 8 8 10 8 9 7 9 9 8 10 8 6
+atbme8 KNI 6 8 9 6 8 10 10 8 6 7 9 6 8 7
+xbxrm1 KNI 7 6 8 10 9 6 8 7 9 8 8 8 9 10 10 10 8 8 8 8 9 8 8 7 8 9 8 8 8 7 8 7 10 8 8 10 7
+tmvcl4 MT 7 6 7 6 7
+ffwdp2 IKI 7 7 9 10 10 9 8 7 8 6 6 10 8 8 9 7 8 7 7 10
+kmjsm8 PET 8 8 7 8 7 7 7 6 9 9 10 7 8 9 9 7 8 6 10 7 7 9 7 8 6 10 9 6 8 10 7 8 8 9 9 9 8 10
+ulmmq7 IKI 8 10 7 8 9 8 7 7 7 7 7 10 6 9 9 8 9 7 9 8 7 6 7 7 6 9 6 7 10 8 6 10
+ddeit3 IKI 8 7 9 8 7 8 7 7 9 9 7 7 9 6 7 10 9 8 9
+adcjg0 PET 7 10 8 8 8 9 9 7 10 9 8 7 7 10 9 8 10 8 6 7 9 10 7 9 9 7 8 9 8
+hsblc6 PET 6 8 6 10 7 8 6 6 10 7 10 8 9 9 9 7 6 8 8 6 8 7 8 9 9 7 7 10 9 8 10
+nqywt6 KNI 7 9 9 6 7 8 7 9 7 8 8 9 8 7 6 8
+jyxuj9 KNI 8 9 7 9 7 9 7 9
+qihmv1 KNI 6 9 8 9 9 10 7 8 7 9 9 6 6 6 6 10 9 10
+ecdcm1 PET 6 8 10 9 8 7 9 10 9 6 6 9 6
+adtgh3 KNI 9 6 7 6 10 9 7 9
+viflx1 KNI 7 6 8 10 10 6 7 10 8 8 9 9 8 8 8 6 8 10 8 7 6 10 9 8 6 7 8 8
+zquhv5 IKI 7 8 6 9 6 6 9 8 9 8 9 6 9 8 7 7 8 9 7 8 10 6 8
+geuba4 KNI 9 10 8 8 9 6 7 7 8 6 7 6 9 8 9 8 8 9 6 7 7 9 8 8 10 8 10 10 10 8 8
+fdpej1 IKI 10 8 8 8 7 6 7 8 8 10 9 8 7 9 10 7 6 8 6 9 10 9 6 7 6 8 8 9 7 8 7 6 6 10 10 8 10 8
+cpaxh2 MT 8 8 7 8 6 10 9 10 9 7 8 7 6 10 7 6 6 9 7 10 10 6 8 6
+sqwzh9 MT 8 9 10 7 9 8 6 9 6 10 8 6 6 9 7 7 8 8 9 7 10 8 6 8 7
+dyqbv5 IKI 7 8 10 10 7 8 10
+xxilf3 MT 9 8 8 10 8 7
+qazok9 IKI 8 9 7 10 8 6 10 9 10 9 8 8 9 6 7 10 6 10 8 7 9 9 10 6 10 9 8 9 8 8 7 6 9 6 7 8 6 9 8 8
+amkfl5 MT 9 8 10 7 9 6 8 8 7 8
+hslpm0 PET 9 10 6 6 8 6 9 10 8 8 7 9 9 8 9 7 7 7 6 9 7 7 6 9 7 7 7 9
+gdfqa3 KNI 9 6 10 7 6 10 8 6 8 6 9 8 7 7 7 9 7 10 8 6 9 7 7 7 7 7 10
+exurg0 IKI 10 8 8 9 9 9 7 7 10 9 9 9 6 8 8 7 8 10 8 6 7 6 6
+xkrbr3 KNI 6 7 9 6 7 9 8 6 9 6 7 8 10 8 10 8 8 7 10 7 10 8 8 8 8 8 8 10 9 8 6 8 8 9 9 8 6 8 7 10
+tnqln2 MT 9 8 8 7 8 6 6 9 7 6 9 8 7 6 7 8 9 6 8 6 6 10 8 10 6 9 7 7 7 9
+gnizy1 PET 9 8 10 6 8 6 7 10 7 9 6 10 7 10 8 10 8 10 8 6 6 10 8 7 10 6 6 9 8 9 8 8 7 8 7
+kdqng1 IKI 10 8 8 10 6 8 10 9 10 7 7 10 6 6 9 6 9 9 8 7 7 8 10 7 9 10 8 8 9 7 9 10 9 7 8 7 7 8 6 8
+zpebj0 KNI 9 7 9 8 10 8 6 10 8 7 9 7 9 9 10 9 8 8 7 6 8 8 10
+xzsmj8 PET 8 8 7 8 7 6 9 9 8 7 6 6 6 7 9 7 7 7 6 8 7 9 7 7 10 8 10 10 7 9
+sqwus1 PET 8 6 9 9 8 6 10 8 9 7 6 6 10 8 7 10 6 6 9 7 10 6 9 6 8 6 9 6 9 10 10 10 6 7 8
+jypmr1 KNI 7 10 6 6 7 7 6 10 6 10 9 10 8 9 9 8 10 9 6 10 6 9 8 9 6 7 7 9 8
+kxila6 KNI 7 8 8 8 9 9 8 7 8 7 9 6 10 8 6 8 6 8 8 7 10 9 8 8
+zjkbw9 MT 9 7 7 8 7 9 9 8 10 7 9 6 8 9 10 6 6 7 7 8 8 10 9 8 6 10 6 9
+oyxkx2 MT 10 10 8 7 9 8 9 8 6 6 7 10 6 10 10 6 7 7 8 8 6 7 7 7 8 8 9 9 10 8 8 9 9 8 9 7 7
+xyiir3 PET 8 10 6 9 7 6 9 10 6 7 8 9 8 7 8 9 7 10 8 9 8 8 10 9 10 8 6 9 8
+vodwh0 IKI 10 7 9 10 9 10 10 8 10 7 9 7 7 6 6 7 6 9 8 9 9 9 8 10 9 8 9 8 9 8 7 7 6 9 7 8
+xkoed8 PET 8 6 10 9 9 7 8 9 7 9 8 7 8 9 9 8 10 6 10 7 7 9 7 6 8 10 8 8 9 6 9 10 9 8
+bozfj4 IKI 7 10 6 8 8 7 10 10 9 8 8 6 8 8 7 7 6 6 6 10 8 9 8
+nesth3 PET 7 8 9 9 9 9 7 6 9 7 10 9 7 8 8 9 9 9 8 6 10 10 8 10 8 9 9 9 10 7 9 10 7
+ruboz3 IKI 9 10 7 8 7 8 6 6 10 6
+irivq0 IKI 10 6 10 8 9 7 9 9 6 10 10 7 7 9 9 9 8 8
+farvg8 IKI 9 10 8 7 8 9 9 6 8 6 7 10 8 9 7 7 8 7 8 10 8 9 7 9 8 8 6 10 6 10 8 10 9 6 7 8
+ellts2 KNI 9 6 6 10 8 9 8 6 8 6 10 9 6 6 8 8 8 7 7 9 9 7 6 9 6 8
+rlhxf9 PET ...</pre></td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">4028</span>
+    	</div>
+    	<pre id="output_6">=== READING RECORDS ===
+Total records: 238
+=== WRITING TABLE ===
+IKI
+byhug3 8.67
+hhecw9 8.63
+foyka8 8.59
+dyqbv5 8.57
+rzrfe1 8.41
+irivq0 8.39
+mbiwr3 8.39
+ptbju8 8.33
+ydpwm3 8.33
+zafvn4 8.33
+olyev5 8.31
+hrmwk4 8.30
+gemdy2 8.29
+fvurt6 8.20
+pcgqj5 8.20
+vodwh0 8.19
+ittgs2 8.13
+gyekt2 8.13
+kdqng1 8.13
+qazok9 8.13
+eotns6 8.07
+mwzok1 8.06
+rxazh2 8.06
+farvg8 8.06
+ffwdp2 8.05
+jdtav3 8.05
+exurg0 8.00
+mjlun9 8.00
+mzzfl6 8.00
+kswdx9 7.96
+knfxl3 7.95
+ddeit3 7.95
+fdpej1 7.95
+tesfc5 7.95
+iiipk7 7.95
+miycj2 7.94
+yjokb7 7.91
+qzhuu7 7.91
+gqeau6 7.89
+huefz1 7.88
+hvolk8 7.88
+himvy3 7.87
+ejivn8 7.87
+zbsvi5 7.85
+aigiw9 7.85
+gphak1 7.85
+aqbpg0 7.84
+bozfj4 7.83
+kdhlf4 7.82
+mbegv3 7.82
+hppgv1 7.79
+ulmmq7 7.78
+xlgem2 7.74
+zquhv5 7.74
+oytvw2 7.73
+vdfef0 7.71
+mbpnu5 7.71
+vvpgx4 7.70
+ruboz3 7.70
+kuuqm6 7.67
+mdzkx7 7.67
+muplp3 7.57
+sduvi2 7.36
+nvruh9 7.14
+KNI
+jotod3 9.60
+kddcp6 8.80
+bfvva5 8.50
+dveda7 8.41
+fwivc0 8.40
+myjju8 8.33
+ouxsf9 8.28
+wiuxp5 8.28
+spfxk3 8.26
+zpebj0 8.26
+rjtsw0 8.24
+pczrs8 8.21
+xbxrm1 8.19
+nelqf7 8.15
+jyxuj9 8.13
+geuba4 8.10
+ofxbf4 8.06
+unvpo7 8.06
+paias9 8.05
+helkj0 8.04
+qamba9 8.03
+fbkjf1 8.00
+iblxk4 8.00
+jypmr1 8.00
+pzxbu2 8.00
+qihmv1 8.00
+xkrbr3 8.00
+cksab1 7.97
+viflx1 7.96
+dpczi5 7.96
+kevhf2 7.96
+tjdsb9 7.94
+ffmdy1 7.94
+kxila6 7.92
+zkysd4 7.90
+piofc2 7.89
+adtgh3 7.88
+xwzic5 7.83
+fkrze1 7.82
+wbvoj1 7.80
+bxssn1 7.79
+kuzef3 7.76
+jjesx0 7.75
+kzqje3 7.75
+lpvzi7 7.75
+wyvvl9 7.75
+atbme8 7.71
+gdfqa3 7.70
+nqywt6 7.69
+ellts2 7.65
+ayaar6 7.64
+xaqac2 7.63
+nsobf5 7.58
+pqhyr5 7.58
+iypzn8 7.40
+eksfv4 7.33
+sykje6 7.22
+pofdk9 7.00
+MT
+ufgcj8 9.17
+rbxxb1 8.68
+pckpi1 8.40
+xyquz6 8.38
+dfaaz7 8.38
+qixfq2 8.35
+szpib0 8.33
+xxilf3 8.33
+qfdgn0 8.29
+oydxm8 8.24
+gywku3 8.19
+njyxb3 8.19
+lrlkw9 8.15
+jnnzo0 8.13
+vlduh0 8.13
+dlxdb5 8.13
+ioqmx7 8.12
+bwkrg9 8.09
+wqjgq8 8.04
+hyeaj6 8.04
+uhelu0 8.04
+nrkbc9 8.03
+amkfl5 8.00
+oyxkx2 8.00
+uqort0 8.00
+fxxhm1 7.97
+zjkbw9 7.96
+jbnhq9 7.96
+gusgl3 7.96
+xqopu1 7.96
+pzjjo3 7.95
+ehoug4 7.95
+hsfva6 7.95
+oadti7 7.94
+hxoue0 7.93
+mokef7 7.90
+fxzcq0 7.89
+itmfx3 7.88
+mizyf8 7.88
+whhaa3 7.88
+ylhmn3 7.88
+qtptd7 7.87
+jmznw9 7.86
+sqwzh9 7.84
+cpaxh2 7.83
+kqgpx2 7.78
+zicvm0 7.78
+knslu0 7.75
+havgm5 7.60
+fsdsq2 7.59
+tnqln2 7.57
+tgczv1 7.40
+witxw6 7.39
+zqhrn2 7.29
+tmvcl4 6.60
+PET
+kovnw9 8.88
+vbbxg8 8.86
+awtrs9 8.67
+iozno9 8.67
+nesth3 8.45
+xmyga5 8.39
+lbtnk9 8.37
+fzmbs4 8.34
+bgvvv5 8.33
+fxgql2 8.33
+adcjg0 8.31
+kmxhy4 8.20
+tpbqg8 8.19
+xkoed8 8.18
+xyiir3 8.17
+juxcc8 8.15
+elrtz3 8.14
+xharh5 8.14
+ccgdi8 8.13
+zqaxj2 8.13
+eeawh8 8.12
+wwinq2 8.11
+jomjm8 8.10
+vpuiy8 8.10
+enadw9 8.09
+kqctr2 8.07
+ztkgs8 8.03
+kmjsm8 8.03
+gbsak3 8.00
+gnizy1 8.00
+jniyl3 8.00
+qsamt5 8.00
+qskye8 8.00
+fkmre7 7.95
+fnpnt4 7.94
+hsblc6 7.94
+sflfw7 7.93
+ecdcm1 7.92
+whhji7 7.89
+nfjna8 7.87
+prkpr8 7.86
+rlhxf9 7.86
+sqwus1 7.86
+wxigu3 7.86
+dyidi7 7.84
+toneh7 7.81
+kfphp4 7.79
+lfbya9 7.78
+hslpm0 7.75
+mwflj8 7.67
+xzsmj8 7.67
+eslxs3 7.64
+wezsn5 7.62
+xihmb8 7.58
+mvfkz9 7.56
+pousx3 7.53
+lzpso2 7.40
+qaelq3 7.25
+rkwvj6 7.25
+sradk1 7.20
+jbtka8 6.94
+=== WRITING DISTRIBUTION ===
+IKI
+ 6 | *************************(247)
+ 7 | ***********************************(345)
+ 8 | ***************************************(381)
+ 9 | *******************************(309)
+10 | *************************(248)
+PET
+ 6 | ***********************(225)
+ 7 | *******************************(302)
+ 8 | **********************************(337)
+ 9 | ****************************(279)
+10 | ************************(234)
+MT
+ 6 | ***********************(229)
+ 7 | ***************************(269)
+ 8 | *******************************(301)
+ 9 | **************************(251)
+10 | ***********************(227)
+KNI
+ 6 | **********************(211)
+ 7 | ****************************(277)
+ 8 | ************************************(357)
+ 9 | ****************************(280)
+10 | *******************(185)
+</pre>
+    </td>
+    <td>
+    	<div class="io_header">
+    		Size: <span class="output_size">0</span>
+    	</div>
+    	<pre id="your_output_6"></pre>
+    </td>
+    <td>
+    	<div class="io_header">
+	    		        	        	<span class="label label-danger"><i class="fa fa-times"></i> No</span>
+	        	<button class="btn btn-xs btn-primary" id="view_diff_6" onclick="Code.viewDiff(6)">View diff</button>
+        		    </div>
+        <pre style="display: none;" id="diff_6" class="diff"></pre>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+    
+  	<div class="modal fade" id="resetAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="myModalLabel">Warning</h3>
+	  	</div>
+		<div class="modal-body">
+			<p>Are you sure you want to reset the contents of the editor to the starter code?</p>
+		</div>
+  		<div class="modal-footer">
+   			<button type="button" id="btn-reset-yes" value="Yes" data-dismiss="modal" class="btn btn-danger btn-sm">Yes</button>
+   			<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  		</div>
+  		</div>
+  		</div>
+	</div>
+	
+	  	<div class="modal fade" id="yes_i_will_solve" tabindex="-1" role="dialog" aria-labelledby="yes_i_will_solve" aria-hidden="true">
+	  	  	<div class="modal-dialog">
+  		<div class="modal-content">
+	  	<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    	<h3 id="aprilFoolsLabel">Your solution</h3>
+	  	</div>
+		<div class="modal-body text-center">
+			<div style="margin-bottom: 10px;">
+				<img src="source_files/yay_happy.gif" class="img-polaroid">
+			</div>
+			<div id="terminal" class="typist-container" style="background-color: rgb(51, 51, 51); color: rgb(221, 221, 221); font-family: monospace; height: 80px;"></div>
+		</div>  	
+		</div>
+		</div>	
+	</div>
+
+<input type="hidden" name="isReadOnly" id="isReadOnly" value="false">
+
+
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+    <p>© CSE 2012 - 2020 | <a href="http://develop.finki.ukim.mk/projects/e-lab">Support &amp; Development</a></p>
+</footer>
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="source_files/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dataTables.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_004.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/typeahead.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/code.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/helper.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/diff_match_patch.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="source_files/codemirror.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/dialog.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/fullscreen.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/searchcursor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/search.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/match-highlighter.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/matchbrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/closebrackets.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clike.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/python.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/shell.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/commonlisp.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/x-mathjax-config;executed=true">
+	MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+	tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+    TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+    messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" src="source_files/MathJax.js" charset="utf-8"></script>
+<script src="source_files/jquery_002.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/problem.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/clock.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/editor.js" type="text/javascript" charset="utf-8"></script>
+<script src="source_files/jquery_003.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function(){
+	
+	var isReadOnly = $('#isReadOnly').val() == "true";
+	var isTimeLimited = $('#isTimeLimited').val() == "true";
+	var hasHistory = $('#hasHistory').val() == "true";
+	
+	$(document).ready(function() {
+		if(!hasHistory) {
+			$('#restore').hide();
+		}
+		$('#warning').hide();
+	});
+
+	var textArea = document.getElementById('code');
+	var mode = "text/x-java";
+	
+	Code.Editor.init(textArea, mode, isReadOnly);
+	
+	Code.Execute = {
+		run : function() {
+			Code.Editor.clearErrors();
+			var code = Code.Editor.getCode();
+		    $.post('/code/run', { 
+		             code : code,
+		             'problemData.id' : 8885
+		        },
+		        function(data) {
+		            $('#output').html("");
+		        	if(data.success) {
+		        		$('#output').removeClass("output-error");
+		                $('#output').addClass("output-success");        		
+		        	} else {
+		        		$('#output').removeClass("output-success");
+		        		$('#output').addClass("output-error");
+		        		Code.Editor.markErrors(data.errors);
+		        	}
+		            $('#output').append(data.output);
+		            if(data.warning) {
+		            	$('#warning').html("");
+		            	$('#warning').append(data.warning);
+		            	$('#warning').show();
+		            	Code.Editor.markErrors(data.errors);
+		            } else {
+		            	$('#warning').hide();
+		            }
+		            $('#problem-revisions').load('/code/revisions', {
+		                'problemData.id' : 8885
+		            }, function() {
+		        		hasHistory = $('#hasHistory').val() == "true";
+		        		if(hasHistory) {
+		        			$('#restore').show();
+		        		}
+		            });
+		        }
+		    );
+		},
+		submit : function() {
+			var code = Code.Editor.getCode();
+	    	$.post('/submit', { 
+	             code : code,
+	             'problemData.id' : 8885
+	        },
+	        function(data) {
+	            $('#submission-output').html(data);
+	            $('#problem-revisions').load('/code/revisions', {
+	                'problemData.id' : 8885
+	            }, function(){
+	        		var hasHistory = $('#hasHistory').val() == "true";
+	        		if(hasHistory) {
+	        			$('#restore').show();
+	        		}
+	            });
+	            Code.Execute.attempts();
+	            $('html,body').animate({scrollTop: $("#submission-output").offset().top - 40},'slow');
+	        });
+		},
+		save : function(autosave) {
+			var code = Code.Editor.getCode();
+			$.post('/code/save', { 
+		        code : code,
+		        'problemData.id' : 8885
+		   		},
+		   		function(data) {
+			    	if(autosave) {
+			    		$("#auto-saved").fadeIn(300).delay(2000).fadeOut(300);
+			    	} else {
+			    		$("#saved").fadeIn(300).delay(2000).fadeOut(300);
+					}
+			    	$('#problem-revisions').load('/code/revisions', {
+		            	'problem.id' : 8885
+		        	});
+		   	});
+		},
+		reset : function() {
+			$.post('/code/reset', { 
+		         'problemData.id' : 8885
+		    	},
+		    	function(data) {
+		    		Code.Editor.setCode(data);
+		    	}
+			);
+		},
+		restore : function(){
+			var solutionHistoryId = $('#solutionHistory').val();
+			if(solutionHistoryId) {
+				$('#code').load(
+			            '/code/loadsolutionfromhistory',
+			            {
+			                'solutionHistoryId' : solutionHistoryId
+			            }, function(data) {
+			            	Code.Editor.setCode(data);
+			            }
+			     );
+			}
+		},
+		attempts: function() {
+			$('#attempts').load('/code/attempts', {
+            	'problem.id' : 6314
+            }, function() {
+            	var exceeded = $('#exceeded').val();
+            	if(exceeded == "true") {
+            		$('#submit').attr('disabled', true);
+            	}
+            });
+		}
+	}
+	$('#run').click(Code.Execute.run);
+	$('#submit').click(Code.Execute.submit);
+	//$('#save').click(Code.Execute.save(false));
+	$('#btn-reset-yes').click(Code.Execute.reset);
+	$('#restore').click(Code.Execute.restore);
+	// use closure
+	$('#format').click(function(){ return Code.Editor.format(8885) });
+    $('#analyze').click(function() { return Code.Editor.analyze(8885, function(data) {
+        console.log(data);
+        if(data.errors) {
+            $("#clang_output").show();
+            $("#output_link").attr("href", data.uri);
+        } else {
+            $("#clang_output").hide();
+        }
+    })});
+	var working = $('#working').hide();
+	$(document).ajaxStart(function() {
+    	$('#buttons').hide();
+        working.show();
+    }).ajaxStop(function() {
+        working.hide();
+        $('#buttons').show();
+    });
+	$('#select-theme').change(function(){
+		Code.Editor.setTheme($(this).val());
+	});
+	  
+	
+	$('.CodeMirror').jfontsize({
+		btnMinusClasseId: '#minus-btn',
+	    btnDefaultClasseId: '#default-btn',
+	    btnPlusClasseId: '#plus-btn',
+	    btnMinusMaxHits: 5,
+	    btnPlusMaxHits: 8,
+	    sizeChange: 1
+	});
+	
+	// Create a newDate() object
+	var dateOpened = new Date(1581218189000);
+	var dateEnd = new Date(parseInt($('#dateEnd').val()));
+	var serverTime = 1581358859527;
+	Code.Clock.init($('#time'), dateOpened, serverTime, dateEnd);
+	
+	if(isTimeLimited && !isReadOnly) {
+		Code.Clock.initTimeLimited($('#time-left'), dateEnd, serverTime, "/courses/finish?problemDataId=8885&courseId=111");	
+	}
+	
+	var dmp = new diff_match_patch();
+	
+	Code.viewDiff = function(test) {
+		var text2 = $('#output_' + test).html();
+		var text1 = $('#your_output_' + test).html();
+		var d = dmp.diff_main(text1, text2);
+		var ds = dmp.diff_prettyHtml(d);
+		$('#diff_' + test).html(ds);
+		$('#diff_' + test).show();
+	}
+	$('#setAutoBtn').hide();
+    $('#setFixedBtn').click(function() {
+        $(this).hide();
+        $('#setAutoBtn').show();
+        Code.Editor.setAutoSize();
+    });
+    $('#setAutoBtn').click(function() {
+        $(this).hide();
+        $('#setFixedBtn').show();
+        Code.Editor.setFixedSize();
+    });
+
+	$(document).bind('keydown', 'ctrl+shift+5', Code.Execute.run);
+	$(document).bind('keydown', 'ctrl+shift+6', Code.Execute.submit);
+	$(document).bind('keydown', 'ctrl+shift+0', Code.Execute.reset);
+
+	$('#terminal').typist({
+  		height: 80,
+  		speed : 'slow'
+	});
+	
+	 /* $('#yes_i_will_solve').on('shown.bs.modal', function(){
+		$('#terminal').typist('prompt')
+		  .typist('type', 'Кој ден сме денес?')
+		  .typist('echo', '1 Април')
+		  .typist('echo', 'Априлилили!');
+		(function(){function c(){var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},15500)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var f="//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){console.warn("Could not find a node of the right size. Please try a different page.");return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()
+	}); */
+	
+})();
+</script>
+
+      
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('#btn-icon').toggleClass("fa-chevron-right fa-chevron-left");
+    });
+    </script>
+    
+<div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: &quot;MathJax_Main&quot;, sans-serif;"></div></body></html>
