@@ -1,4 +1,3 @@
-package com.company;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -8,7 +7,89 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-import java.util.Comparator;
+
+class Timestamp<T> implements Comparable<Timestamp<?>>{
+    private final LocalDateTime time;
+    private final T element;
+
+    public Timestamp(LocalDateTime time, T element) {
+        this.time = time;
+        this.element = element;
+    }
+
+    @Override
+    public int compareTo(Timestamp<?> timestamp) {
+        return time.compareTo(timestamp.getTime());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null) return false;
+        if(obj.getClass() != this.getClass()) return false;
+
+        Timestamp<T> t = (Timestamp<T>)obj;
+        if(time.compareTo(t.getTime()) == 0) return true;
+
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", time.toString(), element.toString());
+    }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public T getElement() {
+        return element;
+    }
+}
+
+class Scheduler<T> {
+    private List<Timestamp<T>> timestamps;
+
+    public Scheduler() {
+        this.timestamps = new ArrayList<>();
+    }
+
+    public void add(Timestamp<T> timestamp) {
+        timestamps.add(timestamp);
+    }
+
+    public boolean remove(Timestamp<T> timestamp) {
+        return timestamps.remove(timestamp);
+    }
+
+    public Timestamp<T> next() {
+        LocalDateTime now = LocalDateTime.now();
+        return timestamps
+                .stream()
+                .filter(x -> x.getTime().isAfter(now))
+                .sorted()
+                .findFirst()
+                .orElse(null);
+    }
+
+    public Timestamp<T> last() {
+        LocalDateTime now = LocalDateTime.now();
+        return timestamps
+                .stream()
+                .filter(x -> x.getTime().isBefore(now))
+                .sorted(Collections.reverseOrder())
+                .findFirst()
+                .orElse(null);
+    }
+
+    public List<Timestamp<T>> getAll(LocalDateTime begin, LocalDateTime end) {
+        return timestamps
+                .stream()
+                .filter(x -> x.getTime().isAfter(begin) && x.getTime().isBefore(end))
+                .collect(Collectors.toList());
+    }
+}
 
 public class SchedulerTest {
 

@@ -1,5 +1,3 @@
-package com.company;
-
 import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -91,8 +89,7 @@ class PhoneNumber implements Comparable<PhoneNumber> {
 
 class Contact implements Comparable<Contact> {
     private String name;
-    private PhoneNumber[] phoneNumbers;
-    private int phoneNumbersCount;
+    private List<PhoneNumber> phoneNumbers;
     private int maximumNumberOfContacts = 5;
 
     public Contact(String name, String... phoneNumbers) throws InvalidNameException, InvalidNumberException, MaximumSizeExceddedException  {
@@ -101,8 +98,7 @@ class Contact implements Comparable<Contact> {
         }
 
         this.name = name;
-        this.phoneNumbersCount = 0;
-        this.phoneNumbers = new PhoneNumber[phoneNumbersCount];
+        this.phoneNumbers = new ArrayList<PhoneNumber>();
         for(String phoneNumber : phoneNumbers) {
             addNumber(phoneNumber);
         }
@@ -112,7 +108,7 @@ class Contact implements Comparable<Contact> {
     public String toString() {
         StringJoiner stringJoiner = new StringJoiner("\n", "", "\n");
         stringJoiner.add(name);
-        stringJoiner.add(phoneNumbersCount + "");
+        stringJoiner.add(phoneNumbers.size() + "");
 
         String[] sortedNumbers = getNumbers();
         for(String phoneNumber : sortedNumbers){
@@ -127,7 +123,27 @@ class Contact implements Comparable<Contact> {
     }
 
     public String[] getNumbers() {
-        PhoneNumber[] numbers = Arrays.copyOf(phoneNumbers, phoneNumbers.length);
+        /*
+        List<String> numbers = new ArrayList<String>();
+        for(PhoneNumber phoneNumber : phoneNumbers) {
+            numbers.add(phoneNumber.getFormattedNumber());
+        }
+        Collections.sort(numbers);
+        return numbers.toArray(new String[numbers.size()]);
+        */
+
+        /*
+        List<PhoneNumber> numbers = Arrays.copyOf(new String[phoneNumbers], phoneNumbers.size());
+        Collections.sort(numbers);
+        return numbers
+                .stream()
+                .map(x -> x.getFormattedNumber())
+                .collect(Collectors.toList())
+                .toArray(new String[numbers.size()]);
+
+         */
+
+        PhoneNumber[] numbers = phoneNumbers.toArray(new PhoneNumber[phoneNumbers.size()]);
         Arrays.sort(numbers);
         return Arrays
                 .stream(numbers)
@@ -137,10 +153,7 @@ class Contact implements Comparable<Contact> {
 
     public void addNumber(String phoneNumber) throws InvalidNumberException, MaximumSizeExceddedException {
         if(canAddPhoneNumber()) {
-            PhoneNumber[] phoneNumbersCopy = Arrays.copyOf(phoneNumbers, phoneNumbersCount + 1);
-            phoneNumbersCopy[phoneNumbersCount] = new PhoneNumber(phoneNumber);
-            phoneNumbers = phoneNumbersCopy;
-            ++phoneNumbersCount;
+            this.phoneNumbers.add(new PhoneNumber(phoneNumber));
         }
         else{
             throw new MaximumSizeExceddedException();
@@ -167,7 +180,7 @@ class Contact implements Comparable<Contact> {
     }
 
     private boolean canAddPhoneNumber() {
-        return phoneNumbersCount >= 0 && phoneNumbersCount < maximumNumberOfContacts;
+        return phoneNumbers.size() >= 0 && phoneNumbers.size() < maximumNumberOfContacts;
     }
 
     private boolean nameIsValid(String name) {
@@ -286,6 +299,14 @@ class PhoneBook {
     }
 
     public Contact[] getContactsForNumber(String number_prefix) {
+         /*
+        List<Contact> contactsForNumber = new ArrayList<Contact>();
+        for(Contact contact : contacts) {
+            if(contact.hasPhoneNumberWithPrefix(number_prefix)) {
+                contactsForNumber.add(contact);
+            }
+        }
+        */
         Contact[] contactsForNumber = Arrays
                 .stream(contacts)
                 .filter(x -> x.hasPhoneNumberWithPrefix(number_prefix))

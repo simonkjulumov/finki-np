@@ -1,5 +1,3 @@
-package com.company;
-
 import java.util.*;
 
 class InvalidExtraTypeException extends Exception {
